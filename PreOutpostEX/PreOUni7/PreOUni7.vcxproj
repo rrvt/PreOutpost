@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{842FBB02-DB38-410C-AA42-9660D2962E33}</ProjectGuid>
+    <RootNamespace>PreOWin7</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+    <ProjectName>PreOUni7</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\$(Configuration)\</OutDir>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <IntDir>$(SolutionDir)..\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\$(Configuration)\</OutDir>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <IntDir>$(SolutionDir)..\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\PreOCommonFiles\;$(SolutionDir)..\..\..\Sources\Library\LibFiles\;$(SolutionDir);$(SolutionDir)..\CommonFiles\</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Htmlhelp.lib;Version.lib;Version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\PreOCommonFiles\;$(SolutionDir)..\..\..\Sources\Library\LibFiles\;$(SolutionDir);$(SolutionDir)..\CommonFiles\</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Htmlhelp.lib;Version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\CommonFiles\OutpostChoiceDlg.cpp" />
+    <ClCompile Include="..\CommonFiles\ProgramFiles.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\About.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\BBSdata.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\BBSSuffix.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\ChildView.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\DeleteMasterProfile.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\DialogBar.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\IdentityDialog.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\IdentityInfo.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\ListItems.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\MainFrm.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\ManageMasterProfiles.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\MasterProfile.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\PreOutpost.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\UsrData.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\CommonFiles\OutpostChoiceDlg.h" />
+    <ClInclude Include="..\CommonFiles\ProgramFiles.h" />
+    <ClInclude Include="..\PreOCommonFiles\About.h" />
+    <ClInclude Include="..\PreOCommonFiles\BBSdata.h" />
+    <ClInclude Include="..\PreOCommonFiles\BBSSuffix.h" />
+    <ClInclude Include="..\PreOCommonFiles\ChildView.h" />
+    <ClInclude Include="..\PreOCommonFiles\DeleteMasterProfile.h" />
+    <ClInclude Include="..\PreOCommonFiles\DialogBar.h" />
+    <ClInclude Include="..\PreOCommonFiles\IdentityDialog.h" />
+    <ClInclude Include="..\PreOCommonFiles\IdentityInfo.h" />
+    <ClInclude Include="..\PreOCommonFiles\ListItems.h" />
+    <ClInclude Include="..\PreOCommonFiles\MainFrm.h" />
+    <ClInclude Include="..\PreOCommonFiles\ManageMasterProfiles.h" />
+    <ClInclude Include="..\PreOCommonFiles\MasterProfile.h" />
+    <ClInclude Include="..\PreOCommonFiles\PreOutpost.h" />
+    <ClInclude Include="..\PreOCommonFiles\resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\PreOCommonFiles\UsrData.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\PreOCommonFiles\PreOutpost.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\LibUni7\LibUni7.vcxproj">
+      <Project>{cf57f3ec-d3db-4469-8519-3f9d73785d9b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="\Sources\PreOutpost\CommonFiles\PreOutpost.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <ItemGroup>
+    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\D710.MProfile" />
+    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\FT1900.MProfile" />
+    <None Include="..\Docs\GroupsIO.txt" />
+    <None Include="..\Profiles\Kenwood D710.profile" />
+    <None Include="..\Profiles\Outpost.profile" />
+    <None Include="..\PreOCommonFiles\res\PreOutpost.ico" />
+    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\PreOutpost.ini" />
+    <None Include="..\PreOCommonFiles\res\PreOutpost.rc2" />
+    <None Include="..\PreOCommonFiles\res\UIPreOutpost.ico" />
+  </ItemGroup>
+</Project>

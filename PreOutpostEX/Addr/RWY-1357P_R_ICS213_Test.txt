@@ -1,0 +1,26 @@
+From:         k6rwy@w1xsc.ampr.org
+To:           k6rwy@w1xsc
+Sent:         5/19/2019 12:47
+Received:     5/19/2019 12:50
+Subject:      RWY-1357P_R_ICS213_Test
+Local Msg ID: RWY-1360P
+
+!SCCoPIFO!
+#T: form-ics213.html
+#V: 2.12-1.3
+MsgNo: [RWY-1357P]
+1a.: [05/19/2019]
+4.: [OTHER]
+5.: [ROUTINE]
+6c.: [checked]
+1b.: [1244]
+7.: [ic]
+8.: [Bob]
+9a.: [Bob's House]
+9b.: [Bob's Office]
+10.: [Test]
+12.: [This is a test.]
+Rec-Sent: [sender]
+Method: [Other]
+Other: [Packet]
+!/ADDON!

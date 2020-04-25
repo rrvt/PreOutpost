@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8EA9F23E-85E9-4294-A9E8-9E3ABFDBE8FA}</ProjectGuid>
+    <RootNamespace>PreOWinXP</RootNamespace>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>$(WindowsSdk_71A_IncludePath);$(IncludePath)</IncludePath>
+    <LibraryPath>$(WindowsSdk_71A_libraryPath_x86);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\$(Configuration)\$(ProjectName)\</IntDir>
+    <IncludePath>$(WindowsSdk_71A_IncludePath);$(IncludePath)</IncludePath>
+    <LibraryPath>$(WindowsSdk_71A_libraryPath_x86);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\PreOCommonFiles\;$(SolutionDir);$(SolutionDir)..\CommonFiles\;$(SolutionDir)..\..\..\Sources\Library\LibFiles\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Program Files (x86)\HTML Help Workshop\lib\htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\PreOCommonFiles\;$(SolutionDir);$(SolutionDir)..\CommonFiles\;$(SolutionDir)..\..\..\Sources\Library\LibFiles\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>C:\Program Files (x86)\HTML Help Workshop\lib\htmlhelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\CommonFiles\FindProfilePath.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\About.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\BBSdata.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\BBSSuffix.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\ChildView.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\DeleteMasterProfile.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\DialogBar.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\IdentityDialog.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\IdentityInfo.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\ListItems.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\MainFrm.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\ManageMasterProfiles.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\MasterProfile.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\PreOutpost.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\UsrData.cpp" />
+  <ClCompile Include="..\..\Library\LibFiles\FilePaths.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\CommonFiles\findProfilePath.h" />
+    <ClInclude Include="..\PreOCommonFiles\About.h" />
+    <ClInclude Include="..\PreOCommonFiles\BBSdata.h" />
+    <ClInclude Include="..\PreOCommonFiles\BBSSuffix.h" />
+    <ClInclude Include="..\PreOCommonFiles\ChildView.h" />
+    <ClInclude Include="..\PreOCommonFiles\DeleteMasterProfile.h" />
+    <ClInclude Include="..\PreOCommonFiles\DialogBar.h" />
+    <ClInclude Include="..\PreOCommonFiles\IdentityDialog.h" />
+    <ClInclude Include="..\PreOCommonFiles\IdentityInfo.h" />
+    <ClInclude Include="..\PreOCommonFiles\ListItems.h" />
+    <ClInclude Include="..\PreOCommonFiles\MainFrm.h" />
+    <ClInclude Include="..\PreOCommonFiles\ManageMasterProfiles.h" />
+    <ClInclude Include="..\PreOCommonFiles\MasterProfile.h" />
+    <ClInclude Include="..\PreOCommonFiles\PreOutpost.h" />
+    <ClInclude Include="..\PreOCommonFiles\resource.h" />
+    <ClInclude Include="..\PreOCommonFiles\UsrData.h" />
+  <ClInclude Include="..\..\Library\LibFiles\FilePaths.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Sources\Library\LibWinXP\LibWinXP.vcxproj">
+      <Project>{84ca051f-a51f-452c-ad6b-3ede63ea9867}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ItemGroup>
+    <None Include="..\PreOCommonFiles\res\PreOutpost.ico" />
+    <None Include="..\PreOCommonFiles\res\PreOutpost.rc2" />
+    <None Include="..\PreOCommonFiles\res\UIPreOutpost.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\PreOCommonFiles\PreOutpost.rc" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Help Files">
+      <UniqueIdentifier>{12c174fd-6b4b-4479-9c8e-b95fbadd64f9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Index.hhk">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="Page01.html">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="Page02-IniFiles.html">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="Page03-OneMasterProfile.html">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="Page04-TwoOrMoreMasterProfiles.html">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="Page05a-BBSsuffixes.html">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="Page05b-DataInput.html">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="Page05-CreateMaster.html">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="Page06-SelectProfileToCreateAMaster.html">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="Page07-DeletingAMasterProfile.html">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="PreOutpost.css">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="PreOutpost.hhc">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="PreOutpost.hhp">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="makefile" />
+    <None Include="Page08-AddressBook.html">
+      <Filter>Help Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

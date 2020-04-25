@@ -1,0 +1,19 @@
+#if 0
+String Feature::readDir(TCchar* key, DirStor& stor)
+            {DirDesc* dsc = stor.add(readWixData(section, key));   return dsc ? dsc->id : _T("");}
+
+
+String Feature::readWixData(TCchar* section, TCchar* prefix) {
+String key;
+String parent;
+String name;
+
+  key.format(ParentKy, prefix);   wxd.readString(section, key,  parent);
+  key.format(ChildKey, prefix);   wxd.readString(section, key,  name);
+
+  return fullPath(parent, name);
+  }
+#endif
+
+
+

@@ -1,0 +1,92 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/OneColumnPage.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>PreOutpost</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<link href="stylesheet" rel="stylesheet" type="text/css">
+<link href="PreOutpost.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div class="container">
+  <div class="content">
+	<!-- InstanceBeginEditable name="Title" -->
+  <h1>PreOutpost</h1>
+  <!-- InstanceEndEditable -->
+	
+	<!-- InstanceBeginEditable name="Body" -->
+  <h2>Introduction</h2>
+  
+  <p>
+Outpost is the software that sends and receives packet messages using X.25 protocols and rf transmission on Amateur Radio frequencies.  A message is prepared using Outpost and when it is sent it is transformed from a digital form to an analog form using a modem (modulator/demodulator) which is also called a Terminal Node Controller (TNC).
+To assist the operator in performing his task a set of configuration parameters may be saved in a file.  The file is given a name and is called a “profile”.  Once a profile is created and then selected any change made in the configuration parameters of Outpost may be saved in the profile.  The latest version of Outpost allows the user to change the "save" behavior of profiles.  But the mere fact that it is possible to save changes to a profile make them unreliable in the long term for Packet stations that are not under a single person's management.
+</p>
+<p>
+The latest version of Outpost has introduced another kind configuration file:  [callsign].usr or [tactical ID].tac.  There is one of these files for each callsign or tactical ID used with Outpost.  Over time with a packet station used by many different operators there will be many operator ID files generated.  The operator ID files contain the "human" name of the operator, the message prefix and an optional "signature" to be used in each message.
+</p>
+
+Profiles contain a whole host of configuration parameters:
+</p>
+<ul>
+<li>Operator Identification</li>
+<li>Tactical Identification</li>
+<li>Report Information</li>
+<li>Modem Type</li>
+<li>Baud rate between computer and modem</li>
+<li>Buad rate between modem and radio</li>
+<li>Message Settings</li>
+<li>Etc…</li>
+</ul>
+
+<p>
+Now picture a situation where a trained Outpost operator approaches a computer/modem/radio/antenna which is not his, which has been just taken from storage and arranged for use.  Perhaps he is the one setting it up for use this time.  Everything is connected, turned on and a message is prepared.  Wait, in order to be legal his identity information must be entered into Outpost.  Furthermore, the tactical situation may require a tactical ID be entered.  Reporting information may also be required so that reports printed during operation give a complete picture of the station.
+</p>  
+ 
+<p>
+There are four (at the time of this paper) BBSes on mountain tops and buildings any one of which may be used to send messages.  Each city has two designated as primary and backup.
+</p> 
+<p>
+So, here is the dilemma.  The station has been in storage since the last event.  We don’t know how it was configured the last time it was used.  We don’t know if it was operational the last time it was used.  There are 109 parameters stored in a profile.  Some of them, perhaps many of them can prevent Outpost from performing as needed.  In a rapidly developing event, having a proven starting point for an Outpost configuration would be a useful thing.  Since a profile may be modified by any change, a profile cannot be relied upon to provide a good starting point.
+</p>
+
+<h2>Subject Lines</h2> 
+<p>
+Recently (Fall 2018) the format of subject line on raw messages have become important.
+To this end a feature of PreOutpost is to add most of a subject line to the Clip Board. It may be added to a message by using the paste feature of windows: ctrl-V, Mouse Right Button Select Paste. The user may specify the severity, handling and one of four formats (Weekly Practice (Form or New), Standard Check-In/Out, and Bare). 
+In addition PreOutpost will calculate the net date (required in Weekly Practice). A set of radio buttons allows one to set Monday or Tuesday as the target for the net date. Note, the net date is computed based on the current date and the current date is Wednesday preceding the net day through the Net day of the week (i.e. only for the week preceding the net).</p>
+<p>
+Outpost has a check box for adding a separator after the message number.  
+<ul>
+<li>Tools</li>
+<li>Message Settings</li>
+<li>Msg Numbering Tab</li>
+<li>Uncheck "Add message number separator"</li>
+</ul>
+Then the paste will go in exactly the right place right after the "p"
+of the number.
+</p>
+<h2>Address Book</h2>
+<p>
+  When forms are sent by Outpost the "To" field and "Loc" field describe the 
+  recipient of the form but do not describe the actual packet address.  The actual 
+  packet address is added after the browser sends the form to Outpost.  Fortunately
+  the log contains both addresses in a convenient manner to capture them together.
+</p>
+<p>
+	The OPaddress application may be started (as an option) by PreOutpost, cobbles up 
+  the address records held by Outpost and presents them in an independent window.
+  Furthermore, when the refresh menu item on the window is selected (left mouse click)
+  OPaddress will capture any new form addresses in the current day's log and present
+  them.
+More information may be found on the <a href="Page08-AddressBook.html">Address Book page</a>.</p>
+
+	<!-- InstanceEndEditable -->
+  <!-- end .content --></div>
+  <!-- end .container --></div>
+</body>
+<!-- InstanceEnd --></html>

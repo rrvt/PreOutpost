@@ -1,0 +1,5 @@
+D:\Sources\PreOutpostEX\Release\PreOWinXPinstaller.msi
+obj\Release\Product.wixobj
+obj\Release\PreOWinXPinstaller.wixproj.BindContentsFileListnull.txt
+obj\Release\PreOWinXPinstaller.wixproj.BindOutputsFileListnull.txt
+obj\Release\PreOWinXPinstaller.wixproj.BindBuiltOutputsFileListnull.txt
