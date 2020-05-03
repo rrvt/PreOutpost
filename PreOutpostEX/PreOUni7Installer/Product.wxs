@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 
-<Product Id="*" UpgradeCode="1D3D24BE-F80C-4CDF-810D-CE26F24488FD" Language="1033"
-         Manufacturer="Bob -- K6RWY" Name="PreOUni7"
+<Product Id="*" UpgradeCode="3C3F8C11-62C2-46DF-9506-FB759907D7B0" Language="1033"
+         Manufacturer="Bob -- K6RWY" Name="PreOutpost"
          Version="!(bind.fileVersion.PreOutpost.cmp)"
          >
 
   <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"
-           Manufacturer="Bob -- K6RWY" Description="Installs PreOUni7"
+           Manufacturer="Bob -- K6RWY" Description="Installs PreOutpost"
            Comments="Copyright (c) Bob -- K6RWY"
            />
 
@@ -27,17 +27,19 @@
     </Publish>
   </UI>
 
-  <WixVariable Id="WixUIDialogBmp" Value="D:\Sources\WixApp\WixApp.sln\..\Debug\dialog.bmp"/>
-  <WixVariable Id="WixUIBannerBmp" Value="D:\Sources\WixApp\WixApp.sln\..\Debug\banner.bmp"/>
+  <WixVariable Id="WixUIDialogBmp" Value="C:\Program Files (x86)\WixApp\dialog.bmp"/>
+  <WixVariable Id="WixUIBannerBmp" Value="C:\Program Files (x86)\WixApp\banner.bmp"/>
 
   <Icon     Id="UIPreOutpostIcon.ico"
                               SourceFile="$(var.SolutionDir)..\PreOCommonFiles\res\UIPreOutpost.ico"/>
   <Icon     Id="PreOutpostIcon.ico"
                                 SourceFile="$(var.SolutionDir)..\PreOCommonFiles\res\PreOutpost.ico"/>
+  <Icon     Id="RoutingIcon.ico" SourceFile="$(var.SolutionDir)..\PreOCommonFiles\res\Routing.ico"/>
   <Property Id="ARPPRODUCTICON"  Value="UIPreOutpostIcon.ico" />
 
   <Feature Id="ProductFeatures" Title="Main Product" Level="1" >
     <ComponentGroupRef Id="PreOutpost.ftr"/>
+    <ComponentGroupRef Id="PDF.ftr"/>
     <ComponentGroupRef Id="UninstallPreOutpost.ftr"/>
   </Feature>
 </Product>
@@ -46,9 +48,11 @@
 <ComponentGroup Id="PreOutpost.ftr">
   <ComponentRef Id="PreOutpost.cmp"/>
   <ComponentRef Id="Help.cmp"/>
-  <ComponentRef Id="AddressBook.cmp"/>
-  <ComponentRef Id="RoutingInfo.cmp"/>
-  <ComponentRef Id="RoutingSlip.cmp"/>
+  <ComponentRef Id="AddrBook.cmp"/>
+</ComponentGroup>
+<ComponentGroup Id="PDF.ftr">
+  <ComponentRef Id="Slip.cmp"/>
+  <ComponentRef Id="Info.cmp"/>
 </ComponentGroup>
 <ComponentGroup Id="UninstallPreOutpost.ftr">
   <ComponentRef Id="UninstallPreOutpost.cmp"/>
@@ -76,13 +80,13 @@
 
 <Fragment>
 
-  <Component Id="PreOutpost.cmp"  Guid="B93CE36A-DCCD-4425-8910-25745B3B12F0"
+  <Component Id="PreOutpost.cmp"  Guid="69B8338E-34C5-4839-88A3-C8ECB37CC855"
                                                                           Directory="PreOutpost.pff">
     <File Id="PreOutpost.cmp" Source="$(var.SolutionDir)..\Release\PreOUni7.exe" KeyPath="yes"/>
 
     <Shortcut Id               = "PreOutpost.shc"
               Name             = "PreOutpost"
-              Description      = "Configures all BBSes with User Data"
+              Description      = "Provides profiles, subject lines and address book"
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PreOutpost.pff"
@@ -91,7 +95,7 @@
 
     <Shortcut Id               = "PreOutpost.dsk"
               Name             = "PreOutpost"
-              Description      = "Configures all BBSes with User Data"
+              Description      = "Provides profiles, subject lines and address book"
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "PreOutpost.pff"
@@ -99,23 +103,56 @@
               />
   </Component>
 
-  <Component Id="Help.cmp"  Guid="41E20DC8-269E-4115-AC11-91D2F8C7040E" Directory="PreOutpost.pff">
+  <Component Id="Help.cmp"  Guid="2F1BEFF9-2FBB-4FDF-B981-CC4955C94600" Directory="PreOutpost.pff">
     <File Id="Help.cmp" Source="$(var.SolutionDir)..\Release\PreOutpost.chm" KeyPath="yes"/>
   </Component>
 
-  <Component Id="AddressBook.cmp"  Guid="3AADC712-763E-4684-B5AB-CD5C0C139335"
-                                                                          Directory="PreOutpost.pff">
-    <File Id="AddressBook.cmp" Source="$(var.SolutionDir)..\Release\OPaddress.exe" KeyPath="yes"/>
+  <Component Id="AddrBook.cmp"  Guid="B8E4EE39-4052-41D6-BDE4-0A2D5E280455" Directory="PreOutpost.pff">
+    <File Id="AddrBook.cmp" Source="$(var.SolutionDir)..\Release\OPaddress.exe" KeyPath="yes"/>
   </Component>
 
-  <Component Id="RoutingInfo.cmp"  Guid="329F4A82-AC48-4412-AFF8-DAD3D3339522"
-                                                                          Directory="PreOutpost.pff">
-    <File Id="RoutingInfo.cmp" Source="$(var.SolutionDir)..\Docs\RoutingInfo.pdf" KeyPath="yes"/>
+</Fragment>
+
+<Fragment>
+
+  <Component Id="Slip.cmp"  Guid="0D94F8F8-A5F4-46A7-8E85-C3178BDB1F67" Directory="PreOutpost.pff">
+    <File Id="Slip.cmp" Source="$(var.SolutionDir)..\Docs\RoutingSlip.pdf" KeyPath="yes"/>
+
+    <Shortcut Id               = "Slip.shc"
+              Name             = "Slip"
+              Advertise        = "yes"
+              Directory        = "PreOutpost.pmf"
+              WorkingDirectory = "PreOutpost.pff"
+              Icon             = "RoutingIcon.ico"
+              />
+
+    <Shortcut Id               = "Slip.dsk"
+              Name             = "Slip"
+              Advertise        = "yes"
+              Directory        = "DesktopFolder"
+              WorkingDirectory = "PreOutpost.pff"
+              Icon             = "RoutingIcon.ico"
+              />
   </Component>
 
-  <Component Id="RoutingSlip.cmp"  Guid="2EF66B2E-4693-488D-A859-44CB960D2957"
-                                                                          Directory="PreOutpost.pff">
-    <File Id="RoutingSlip.cmp" Source="$(var.SolutionDir)..\Docs\RoutingSlip.pdf" KeyPath="yes"/>
+  <Component Id="Info.cmp"  Guid="99AEC4ED-3520-4452-9E7A-A0F64E2AAD86" Directory="PreOutpost.pff">
+    <File Id="Info.cmp" Source="$(var.SolutionDir)..\Docs\RoutingInfo.pdf" KeyPath="yes"/>
+
+    <Shortcut Id               = "Info.shc"
+              Name             = "Info"
+              Advertise        = "yes"
+              Directory        = "PreOutpost.pmf"
+              WorkingDirectory = "PreOutpost.pff"
+              Icon             = "RoutingIcon.ico"
+              />
+
+    <Shortcut Id               = "Info.dsk"
+              Name             = "Info"
+              Advertise        = "yes"
+              Directory        = "DesktopFolder"
+              WorkingDirectory = "PreOutpost.pff"
+              Icon             = "RoutingIcon.ico"
+              />
   </Component>
 
 </Fragment>
@@ -123,7 +160,7 @@
 <Fragment>
 
   <Component Id="UninstallPreOutpost.cmp" 
-                              Guid="61EC3C76-534A-42CD-9B56-C0D5244B43D7" Directory="PreOutpost.pmf">
+                              Guid="7360575B-D8F6-46EC-9F4E-2A14638CC903" Directory="PreOutpost.pmf">
 
     <Shortcut Id               = "UninstallPreOutpost.shc"
               Name             = "Uninstall PreOutpost"

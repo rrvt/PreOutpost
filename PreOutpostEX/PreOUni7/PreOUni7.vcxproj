@@ -179,5 +179,6 @@
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\PreOutpost.ini" />
     <None Include="..\PreOCommonFiles\res\PreOutpost.rc2" />
     <None Include="..\PreOCommonFiles\res\UIPreOutpost.ico" />
+  <None Include="README.md" />
   </ItemGroup>
 </Project>
