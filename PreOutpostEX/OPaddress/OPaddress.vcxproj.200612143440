@@ -124,6 +124,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Library\AboutFiles\About.h" />
+    <ClInclude Include="..\CommonFiles\OutpostChoiceDlg.h" />
+    <ClInclude Include="..\CommonFiles\ProgramFiles.h" />
     <ClInclude Include="..\OPaddrCommon\Addresses.h" />
     <ClInclude Include="..\OPaddrCommon\DeleteDlg.h" />
     <ClInclude Include="..\OPaddrCommon\EditAddrDlg.h" />
@@ -131,8 +133,6 @@
     <ClInclude Include="..\OPaddrCommon\LogFile.h" />
     <ClInclude Include="..\OPaddrCommon\OPaddress.h" />
     <ClInclude Include="..\OPaddrCommon\OPaddressDlg.h" />
-    <ClInclude Include="..\CommonFiles\OutpostChoiceDlg.h" />
-    <ClInclude Include="..\CommonFiles\ProgramFiles.h" />
     <ClInclude Include="..\OPaddrCommon\resource.h" />
     <ClInclude Include="..\OPaddrCommon\SaveAddresses.h" />
     <ClInclude Include="stdafx.h" />
@@ -140,6 +140,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Library\AboutFiles\About.cpp" />
+    <ClCompile Include="..\CommonFiles\OutpostChoiceDlg.cpp" />
+    <ClCompile Include="..\CommonFiles\ProgramFiles.cpp" />
     <ClCompile Include="..\OPaddrCommon\Addresses.cpp" />
     <ClCompile Include="..\OPaddrCommon\DeleteDlg.cpp" />
     <ClCompile Include="..\OPaddrCommon\EditAddrDlg.cpp" />
@@ -147,8 +149,6 @@
     <ClCompile Include="..\OPaddrCommon\LogFile.cpp" />
     <ClCompile Include="..\OPaddrCommon\OPaddress.cpp" />
     <ClCompile Include="..\OPaddrCommon\OPaddressDlg.cpp" />
-    <ClCompile Include="..\CommonFiles\OutpostChoiceDlg.cpp" />
-    <ClCompile Include="..\CommonFiles\ProgramFiles.cpp" />
     <ClCompile Include="..\OPaddrCommon\SaveAddresses.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>

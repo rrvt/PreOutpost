@@ -117,10 +117,8 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ItemGroup>
-    <ClCompile Include="..\PreOCommonFiles\ProgramFiles.cpp" />
-    <ClCompile Include="OutpostChoice.cpp" />
-    <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="..\CommonFiles\FindProfilePath.cpp" />
+    <ClCompile Include="..\CommonFiles\OutpostChoiceDlg.cpp" />
+    <ClCompile Include="..\CommonFiles\ProgramFiles.cpp" />
     <ClCompile Include="..\PreOCommonFiles\About.cpp" />
     <ClCompile Include="..\PreOCommonFiles\BBSdata.cpp" />
     <ClCompile Include="..\PreOCommonFiles\BBSSuffix.cpp" />
@@ -134,14 +132,12 @@
     <ClCompile Include="..\PreOCommonFiles\ManageMasterProfiles.cpp" />
     <ClCompile Include="..\PreOCommonFiles\MasterProfile.cpp" />
     <ClCompile Include="..\PreOCommonFiles\PreOutpost.cpp" />
+    <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="..\PreOCommonFiles\UsrData.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\PreOCommonFiles\ProgramFiles.h" />
-    <ClInclude Include="OutpostChoice.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="..\CommonFiles\findProfilePath.h" />
+    <ClInclude Include="..\CommonFiles\OutpostChoiceDlg.h" />
+    <ClInclude Include="..\CommonFiles\ProgramFiles.h" />
     <ClInclude Include="..\PreOCommonFiles\About.h" />
     <ClInclude Include="..\PreOCommonFiles\BBSdata.h" />
     <ClInclude Include="..\PreOCommonFiles\BBSSuffix.h" />
@@ -156,20 +152,12 @@
     <ClInclude Include="..\PreOCommonFiles\MasterProfile.h" />
     <ClInclude Include="..\PreOCommonFiles\PreOutpost.h" />
     <ClInclude Include="..\PreOCommonFiles\resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
     <ClInclude Include="..\PreOCommonFiles\UsrData.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\PreOutpost.ini" />
-    <None Include="..\Profiles\D710.profile" />
-    <None Include="..\Profiles\FT1900.profile" />
-    <None Include="..\Profiles\Kenwood D710.profile" />
-    <None Include="..\Profiles\Outpost.profile" />
-    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\D710.MProfile" />
-    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\FT1900.MProfile" />
-    <None Include="..\PreOCommonFiles\res\PreOutpost.ico" />
-    <None Include="..\PreOCommonFiles\res\PreOutpost.rc2" />
-    <None Include="..\PreOCommonFiles\res\UIPreOutpost.ico" />
-    <None Include="..\Docs\GroupsIO.txt" />
+    <ResourceCompile Include="..\PreOCommonFiles\PreOutpost.rc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Library\LibUni7\LibUni7.vcxproj">
@@ -182,6 +170,15 @@
     </VisualStudio>
   </ProjectExtensions>
   <ItemGroup>
-    <ResourceCompile Include="..\PreOCommonFiles\PreOutpost.rc" />
+    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\D710.MProfile" />
+    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\FT1900.MProfile" />
+    <None Include="..\Docs\GroupsIO.txt" />
+    <None Include="..\Profiles\Kenwood D710.profile" />
+    <None Include="..\Profiles\Outpost.profile" />
+    <None Include="..\PreOCommonFiles\res\PreOutpost.ico" />
+    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\PreOutpost.ini" />
+    <None Include="..\PreOCommonFiles\res\PreOutpost.rc2" />
+    <None Include="..\PreOCommonFiles\res\UIPreOutpost.ico" />
+  <None Include="README.md" />
   </ItemGroup>
 </Project>

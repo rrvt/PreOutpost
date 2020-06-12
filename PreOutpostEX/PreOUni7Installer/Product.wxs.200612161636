@@ -160,7 +160,7 @@
 <Fragment>
 
   <Component Id="UninstallPreOutpost.cmp" 
-                              Guid="FD162835-E0E6-4E1B-BB8F-BE572C885705" Directory="PreOutpost.pmf">
+                              Guid="7360575B-D8F6-46EC-9F4E-2A14638CC903" Directory="PreOutpost.pmf">
 
     <Shortcut Id               = "UninstallPreOutpost.shc"
               Name             = "Uninstall PreOutpost"

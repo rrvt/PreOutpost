@@ -25,11 +25,6 @@
 #include <TlHelp32.h>
 
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-
-
 static TCchar* PathSection = _T("Path");
 static TCchar* ProfileKey  = _T("Profile");
 static TCchar* OutpostKey  = _T("Outpost");

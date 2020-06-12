@@ -117,8 +117,6 @@
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ItemGroup>
-    <ClCompile Include="..\CommonFiles\OutpostChoiceDlg.cpp" />
-    <ClCompile Include="..\CommonFiles\ProgramFiles.cpp" />
     <ClCompile Include="..\PreOCommonFiles\About.cpp" />
     <ClCompile Include="..\PreOCommonFiles\BBSdata.cpp" />
     <ClCompile Include="..\PreOCommonFiles\BBSSuffix.cpp" />
@@ -131,13 +129,13 @@
     <ClCompile Include="..\PreOCommonFiles\MainFrm.cpp" />
     <ClCompile Include="..\PreOCommonFiles\ManageMasterProfiles.cpp" />
     <ClCompile Include="..\PreOCommonFiles\MasterProfile.cpp" />
+    <ClCompile Include="..\CommonFiles\OutpostChoiceDlg.cpp" />
     <ClCompile Include="..\PreOCommonFiles\PreOutpost.cpp" />
+    <ClCompile Include="..\CommonFiles\ProgramFiles.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="..\PreOCommonFiles\UsrData.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\CommonFiles\OutpostChoiceDlg.h" />
-    <ClInclude Include="..\CommonFiles\ProgramFiles.h" />
     <ClInclude Include="..\PreOCommonFiles\About.h" />
     <ClInclude Include="..\PreOCommonFiles\BBSdata.h" />
     <ClInclude Include="..\PreOCommonFiles\BBSSuffix.h" />
@@ -150,7 +148,9 @@
     <ClInclude Include="..\PreOCommonFiles\MainFrm.h" />
     <ClInclude Include="..\PreOCommonFiles\ManageMasterProfiles.h" />
     <ClInclude Include="..\PreOCommonFiles\MasterProfile.h" />
+    <ClInclude Include="..\CommonFiles\OutpostChoiceDlg.h" />
     <ClInclude Include="..\PreOCommonFiles\PreOutpost.h" />
+    <ClInclude Include="..\CommonFiles\ProgramFiles.h" />
     <ClInclude Include="..\PreOCommonFiles\resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -178,7 +178,7 @@
     <None Include="..\PreOCommonFiles\res\PreOutpost.ico" />
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\PreOutpost.ini" />
     <None Include="..\PreOCommonFiles\res\PreOutpost.rc2" />
-    <None Include="..\PreOCommonFiles\res\UIPreOutpost.ico" />
   <None Include="README.md" />
+    <None Include="..\PreOCommonFiles\res\UIPreOutpost.ico" />
   </ItemGroup>
 </Project>
