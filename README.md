@@ -32,7 +32,7 @@ appears to be stable.  In April 2020 it does not appear stable.
 
 ## Authors
 
-Robert R. Van Tuyl, K6RWY, rrvt@swde.com
+Robert R. Van Tuyl, K6RWY, romeo romeo victor tango alpha tango sam whisky delta echo dot charlie oscar mike
 
 ## License
 
