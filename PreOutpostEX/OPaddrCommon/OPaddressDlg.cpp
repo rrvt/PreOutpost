@@ -157,13 +157,14 @@ void OPaddressDlg::OnTest() {
 
 
 void OPaddressDlg::loadAddresses() {
-Addr*  addr;
-CFont* font;
+AddrIter iter(addresses);
+Addr*    addr;
+CFont*   font;
 
   setTabStops();   listBox.ResetContent();
 
-  for (addr = addresses.startLoop(); addr; addr = addresses.nextAddr())
-                                                                  if (!addr->deleted) listBox.add(*addr);
+  for (addr = iter(); addr; addr = iter++) if (!addr->deleted) listBox.add(*addr);
+
   positionHdr1();
 
   font = header.GetFont();
@@ -223,16 +224,17 @@ int  t;
 
 
 void OPaddressDlg::setTabStops() {
-CDC*   dc  = listBox.GetDC();
-CFont* pf  = header.GetFont();   dc->SelectObject(pf);
-Addr*  addr;
-CSize  sz;
-int    dx  = 0;
-int    tab;
+CDC*     dc  = listBox.GetDC();
+CFont*   pf  = header.GetFont();   dc->SelectObject(pf);
+AddrIter iter(addresses);
+Addr*    addr;
+CSize    sz;
+int      dx  = 0;
+int      tab;
 
   dx1 = 0;  listBox.SetTabStops();
 
-  for (addr = addresses.startLoop(); addr; addr = addresses.nextAddr()) {
+  for (addr = iter(); addr; addr = iter++) {
     sz = dc->GetTextExtent(CString(addr->key));      if (sz.cx > dx)   dx  = sz.cx;
     sz = dc->GetTextExtent(CString(addr->actual));   if (sz.cx > dx1)  dx1 = sz.cx;
     }

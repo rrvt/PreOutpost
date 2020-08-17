@@ -16,6 +16,16 @@ located and if there are two versions on your system it will allow you to choose
 
 A help file is included.  Let the author know if the help file needs improving...
 
+## Updates
+
+### August 16, 2020
+
+Mostly internal changes, but it should be noted that the installer puts the PreOutpost program directory
+on the system path so that in the Dos Box (Command Prompt, Take Command, etc.) the command line will
+respond to "PreOutpost" regardless of the current directory.  This should be helpful when creating a
+master file.  Of course what works on one operating system may not work on another, so one might be
+required to changed directories to the PreOutpost directory in the Program Files.
+
 ## Built With
 
 Slickedit is used for all edits, Visual Studio 2017 with various additions (Wix being one) is used to
@@ -32,7 +42,7 @@ appears to be stable.  In April 2020 it does not appear stable.
 
 ## Authors
 
-Robert R. Van Tuyl, K6RWY, rrvt@swde.com
+Robert R. Van Tuyl, K6RWY, romeo romeo victor tango alpha tango sam whisky delta echo dot charlie oscar mike
 
 ## License
 

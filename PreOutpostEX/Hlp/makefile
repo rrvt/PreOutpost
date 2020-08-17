@@ -10,12 +10,12 @@ Clean.cln    :
   del /F PreOutpost.chm
 
 
-Release/PreOutpost.chm : PreOutpost.chm
-  copy $(MAKEDIR)\PreOutpost.chm  $(MAKEDIR)\..\Release\PreOutpost.chm
+ReleaseUni7/PreOutpost.chm : PreOutpost.chm
+  copy $(MAKEDIR)\PreOutpost.chm  $(MAKEDIR)\..\ReleaseUni7\PreOutpost.chm
 
 
-Release/Clean.cln    : Clean.cln
-  cd $(MAKEDIR)\..\Release
+ReleaseUni7/Clean.cln    : Clean.cln
+  cd $(MAKEDIR)\..\ReleaseUni7
   del PreOutpost.chm
   cd $(MAKEDIR)
 
@@ -30,7 +30,7 @@ Debug/Clean.cln    : Clean.cln
   cd $(MAKEDIR)
 
 
-Release/Rebuild.rbd : Release/Clean.cln Release/PreOutpost.chm
+ReleaseUni7/Rebuild.rbd : ReleaseUni7/Clean.cln ReleaseUni7/PreOutpost.chm
 
 
 Debug/Rebuild.rbd   : Debug/Clean.cln Debug/PreOutpost.chm

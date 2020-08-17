@@ -117,12 +117,13 @@ BOOL OPaddressApp::InitInstance() {
 
 String& OPaddressApp::getAcroRd() {
 FilePaths filePaths;
+FPsIter   iter(filePaths);
 String*   path;
 
   if (!iniFile.readString(PathSection, AcroRdKey, acroRd)) {
 
     if (filePaths.findFiles(_T("C:"), _T("Program*"), _T("AcroRd32.exe"))) {
-      for (path = filePaths.startLoop(); path; path = filePaths.nextPath()) {
+      for (path = iter(); path; path = iter++) {
 
         String   eula = getPath(path->str());
         FileSrch eulaPath;

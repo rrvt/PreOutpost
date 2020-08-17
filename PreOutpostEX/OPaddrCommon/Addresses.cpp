@@ -86,18 +86,20 @@ Addr* p = find(addr.getKey());
 
 
 bool Addresses::anyChanges() {
-Addr*  addr;
+AddrIter iter(*this);
+Addr*    addr;
 
-  for (addr = startLoop(); addr; addr = nextAddr()) if (addr->dirty || addr->deleted) return true;
+  for (addr = iter(); addr; addr = iter++) if (addr->dirty || addr->deleted) return true;
 
   return false;
   }
 
 
 void Addresses::saveAll() {
-Addr*  addr;
+AddrIter iter(*this);
+Addr*    addr;
 
-  for (addr = startLoop(); addr; addr = nextAddr()) addr->update();
+  for (addr = iter(); addr; addr = iter++) addr->update();
   }
 
 

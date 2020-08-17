@@ -37,6 +37,24 @@
   <Icon     Id="RoutingIcon.ico" SourceFile="$(var.SolutionDir)..\PreOCommonFiles\res\Routing.ico"/>
   <Property Id="ARPPRODUCTICON"  Value="UIPreOutpostIcon.ico" />
 
+  <!-- Custom Action to set the system (Machine) Path Variable -->
+
+  <Binary Id="SetEnvExe" SourceFile="C:\Program Files (x86)\SetEnv\SetEnv.exe" />
+
+  <CustomAction Id="PreOutpost.pth" BinaryKey="SetEnvExe" Impersonate="no"
+                      Execute="deferred" ExeCommand='-a Path " [PreOutpost.pff] "'   Return="check"/>
+  <CustomAction Id="PreOutpost.rmp" BinaryKey="SetEnvExe" Impersonate="no"
+                      Execute="deferred" ExeCommand='-d Path " [PreOutpost.pff] "'   Return="check"/>
+
+  <InstallExecuteSequence>
+    <Custom Action="PreOutpost.pth" Before="InstallFinalize">
+      (UPGRADINGPRODUCTCODE) OR NOT (REMOVE="ALL")
+    </Custom>
+    <Custom Action="PreOutpost.rmp" Before="PreOutpost.pth">
+      (NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")
+    </Custom>
+  </InstallExecuteSequence>
+
   <Feature Id="ProductFeatures" Title="Main Product" Level="1" >
     <ComponentGroupRef Id="PreOutpost.ftr"/>
     <ComponentGroupRef Id="PDF.ftr"/>
@@ -82,7 +100,7 @@
 
   <Component Id="PreOutpost.cmp"  Guid="69B8338E-34C5-4839-88A3-C8ECB37CC855"
                                                                           Directory="PreOutpost.pff">
-    <File Id="PreOutpost.cmp" Source="$(var.SolutionDir)..\Release\PreOUni7.exe" KeyPath="yes"/>
+    <File Id="PreOutpost.cmp" Source="$(var.SolutionDir)..\ReleaseUni7\PreOutpost.exe" KeyPath="yes"/>
 
     <Shortcut Id               = "PreOutpost.shc"
               Name             = "PreOutpost"
@@ -104,11 +122,11 @@
   </Component>
 
   <Component Id="Help.cmp"  Guid="2F1BEFF9-2FBB-4FDF-B981-CC4955C94600" Directory="PreOutpost.pff">
-    <File Id="Help.cmp" Source="$(var.SolutionDir)..\Release\PreOutpost.chm" KeyPath="yes"/>
+    <File Id="Help.cmp" Source="$(var.SolutionDir)..\ReleaseUni7\PreOutpost.chm" KeyPath="yes"/>
   </Component>
 
   <Component Id="AddrBook.cmp"  Guid="B8E4EE39-4052-41D6-BDE4-0A2D5E280455" Directory="PreOutpost.pff">
-    <File Id="AddrBook.cmp" Source="$(var.SolutionDir)..\Release\OPaddress.exe" KeyPath="yes"/>
+    <File Id="AddrBook.cmp" Source="$(var.SolutionDir)..\ReleaseUni7\OPaddress.exe" KeyPath="yes"/>
   </Component>
 
 </Fragment>
@@ -160,7 +178,7 @@
 <Fragment>
 
   <Component Id="UninstallPreOutpost.cmp" 
-                              Guid="FD162835-E0E6-4E1B-BB8F-BE572C885705" Directory="PreOutpost.pmf">
+                              Guid="CEC60E87-086A-40CA-A6AF-51206E4FD910" Directory="PreOutpost.pmf">
 
     <Shortcut Id               = "UninstallPreOutpost.shc"
               Name             = "Uninstall PreOutpost"

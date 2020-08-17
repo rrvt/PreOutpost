@@ -45,8 +45,10 @@
     <None Include="PreOutpost.hhp">
       <Filter>Help Files</Filter>
     </None>
-    <None Include="makefile" />
     <None Include="Page08-AddressBook.html">
+      <Filter>Help Files</Filter>
+    </None>
+    <None Include="makefile">
       <Filter>Help Files</Filter>
     </None>
   </ItemGroup>

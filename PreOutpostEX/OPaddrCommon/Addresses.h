@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Expandable.h"
+#include "IterT.h"
 
 
 void makeKey(TCchar* name, TCchar* orgLoc, String& key);
@@ -51,9 +52,12 @@ private:
   };
 
 
+class Addresses;
+typedef IterT<Addresses, Addr> AddrIter;
+
+
 class Addresses {
-int                 i;
-int                 n;
+
 Expandable<Addr, 2> list;
 
 public:
@@ -70,12 +74,18 @@ public:
   Addr* find(String& key);
   int   noFound(String& key);
 
-  Addr* startLoop() {i = -1; n = list.end(); return nextAddr();}
-  Addr* nextAddr()  {return ++i < n ? &list[i] : 0;}
-
 private:
 
   void insert(Addr& addr);
+
+  // returns either a pointer to data (or datum) at index i in array or zero
+
+  Addr* datum(int i) {return 0 <= i && i < nData() ? &list[i] : 0;}       // or &data[i]
+
+  // returns number of data items in array
+  int   nData()      {return list.end();}
+
+  friend typename AddrIter;
   };
 
 

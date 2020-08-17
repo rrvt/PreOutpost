@@ -80,49 +80,49 @@ IDR_MAINFRAME MENU
 BEGIN
     POPUP "&File"
     BEGIN
-        MENUITEM "E&xit",                       ID_APP_EXIT
+        MENUITEM "E&xit",                ID_APP_EXIT
     END
     POPUP "&Help"
     BEGIN
-        MENUITEM "&About PreOutpost...",        ID_APP_ABOUT
+        MENUITEM "&About PreOutpost...", ID_APP_ABOUT
     END
 END
 
 IDR_MENU1 MENUEX
 BEGIN
-    MENUITEM "Set BBS Suffixes",            ID_SetBBSsuffixes,MFT_STRING,MFS_ENABLED
-    POPUP "Options",                        65535,MFT_STRING,MFS_ENABLED
+    MENUITEM "Set BBS Suffixes",         ID_SetBBSsuffixes,MFT_STRING,MFS_ENABLED
+    POPUP "Options",                     65535,MFT_STRING,MFS_ENABLED
     BEGIN
-        MENUITEM "Include Addr Book",           ID_IncludeAddrBook,MFT_STRING,MFS_CHECKED
-        MENUITEM "Subject w/Security",          ID_SubjWSecurity,MFT_STRING,MFS_CHECKED
-        MENUITEM "Find Outpost",                ID_FindOutpost,MFT_STRING,MFS_ENABLED
+        MENUITEM "Include Addr Book",    ID_IncludeAddrBook,MFT_STRING,MFS_CHECKED
+        MENUITEM "Subject w/Security",   ID_SubjWSecurity,MFT_STRING,MFS_CHECKED
+        MENUITEM "Find Outpost",         ID_FindOutpost,MFT_STRING,MFS_ENABLED
     END
-    MENUITEM "About",                       ID_ABOUT,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
-    POPUP "Help",                           65535,MFT_STRING,MFS_ENABLED
+    POPUP "Help",                        65535,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
     BEGIN
-        MENUITEM "Overview",                    ID_HELP_OVERVIEW,MFT_STRING,MFS_ENABLED
-        MENUITEM "Identity",                    ID_HELP_IDENTITY,MFT_STRING,MFS_ENABLED
-        MENUITEM "Address Book",                ID_HELP_ADDRESSBOOK,MFT_STRING,MFS_ENABLED
+        MENUITEM "Overview",             ID_HELP_OVERVIEW,MFT_STRING,MFS_ENABLED
+        MENUITEM "Identity",             ID_HELP_IDENTITY,MFT_STRING,MFS_ENABLED
+        MENUITEM "Address Book",         ID_HELP_ADDRESSBOOK,MFT_STRING,MFS_ENABLED
     END
+    MENUITEM "About",                    ID_ABOUT,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
 END
 
 IDR_MENU2 MENUEX
 BEGIN
-    MENUITEM "Set BBS Suffixes",            ID_SetBBSsuffixes,MFT_STRING,MFS_ENABLED
-    MENUITEM "About",                       ID_ABOUT32775,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
-    MENUITEM "Help",                        ID_HELP32776,MFT_STRING,MFS_ENABLED
+    MENUITEM "Set BBS Suffixes",         ID_SetBBSsuffixes,MFT_STRING,MFS_ENABLED
+    MENUITEM "Help",                     ID_HELP32776,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    MENUITEM "About",                    ID_ABOUT32775,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
 END
 
 IDR_MENU3 MENUEX
 BEGIN
-    MENUITEM "About",                       ID_ABOUT32778,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
-    MENUITEM "Help",                        ID_HELP32777,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    MENUITEM "Help",                     ID_HELP32777,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    MENUITEM "About",                    ID_ABOUT32778,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
 END
 
 IDR_MENU4 MENUEX
 BEGIN
-    MENUITEM "About",                       ID_ABOUT32780,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
-    MENUITEM "Help",                        ID_HELP32779,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    MENUITEM "Help",                     ID_HELP32779,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    MENUITEM "About",                    ID_ABOUT32780,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
 END
 
 
@@ -358,8 +358,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,8,0
- PRODUCTVERSION 1,4,8,0
+ FILEVERSION 1,4,11
+ PRODUCTVERSION 1,4,11
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -376,12 +376,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Bob -- K6RWY"
             VALUE "FileDescription", "PreOutpost provides proven profiles to Outpost and starts Outpost."
-            VALUE "FileVersion", "1.4.8"
+            VALUE "FileVersion", "1.4.11"
             VALUE "InternalName", "PreOutpost.exe"
             VALUE "LegalCopyright", "(c) Bob -- K6RWY.  All rights reserved."
             VALUE "OriginalFilename", "PreOutpost.exe"
             VALUE "ProductName", "PreOutpost"
-            VALUE "ProductVersion", "1.4.8"
+            VALUE "ProductVersion", "1.4.11"
         END
     END
     BLOCK "VarFileInfo"
