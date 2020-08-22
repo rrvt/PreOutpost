@@ -18,6 +18,22 @@ A help file is included.  Let the author know if the help file needs improving..
 
 ## Updates
 
+### August 22, 2020
+
+Tried to update the profile suffixes and discovered a lingering Unicode bug.  Of course it was a couple of
+days before I found the bug.  It has been a few years since I wrote this program and when I went looking
+for the bug I was unhappy with the organization of the program.  So I embarked on a refactoring effort and
+whenever an extensive change is made every command must be examined closely to verify the correct
+functionality.  Eventually this led to finding a few characters that were not enclosed with the "_T('')"
+Unicode/Ansi macro.  Attacked the OPaddress application with the same idea in mind.
+
+The OPaddress application had not been touched since before the last Outpost update.  It turns out that
+the feature to find hidden actual addresses by analysing the transaction log was no longer working due
+to changes in the form handling.  Added a finite state machine with regular expressions to pick out
+significant lines in the log and then sanitize the virtual address (all upper case and
+only letters, digits, period and underscore) and save the data in the address book.  Note to self, look
+at the address book when the next Outpost is released.
+
 ### August 16, 2020
 
 Mostly internal changes, but it should be noted that the installer puts the PreOutpost program directory

@@ -1,16 +1,16 @@
 #pragma once
 
 
-// SaveAddresses dialog
+// SaveAddrDlg dialog
 
-class SaveAddresses : public CDialogEx {
+class SaveAddrDlg : public CDialogEx {
 
-  DECLARE_DYNAMIC(SaveAddresses)
+  DECLARE_DYNAMIC(SaveAddrDlg)
 
 public:
 
-           SaveAddresses(CWnd* pParent = nullptr);   // standard constructor
-  virtual ~SaveAddresses();
+           SaveAddrDlg(CWnd* pParent = nullptr);   // standard constructor
+  virtual ~SaveAddrDlg();
 
 // Dialog Data
 #ifdef AFX_DESIGN_TIME

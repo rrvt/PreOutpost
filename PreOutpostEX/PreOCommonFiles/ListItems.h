@@ -2,25 +2,40 @@
 
 #pragma once
 #include "Expandable.h"
+#include "IterT.h"
+
+
+class ListItems;
+typedef IterT<ListItems, String> LIIter;
 
 
 class ListItems {
 
-CDialog*              myParent;
-int                   idc_control;
-int                   noItems;
+CDialog* myParent;
+int      idc_control;
+
 Expandable<String, 2> items;
 
 public:
 
-CString               selected;
+CString selected;
 
-  ListItems() {noItems = 0; myParent = 0; idc_control = 0;}
-  ListItems(CDialog* parent, int idc) {noItems = 0; init(parent, idc);}
+  ListItems() {myParent = 0; idc_control = 0;}
+  ListItems(CDialog* parent, int idc) {init(parent, idc);}
   void init(CDialog* parent, int idc) {myParent = parent; idc_control = idc;}
 
-  void addString(String& item)     {items[noItems++] = item;}
-  void addString(const char* item) {items[noItems++] = item;}
+  void addString(String& item) {items[items.end()] = item;}
+  void addString(TCchar* item) {items[items.end()] = item;}
   void addToControl();
   void getSelected();
+
+private:
+
+  // returns either a pointer to data (or datum) at index i in array or zero
+
+  String* datum(int i) {return 0 <= i && i < nData() ? &items[i] : 0;}       // or data[i].p
+
+  int   nData()      {return items.end();}                       // returns number of data items in array
+
+  friend typename LIIter;
   };

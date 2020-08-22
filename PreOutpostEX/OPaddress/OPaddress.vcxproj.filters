@@ -33,13 +33,7 @@
     <ClInclude Include="..\OPaddrCommon\OPaddress.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\OPaddrCommon\OPaddressDlg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\OPaddrCommon\resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\OPaddrCommon\SaveAddresses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Library\AboutFiles\About.h">
@@ -55,6 +49,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\CommonFiles\ProgramFiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OPaddrCommon\SaveAddrDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OPaddrCommon\AddrDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,12 +74,6 @@
     <ClCompile Include="..\OPaddrCommon\OPaddress.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\OPaddrCommon\OPaddressDlg.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\OPaddrCommon\SaveAddresses.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Library\AboutFiles\About.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -93,6 +87,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\CommonFiles\ProgramFiles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OPaddrCommon\SaveAddrDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OPaddrCommon\AddrDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

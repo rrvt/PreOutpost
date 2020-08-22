@@ -22,7 +22,6 @@ CMenu      sub;
 
   void     add(Addr& addr);
 
-
   Addr*    find();
 
 protected:
@@ -31,7 +30,7 @@ protected:
 
 private:
 
-  void parseListKey(TCchar* ts, String& key);
+  String parseListKey(TCchar* ts);
 
 public:
   afx_msg void OnDblclkList();

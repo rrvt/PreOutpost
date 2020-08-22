@@ -16,7 +16,7 @@
 #define IDR_MENU3                       319
 #define IDR_MENU4                       320
 #define IDD_IdentityDialog              322
-#define IDD_DIALOG2                     323
+#define IDD_SuffixDlg                   323
 #define IDD_DIALOG1                     324
 #define IDD_OutpostChoice               324
 #define IDC_EDIT1                       1000
@@ -133,7 +133,7 @@
 #define ID_HELP_ADDRESSBOOK             32796
 
 // Next default values for new objects
-// 
+//
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        326

@@ -271,6 +271,8 @@
     <ClInclude Include="..\LibFiles\WindowPos.h" />
     <ClInclude Include="..\LibFiles\Wrap.h" />
     <ClInclude Include="..\LibFiles\XTerm.h" />
+  <ClInclude Include="..\LibFiles\CsvT.h" />
+    <ClInclude Include="..\LibFiles\CsvUni.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -328,5 +330,6 @@
     <ClCompile Include="..\LibFiles\WindowPos.cpp" />
     <ClCompile Include="..\LibFiles\Wrap.cpp" />
     <ClCompile Include="..\LibFiles\XTerm.cpp" />
+  <ClCompile Include="..\LibFiles\stdafx.cpp" />
   </ItemGroup>
 </Project>

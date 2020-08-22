@@ -1,21 +1,21 @@
-// IdentityDialog dialog
-// IdentityDialog.cpp : implementation file
+// IdentityDlg dialog
+// IdentityDlg.cpp : implementation file
 
 
 #include "stdafx.h"
-#include "IdentityDialog.h"
+#include "IdentityDlg.h"
 #include "About.h"
-#include "BBSdata.h"
+#include "BBSinfo.h"
 #include "HtmlHelp.h"
 #include "MessageBox.h"
 #include "OutpostChoiceDlg.h"
 #include "PreOutpost.h"
 #include "ProgramFiles.h"
-#include "BBSSuffix.h"
+#include "BBSdlg.h"
 
 
 
-BOOL IdentityDialog::OnInitDialog() {
+BOOL IdentityDlg::OnInitDialog() {
 CEdit*       p;                                          //{80,44,70,12};
 CString      s;
 CWnd*        q;
@@ -48,20 +48,20 @@ COleDateTime ctm;
   }
 
 
-IMPLEMENT_DYNAMIC(IdentityDialog, CDialog)
+IMPLEMENT_DYNAMIC(IdentityDlg, CDialog)
 
-IdentityDialog::IdentityDialog(CWnd* pParent /*=NULL*/) : CDialog(IdentityDialog::IDD, pParent),
+IdentityDlg::IdentityDlg(CWnd* pParent /*=NULL*/) : CDialog(IdentityDlg::IDD, pParent),
   isTacticalID(false),   tacticalModified(false), userModified(false), subjWSecurity(false),
   includeAddrBook(false),
   tacticalCallSign(_T("")), tacticalText(_T("")), tacticalIDPrefix(_T("")), tacSignature(_T("")),
   userCallSign(_T("")), userName(_T("")), userIDPrefix(_T("")), userSignature(_T("")), subject(_T("")),
   severity(0), handling(0), subjStyle(0), profilesDesired(0), practiceDay(0) {}
 
-IdentityDialog::~IdentityDialog() {  }
+IdentityDlg::~IdentityDlg() {  }
 
 
 
-void IdentityDialog::DoDataExchange(CDataExchange* pDX) {
+void IdentityDlg::DoDataExchange(CDataExchange* pDX) {
   CDialog::DoDataExchange(pDX);
   DDX_Text( pDX, IDC_EDIT1,     userCallSign);
   DDX_Text( pDX, IDC_EDIT2,     userName);
@@ -89,42 +89,42 @@ void IdentityDialog::DoDataExchange(CDataExchange* pDX) {
   }
 
 
-BEGIN_MESSAGE_MAP(IdentityDialog, CDialog)
-  ON_BN_CLICKED(IDC_BUTTON4,      &IdentityDialog::OnTacticalBnClicked)
-  ON_EN_KILLFOCUS(IDC_EDIT4,      &IdentityDialog::OnTacCallLoseFoc)
-  ON_EN_KILLFOCUS(IDC_EDIT5,      &IdentityDialog::OnTacCallModA)
-  ON_EN_KILLFOCUS(IDC_EDIT6,      &IdentityDialog::OnTacCallModB)
-  ON_EN_KILLFOCUS(IDC_EDIT8,      &IdentityDialog::OnTacCallModC)
-  ON_EN_KILLFOCUS(IDC_EDIT1,      &IdentityDialog::OnFCCCallLoseFoc)
-  ON_EN_KILLFOCUS(IDC_EDIT2,      &IdentityDialog::OnFCCCallModA)
-  ON_EN_KILLFOCUS(IDC_EDIT3,      &IdentityDialog::OnFCCCallModB)
-  ON_EN_KILLFOCUS(IDC_EDIT7,      &IdentityDialog::OnFCCCallModC)
-  ON_COMMAND(ID_SetBBSsuffixes,   &IdentityDialog::OnSetBBSsuffixes)
-  ON_COMMAND(ID_ABOUT,            &IdentityDialog::OnAbout)
-  ON_COMMAND(ID_HELP_OVERVIEW,    &IdentityDialog::OnHelpOverview)
-  ON_COMMAND(ID_HELP_IDENTITY,    &IdentityDialog::OnHelpIdentity)
-  ON_COMMAND(ID_SubjWSecurity,    &IdentityDialog::OnSubjWSecurity)
-  ON_COMMAND(ID_FindOutpost,      &IdentityDialog::OnFindOutpost)
-  ON_COMMAND(ID_IncludeAddrBook,  &IdentityDialog::OnIncludeAddrBook)
-  ON_COMMAND(ID_HELP_ADDRESSBOOK, &IdentityDialog::OnHelpAddressbook)
+BEGIN_MESSAGE_MAP(IdentityDlg, CDialog)
+  ON_BN_CLICKED(IDC_BUTTON4,      &IdentityDlg::OnTacticalBnClicked)
+  ON_EN_KILLFOCUS(IDC_EDIT4,      &IdentityDlg::OnTacCallLoseFoc)
+  ON_EN_KILLFOCUS(IDC_EDIT5,      &IdentityDlg::OnTacCallModA)
+  ON_EN_KILLFOCUS(IDC_EDIT6,      &IdentityDlg::OnTacCallModB)
+  ON_EN_KILLFOCUS(IDC_EDIT8,      &IdentityDlg::OnTacCallModC)
+  ON_EN_KILLFOCUS(IDC_EDIT1,      &IdentityDlg::OnFCCCallLoseFoc)
+  ON_EN_KILLFOCUS(IDC_EDIT2,      &IdentityDlg::OnFCCCallModA)
+  ON_EN_KILLFOCUS(IDC_EDIT3,      &IdentityDlg::OnFCCCallModB)
+  ON_EN_KILLFOCUS(IDC_EDIT7,      &IdentityDlg::OnFCCCallModC)
+  ON_COMMAND(ID_SetBBSsuffixes,   &IdentityDlg::OnSetBBSsuffixes)
+  ON_COMMAND(ID_ABOUT,            &IdentityDlg::OnAbout)
+  ON_COMMAND(ID_HELP_OVERVIEW,    &IdentityDlg::OnHelpOverview)
+  ON_COMMAND(ID_HELP_IDENTITY,    &IdentityDlg::OnHelpIdentity)
+  ON_COMMAND(ID_SubjWSecurity,    &IdentityDlg::OnSubjWSecurity)
+  ON_COMMAND(ID_FindOutpost,      &IdentityDlg::OnFindOutpost)
+  ON_COMMAND(ID_IncludeAddrBook,  &IdentityDlg::OnIncludeAddrBook)
+  ON_COMMAND(ID_HELP_ADDRESSBOOK, &IdentityDlg::OnHelpAddressbook)
 END_MESSAGE_MAP()
 
 
 
 
 
-void IdentityDialog::OnSubjWSecurity() {subjWSecurity = !subjWSecurity; setSubjWSecurity();}
+void IdentityDlg::OnSubjWSecurity() {subjWSecurity = !subjWSecurity; setSubjWSecurity();}
 
 
 
-void IdentityDialog::OnFindOutpost() {outputPaths.choose();}
+void IdentityDlg::OnFindOutpost() {outputPaths.choose();}
 
 
-void IdentityDialog::OnIncludeAddrBook() {includeAddrBook = !includeAddrBook; setIncludeAddrBook();}
+void IdentityDlg::OnIncludeAddrBook() {includeAddrBook = !includeAddrBook; setIncludeAddrBook();}
 
 
 
-void IdentityDialog::setSubjWSecurity() {
+void IdentityDlg::setSubjWSecurity() {
   if (subjWSecurity) menu->CheckMenuItem(ID_SubjWSecurity, MF_CHECKED   | MF_BYCOMMAND);
   else               menu->CheckMenuItem(ID_SubjWSecurity, MF_UNCHECKED | MF_BYCOMMAND);
 
@@ -134,20 +134,20 @@ void IdentityDialog::setSubjWSecurity() {
   }
 
 
-void IdentityDialog::setIncludeAddrBook() {
+void IdentityDlg::setIncludeAddrBook() {
   if (includeAddrBook) menu->CheckMenuItem(ID_IncludeAddrBook, MF_CHECKED   | MF_BYCOMMAND);
   else                 menu->CheckMenuItem(ID_IncludeAddrBook, MF_UNCHECKED | MF_BYCOMMAND);
   }
 
 
-void IdentityDialog::OnSetBBSsuffixes() {BBSSuffix bbs;  bbs.getSuffixes();}
+void IdentityDlg::OnSetBBSsuffixes() {bbsInfo.getSuffixes();}
 
 
 
-// IdentityDialog message handlers
+// IdentityDlg message handlers
 
 
-void IdentityDialog::OnTacticalBnClicked() {
+void IdentityDlg::OnTacticalBnClicked() {
 CButton* tactical = (CButton*) GetDlgItem(IDC_BUTTON4);   if (!tactical) return;
 int      state    = tactical->GetCheck();
 
@@ -156,13 +156,13 @@ int      state    = tactical->GetCheck();
 
 
 
-void IdentityDialog::OnTacCallLoseFoc() {
+void IdentityDlg::OnTacCallLoseFoc() {
 
   if (tacticalModified) return;
 
 CEdit*   callSign = (CEdit*) GetDlgItem(IDC_EDIT4);   if (!callSign) return;
 int      nBuf;
-UsrData& tac = theApp.tacData;
+UsrData& tac = idInfo.tacData;
 Tchar    buf[16];
 
   nBuf = callSign->GetLine(0, buf, noElements(buf));    if (buf <= 0) return;
@@ -177,13 +177,13 @@ Tchar    buf[16];
   }
 
 
-void IdentityDialog::OnFCCCallLoseFoc() {
+void IdentityDlg::OnFCCCallLoseFoc() {
 
   if (userModified) return;
 
 CEdit*   callSign = (CEdit*) GetDlgItem(IDC_EDIT1);   if (!callSign) return;
 int      nBuf;
-UsrData& usr = theApp.usrData;
+UsrData& usr = idInfo.usrData;
 Tchar    buf[16];
 
   nBuf = callSign->GetLine(0, buf, noElements(buf));    if (buf <= 0) return;
@@ -198,16 +198,16 @@ Tchar    buf[16];
   }
 
 
-void IdentityDialog::OnTacCallModA() {if (isNotEqual(tacticalText, IDC_EDIT5))  tacticalModified = true;}
-void IdentityDialog::OnTacCallModB() {if (isNotEqual(tacticalIDPrefix, IDC_EDIT6))
+void IdentityDlg::OnTacCallModA() {if (isNotEqual(tacticalText, IDC_EDIT5))  tacticalModified = true;}
+void IdentityDlg::OnTacCallModB() {if (isNotEqual(tacticalIDPrefix, IDC_EDIT6))
                                                                                 tacticalModified = true;}
-void IdentityDialog::OnTacCallModC() {if (isNotEqual(tacSignature, IDC_EDIT8))  tacticalModified = true;}
-void IdentityDialog::OnFCCCallModA() {if (isNotEqual(userName, IDC_EDIT2))      userModified     = true;}
-void IdentityDialog::OnFCCCallModB() {if (isNotEqual(userIDPrefix, IDC_EDIT3))  userModified     = true;}
-void IdentityDialog::OnFCCCallModC() {if (isNotEqual(userSignature, IDC_EDIT7)) userModified     = true;}
+void IdentityDlg::OnTacCallModC() {if (isNotEqual(tacSignature, IDC_EDIT8))  tacticalModified = true;}
+void IdentityDlg::OnFCCCallModA() {if (isNotEqual(userName, IDC_EDIT2))      userModified     = true;}
+void IdentityDlg::OnFCCCallModB() {if (isNotEqual(userIDPrefix, IDC_EDIT3))  userModified     = true;}
+void IdentityDlg::OnFCCCallModC() {if (isNotEqual(userSignature, IDC_EDIT7)) userModified     = true;}
 
 
-bool IdentityDialog::isNotEqual(CString& s, int x) {
+bool IdentityDlg::isNotEqual(CString& s, int x) {
 int   n;
 Tchar t[128];
 
@@ -217,7 +217,7 @@ Tchar t[128];
   }
 
 
-void IdentityDialog::initTactical(CButton* tactical, bool state) {
+void IdentityDlg::initTactical(CButton* tactical, bool state) {
   if (!tactical) return;
 
   tactical->SetCheck(state ? BST_CHECKED : BST_UNCHECKED);
@@ -226,7 +226,7 @@ void IdentityDialog::initTactical(CButton* tactical, bool state) {
   }
 
 
-void IdentityDialog::enableTactical(bool enable) {
+void IdentityDlg::enableTactical(bool enable) {
   enableCtrl(IDC_STATIC1, enable);
   enableCtrl(IDC_STATIC2, enable);
   enableCtrl(IDC_STATIC3, enable);
@@ -240,15 +240,15 @@ void IdentityDialog::enableTactical(bool enable) {
   }
 
 
-void IdentityDialog::enableCtrl(int id, bool enable) {
+void IdentityDlg::enableCtrl(int id, bool enable) {
 CWnd* ctrl = (CWnd*) GetDlgItem(id); if (ctrl) ctrl->EnableWindow(enable);
   }
 
 
-void IdentityDialog::OnAbout() {CAboutDlg aboutDlg; aboutDlg.DoModal();}
+void IdentityDlg::OnAbout() {CAboutDlg aboutDlg; aboutDlg.DoModal();}
 
 
-void IdentityDialog::OnHelpOverview() {
+void IdentityDlg::OnHelpOverview() {
 String topic;
 
   topic = theApp.helpFile; topic += _T(">Introduction");
@@ -257,7 +257,7 @@ String topic;
   }
 
 
-void IdentityDialog::OnHelpIdentity() {
+void IdentityDlg::OnHelpIdentity() {
 String topic;
 
   topic = theApp.helpFile; topic += _T(">OneMaster");
@@ -266,7 +266,7 @@ String topic;
   }
 
 
-void IdentityDialog::OnHelpAddressbook() {
+void IdentityDlg::OnHelpAddressbook() {
 String topic;
 
   topic = theApp.helpFile; topic += _T(">AddressBook");

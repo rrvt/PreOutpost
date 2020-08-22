@@ -1,15 +1,15 @@
 // Class that corresponds to Dialog box to select Master Profile
 
 #pragma once
-#include "afxwin.h"
 #include "ListItems.h"
+#include "resource.h"
 
 
-// DialogBar dialog
+// NewMasterDlg dialog
 
-class DialogBar : public CDialog {
+class NewMasterDlg : public CDialog {
 
-  DECLARE_DYNAMIC(DialogBar)
+  DECLARE_DYNAMIC(NewMasterDlg)
 
 ListItems listItems;
 
@@ -18,10 +18,10 @@ public:
 
 CString selected;
 
-  DialogBar(CWnd* pParent = NULL);   // standard constructor
-  virtual ~DialogBar();
+  NewMasterDlg(CWnd* pParent = NULL);   // standard constructor
+  virtual ~NewMasterDlg();
 
-  void   addListBoxItem(const char* item) {listItems.addString(item);}
+  void   addListBoxItem(TCchar* item) {listItems.addString(item);}
   void   addListBoxItem(String&     item) {listItems.addString(item);}
   String getListBoxSelection()            {return listItems.selected;}
 

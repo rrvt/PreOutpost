@@ -3,11 +3,11 @@
 #include "afxwin.h"
 
 
-// IdentityDialog dialog
+// IdentityDlg dialog
 
-class IdentityDialog : public CDialog {
+class IdentityDlg : public CDialog {
 
-  DECLARE_DYNAMIC(IdentityDialog)
+  DECLARE_DYNAMIC(IdentityDlg)
 
 CMenu*  menu;
 
@@ -51,8 +51,8 @@ int     practiceDay;
 int     severity;
 int     handling;
 
-           IdentityDialog(CWnd* pParent = NULL);   // standard constructor
-  virtual ~IdentityDialog();
+           IdentityDlg(CWnd* pParent = NULL);   // standard constructor
+  virtual ~IdentityDlg();
 
 // Dialog Data
   enum { IDD = IDD_IdentityDialog };
@@ -95,4 +95,4 @@ public:
   afx_msg void OnFindOutpost();
   afx_msg void OnIncludeAddrBook();
   afx_msg void OnHelpAddressbook();
-};
+  };

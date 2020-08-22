@@ -5,30 +5,22 @@
 
 
 void ListItems::addToControl() {
-CListBox* p = (CListBox*) myParent->GetDlgItem(idc_control);
-int i;
-int rslt;
+CListBox* ctrl = (CListBox*) myParent->GetDlgItem(idc_control);
+LIIter    iter(*this);
+String*   p;
 
-  for (i = 0; i < noItems; i++) {
-    rslt = p->AddString(items[i]);
-    if (rslt != i) {
-      int x = 1;
-      }
-    }
+  for (p = iter(); p; p = iter++) ctrl->AddString(*p);
 
-  rslt = p->SetCurSel(0);
-  if (rslt == LB_ERR) {
-    int y = 1;
-    }
+  ctrl->SetCurSel(0);
   }
 
 
 
 void ListItems::getSelected() {
-CListBox* p = (CListBox*) myParent->GetDlgItem(idc_control);
-int       i = p->GetCurSel();
+CListBox* ctrl = (CListBox*) myParent->GetDlgItem(idc_control);
+int       i    = ctrl->GetCurSel();
 
-  if (i >= 0) p->GetText(i, selected);
+  if (i >= 0) ctrl->GetText(i, selected);
   else selected = _T("");
   }
 

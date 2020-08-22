@@ -1,17 +1,21 @@
 // Class corresponding to a Dialog Box to confirm deletion of a Master Profile
 
 #pragma once
+#include "resource.h"
 
 
-// DeleteMasterProfile dialog
+// DelMasterDlg dialog
 
-class DeleteMasterProfile : public CDialog {
+class DelMasterDlg : public CDialog {
 
-  DECLARE_DYNAMIC(DeleteMasterProfile)
+  DECLARE_DYNAMIC(DelMasterDlg)
 
 public:
-  DeleteMasterProfile(CWnd* pParent = NULL);   // standard constructor
-  virtual ~DeleteMasterProfile();
+
+CString MasterProfileName;
+
+  DelMasterDlg(CWnd* pParent = NULL);   // standard constructor
+  virtual ~DelMasterDlg();
 
 // Dialog Data
   enum { IDD = IDD_DeleteMasterDialog };
@@ -21,11 +25,9 @@ protected:
 
   DECLARE_MESSAGE_MAP()
 public:
-  CString MasterProfileName;
 
   afx_msg void OnOK();
   afx_msg void OnCancel();
-  virtual BOOL OnInitDialog();
   afx_msg void OnAbout32778();
   afx_msg void OnHelp32777();
 };

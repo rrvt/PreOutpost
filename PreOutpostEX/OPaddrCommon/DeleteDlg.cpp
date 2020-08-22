@@ -2,9 +2,8 @@
 //
 
 #include "stdafx.h"
-#include "OPaddress.h"
 #include "DeleteDlg.h"
-#include "afxdialogex.h"
+#include "resource.h"
 
 
 // DeleteDlg dialog

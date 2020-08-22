@@ -3,31 +3,40 @@
 
 #pragma once
 #include "FileIO.h"
-#include "Addresses.h"
-
-
 
 
 class LogFile {
-enum Code      {Nil, Modm, Jnos, SC, SP, Virt, VLoc, Form, EndForm, MsgNo, Bye, Rcv, From, FromV, FLocV};
-enum State     {Modem, JNOS};
-enum Direction {RcvDir, SndDir};
 
-CTime     curTime;
-String    path;
-String    target;
-String    name;
-FileIO    fileIO;
 
+enum Code {Nil, Modm, Jnos, SP, SC, SndAct, SndLstAct, EX,
+           Form, PIFO,
+
+           Rcv, To, ToVaddr, ToVloc, ToVaddr3, ToVloc3,
+           From, FVaddr, FVloc, FVaddr3, FVloc3,
+
+           Subject, EndRcv,
+
+           MsgNo, EndForm, Bye};
+
+enum State     {ModemSt, JNOSSt, ReceiveSt, TransmitSt, RawSt, Not213St, ICS213St};
+//enum Direction {RcvDir, SndDir};
+
+State     state;
 String    line;
 Code      code;
-State     state;
 
-Direction direction;
-bool      isForm;
-Addr      addr;
+String    to;
+String    from;
+String    subject;
+String    virtAddr;
+String    virtLoc;
+
+int       rcvCnt;
+CTime     curTime;
+FileIO    fileIO;
 
 public:
+
   LogFile();
  ~LogFile() {}
 
@@ -38,10 +47,21 @@ public:
 
 private:
 
-  bool find();
+  void clear();
+
+  bool find(String& name);
   Code getCode();
-  void processModem();
-  void processJNOS();
-  bool getData(String& s);
-  bool getData(String& s, int pos);
+
+  void doJNOS();
+  void doReceive();
+  void doTransmit();
+  void doRawMsg();
+  void doNot213();
+  void doICS213();
+
+  void install();
+
+  String get();
+  String getBrktd();
+  void   sanitize(String& name);
   };

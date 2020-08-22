@@ -25,6 +25,8 @@ private:
 
   int   nData()      {return data.end();}                       // returns number of data items in array
 
+  void  removeDatum(int i) {if (0 <= i && i < nData()) data.del(i);}
+
   friend typename DataIter;
 */
 
@@ -52,6 +54,8 @@ enum Dir {Fwd, Rev};
 
   bool  isLast()         {return iterX + 1 == store.nData();}
   bool  isFirst()        {return iterX <= 0;}
+
+  void  remove(Dir rev = Fwd) {store.removeDatum(rev ? iterX++ : iterX--);}
 
 private:
 
@@ -82,9 +86,11 @@ Data   datum;
 
 public:
 
+  enum Dir {Fwd, Rev};
+
   ObjIterT(Store& dataStore) : store(dataStore), iterX(0) { }
 
-  Data* operator() (bool rev = false) {iterX = rev ? store.nData() : 0; return rev ? decr() : current();}
+  Data* operator() (Dir rev = Fwd) {iterX = rev ? store.nData() : 0; return rev ? decr() : current();}
   Data* operator++ (int) {return iterX < store.nData() ? incr() : 0;}
   Data* operator-- (int) {return iterX > 0             ? decr() : 0;}
 
@@ -92,6 +98,8 @@ public:
 
   bool  isLast()         {return iterX + 1 == store.nData();}
   bool  isFirst()        {return iterX <= 0;}
+
+  void  remove(Dir rev = Fwd) {store.removeDatum(rev ? iterX++ : iterX--);}
 
 private:
 

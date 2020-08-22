@@ -39,7 +39,6 @@ CString moreNotes;
 
           void showMsg(TCchar* msg);
           void hideMsg();
-          bool checkKey();
 
 // Dialog Data
 #ifdef AFX_DESIGN_TIME
@@ -54,8 +53,6 @@ protected:
 
 public:
 
-  afx_msg void OnLeaveName();
-  afx_msg void OnLeaveOrgLoc();
+  afx_msg void onLeaveName();
   afx_msg void OnBnClickedOk();
-  afx_msg void OnBnClickedCancel();
   };

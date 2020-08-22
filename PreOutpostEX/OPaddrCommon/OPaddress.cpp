@@ -6,10 +6,10 @@
 #include "FilePaths.h"
 #include "filename.h"
 #include "filesrch.h"
-//#include "FindProfilePath.h"
 #include "IniFile.h"
-#include "OPaddressDlg.h"
+#include "AddrDlg.h"
 #include "ProgramFiles.h"
+#include "resource.h"
 #include "Resources.h"
 
 
@@ -24,40 +24,35 @@ static TCchar* OutpostKey  = _T("Outpost");
 static TCchar* AcroRdKey   = _T("AcroRdPath");
 
 
-// The one and only OPaddressApp object
+// The one and only OPaddress object
 
-OPaddressApp theApp;
+OPaddress theApp;
 IniFile      iniFile;                             // Implements Read/Write to Private Profile File
 
 
-// OPaddressApp
+// OPaddress
 
-BEGIN_MESSAGE_MAP(OPaddressApp, CWinApp)
-  ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
-  ON_COMMAND(ID_OUTPOST_FINDPATH, &OPaddressApp::OnOutpostFindPath)
+BEGIN_MESSAGE_MAP(OPaddress, CWinApp)
+  ON_COMMAND(ID_HELP,             &CWinApp::OnHelp)
+  ON_COMMAND(ID_OUTPOST_FINDPATH, &OPaddress::OnOutpostFindPath)
 END_MESSAGE_MAP()
 
 
-// OPaddressApp Construction
+// OPaddress Construction
 
-OPaddressApp::OPaddressApp() {
+OPaddress::OPaddress() {
 ResourceData res;
 String       appID;
 
   if (res.getAppID(appID)) SetAppID(appID);
 
   m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_RESTART;
-
-  // TODO: add construction code here,
-  // Place all significant initialization in InitInstance
   }
 
 
-// OPaddressApp initialization
+// OPaddress initialization
 
-BOOL OPaddressApp::InitInstance() {
-
-//  helpFile   = getPath(m_pszHelpFilePath);  helpFile += _T("PreOutpost.chm");
+BOOL OPaddress::InitInstance() {
 
   iniFile.getAppDataPath(m_pszHelpFilePath);
 
@@ -115,7 +110,7 @@ BOOL OPaddressApp::InitInstance() {
   }
 
 
-String& OPaddressApp::getAcroRd() {
+String& OPaddress::getAcroRd() {
 FilePaths filePaths;
 FPsIter   iter(filePaths);
 String*   path;
@@ -139,8 +134,8 @@ String*   path;
   }
 
 
-int OPaddressApp::doDlg() {
-OPaddressDlg dlg;
+int OPaddress::doDlg() {
+AddrDlg dlg;
 
   addresses.load();
 
@@ -150,33 +145,7 @@ OPaddressDlg dlg;
 
 
 
-void OPaddressApp::OnOutpostFindPath() {
+void OPaddress::OnOutpostFindPath() {
   outputPaths.choose();   addrPath = outputPaths.profilePath + _T("addr.d\\");
   }
-
-
-
-#if 0
-                        findDir(_T("C:"),    _T("Program*"), _T("*Adobe\\\\"),    adobePath)  &&
-        findDir(adobePath,   _T("*Reader*"), _T("*Reader\\\\"),   readerPath) &&
-//      findDir(readerPath,  _T("*"),        _T("*Reader\\\\"),   readerPath) &&
-#endif
-
-
-#if 0
-// We've already opened the INI file for PreOutpost.  See if we've found the paths to the Outpost
-// Executable and Profiles stored them in the INI file.  If not, then find the paths and store them.
-// The paths are stored in the PreOutpost object.
-
-void OPaddressApp::getProfilePath() {
-  if (!iniFile.readString(PathSection, ProfileKey, profilePath)  ||
-      !iniFile.readString(PathSection, OutpostKey, outpostPath)) {
-    if (findProfilePaths(profilePath, outpostPath)) {
-      iniFile.writeString(PathSection, ProfileKey, profilePath);
-      iniFile.writeString(PathSection, OutpostKey, outpostPath);
-      }
-    }
-  profilePath += _T('\\');
-  }
-#endif
 

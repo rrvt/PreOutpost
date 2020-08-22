@@ -3,26 +3,28 @@
 
 #pragma once
 #include "ListItems.h"
+#include "resource.h"
 
 
-// MasterProfile dialog
+// SelectMasterDlg dialog
 
-class MasterProfile : public CDialog {
+class SelectMasterDlg : public CDialog {
 
-  DECLARE_DYNAMIC(MasterProfile)
+  DECLARE_DYNAMIC(SelectMasterDlg)
 
 ListItems listItems;
 
 public:
 
-int       allMasterProfiles;
+int       allProfiles;
 
-  MasterProfile(CWnd* pParent = NULL);   // standard constructor
+  SelectMasterDlg(CWnd* pParent = NULL);   // standard constructor
 
-  virtual ~MasterProfile();
-  void   addListBoxItem(const char* item) {listItems.addString(item);}
-  void   addListBoxItem(String&     item) {listItems.addString(item);}
-  String getListBoxSelection()            {return listItems.selected;}
+  virtual ~SelectMasterDlg();
+  virtual BOOL OnInitDialog();
+  void    addListBoxItem(TCchar* item) {listItems.addString(item);}
+  void    addListBoxItem(String&     item) {listItems.addString(item);}
+  String  getListBoxSelection()            {return listItems.selected;}
 
 
   enum { IDD = IDD_ProcessOneOrAllDialog };                       // Dialog Data
@@ -35,7 +37,6 @@ protected:
 
 public:
   afx_msg void OnOK();
-  virtual BOOL OnInitDialog();
   afx_msg void OnDblclkList1();
   afx_msg void OnAbout32780();
   afx_msg void OnHelp32779();

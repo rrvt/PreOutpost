@@ -221,40 +221,44 @@
   </ImportGroup>
   <ItemGroup>
     <ClCompile Include="..\PreOCommonFiles\About.cpp" />
-    <ClCompile Include="..\PreOCommonFiles\BBSdata.cpp" />
-    <ClCompile Include="..\PreOCommonFiles\BBSSuffix.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\BBSdlg.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\BBSinfo.cpp" />
     <ClCompile Include="..\PreOCommonFiles\ChildView.cpp" />
-    <ClCompile Include="..\PreOCommonFiles\DeleteMasterProfile.cpp" />
-    <ClCompile Include="..\PreOCommonFiles\DialogBar.cpp" />
-    <ClCompile Include="..\PreOCommonFiles\IdentityDialog.cpp" />
-    <ClCompile Include="..\PreOCommonFiles\IdentityInfo.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\DelMasterDlg.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\Identity.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\IdentityDlg.cpp" />
     <ClCompile Include="..\PreOCommonFiles\ListItems.cpp" />
     <ClCompile Include="..\PreOCommonFiles\MainFrm.cpp" />
-    <ClCompile Include="..\PreOCommonFiles\ManageMasterProfiles.cpp" />
-    <ClCompile Include="..\PreOCommonFiles\MasterProfile.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\MasterMgmtDlg.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\MasterProf.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\NewMaster.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\NewMasterDlg.cpp" />
     <ClCompile Include="..\CommonFiles\OutpostChoiceDlg.cpp" />
     <ClCompile Include="..\PreOCommonFiles\PreOutpost.cpp" />
     <ClCompile Include="..\CommonFiles\ProgramFiles.cpp" />
+    <ClCompile Include="..\PreOCommonFiles\SelectMasterDlg.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="..\PreOCommonFiles\UsrData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\PreOCommonFiles\About.h" />
-    <ClInclude Include="..\PreOCommonFiles\BBSdata.h" />
-    <ClInclude Include="..\PreOCommonFiles\BBSSuffix.h" />
+    <ClInclude Include="..\PreOCommonFiles\BBSdlg.h" />
+    <ClInclude Include="..\PreOCommonFiles\BBSinfo.h" />
     <ClInclude Include="..\PreOCommonFiles\ChildView.h" />
-    <ClInclude Include="..\PreOCommonFiles\DeleteMasterProfile.h" />
-    <ClInclude Include="..\PreOCommonFiles\DialogBar.h" />
-    <ClInclude Include="..\PreOCommonFiles\IdentityDialog.h" />
-    <ClInclude Include="..\PreOCommonFiles\IdentityInfo.h" />
+    <ClInclude Include="..\PreOCommonFiles\DelMasterDlg.h" />
+    <ClInclude Include="..\PreOCommonFiles\Identity.h" />
+    <ClInclude Include="..\PreOCommonFiles\IdentityDlg.h" />
     <ClInclude Include="..\PreOCommonFiles\ListItems.h" />
     <ClInclude Include="..\PreOCommonFiles\MainFrm.h" />
-    <ClInclude Include="..\PreOCommonFiles\ManageMasterProfiles.h" />
-    <ClInclude Include="..\PreOCommonFiles\MasterProfile.h" />
+    <ClInclude Include="..\PreOCommonFiles\MasterMgmtDlg.h" />
+    <ClInclude Include="..\PreOCommonFiles\MasterProf.h" />
+    <ClInclude Include="..\PreOCommonFiles\NewMaster.h" />
+    <ClInclude Include="..\PreOCommonFiles\NewMasterDlg.h" />
     <ClInclude Include="..\CommonFiles\OutpostChoiceDlg.h" />
     <ClInclude Include="..\PreOCommonFiles\PreOutpost.h" />
     <ClInclude Include="..\CommonFiles\ProgramFiles.h" />
     <ClInclude Include="..\PreOCommonFiles\resource.h" />
+    <ClInclude Include="..\PreOCommonFiles\SelectMasterDlg.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="..\PreOCommonFiles\UsrData.h" />
@@ -273,6 +277,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <ItemGroup>
+    <None Include="..\..\Library\AboutFiles\About.rc2" />
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\D710.MProfile" />
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\FT1900.MProfile" />
     <None Include="..\Docs\GroupsIO.txt" />

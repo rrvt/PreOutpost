@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "ListBox.h"
 #include "LoadScratchPad.h"
-#include "OPaddress.h"
+#include "resource.h"
 
 
 BEGIN_MESSAGE_MAP(ListBox, CListBox)
@@ -54,39 +54,27 @@ void ListBox::copyVirt()   {Addr* addr = find();    if (addr) loadScratchPad(add
 void ListBox::copyLoc()    {Addr* addr = find();    if (addr) loadScratchPad(addr->orgLoc);}
 
 
-void ListBox::add(Addr& addr) {
-String s = addr.virt;
-
-  if (!addr.orgLoc.isEmpty()) s += _T('/') + addr.orgLoc;    s += _T("\t") + addr.actual;
-
-  AddString(s);
-  }
+void ListBox::add(Addr& addr) {String s = addr.virt + _T("\t") + addr.actual;   AddString(s);}
 
 
 
 Addr* ListBox::find() {
 int     x = GetCurSel();   if (x < 0) return 0;
-CString cs;                GetText(x, cs);
-String  key;
+CString cs;
 
-  parseListKey(cs, key);   return addresses.find(key);
+  GetText(x, cs);  return addresses.find(parseListKey(cs));
   }
 
 
 
 
-void ListBox::parseListKey(TCchar* ts, String& key) {
+String ListBox::parseListKey(TCchar* ts) {
 String listKey = ts;
-int    pos     = listKey.find(_T('/'));
-int    ePos    = listKey.find(_T('\t'));
-String name;
-String orgLoc;
+int    pos;
 
-  if (pos < 0) pos = listKey.find(_T('\t'));
-  name   = listKey.substr(0, pos);
-  if (ePos > pos) orgLoc = listKey.substr(pos+1, ePos-pos-1);
+  pos = listKey.find(_T('\t'));  if (pos < 0) return String(_T(""));
 
-  makeKey(name, orgLoc, key);
+  return listKey.substr(0, pos);
   }
 
 

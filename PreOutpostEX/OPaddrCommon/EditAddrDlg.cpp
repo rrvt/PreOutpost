@@ -2,10 +2,10 @@
 //
 
 #include "stdafx.h"
-#include "OPaddress.h"
 #include "Addresses.h"
 #include "EditAddrDlg.h"
 #include "match.h"
+#include "resource.h"
 
 
 static TCchar* BadChars = _T("*** May only contain letters, digits, periods and underscores ***");
@@ -19,10 +19,8 @@ IMPLEMENT_DYNAMIC(EditAddrDlg, CDialogEx)
 
 
 BEGIN_MESSAGE_MAP(EditAddrDlg, CDialogEx)
-//  ON_EN_KILLFOCUS(IDC_EDIT1, &EditAddrDlg::OnLeaveName)
-//  ON_EN_KILLFOCUS(IDC_EDIT2, &EditAddrDlg::OnLeaveOrgLoc)
-  ON_BN_CLICKED(IDOK, &EditAddrDlg::OnBnClickedOk)
-  ON_BN_CLICKED(IDCANCEL, &EditAddrDlg::OnBnClickedCancel)
+  ON_BN_CLICKED(  IDOK,      &EditAddrDlg::OnBnClickedOk)
+  ON_EN_KILLFOCUS(IDC_EDIT1, &EditAddrDlg::onLeaveName)
 END_MESSAGE_MAP()
 
 
@@ -31,7 +29,7 @@ EditAddrDlg::EditAddrDlg(CWnd* pParent) : CDialogEx(IDD_EditAddress, pParent), t
                                           cellPhone(_T("")), homePhone(_T("")), businessPhone(_T("")),
                                           agency1Name(_T("")), agency1Phone(_T("")),
                                           agency2Name(_T("")), agency2Phone(_T("")),
-                                          notes(_T("")), moreNotes(_T("")), msgSeen(false),
+                                          notes(_T("")), moreNotes(_T("")),
                                           newAddr(false) {  }
 
 
@@ -50,52 +48,32 @@ BOOL EditAddrDlg::OnInitDialog() {
 void EditAddrDlg::DoDataExchange(CDataExchange* pDX)
 {
   CDialogEx::DoDataExchange(pDX);
-  DDX_Text(pDX, IDC_EDIT1, name);
-  DDX_Text(pDX, IDC_EDIT2, orgLoc);
-  DDX_Text(pDX, IDC_EDIT3, actual);
-  DDX_Text(pDX, IDC_EDIT5, cellPhone);
-  DDX_Text(pDX, IDC_EDIT4, homePhone);
-  DDX_Text(pDX, IDC_EDIT6, businessPhone);
-  DDX_Text(pDX, IDC_EDIT7, agency1Name);
-  DDX_Text(pDX, IDC_EDIT8, agency1Phone);
-  DDX_Text(pDX, IDC_EDIT9, agency2Name);
-  DDX_Text(pDX, IDC_EDIT10, agency2Phone);
-  DDX_Text(pDX, IDC_EDIT11, notes);
-  DDX_Text(pDX, IDC_EDIT12, moreNotes);
-  DDX_Control(pDX, IDC_EDIT1, nameCtrl);
+  DDX_Text(   pDX, IDC_EDIT1,   name);
+  DDX_Text(   pDX, IDC_EDIT2,   orgLoc);
+  DDX_Text(   pDX, IDC_EDIT3,   actual);
+  DDX_Text(   pDX, IDC_EDIT5,   cellPhone);
+  DDX_Text(   pDX, IDC_EDIT4,   homePhone);
+  DDX_Text(   pDX, IDC_EDIT6,   businessPhone);
+  DDX_Text(   pDX, IDC_EDIT7,   agency1Name);
+  DDX_Text(   pDX, IDC_EDIT8,   agency1Phone);
+  DDX_Text(   pDX, IDC_EDIT9,   agency2Name);
+  DDX_Text(   pDX, IDC_EDIT10,  agency2Phone);
+  DDX_Text(   pDX, IDC_EDIT11,  notes);
+  DDX_Text(   pDX, IDC_EDIT12,  moreNotes);
+  DDX_Control(pDX, IDC_EDIT1,   nameCtrl);
   DDX_Control(pDX, IDC_Message, MessageCtrl);
-  DDX_Control(pDX, IDC_EDIT2, orgLocCtrl);
+  DDX_Control(pDX, IDC_EDIT2,   orgLocCtrl);
 }
 
 
-static RegExpr re = _T("^[a-zA-Z0-9_.]*$");
+static RegExpr re = _T("^[A-Z0-9_.]*$");
 
 
-void EditAddrDlg::OnLeaveName() {
-
-  if (msgSeen == true) return;
+void EditAddrDlg::onLeaveName() {
 
   nameCtrl.GetWindowText(name);
-  orgLocCtrl.GetWindowText(orgLoc);
 
   if (!re.match(name)) {showMsg(BadChars);  nameCtrl.SetFocus(); return;}
-
-  if (newAddr && !orgLoc.GetLength() && checkKey()) {showMsg(Exists);  nameCtrl.SetFocus(); return;}
-
-  hideMsg();
-  }
-
-
-void EditAddrDlg::OnLeaveOrgLoc() {
-
-  if (msgSeen == true) return;
-
-  nameCtrl.GetWindowText(name);
-  orgLocCtrl.GetWindowText(orgLoc);
-
-  if (!re.match(orgLoc)) {showMsg(BadChars);  orgLocCtrl.SetFocus(); return;}
-
-  if (newAddr && checkKey()) {showMsg(Exists);  orgLocCtrl.SetFocus(); return;}
 
   hideMsg();
   }
@@ -109,44 +87,16 @@ void EditAddrDlg::showMsg(TCchar* msg) {
   }
 
 
-void EditAddrDlg::hideMsg() {if (msgSeen) MessageCtrl.ModifyStyle(WS_VISIBLE, 0);  Invalidate();}
-
-
-bool EditAddrDlg::checkKey() {
-String key;
-
-  makeKey(name, orgLoc, key);
-  key = orgLoc.GetLength() ? name + _T('.') + orgLoc : name;
-
-  return addresses.find(key);
-  }
+void EditAddrDlg::hideMsg()
+                  {if (msgSeen) MessageCtrl.ModifyStyle(WS_VISIBLE, 0); msgSeen = false;  Invalidate();}
 
 
 void EditAddrDlg::OnBnClickedOk() {
-String key;
-int    n;
+String tgt;
 
-  nameCtrl.GetWindowText(name);
-  orgLocCtrl.GetWindowText(orgLoc);
+  nameCtrl.GetWindowText(name);  tgt = name;
 
-  makeKey(name, orgLoc, key);   n = addresses.noFound(key);
-
-  if (newAddr) {
-    if (n) {
-      showMsg(_T("Not a new address, please change name or organization."));
-      }
-    }
-  else if (n > 1) {
-    showMsg(_T("Address is ambiguous, please change name or organization."));
-    nameCtrl.SetFocus(); return;
-    }
+  if (newAddr && addresses.find(tgt)) {showMsg(_T("Not a new address, please change name"));   return;}
 
   CDialogEx::OnOK();
-  }
-
-
-void EditAddrDlg::OnBnClickedCancel() {
-
-
-  CDialogEx::OnCancel();
   }

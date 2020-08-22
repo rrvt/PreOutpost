@@ -6,13 +6,14 @@
 #include "IterT.h"
 
 
-void makeKey(TCchar* name, TCchar* orgLoc, String& key);
+extern TCchar* AddrExt;
 
 
 struct Addr {
 
-String key;
+String path;
 
+String version;
 String virt;
 String orgLoc;
 String actual;
@@ -31,24 +32,24 @@ bool   deleted;
 
   Addr() : dirty(false), deleted(false) {}
 
-  Addr(Addr& dsc) : dirty(false), deleted(false)  {copy(dsc, *this);}
+  Addr(Addr& a) {copy(a);}
 
   void    clear();
 
-  String& getKey() {makeKey(virt, orgLoc, key); return key;}
+  void    read(TCchar*  path);
+  void    write();
+  void    fixVirt();
 
-  void    edit(TCchar* title, bool newAddr);
+  bool    edit(TCchar* title, bool newAddr = false);
 
-  Addr&   operator= (Addr& dsc) {copy(dsc, *this); return *this;}
+  Addr&   operator= (Addr& a) {copy(a); return *this;}
   void    store(String& actual, bool modified);
 
   void    update();
-  void    write(String& fileName);
-  void    del(  String& filePath);
 
 private:
 
-  void copy(Addr& src, Addr& dst);
+  void copy(Addr& a);
   };
 
 
@@ -58,21 +59,19 @@ typedef IterT<Addresses, Addr> AddrIter;
 
 class Addresses {
 
-Expandable<Addr, 2> list;
+Expandable<Addr, 2> addrs;
 
 public:
 
-       Addresses() {}
-      ~Addresses() {}
+        Addresses() {}
+       ~Addresses() {}
 
-  void load();
-  void load(Addr& addr);
-  bool delAddr(String& s);
-  bool anyChanges();
-  void saveAll();
+  void  load();
+  void  load(Addr& addr);
+  bool  anyChanges();
+  void  saveAll();
 
-  Addr* find(String& key);
-  int   noFound(String& key);
+  Addr* find(String& name);
 
 private:
 
@@ -80,10 +79,12 @@ private:
 
   // returns either a pointer to data (or datum) at index i in array or zero
 
-  Addr* datum(int i) {return 0 <= i && i < nData() ? &list[i] : 0;}       // or &data[i]
+  Addr* datum(int i) {return 0 <= i && i < nData() ? &addrs[i] : 0;}       // or &data[i]
+
+  void  removeDatum(int i) {if (0 <= i && i < nData()) addrs.del(i);}
 
   // returns number of data items in array
-  int   nData()      {return list.end();}
+  int   nData()      {return addrs.end();}
 
   friend typename AddrIter;
   };

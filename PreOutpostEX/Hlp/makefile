@@ -20,12 +20,12 @@ ReleaseUni7/Clean.cln    : Clean.cln
   cd $(MAKEDIR)
 
 
-Debug/PreOutpost.chm : PreOutpost.chm
-  copy $(MAKEDIR)\PreOutpost.chm  $(MAKEDIR)\..\Debug\PreOutpost.chm
+DebugUni7/PreOutpost.chm : PreOutpost.chm
+  copy $(MAKEDIR)\PreOutpost.chm  $(MAKEDIR)\..\DebugUni7\PreOutpost.chm
 
 
-Debug/Clean.cln    : Clean.cln
-  cd $(MAKEDIR)\..\Debug
+DebugUni7/Clean.cln    : Clean.cln
+  cd $(MAKEDIR)\..\DebugUni7
   del PreOutpost.chm
   cd $(MAKEDIR)
 
@@ -33,6 +33,6 @@ Debug/Clean.cln    : Clean.cln
 ReleaseUni7/Rebuild.rbd : ReleaseUni7/Clean.cln ReleaseUni7/PreOutpost.chm
 
 
-Debug/Rebuild.rbd   : Debug/Clean.cln Debug/PreOutpost.chm
+DebugUni7/Rebuild.rbd   : DebugUni7/Clean.cln DebugUni7/PreOutpost.chm
 
 
