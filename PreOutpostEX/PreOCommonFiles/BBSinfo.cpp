@@ -24,7 +24,7 @@ BBSIter  iter(*this)  ;
 BBSdata* b;
 
   for (b = iter(); b; b = iter++) {b->bbsNo = -1, b->cName.clear(); b->fName.clear(); b->suffix.clear();}
-  data.clr();
+  data.clear();
   }
 
 
@@ -104,8 +104,8 @@ int       bbsNo;
 
     bbsNo = findBBSno(fName);    if (bbsNo < 1 || bbsNo > 9) continue;
 
-    BBSdata& p = data[data.end()];   p.bbsNo = bbsNo;  p.cName = cName;  p.fName = fName;
-    }
+    BBSdata& p = data.nextData();   p.bbsNo = bbsNo;  p.cName = cName;  p.fName = fName;
+    }                          //[data.end()]
 
   qsort(&data[0], &data[data.end()-1]);
   }

@@ -31,7 +31,7 @@ String path;
 int    i;
 bool   missing = false;
 
-  masters.clr();
+  masters.clear();
 
   n = iniFile.readInt(Section, _T("nMetaProfiles"), 0);
 
@@ -42,7 +42,7 @@ bool   missing = false;
 
     if (path.empty() || !PathFileExists(path)) {missing = true; continue;}
 
-    Master& m = masters[masters.end()];
+    Master& m = masters.nextData();
 
     m.path = path;  m.name = getMainName(path);
     }
@@ -132,7 +132,7 @@ String  stg;
 
   for (m = iter(); m; m = iter++) if (name == m->name) return false;
 
-  m = &masters[masters.end()];   m->path = newProfile;  m->name = name;
+  m = &masters.nextData();   m->path = newProfile;  m->name = name;
 
   qsort(&masters[0], &masters[masters.end()-1]);   return true;
   }

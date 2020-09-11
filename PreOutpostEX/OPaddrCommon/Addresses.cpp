@@ -21,7 +21,7 @@ String   adrPath = theApp.addrPath;                          //path + _T("addr.d
 FileSrch src;
 String   path;
 
-  addrs.clr();   src.findFiles(adrPath, _T("*.addr"));
+  addrs.clear();   src.findFiles(adrPath, _T("*.addr"));
 
   while (src.getName(path)) {
     Addr addr;   addr.read(path);
@@ -42,7 +42,7 @@ Addr*    p;
       }
     }
 
-  addrs[addrs.end()] = addr;
+  addrs += addr;
   }
 
 
@@ -66,7 +66,7 @@ Addr* p = find(addr.virt);   if (addr.virt.isEmpty()) return;
     return;
     }
 
-  addr.dirty = true; addrs[addrs.end()] = addr;
+  addr.dirty = true; addrs += addr;
   }
 
 

@@ -13,6 +13,7 @@
 #include "LoadScratchPad.h"
 #include "MasterProf.h"
 #include "MasterMgmtDlg.h"
+#include "MessageBox.h"
 #include "NewMaster.h"
 #include "OutpostChoiceDlg.h"
 #include "Resources.h"
@@ -119,9 +120,14 @@ PROCESS_INFORMATION processInfo;
 
   loadScratchPad(subjectLine);
 
-  if (CreateProcess(outputPaths.outpostPath, 0, 0, 0, false, NORMAL_PRIORITY_CLASS, 0,
-                                                              outpostDir, &startUpInfo, &processInfo))
-    WaitForSingleObject(processInfo.hProcess, INFINITE);
+  if (!CreateProcess(outputPaths.outpostPath, 0, 0, 0, false, NORMAL_PRIORITY_CLASS, 0,
+                                                              outpostDir, &startUpInfo, &processInfo)) {
+    String err;
+
+    getError(GetLastError(), err);  messageBox(err); return;
+    }
+  WaitForSingleObject(processInfo.hProcess, INFINITE);
+
 
   idInfo.clearOldProfiles(String(_T("*")));
 

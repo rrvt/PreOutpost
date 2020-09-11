@@ -114,7 +114,7 @@ String   s;
 
   fileSrch.findSubDirs(initialPath, srchPat);
 
-  while (fileSrch.getName(s)) dirs[dirs.end()] = s;
+  while (fileSrch.getName(s)) dirs.nextData() = s;   //[dirs.end()]
   }
 
 
@@ -135,7 +135,7 @@ String   s;
 
   fileSrch.findFiles(initialPath, srchPat);
 
-  while(fileSrch.getName(s)) files[files.end()] = s;
+  while(fileSrch.getName(s)) files.nextData() = s;     //[files.end()]
   }
 
 

@@ -24,8 +24,8 @@ CString selected;
   ListItems(CDialog* parent, int idc) {init(parent, idc);}
   void init(CDialog* parent, int idc) {myParent = parent; idc_control = idc;}
 
-  void addString(String& item) {items[items.end()] = item;}
-  void addString(TCchar* item) {items[items.end()] = item;}
+  void addString(String& item) {items += item;}      //[items.end()] [items.end()]
+  void addString(TCchar* item) {items.nextData() = item;}
   void addToControl();
   void getSelected();
 

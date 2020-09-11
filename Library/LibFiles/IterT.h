@@ -4,19 +4,19 @@
 #pragma once
 
 
-// Data should be seen, sometimes all the data needs to be seen.  The iterator class implements an
-// object that serves up each Data entry in the array (not the pointer, the Data object).  It is used:
-//    DataStoreIter iter(dataStore);
-//    Data*         data;
-//
-//      for (data = iter(); data; data = iter++) {
-//        String& s = data->get();   Use data as a pointer to the record, it is guaranteed to be non-zero
-//
-// last gives a heads up when the last entry is being processed
-// The template requires two functions be part of Store:
-//   int nData() -- returns number of data items in array
-//   Data* datum(int i) -- returns either a pointer to data (or datum) at index i in array or zero
 /*
+Data should be seen, sometimes all the data needs to be seen.  The iterator class implements an
+object that serves up each Data entry in the array (not the pointer, the Data object).  It is used:
+   DataStoreIter iter(dataStore);
+   Data*         data;
+
+     for (data = iter(); data; data = iter++) {
+       String& s = data->get();   Use data as a pointer to the record, it is guaranteed to be non-zero
+
+last gives a heads up when the last entry is being processed
+The template requires two functions be part of Store:
+  int nData() -- returns number of data items in array
+  Data* datum(int i) -- returns either a pointer to data (or datum) at index i in array or zero
 private:
 
   // returns either a pointer to data (or datum) at index i in array or zero
