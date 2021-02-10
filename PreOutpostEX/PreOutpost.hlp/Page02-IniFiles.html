@@ -1,0 +1,66 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/OneColumnPage.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>INI Files</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<link href="stylesheet" rel="stylesheet" type="text/css">
+<link href="PreOutpost.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div class="container">
+  <div class="content">
+	<!-- InstanceBeginEditable name="Title" -->
+ 
+  <!-- InstanceEndEditable -->
+	
+	<!-- InstanceBeginEditable name="Body" -->
+<h2>What is a Profile?</h2> 
+<p>
+A profile is a set of parameters.  The parameters are represented as ASCII text in a file.  A profile file has an extension of “.profile” and is stored in a specific directory.  At the moment that directory is in Windows Users AppData Roaming directory.  In the recent version it was suggested to move the data directory to a "central" location such as "C:\SCCo Packet".
+</p>
+<table class="image" align="right">
+
+  <table class="image" align="right">
+  <tr><td><img src="Images/IniFileExample.jpg"></td></tr>
+	<tr>
+	  <td class="caption">Fig. 1 -- Example Profile File</td></tr>
+  </table>
+    
+<p>
+  The INI format is used in the profile files.  The INI format was used in windows operating systems in the 80s and replaced by the System Registry in WinNT.  A similar format is present in Unix and other operating systems.  More information about the INI format may be found in Wikipedia:  
+  <a href="https://en.wikipedia.org/wiki/INI_file" target="_blank">en.wikipedia.org/wiki/INI_file
+  </a>.
+</p>
+<p>
+An INI file is composed of text lines (see Figure 1) so it may be easily read by humans and easily parsed by software.  There are three interesting entities in an INI file:  sections, property names and values.  There may also be blank lines and comments.
+</p>
+<p>
+More importantly, an INI file is managed by functions in the programming language’s library (or in the operating system itself which for our purposes is unimportant). A program may read a value given a section and property name or it may write a value to a section and property name. 
+</p>
+
+<p>
+One final point about INI files.  The extension (that part of the file name after the period) need not be "ini".  In fact the INI files used for profiles have the extension ".profile" and for operator ID files the extension is either ".usr" or ".tac".
+</p>
+<h2>Relationship Between Profiles and usr/tac Files</h2>
+<p>
+The tactical identity is now housed in part (or completely) in a ".tac" file.  The FCC identity information is now housed in part (or completely) in a ".usr" file.  The Tactical ID is used to find the correct ".tac" file.  Likewise the FCC ID is used to find the correct ".usr" file.  Each file contains the following fields:
+<ul>
+<li>Call Sign</li>
+<li>Name</li>
+<li>Numbering Prefix</li>
+<li>Signature used in plain text messages</li>
+</ul>
+The Call Sign field of each file is used to find the file.  All the fields except the Signature is also housed once or twice in the profile file.
+</p>
+
+  <!-- InstanceEndEditable -->
+  <!-- end .content --></div>
+  <!-- end .container --></div>
+</body>
+<!-- InstanceEnd --></html>

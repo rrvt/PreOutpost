@@ -1,0 +1,66 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/OneColumnPage.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="CreateMaster" -->
+<title>Creating a Master Profile</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<link href="stylesheet" rel="stylesheet" type="text/css">
+<link href="PreOutpost.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div class="container">
+  <div class="content">
+	<!-- InstanceBeginEditable name="Title" -->  
+  <!-- InstanceEndEditable -->
+	
+	<!-- InstanceBeginEditable name="Body" -->
+  <h2>Creating a Master Profile</h2>
+  
+  <table class="image" align="right">
+  <tr><td><img src="Images/CommandPrompt01.jpg" width="350"></td></tr>
+	<tr>
+	  <td class="caption">Fig. 6 -- Starting PreOutpost in a Command Prompt (DOS Box)</td></tr>
+  </table>
+
+<p>
+  Creating a Master Profile is more difficult than using PreOutpost to collect identity and report information.  This is deliberate.  The whole point of PreOutpost is to preserve a profile that works.
+</p>
+  
+  <p>
+  The first step is to enter Outpost  and create a working profile for the modem/radio configuration.  Test it thoroughly with one of the BBSes (it doesn’t matter which).  Be sure to name the profile with some identifier that indicates the modem/radio combination.  Keep the name short (I’ve noticed that on some laptops the Profile name edit box is short). Exit Outpost.
+</p>
+  
+  <p>
+  Then start a DOS box  in your computer (e.g. Start/Accessories/Command Prompt in Win7).  Change directory to the directory in which PreOutpost.exe is located, “C:\Program&nbsp;Files&nbsp;(x86)\PreOutpost\”.  In later version I've include a change to the system path variable to include
+  the PreOutpost directory.  If the change was successful on your computer then just typing PreOutpost
+ at the prompt should yield a help output.  If the help output appears then one can proceed  use the 
+ command line switch as described below.
+  </p>
+
+  <table class="image" align="right">
+  <tr><td><img src="Images/CreateMaster.jpg" width="350"></td></tr>
+  <tr>
+    <td class="caption">Fig. 7 -- Create a New Master, Delete an Existing Master or Abort</td></tr>
+  </table>
+  
+<p>
+  In the DOS Box start PreOutpost with the parameter “/MakeMaster” (see Figure 6).  At that point a dialog box will appear that will give the user one of three options:  Create a new Master Profile, Delete an existing Master profile or Cancelling the operation (see Figure 7).
+</p>
+  <p>
+  There is one special case for creating a Master Profile.  If there are no Master Profiles present then PreOutpost starts the Make Master process.
+  </p>
+
+
+
+
+
+  <!-- InstanceEndEditable -->
+  <!-- end .content --></div>
+  <!-- end .container --></div>
+</body>
+<!-- InstanceEnd --></html>

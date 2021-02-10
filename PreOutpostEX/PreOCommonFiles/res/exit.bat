@@ -1,4 +1,0 @@
-SCRIPT
-echo "Hello World!"
-
-

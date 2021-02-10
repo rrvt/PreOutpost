@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x800225">
+	<param name="ImageType" value="Folder">
+<param name="Font" value="Arial,10,0">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Introduction">
+		<param name="Local" value="Page01.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="What is a Profile">
+		<param name="Local" value="Page02-IniFiles.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="One Master Overview">
+		<param name="Local" value="Page03-OneMasterProfile.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Two Or More Masters">
+		<param name="Local" value="Page04-TwoOrMoreMasterProfiles.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Data Input">
+		<param name="Local" value="Page05b-DataInput.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Create Master">
+		<param name="Local" value="Page05-CreateMaster.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BBS Suffixes">
+		<param name="Local" value="Page05a-BBSsuffixes.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Select ProfileTo Create Master">
+		<param name="Local" value="Page06-SelectProfileToCreateAMaster.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Delete Master">
+		<param name="Local" value="Page07-DeletingAMasterProfile.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Address Book">
+		<param name="Local" value="Page08-AddressBook.html">
+		</OBJECT>
+</UL>
+</BODY></HTML>

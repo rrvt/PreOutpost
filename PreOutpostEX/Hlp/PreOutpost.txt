@@ -1,5 +1,0 @@
-.topic IDH_Intro
-Introduction to Outpost
-
-.topic IDH_IniFiles
-Introduction to IniFiles

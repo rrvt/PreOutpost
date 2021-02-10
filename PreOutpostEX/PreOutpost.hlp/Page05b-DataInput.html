@@ -1,0 +1,68 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/OneColumnPage.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Data Input</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<link href="stylesheet" rel="stylesheet" type="text/css">
+<link href="PreOutpost.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div class="container">
+  <div class="content">
+    <!-- InstanceBeginEditable name="Title" -->
+    <h1>Data Input</h1>
+    <!-- InstanceEndEditable -->
+
+    <!-- InstanceBeginEditable name="Body" -->
+    <h2>FCC Credentials</h2>
+    <table width="700" align="right" class="image">
+    <tr><td><img src="Images/FCCOnly04.jpg" width="700" alt="FCC Only"></td></tr>
+    <tr>
+      <td class="caption">Fig. 5 -- Legal (FCC) and Tactical Identification and Report Settings Dialog Box, Tactical Greyed Out</td></tr>
+    </table>
+    <p>
+    The FCC Credentials are the FCC call sign, the user's name, a three letter prefix used in
+    numbering messages and a signature that is placed in plain text messages.
+    The Tactical Credentials include the same information, Tactical call sign, user's name, three
+    letter prefix and a signature.
+    
+    </p>
+    <p>
+    When the FCC credentials only are to be used in Outpost the Press for Tactical Call Sign check box is left unchecked.  This causes the tactical
+    credentials to be unavailable for change. 
+    Using the mouse to "select" the check box will install a check mark in the box and also allow modification of the Tactical credentials.
+    </p>
+    <p>
+		The ICS Report use two of the Report variables, the Task ID and the Task Name in the header of the report.  Choose something appropriate for those values.  
+    At the time of this writing the use of the Other Report Variables is unknown.
+    </p>
+    
+    <h2>Finding Credentials Prepared in the Past</h2>
+    <p>
+    The Credentials are saved in files that are identified by type and the Call Sign.  PreOutpost will find and display the credentials if they exist by merely
+    inserting the call sign into the appropriate call sign edit box and leaving the edit box.  Then the credentials found (if any) may be modified or left as they 
+    are.  There is one slight problem with this scheme.  If the user modifies the &quot;User Name&quot; or the &quot;Additional ID Text&quot; 
+    for the Tactical credentials (for example) then the 
+    search feature is for those credentials is shut down.  This is because you went to all the trouble to change something, the search feature would override it if
+    something was found.
+    </p>
+    <p>
+    	In the event that nothing is found during the search, the current content of the edit boxes is unchanged.  All the non-greyed fields may be modified
+      while the dialog box is present on the screen.  The entire content of the dialog box is saved appropriately so that it appears the next time PreOutpost is
+      invoked and so that the searches for the credentials will succeed the next time.  Furthermore, Outpost will be started with the values found in the dialog
+      box when OK is pressed.
+    </p>
+		
+
+
+  <!-- InstanceEndEditable -->
+  <!-- end .content --></div>
+  <!-- end .container --></div>
+</body>
+<!-- InstanceEnd --></html>

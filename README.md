@@ -2,7 +2,7 @@
 Supplies profiles for all BBSes among other services.  With a selection from a toolbar dropdown list and
 a twist of a knob on the radio the user may change BBSes.  A Subject Line may be produced and sent to the
 clipboard for subsequent pasting into a subject line or other location in a form.  The complete personal
-and tactical information may be entered once and sent to all BBS profiles with this program.
+and tactical information may be entered once and sent to all BBS profiles with this application.
 
 The complete address book is displayed in a sister window (note scrolling may be necessary).  The address
 name and text that the name represents is shown.  Additional addresses may be created.  The PDF files that
@@ -11,12 +11,19 @@ Slip is also available.
 
 ## Getting Started
 
-The Windows PreOUnit7Installer.msi file will install the program.  PreOutpost must know where Outpost is
-located and if there are two versions on your system it will allow you to choose which to use.
+The Windows PreOutpostInstaller.msi file will install the program.  At this time only one version of
+PreOutpost is produced.  It should run on Win7, 8 and 10.
 
 A help file is included.  Let the author know if the help file needs improving...
 
 ## Updates
+
+### Update 2/9/21
+The Library has changed to accomodate RWracesDB and CodeGen, however more extensive changes to the
+directory structure of this application were made to bring it in line with other applications on my
+system.  Also, while older OSes were supported by this application in the past, Outpost itself has
+moved away from OS's lower than Win7.  Thus those compilations were sidelined and now there is just
+one version.
 
 ### Update 9/10/20
 Library improvement project.  Changed the Expandable Array classes, added templates for a pointer only

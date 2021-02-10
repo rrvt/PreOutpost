@@ -1,0 +1,37 @@
+Microsoft HTML Help Compiler 4.74.8702
+
+Compiling d:\SandBox\PreOutpostEX\Hlp\PreOutpost.chm
+
+Page01.html
+Page02-IniFiles.html
+Page03-OneMasterProfile.html
+Page04-TwoOrMoreMasterProfiles.html
+Page05-CreateMaster.html
+Page06-SelectProfileToCreateAMaster.html
+Page07-DeletingAMasterProfile.html
+Page05b-DataInput.html
+Page05a-BBSsuffixes.html
+Page08-AddressBook.html
+PreOutpost.hhc
+Index.hhk
+Images\IniFileExample.jpg
+Images\SubjectLineVersion02.jpg
+Images\OutpostProfilesList.jpg
+Images\SelectMasterProfile.jpg
+Images\CommandPrompt01.jpg
+Images\CreateMaster.jpg
+Images\SelectProfileToUse.jpg
+Images\DeleteMasterProfile.jpg
+Images\FCCOnly04.jpg
+Images\SetBBSsuffixes.jpg
+PreOutpost.css
+
+Compile time: 0 minutes, 1 second
+12	Topics
+21	Local links
+0	Internet links
+10	Graphics
+
+
+Created d:\SandBox\PreOutpostEX\Hlp\PreOutpost.chm, 1,020,006 bytes
+Compression decreased file by 223,680 bytes.
