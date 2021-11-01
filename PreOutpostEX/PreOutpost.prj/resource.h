@@ -1,14 +1,14 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
 // Used by PreOutpost.rc
-//
+
+#include "ExtraResource.h"
 
 #define IDR_MAINFRAME                   100
 #define IDR_MENU1                       101
 #define IDR_MENU2                       102
 #define IDR_MENU3                       103
 #define IDR_MENU4                       104
-#define IDD_ABOUTBOX                    105
 #define IDD_SelectMasterDialog          106
 #define IDD_DeleteMasterDialog          107
 #define IDD_ProcessOneOrAllDialog       108
@@ -99,9 +99,6 @@
 #define IDC_BARE                        279
 #define IDC_MONDAY                      280
 #define IDC_TUESDAY                     281
-#define IDC_NameVer                     282
-#define IDC_Copyright                   283
-#define IDC_CompanyName                 284
 #define IDC_OutpostList                 285
 #define IDC_OutpostVersion              286
 #define IDC_OutpostCopyRight            287

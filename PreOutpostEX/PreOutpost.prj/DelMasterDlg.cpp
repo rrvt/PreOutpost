@@ -2,9 +2,9 @@
 
 #include "stdafx.h"
 #include "PreOutpost.h"
+#include "AboutDlgEx.h"
 #include "DelMasterDlg.h"
 #include "filename.h"
-#include "About.h"
 
 
 // DelMasterDlg dialog
@@ -42,7 +42,7 @@ void DelMasterDlg::OnCancel() {CDialog::OnCancel();}
 DelMasterDlg::~DelMasterDlg() { }
 
 
-void DelMasterDlg::OnAbout32778() {CAboutDlg aboutDlg; aboutDlg.DoModal();}
+void DelMasterDlg::OnAbout32778() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
 void DelMasterDlg::OnHelp32777() {

@@ -4,7 +4,7 @@
 
 #include "stdafx.h"
 #include "IdentityDlg.h"
-#include "About.h"
+#include "AboutDlgEx.h"
 #include "BBSinfo.h"
 #include "HtmlHelp.h"
 #include "MessageBox.h"
@@ -245,7 +245,7 @@ CWnd* ctrl = (CWnd*) GetDlgItem(id); if (ctrl) ctrl->EnableWindow(enable);
   }
 
 
-void IdentityDlg::OnAbout() {CAboutDlg aboutDlg; aboutDlg.DoModal();}
+void IdentityDlg::OnAbout() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
 void IdentityDlg::OnHelpOverview() {

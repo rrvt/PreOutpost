@@ -64,7 +64,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\Common.prj;$(SolutionDir)..\..\..\Sources\Library\Library.prj\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\Common.prj;$(SolutionDir)..\..\..\Sources\Library\Library.prj\;$(SolutionDir)..\..\..\Sources\Library\Extras\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -81,7 +81,7 @@
     <ResourceCompile>
       <Culture>0x0409</Culture>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IntDir);$(SolutionDir)..\..\..\Sources\Library\Extras\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -92,7 +92,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\Common.prj;$(SolutionDir)..\..\..\Sources\Library\Library.prj\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\Common.prj;$(SolutionDir)..\..\..\Sources\Library\Library.prj\;$(SolutionDir)..\..\..\Sources\Library\Extras\</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
@@ -112,14 +112,14 @@
     <ResourceCompile>
       <Culture>0x0409</Culture>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IntDir);$(SolutionDir)..\..\..\Sources\Library\Extras\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
   <ItemGroup>
-    <ClCompile Include="About.cpp" />
+    <ClCompile Include="AboutDlgEx.cpp" />
     <ClCompile Include="BBSdlg.cpp" />
     <ClCompile Include="BBSinfo.cpp" />
     <ClCompile Include="ChildView.cpp" />
@@ -140,7 +140,8 @@
     <ClCompile Include="UsrData.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="About.h" />
+    <ClInclude Include="..\..\Library\Extras\ExtraResource.h" />
+    <ClInclude Include="AboutDlgEx.h" />
     <ClInclude Include="BBSdlg.h" />
     <ClInclude Include="BBSinfo.h" />
     <ClInclude Include="ChildView.h" />
@@ -171,6 +172,7 @@
     <ResourceCompile Include="PreOutpost.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AboutDlgEx.rc2" />
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\D710.MProfile" />
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\FT1900.MProfile" />
     <None Include="..\Docs\GroupsIO.txt" />
@@ -178,7 +180,7 @@
     <None Include="..\Profiles\Outpost.profile" />
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\PreOutpost.ini" />
     <None Include="res\PreOutpost.rc2" />
-  <None Include="..\README.md" />
+    <None Include="..\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\PreOutpost.ico" />

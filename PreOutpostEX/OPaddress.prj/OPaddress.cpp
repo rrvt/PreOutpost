@@ -27,27 +27,16 @@ static TCchar* AcroRdKey   = _T("AcroRdPath");
 // The one and only OPaddress object
 
 OPaddress theApp;
-IniFile      iniFile;                             // Implements Read/Write to Private Profile File
+IniFile   iniFile;                             // Implements Read/Write to Private Profile File
 
 
 // OPaddress
 
-BEGIN_MESSAGE_MAP(OPaddress, CWinApp)
+BEGIN_MESSAGE_MAP(OPaddress, CWinAppEx)
   ON_COMMAND(ID_HELP,             &CWinApp::OnHelp)
   ON_COMMAND(ID_OUTPOST_FINDPATH, &OPaddress::OnOutpostFindPath)
 END_MESSAGE_MAP()
 
-
-// OPaddress Construction
-
-OPaddress::OPaddress() {
-ResourceData res;
-String       appID;
-
-  if (res.getAppID(appID)) SetAppID(appID);
-
-  m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_RESTART;
-  }
 
 
 // OPaddress initialization

@@ -3,8 +3,8 @@
 
 #include "stdafx.h"
 #include "PreOutpost.h"
+#include "AboutDlgEx.h"
 #include "MasterMgmtDlg.h"
-#include "About.h"
 #include "BBSinfo.h"
 
 
@@ -54,10 +54,10 @@ void MasterMgmtDlg::createNew() {listItems.getSelected(); EndDialog(CreateMaster
 void MasterMgmtDlg::delSelected() {listItems.getSelected(); EndDialog(DeleteMaster);}
 
 
-void MasterMgmtDlg::OnClickedButton1() {CAboutDlg aboutDlg; aboutDlg.DoModal();}
+void MasterMgmtDlg::OnClickedButton1() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
-void MasterMgmtDlg::OnAbout32775() {CAboutDlg aboutDlg; aboutDlg.DoModal();}
+void MasterMgmtDlg::OnAbout32775() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
 void MasterMgmtDlg::OnHelp32776() {

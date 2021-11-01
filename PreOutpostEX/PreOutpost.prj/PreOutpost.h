@@ -4,12 +4,13 @@
 
 
 #pragma once
+#include "CApp.h"
 #include "iniFile.h"
 #include "Identity.h"
 #include "MasterProf.h"
 
 
-class PreOutpost : public CWinApp {
+class PreOutpost : public CApp {
 bool                subjWSecurity;
 bool                includeAddrBook;
 
@@ -24,7 +25,7 @@ String              subjectLine;
 STARTUPINFO         startUpInfo;
 PROCESS_INFORMATION OPaddrPrcInfo;
 
-  PreOutpost();
+  PreOutpost() : CApp(this), subjWSecurity(false), includeAddrBook(false), makeMaster(false) { }
 
 public:
 

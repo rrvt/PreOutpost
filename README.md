@@ -1,4 +1,5 @@
 # PreOutpost
+
 Supplies profiles for all BBSes among other services.  With a selection from a toolbar dropdown list and
 a twist of a knob on the radio the user may change BBSes.  A Subject Line may be produced and sent to the
 clipboard for subsequent pasting into a subject line or other location in a form.  The complete personal
@@ -18,7 +19,13 @@ A help file is included.  Let the author know if the help file needs improving..
 
 ## Updates
 
+### Update 10/31/21
+
+Changed Resources (i.e. xxx.rc data) access so that it will work with a dll.  Changed the logic in the
+About Box code.  Some other library changes.  Some corresponding changes in the application.
+
 ### Update 2/9/21
+
 The Library has changed to accomodate RWracesDB and CodeGen, however more extensive changes to the
 directory structure of this application were made to bring it in line with other applications on my
 system.  Also, while older OSes were supported by this application in the past, Outpost itself has
@@ -26,6 +33,7 @@ moved away from OS's lower than Win7.  Thus those compilations were sidelined an
 one version.
 
 ### Update 9/10/20
+
 Library improvement project.  Changed the Expandable Array classes, added templates for a pointer only
 class in the ExpandableP class definition.  It turned out I was defining this RcdPtr class many times
 worrying about exactly how it should be defined.  So I turned it into a template, which of course then

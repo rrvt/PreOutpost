@@ -201,7 +201,7 @@ int ePos;
 
 
 void ToAnsi::convert(TCchar* tp) {
-NewAlloc(char);
+NewArray(char);
 
   cnt = tp ? _tcslen(tp) : 0;    p = AllocArray(cnt+1);
 
@@ -219,7 +219,7 @@ NewAlloc(char);
   }
 
 
-ToAnsi::~ToAnsi() {if (p) {NewAlloc(char); FreeArray(p);}}
+ToAnsi::~ToAnsi() {if (p) {NewArray(char); FreeArray(p);}}
 
 
 void ToUniCode::convert(Cchar* tp) {
@@ -231,7 +231,7 @@ void ToUniCode::convert(Cchar* tp) {
   #ifdef _UNICODE
   int i;
 
-    for (i = 0; i < cnt; i++) p[i] = tp[i];   p[i] = 0;   return;
+    for (i = 0; i < cnt; i++) p[i] = tp[i] & 0xff;   p[i] = 0;   return;
 
   #else
 

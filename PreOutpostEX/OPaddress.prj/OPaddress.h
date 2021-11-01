@@ -2,9 +2,10 @@
 
 
 #pragma once
+#include "CApp.h"
 
 
-class OPaddress : public CWinApp {
+class OPaddress : public CApp {
 public:
 
 String      myPath;                             // Path to this program when running
@@ -12,7 +13,7 @@ String      addrPath;                           // Path to Outpost address book 
 String      acroRd;
 STARTUPINFO startUpInfo;
 
-  OPaddress();
+  OPaddress() : CApp(this) { }
 
   virtual BOOL    InitInstance();
           void    getProfilePath();

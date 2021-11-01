@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "AddrDlg.h"
-#include "About.h"
+#include "AboutDlg.h"
 #include "DeleteDlg.h"
 #include "filename.h"
 #include "LoadScratchPad.h"
@@ -258,13 +258,13 @@ PROCESS_INFORMATION processInfo;
   }
 
 
-void AddrDlg::OnAbout() {CAboutDlg dlgAbout;  dlgAbout.DoModal();}
+void AddrDlg::OnAbout() {AboutDlg dlgAbout;  dlgAbout.DoModal();}
 
 
 void AddrDlg::OnSysCommand(UINT nID, LPARAM lParam) {
 
   if ((nID & 0xFFF0) == IDM_ABOUTBOX) {
-    CAboutDlg dlgAbout;
+    AboutDlg dlgAbout;
     dlgAbout.DoModal();
     }
 

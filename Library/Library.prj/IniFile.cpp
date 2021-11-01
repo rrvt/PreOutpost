@@ -11,18 +11,6 @@
 const int BufSize = 1024;
 
 
-IniFile::~IniFile() {
-Tchar* p;
-
-  if (app) {
-    p = (Tchar*) app->m_pszProfileName;
-
-//    if (p)   {NewAlloc(Tchar); free(p);   app->m_pszProfileName = 0;}
-    if (buf) {NewAlloc(Tchar); FreeArray(buf); buf              = 0;}
-    }
-  }
-
-
 String IniFile::getAppDataPath(TCchar* helpPath) {
 Tchar   stg[1024];
 String path;
@@ -53,16 +41,18 @@ HRESULT rslt;
 
   iniFilePath += mainName; iniFilePath += _T(".ini");
 
-  checkPath(); setTheAppPath(theApp);   app = &theApp;
+  checkPath(); setTheAppPath(theApp);
   }
 
 
 void IniFile::setFilePath(String& pth, CWinApp& theApp)
-                                {iniFilePath = pth; checkPath(); setTheAppPath(theApp);   app = &theApp;}
+                                                {iniFilePath = pth; checkPath(); setTheAppPath(theApp);}
+
 
 
 void IniFile::setFilePath(TCchar* pth, CWinApp& theApp)
-                                {iniFilePath = pth; checkPath(); setTheAppPath(theApp);   app = &theApp;}
+                                                {iniFilePath = pth; checkPath(); setTheAppPath(theApp);}
+
 
 
 void IniFile::setTheAppPath(CWinApp& theApp) {
@@ -74,7 +64,7 @@ TCchar* prfl = theApp.m_pszProfileName;
 
   theApp.m_pszProfileName = (LPCTSTR) malloc(pathLng*sizeof(TCchar));
 
-  _tcscpy_s((Tchar*) theApp.m_pszProfileName, pathLng, iniFilePath);   app = &theApp;
+  _tcscpy_s((Tchar*) theApp.m_pszProfileName, pathLng, iniFilePath);
   }
 
 
@@ -137,10 +127,11 @@ CFile cFile(iniFilePath, CFile::modeWrite);
 
 
 
+#if 0
 Tchar* IniFile::startReadSection() {
 int n;
 
-  if (!buf) {NewAlloc(Tchar);   buf = AllocArray(BufSize); p = buf;}
+  if (!buf) {NewArray(Tchar);   buf = AllocArray(BufSize); p = buf;}
 
   n = GetPrivateProfileString(0, 0, 0, buf, BufSize, iniFilePath);
 
@@ -155,7 +146,7 @@ Tchar* IniFile::nextSection() {
   p += _tcslen(p) + 1; return getSection();
   }
 
-
+#endif
 
 
 
@@ -280,5 +271,31 @@ String s;
     }
 
   return s;
+  }
+
+
+
+
+TCchar* IniSectIter::operator() () {
+int n;
+
+  do {
+    if (buf) {bufSize *= 2;  clear();}
+
+    if (!buf) {NewArray(Tchar);   buf = AllocArray(bufSize); p = buf;}
+
+    n = GetPrivateProfileString(0, 0, 0, buf, bufSize, ini.iniFilePath);
+
+    } while (n >= bufSize-2);
+
+  endBuf = p + n;  return p < endBuf ? p : 0;
+  }
+
+
+TCchar* IniSectIter::operator++ (int) {
+
+  if (!p) {return 0;}
+
+  p += _tcslen(p) + 1; return p < endBuf ? p : 0;
   }
 

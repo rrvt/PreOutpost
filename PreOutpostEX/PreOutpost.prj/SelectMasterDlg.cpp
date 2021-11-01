@@ -7,7 +7,7 @@
 #ifndef Win2K
 #include "afxdialogex.h"
 #endif
-#include "About.h"
+#include "AboutDlgEx.h"
 
 
 // SelectMasterDlg dialog
@@ -53,7 +53,7 @@ void SelectMasterDlg::OnDblclkList1() {OnOK();}
 void SelectMasterDlg::OnOK() {listItems.getSelected(); CDialog::OnOK();}
 
 
-void SelectMasterDlg::OnAbout32780() {CAboutDlg aboutDlg; aboutDlg.DoModal();}
+void SelectMasterDlg::OnAbout32780() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
 void SelectMasterDlg::OnHelp32779() {

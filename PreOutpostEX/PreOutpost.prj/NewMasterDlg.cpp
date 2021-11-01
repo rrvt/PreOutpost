@@ -2,7 +2,7 @@
 
 #include "stdafx.h"
 #include "NewMasterDlg.h"
-#include "About.h"
+#include "AboutDlgEx.h"
 #include "PreOutpost.h"
 
 
@@ -48,7 +48,7 @@ void NewMasterDlg::OnDblclkList1() {OnOK();}
 NewMasterDlg::~NewMasterDlg() {}
 
 
-void NewMasterDlg::OnAbout32780() {CAboutDlg aboutDlg; aboutDlg.DoModal();}
+void NewMasterDlg::OnAbout32780() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
 void NewMasterDlg::OnHelp32779() {

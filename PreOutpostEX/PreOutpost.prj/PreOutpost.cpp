@@ -31,18 +31,8 @@ IniFile    iniFile;                         // Implements Read/Write to Private 
 
 // PreOutpost
 
-BEGIN_MESSAGE_MAP(PreOutpost, CWinApp)
+BEGIN_MESSAGE_MAP(PreOutpost, CWinAppEx)
 END_MESSAGE_MAP()
-
-
-// PreOutpost construction
-
-PreOutpost::PreOutpost() : subjWSecurity(false), includeAddrBook(false), makeMaster(false) {
-ResourceData res;
-String       appID;
-
-  if (res.getAppID(appID)) SetAppID(appID);
-  }
 
 
 // PreOutpost initialization

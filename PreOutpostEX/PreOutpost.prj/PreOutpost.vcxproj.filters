@@ -21,15 +21,15 @@
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\D710.MProfile" />
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\FT1900.MProfile" />
     <None Include="..\Docs\GroupsIO.txt" />
-    <None Include="README.md" />
     <None Include="res\PreOutpost.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\README.md" />
+    <None Include="AboutDlgEx.rc2">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="About.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BBSdlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -84,11 +84,11 @@
     <ClCompile Include="..\Common.prj\ProgramFiles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AboutDlgEx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="About.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BBSdlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -147,6 +147,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Common.prj\ProgramFiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Library\Extras\ExtraResource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AboutDlgEx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
