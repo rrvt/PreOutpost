@@ -21,10 +21,10 @@ A help file is included.  Let the author know if the help file needs improving..
 
 ### Update 11/15/21
 
-Apparently changing the compilation properties will have an effect on an executable.  In this case
-something caused the OPaddress app to fail during the startup by somehow calling the CShellManager
-initialization twice and the second it failed (should only be called once).  Removed two lines to fix
-the problem.
+Apparently CWinAppEx intializes the Shell Manager and CWinApp does not.  To get some functionality in
+CApp I based the OPaddress app on CApp instead of CWinApp.  Go figure.  In this case
+the change caused the OPaddress app to abort when it tried to initalize the Shell Manager twice.
+Removed two lines to fix the problem.
 
 ### Update 11/13/21
 
