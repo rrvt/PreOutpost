@@ -66,11 +66,6 @@ BOOL OPaddress::InitInstance() {
 
   AfxEnableControlContainer();
 
-  // Create the shell manager, in case the dialog contains
-  // any shell tree view or shell list view controls.
-
-  CShellManager *pShellManager = new CShellManager;
-
   // Activate "Windows Native" visual manager for enabling themes in MFC controls
 
   CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
@@ -84,9 +79,6 @@ BOOL OPaddress::InitInstance() {
     TRACE(traceAppMsg, 0, _T("Warning: if you are using MFC controls on the dialog, ")
                                            _T("you cannot #define _AFX_NO_MFC_CONTROLS_IN_DIALOGS.\n"));
     }
-
-  // Delete the shell manager created above.
-  if (pShellManager != nullptr) {delete pShellManager;}
 
   #if !defined(_AFXDLL) && !defined(_AFX_NO_MFC_CONTROLS_IN_DIALOGS)
     ControlBarCleanUp();

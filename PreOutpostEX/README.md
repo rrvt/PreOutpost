@@ -19,6 +19,13 @@ A help file is included.  Let the author know if the help file needs improving..
 
 ## Updates
 
+### Update 11/15/21
+
+Apparently changing the compilation properties will have an effect on an executable.  In this case
+something caused the OPaddress app to fail during the startup by somehow calling the CShellManager
+initialization twice and the second it failed (should only be called once).  Removed two lines to fix
+the problem.
+
 ### Update 11/13/21
 
 But the major changes are in the library:
