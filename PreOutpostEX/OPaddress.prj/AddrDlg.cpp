@@ -38,6 +38,7 @@ BEGIN_MESSAGE_MAP(AddrDlg, CDialogEx)
   ON_COMMAND(ID_ROUTING_FORM,  &OnRoutingForm)
   ON_COMMAND(ID_ROUTING_HELP,  &OnRoutingHelp)
   ON_COMMAND(ID_BBS_Assgnmnts, &OnBBS_Assgnmnts)
+  ON_COMMAND(ID_CheckInOutFmt, &OnChkInOutFmt)
 
   ON_WM_SIZE()
   ON_WM_MOVE()
@@ -237,6 +238,7 @@ int      tab;
 void AddrDlg::OnRoutingForm() {  showPDF(_T("RoutingSlip.pdf"));}
 void AddrDlg::OnRoutingHelp() {  showPDF(_T("RoutingInfo.pdf"));}
 void AddrDlg::OnBBS_Assgnmnts() {showPDF(_T("BBS_Assgnmnts.pdf"));}
+void AddrDlg::OnChkInOutFmt() {  showPDF(_T("CheckInOutFormat.pdf"));}
 
 
 void AddrDlg::showPDF(TCchar* name) {

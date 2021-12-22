@@ -13,6 +13,23 @@
 IMPLEMENT_DYNAMIC(MasterMgmtDlg, CDialog)
 
 
+BEGIN_MESSAGE_MAP(MasterMgmtDlg, CDialog)
+  ON_BN_CLICKED(IDC_BUTTON12,       &createNew)
+  ON_BN_CLICKED(IDC_BUTTON13,       &delSelected)
+  ON_BN_CLICKED(IDC_BUTTON1,        &OnClickedButton1)
+
+  ON_COMMAND(ID_SetBBSsuffixes,     &OnSetBBSsuffixes)
+  ON_COMMAND(ID_ABOUT1,             &OnAbout)
+  ON_COMMAND(ID_HELP_OVERVIEW,      &OnHelpOverview)
+  ON_COMMAND(ID_HELP_IDENTITY,      &OnHelpIdentity)
+  ON_COMMAND(ID_HELP_ADDRESSBOOK,   &OnHelpAddressbook)
+  ON_COMMAND(ID_HELP_MakeMaster,    &OnHelpMakeMaster)
+  ON_COMMAND(ID_HELP_DeleteMaster,  &OnHelpDeleteMaster)
+  ON_COMMAND(ID_HELP_SelNewMaster,  &OnHelpSelNewMaster)
+  ON_COMMAND(ID_HELP_SelectProfile, &OnHelpSelectProfile)
+END_MESSAGE_MAP()
+
+
 MasterMgmtDlg::MasterMgmtDlg(CWnd* pParent) :
                   CDialog(MasterMgmtDlg::IDD, pParent) {listItems.init(this, IDC_LIST1);}
 
@@ -25,17 +42,6 @@ BOOL MasterMgmtDlg::OnInitDialog() {
 
 
 void MasterMgmtDlg::DoDataExchange(CDataExchange* pDX) {CDialog::DoDataExchange(pDX);}
-
-
-BEGIN_MESSAGE_MAP(MasterMgmtDlg, CDialog)
-  ON_BN_CLICKED(IDC_BUTTON12,   &MasterMgmtDlg::createNew)
-  ON_BN_CLICKED(IDC_BUTTON13,   &MasterMgmtDlg::delSelected)
-  ON_BN_CLICKED(IDC_BUTTON1,    &MasterMgmtDlg::OnClickedButton1)
-
-  ON_COMMAND(ID_SetBBSsuffixes, &MasterMgmtDlg::OnSetBBSsuffixes)
-  ON_COMMAND(ID_ABOUT32775,     &MasterMgmtDlg::OnAbout32775)
-  ON_COMMAND(ID_HELP32776,      &MasterMgmtDlg::OnHelp32776)
-END_MESSAGE_MAP()
 
 
 MasterMgmtDlg::~MasterMgmtDlg() { }
@@ -57,13 +63,71 @@ void MasterMgmtDlg::delSelected() {listItems.getSelected(); EndDialog(DeleteMast
 void MasterMgmtDlg::OnClickedButton1() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
-void MasterMgmtDlg::OnAbout32775() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
+void MasterMgmtDlg::OnAbout() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
-void MasterMgmtDlg::OnHelp32776() {
+void MasterMgmtDlg::OnHelpMakeMaster() {
 String topic;
 
   topic = theApp.helpFile; topic += _T(">CreateMaster");
 
-  ::HtmlHelp(theApp.m_pMainWnd->m_hWnd, topic,  HH_DISPLAY_TOC, 20);
+  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 20);
   }
+
+
+
+void MasterMgmtDlg::OnHelpOverview() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">Introduction");
+
+  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
+  }
+
+
+void MasterMgmtDlg::OnHelpIdentity() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">OneMaster");
+
+  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
+  }
+
+
+void MasterMgmtDlg::OnHelpAddressbook() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">AddressBook");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+
+
+void MasterMgmtDlg::OnHelpDeleteMaster() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">DeleteMaster");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+
+
+void MasterMgmtDlg::OnHelpSelNewMaster() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">SelectProfile");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+
+
+void MasterMgmtDlg::OnHelpSelectProfile() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">TwoPlusMaster");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+
+
+

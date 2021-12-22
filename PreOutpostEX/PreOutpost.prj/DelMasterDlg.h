@@ -28,6 +28,12 @@ public:
 
   afx_msg void OnOK();
   afx_msg void OnCancel();
-  afx_msg void OnAbout32778();
-  afx_msg void OnHelp32777();
-};
+  afx_msg void OnAbout();
+  afx_msg void OnHelpMakeMaster();
+  afx_msg void OnHelpOverview();
+  afx_msg void OnHelpIdentity();
+  afx_msg void OnHelpAddressbook();
+  afx_msg void OnHelpDeleteMaster();
+  afx_msg void OnHelpSelNewMaster();
+  afx_msg void OnHelpSelectProfile();
+  };

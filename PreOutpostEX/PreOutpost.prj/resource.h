@@ -9,6 +9,7 @@
 #define IDR_MENU2                       102
 #define IDR_MENU3                       103
 #define IDR_MENU4                       104
+#define IDR_MENU5                       105
 #define IDD_SelectMasterDialog          106
 #define IDD_DeleteMasterDialog          107
 #define IDD_ProcessOneOrAllDialog       108
@@ -110,26 +111,25 @@
 #define ID_FILE_DIALOGBAR               400
 #define ID_DELETE                       401
 #define ID_ABOUT                        402
-#define ID_HELP32774                    403
-#define ID_ABOUT32775                   404
-#define ID_HELP32776                    405
-#define ID_HELP32777                    406
-#define ID_ABOUT32778                   407
-#define ID_HELP32779                    408
-#define ID_ABOUT32780                   409
-#define ID_HELP32781                    410
-#define ID_ABOUT32782                   411
-#define ID_HELP_OVERVIEW                412
-#define ID_HELP_IDENTITY                413
+#define ID_ABOUT1                       403
+#define ID_Help                         404
+#define ID_ABOUT3                       405
+#define ID_ABOUT4                       406
+#define ID_HELP_OVERVIEW                407
+#define ID_HELP_IDENTITY                408
+#define ID_HELP_ADDRESSBOOK             409
+#define ID_HELP_MakeMaster              410
+#define ID_HELP_DeleteMaster            411
+#define ID_HELP_SelNewMaster            412
+#define ID_HELP_SelectProfile           413
 #define ID_SetBBSsuffixes               414
 #define ID_OPTIONS                      415
 #define ID_SubjWSecurity                416
 #define ID_FindOutpost                  417
 #define ID_IncludeAddrBook              418
-#define ID_HELP_ADDRESSBOOK             419
 
 // Next default values for new objects
-//
+
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        113

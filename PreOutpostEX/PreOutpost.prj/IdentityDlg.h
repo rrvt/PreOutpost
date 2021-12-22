@@ -95,4 +95,7 @@ public:
   afx_msg void OnFindOutpost();
   afx_msg void OnIncludeAddrBook();
   afx_msg void OnHelpAddressbook();
+  afx_msg void OnHelpDeleteMaster();
+  afx_msg void OnHelpSelNewMaster();
+  afx_msg void OnHelpSelectProfile();
   };

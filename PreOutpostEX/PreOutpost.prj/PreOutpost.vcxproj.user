@@ -4,11 +4,11 @@
     <RESOURCE_FILE>\Sources\PreOutpostEX\PreOCommonFiles\PreOutpost.rc</RESOURCE_FILE>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LocalDebuggerCommandArguments>/Make   Master</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>/MakeMaster</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LocalDebuggerCommandArguments>/Make   Master</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>/MakeMaster</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

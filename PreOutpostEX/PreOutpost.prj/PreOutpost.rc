@@ -76,53 +76,94 @@ IDR_MAINFRAME           ICON                    "res\\PreOutpost.ico"
 // Menu
 //
 
-IDR_MAINFRAME MENU
-BEGIN
-    POPUP "&File"
-    BEGIN
-        MENUITEM "E&xit",                ID_APP_EXIT
-    END
-    POPUP "&Help"
-    BEGIN
-        MENUITEM "&About PreOutpost...", ID_APP_ABOUT
-    END
-END
-
 IDR_MENU1 MENUEX
 BEGIN
     MENUITEM "Set BBS Suffixes",         ID_SetBBSsuffixes,MFT_STRING,MFS_ENABLED
-    POPUP "Options",                     65535,MFT_STRING,MFS_ENABLED
+    POPUP "Options",                     ID_OPTIONS,MFT_STRING,MFS_ENABLED
     BEGIN
         MENUITEM "Include Addr Book",    ID_IncludeAddrBook,MFT_STRING,MFS_CHECKED
         MENUITEM "Subject w/Security",   ID_SubjWSecurity,MFT_STRING,MFS_CHECKED
         MENUITEM "Find Outpost",         ID_FindOutpost,MFT_STRING,MFS_ENABLED
     END
-    POPUP "Help",                        65535,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    POPUP "Help",                        ID_Help,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
     BEGIN
+        MENUITEM "Make Master",          ID_HELP_MakeMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Select New Master",    ID_HELP_SelNewMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Delete Master",        ID_HELP_DeleteMaster,MFT_STRING,MFS_ENABLED
         MENUITEM "Overview",             ID_HELP_OVERVIEW,MFT_STRING,MFS_ENABLED
         MENUITEM "Identity",             ID_HELP_IDENTITY,MFT_STRING,MFS_ENABLED
+        MENUITEM "Select Profile(s)",    ID_HELP_SelectProfile,MFT_STRING,MFS_ENABLED
         MENUITEM "Address Book",         ID_HELP_ADDRESSBOOK,MFT_STRING,MFS_ENABLED
     END
-    MENUITEM "About",                    ID_ABOUT,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    MENUITEM "About",                    ID_ABOUT1,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
 END
 
 IDR_MENU2 MENUEX
 BEGIN
-    MENUITEM "Set BBS Suffixes",         ID_SetBBSsuffixes,MFT_STRING,MFS_ENABLED
-    MENUITEM "Help",                     ID_HELP32776,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
-    MENUITEM "About",                    ID_ABOUT32775,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    POPUP "Help",                        ID_Help,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    BEGIN
+        MENUITEM "Delete Master",        ID_HELP_DeleteMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Overview",             ID_HELP_OVERVIEW,MFT_STRING,MFS_ENABLED
+        MENUITEM "Select Profile(s)",    ID_HELP_SelectProfile,MFT_STRING,MFS_ENABLED
+        MENUITEM "Identity",             ID_HELP_IDENTITY,MFT_STRING,MFS_ENABLED
+        MENUITEM "Make Master",          ID_HELP_MakeMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Select New Master",    ID_HELP_SelNewMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Address Book",         ID_HELP_ADDRESSBOOK,MFT_STRING,MFS_ENABLED
+    end
+    MENUITEM "About",                    ID_ABOUT3,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
 END
+
 
 IDR_MENU3 MENUEX
 BEGIN
-    MENUITEM "Help",                     ID_HELP32777,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
-    MENUITEM "About",                    ID_ABOUT32778,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    POPUP "Help",                        ID_Help,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    BEGIN
+        MENUITEM "Select New Master",    ID_HELP_SelNewMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Overview",             ID_HELP_OVERVIEW,MFT_STRING,MFS_ENABLED
+        MENUITEM "Select Profile(s)",    ID_HELP_SelectProfile,MFT_STRING,MFS_ENABLED
+        MENUITEM "Identity",             ID_HELP_IDENTITY,MFT_STRING,MFS_ENABLED
+        MENUITEM "Make Master",          ID_HELP_MakeMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Delete Master",        ID_HELP_DeleteMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Address Book",         ID_HELP_ADDRESSBOOK,MFT_STRING,MFS_ENABLED
+    END
+    MENUITEM "About",                    ID_ABOUT3,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
 END
 
 IDR_MENU4 MENUEX
 BEGIN
-    MENUITEM "Help",                     ID_HELP32779,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
-    MENUITEM "About",                    ID_ABOUT32780,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    POPUP "Help",                        ID_Help,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    BEGIN
+        MENUITEM "Select Profile(s)",    ID_HELP_SelectProfile,MFT_STRING,MFS_ENABLED
+        MENUITEM "Identity",             ID_HELP_IDENTITY,MFT_STRING,MFS_ENABLED
+        MENUITEM "Overview",             ID_HELP_OVERVIEW,MFT_STRING,MFS_ENABLED
+        MENUITEM "Make Master",          ID_HELP_MakeMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Select New Master",    ID_HELP_SelNewMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Delete Master",        ID_HELP_DeleteMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Address Book",         ID_HELP_ADDRESSBOOK,MFT_STRING,MFS_ENABLED
+    END
+    MENUITEM "About",                    ID_ABOUT4,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+END
+
+IDR_MENU5 MENUEX
+BEGIN
+    MENUITEM "Set BBS Suffixes",         ID_SetBBSsuffixes,MFT_STRING,MFS_ENABLED
+    POPUP "Options",                     ID_OPTIONS,MFT_STRING,MFS_ENABLED
+    BEGIN
+        MENUITEM "Include Addr Book",    ID_IncludeAddrBook,MFT_STRING,MFS_CHECKED
+        MENUITEM "Subject w/Security",   ID_SubjWSecurity,MFT_STRING,MFS_CHECKED
+        MENUITEM "Find Outpost",         ID_FindOutpost,MFT_STRING,MFS_ENABLED
+    END
+    POPUP "Help",                        ID_Help,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
+    BEGIN
+        MENUITEM "Identity",             ID_HELP_IDENTITY,MFT_STRING,MFS_ENABLED
+        MENUITEM "Overview",             ID_HELP_OVERVIEW,MFT_STRING,MFS_ENABLED
+        MENUITEM "Select Profile(s)",    ID_HELP_SelectProfile,MFT_STRING,MFS_ENABLED
+        MENUITEM "Make Master",          ID_HELP_MakeMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Delete Master",        ID_HELP_DeleteMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Select New Master",    ID_HELP_SelNewMaster,MFT_STRING,MFS_ENABLED
+        MENUITEM "Address Book",         ID_HELP_ADDRESSBOOK,MFT_STRING,MFS_ENABLED
+    END
+    MENUITEM "About",                    ID_ABOUT1,MFT_STRING | MFT_RIGHTJUSTIFY,MFS_ENABLED
 END
 
 
@@ -148,13 +189,42 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Dialog
+// Dialogs
+
+IDD_ManageMasterDialog DIALOGEX 0, 0, 360, 243
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_OVERLAPPEDWINDOW | WS_EX_STATICEDGE
+CAPTION "Manage Master Profiles"
+MENU IDR_MENU1
+FONT 12, "Arial", 400, 0, 0x0
+BEGIN
+    PUSHBUTTON      "Create New Master",IDC_BUTTON12,6,7,86,16,BS_CENTER
+    PUSHBUTTON      "Cancel",IDCANCEL,267,7,86,16,BS_CENTER
+    CTEXT           "or Select Master Profile to Delete",IDC_STATIC,6,28,347,12,SS_SUNKEN
+    LISTBOX         IDC_LIST1,6,41,347,180,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL,WS_EX_STATICEDGE
+    PUSHBUTTON      "Delete Selected Master",IDC_BUTTON13,137,222,86,16,BS_CENTER
+END
+
+
+IDD_DeleteMasterDialog DIALOGEX 0, 0, 222, 93
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_OVERLAPPEDWINDOW | WS_EX_STATICEDGE
+CAPTION "Delete Master Profile"
+MENU IDR_MENU2
+FONT 12, "Arial", 400, 0, 0x0
+BEGIN
+    CTEXT           "Delete Master Profile?",IDC_STATIC,6,4,209,10,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT1,6,36,209,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    PUSHBUTTON      "OK",IDC_BUTTON1,6,70,50,15,NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDC_BUTTON2,165,70,50,15,NOT WS_TABSTOP
+END
+
 
 IDD_SelectMasterDialog DIALOGEX 300, 300, 300, 225
 STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_OVERLAPPEDWINDOW | WS_EX_STATICEDGE
 CAPTION "Select Master Profile"
-MENU IDR_MENU4
+MENU IDR_MENU3
 FONT 12, "Arial", 400, 0, 0x0
 BEGIN
     CTEXT           "Select the profile that will be used as the Master Profile",IDC_STATIC,6,7,289,10
@@ -184,7 +254,7 @@ IDD_IdentityDialog DIALOGEX 0, 0, 340, 248
 STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_OVERLAPPEDWINDOW | WS_EX_STATICEDGE
 CAPTION "FCC and Tactical Identity"
-MENU IDR_MENU1
+MENU IDR_MENU5
 FONT 12, "Arial", 400, 0, 0x0
 BEGIN
     CONTROL         "Tactical",IDC_STATIC,"Static",SS_SIMPLE | SS_SUNKEN | WS_BORDER,7,7,155,70,WS_EX_TRANSPARENT | WS_EX_STATICEDGE
@@ -255,35 +325,6 @@ BEGIN
 END
 
 
-IDD_DeleteMasterDialog DIALOGEX 0, 0, 222, 93
-STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
-EXSTYLE WS_EX_OVERLAPPEDWINDOW | WS_EX_STATICEDGE
-CAPTION "Delete Master Profile"
-MENU IDR_MENU3
-FONT 12, "Arial", 400, 0, 0x0
-BEGIN
-    CTEXT           "Delete Master Profile?",IDC_STATIC,6,4,209,10,SS_CENTERIMAGE
-    EDITTEXT        IDC_EDIT1,6,36,209,12,ES_CENTER | ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
-    PUSHBUTTON      "OK",IDC_BUTTON1,6,70,50,15,NOT WS_TABSTOP
-    PUSHBUTTON      "Cancel",IDC_BUTTON2,165,70,50,15,NOT WS_TABSTOP
-END
-
-
-IDD_ManageMasterDialog DIALOGEX 0, 0, 360, 243
-STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
-EXSTYLE WS_EX_OVERLAPPEDWINDOW | WS_EX_STATICEDGE
-CAPTION "Manage Master Profiles"
-MENU IDR_MENU1
-FONT 12, "Arial", 400, 0, 0x0
-BEGIN
-    PUSHBUTTON      "Create New Master",IDC_BUTTON12,6,7,86,16,BS_CENTER
-    PUSHBUTTON      "Cancel",IDCANCEL,267,7,86,16,BS_CENTER
-    CTEXT           "or Select Master Profile to Delete",IDC_STATIC,6,28,347,12,SS_SUNKEN
-    LISTBOX         IDC_LIST1,6,41,347,180,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL,WS_EX_STATICEDGE
-    PUSHBUTTON      "Delete Selected Master",IDC_BUTTON13,137,222,86,16,BS_CENTER
-END
-
-
 IDD_SuffixDlg DIALOGEX 0, 0, 200, 178
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
@@ -345,8 +386,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,5,3
- PRODUCTVERSION 1,5,3
+ FILEVERSION 1,5,5
+ PRODUCTVERSION 1,5,5
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -363,12 +404,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Bob -- K6RWY"
             VALUE "FileDescription", "PreOutpost provides proven profiles to Outpost and starts Outpost."
-            VALUE "FileVersion", "1.5.3"
+            VALUE "FileVersion", "1.5.5"
             VALUE "InternalName", "PreOutpost.exe"
             VALUE "LegalCopyright", "(c) Bob -- K6RWY.  All rights reserved."
             VALUE "OriginalFilename", "PreOutpost.exe"
             VALUE "ProductName", "PreOutpost"
-            VALUE "ProductVersion", "1.5.3"
+            VALUE "ProductVersion", "1.5.5"
         END
     END
     BLOCK "VarFileInfo"

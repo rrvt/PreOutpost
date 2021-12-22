@@ -49,13 +49,14 @@
 #define ID_ROUTING_HELP             413
 #define ID_OUTPOST_FINDPATH         415
 #define ID_BBS_Assgnmnts            416
+#define ID_CheckInOutFmt            417
 
 // Next default values for new objects
 //
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE    109
-#define _APS_NEXT_COMMAND_VALUE     417
+#define _APS_NEXT_COMMAND_VALUE     418
 #define _APS_NEXT_CONTROL_VALUE     217
 #define _APS_NEXT_SYMED_VALUE       300
 #endif

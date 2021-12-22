@@ -38,6 +38,12 @@ public:
   afx_msg void OnOK();
   virtual BOOL OnInitDialog();
   afx_msg void OnDblclkList1();
-  afx_msg void OnAbout32780();
-  afx_msg void OnHelp32779();
-};
+  afx_msg void onAbout();
+  afx_msg void OnHelpMakeMaster();
+  afx_msg void OnHelpOverview();
+  afx_msg void OnHelpIdentity();
+  afx_msg void OnHelpAddressbook();
+  afx_msg void OnHelpDeleteMaster();
+  afx_msg void OnHelpSelNewMaster();
+  afx_msg void OnHelpSelectProfile();
+  };

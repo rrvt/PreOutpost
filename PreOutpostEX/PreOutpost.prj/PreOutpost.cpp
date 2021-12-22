@@ -4,7 +4,7 @@
 
 #include "stdafx.h"
 #include "PreOutpost.h"
-#include "MainFrm.h"
+//#include "MainFrm.h"
 #include "BBSinfo.h"
 #include "filesrch.h"
 #include "filename.h"
@@ -40,29 +40,17 @@ END_MESSAGE_MAP()
 
 BOOL PreOutpost::InitInstance() {
 
+  CWinApp::InitInstance();
+
   makeMaster = !StrCmp(m_lpCmdLine, _T("/MakeMaster")) || !StrCmp(m_lpCmdLine, _T("-MakeMaster"));
 
   myPath = helpFile = getPath(m_pszHelpFilePath);  helpFile += _T("PreOutpost.chm");
 
   roamingPath = iniFile.getAppDataPath(helpFile);
 
-  CWinApp::InitInstance();
-
-  // To create the main window, this code creates a new frame window
-  // object and then sets it as the application's main window object
-
-  MainFrame* pFrame = new MainFrame;   if (!pFrame) return FALSE;
-
-  m_pMainWnd = pFrame;
-
-  // create and load the frame with its resources
-
-  pFrame->LoadFrame(IDR_MAINFRAME, WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, NULL, NULL);
+  m_pMainWnd = 0;
 
   GetStartupInfo(&startUpInfo);
-
-  // The one and only window has been initialized, but implement the program with dialog boxes
-  // and then quit...
 
   outputPaths.getProfilePath();
   masterProf.readIniFile();
@@ -76,16 +64,7 @@ BOOL PreOutpost::InitInstance() {
 
   startOutpost();
 
-  return false;
-
-  // Apparently opening multiple dialog boxes requires at least the semblance of a windows program.
-  // However, we don't actually need to show the window...
-
-  pFrame->SetWindowPos(&CWnd::wndTopMost, 200, 200, 600, 600, SWP_NOMOVE);
-
-  pFrame->ShowWindow(SW_SHOW); pFrame->UpdateWindow();
-
-  return TRUE;
+  return 0;
   }
 
 
@@ -168,4 +147,33 @@ DWORD processID;
 // Just exit.
 
 int PreOutpost::ExitInstance() {return CWinApp::ExitInstance();}
+
+
+
+
+#if 0
+  // To create the main window, this code creates a new frame window
+  // object and then sets it as the application's main window object
+
+  MainFrame* pFrame = new MainFrame;   if (!pFrame) return FALSE;
+
+  m_pMainWnd = pFrame;
+
+  // create and load the frame with its resources
+
+  pFrame->LoadFrame(IDR_MAINFRAME, WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, NULL, NULL);
+
+  // The one and only window has been initialized, but implement the program with dialog boxes
+  // and then quit...
+#endif
+#if 0
+  // Apparently opening multiple dialog boxes requires at least the semblance of a windows program.
+  // However, we don't actually need to show the window...
+
+  pFrame->SetWindowPos(&CWnd::wndTopMost, 200, 200, 600, 600, SWP_NOMOVE);
+
+  pFrame->ShowWindow(SW_SHOW); pFrame->UpdateWindow();
+
+  return TRUE;
+#endif
 

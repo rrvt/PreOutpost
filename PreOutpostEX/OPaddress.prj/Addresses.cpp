@@ -263,28 +263,3 @@ IniFile  addrFile;
   }
 
 
-#if 0
-static int offset = _T('a') - _T('A');
-
-void makeKey(TCchar* name, TCchar* orgLoc, String& key) {
-String nm   = name;
-String orgL = orgLoc;
-int   n;
-int   i;
-Tchar tch;
-
-  key = orgL.isEmpty() ? name : nm + _T(".") + orgL;   n = key.length();
-
-  for (i = 0; i < n; i++) {
-    tch = key[i];
-
-    if (_T('A') <= tch && tch <= _T('Z')) continue;
-    if (_T('a') <= tch && tch <= _T('z')) {key[i] = tch - offset; continue;}
-    if (_T('0') <= tch && tch <= _T('9')) continue;
-    if (tch == _T('_') || tch == _T('.')) continue;
-
-    key[i] = tch == _T(' ') ? _T('_') : _T('.');
-    }
-  }
-#endif
-

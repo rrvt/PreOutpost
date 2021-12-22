@@ -79,6 +79,7 @@ public:
   afx_msg void    OnRoutingForm();
   afx_msg void    OnRoutingHelp();
   afx_msg void    OnBBS_Assgnmnts();
+  afx_msg void    OnChkInOutFmt();
   };
 
 

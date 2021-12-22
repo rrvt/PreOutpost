@@ -11,7 +11,7 @@ class AboutDlgEx : public CDialogEx {
 bool useProdName;
 public:
 
-enum { IDD = IDD_ABOUTBOX };     // Dialog Data
+enum { IDD = IDD_AboutBox };     // Dialog Data
 
   AboutDlgEx(bool useInternalName) : useProdName(!useInternalName), CDialogEx(AboutDlgEx::IDD) { }
   AboutDlgEx()                     : useProdName(true),             CDialogEx(AboutDlgEx::IDD) { }

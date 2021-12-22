@@ -17,7 +17,6 @@ STARTUPINFO startUpInfo;
 
   virtual BOOL    InitInstance();
           void    getProfilePath();
-          int     doDlg();
 
           String& getAcroRd();
 

@@ -42,6 +42,9 @@ END_MESSAGE_MAP()
 // OPaddress initialization
 
 BOOL OPaddress::InitInstance() {
+AddrDlg dlg;
+
+  CWinApp::InitInstance();    m_pMainWnd = 0;
 
   iniFile.getAppDataPath(m_pszHelpFilePath);
 
@@ -49,45 +52,7 @@ BOOL OPaddress::InitInstance() {
 
   outputPaths.getProfilePath();   addrPath = outputPaths.profilePath + _T("addr.d\\");
 
-  // InitCommonControlsEx() is required on Windows XP if an application
-  // manifest specifies use of ComCtl32.dll version 6 or later to enable
-  // visual styles.  Otherwise, any window creation will fail.
-
-  INITCOMMONCONTROLSEX InitCtrls;
-  InitCtrls.dwSize = sizeof(InitCtrls);
-
-  // Set this to include all the common control classes you want to use
-  // in your application.
-
-  InitCtrls.dwICC = ICC_WIN95_CLASSES;
-  InitCommonControlsEx(&InitCtrls);
-
-  CWinApp::InitInstance();
-
-  AfxEnableControlContainer();
-
-  // Activate "Windows Native" visual manager for enabling themes in MFC controls
-
-  CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
-
-  GetStartupInfo(&startUpInfo);
-
-  if (doDlg() == -1) {
-
-    TRACE(traceAppMsg, 0,
-                  _T("Warning: dialog creation failed, so application is terminating unexpectedly.\n"));
-    TRACE(traceAppMsg, 0, _T("Warning: if you are using MFC controls on the dialog, ")
-                                           _T("you cannot #define _AFX_NO_MFC_CONTROLS_IN_DIALOGS.\n"));
-    }
-
-  #if !defined(_AFXDLL) && !defined(_AFX_NO_MFC_CONTROLS_IN_DIALOGS)
-    ControlBarCleanUp();
-  #endif
-
-  // Since the dialog has been closed, return FALSE so that we exit the
-  //  application, rather than start the application's message pump.
-
-  return FALSE;
+  GetStartupInfo(&startUpInfo);   addresses.load();   dlg.DoModal();    return 0;
   }
 
 
@@ -115,6 +80,54 @@ String*   path;
   }
 
 
+
+
+void OPaddress::OnOutpostFindPath() {
+  outputPaths.choose();   addrPath = outputPaths.profilePath + _T("addr.d\\");
+  }
+
+
+
+
+
+
+#if 0
+  // InitCommonControlsEx() is required on Windows XP if an application
+  // manifest specifies use of ComCtl32.dll version 6 or later to enable
+  // visual styles.  Otherwise, any window creation will fail.
+
+  INITCOMMONCONTROLSEX InitCtrls;
+  InitCtrls.dwSize = sizeof(InitCtrls);
+
+  // Set this to include all the common control classes you want to use
+  // in your application.
+
+  InitCtrls.dwICC = ICC_WIN95_CLASSES;
+  InitCommonControlsEx(&InitCtrls);
+
+
+  AfxEnableControlContainer();
+
+  // Activate "Windows Native" visual manager for enabling themes in MFC controls
+
+  CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
+#endif
+#if 0
+  #if !defined(_AFXDLL) && !defined(_AFX_NO_MFC_CONTROLS_IN_DIALOGS)
+    ControlBarCleanUp();
+  #endif
+
+
+  if (doDlg() == -1) {
+
+    TRACE(traceAppMsg, 0,
+                  _T("Warning: dialog creation failed, so application is terminating unexpectedly.\n"));
+    TRACE(traceAppMsg, 0, _T("Warning: if you are using MFC controls on the dialog, ")
+                                           _T("you cannot #define _AFX_NO_MFC_CONTROLS_IN_DIALOGS.\n"));
+    }
+
+#endif
+#if 0
 int OPaddress::doDlg() {
 AddrDlg dlg;
 
@@ -122,11 +135,5 @@ AddrDlg dlg;
 
   m_pMainWnd = &dlg;   return dlg.DoModal();
   }
-
-
-
-
-void OPaddress::OnOutpostFindPath() {
-  outputPaths.choose();   addrPath = outputPaths.profilePath + _T("addr.d\\");
-  }
+#endif
 

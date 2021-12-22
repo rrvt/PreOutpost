@@ -68,13 +68,14 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>Htmlhelp.lib;Version.lib;Version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <LinkTimeCodeGeneration>
-      </LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
     </Link>
@@ -94,7 +95,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\Common.prj;$(SolutionDir)..\..\..\Sources\Library\Library.prj\;$(SolutionDir)..\..\..\Sources\Library\Extras\</AdditionalIncludeDirectories>
@@ -133,7 +134,6 @@
     <ClCompile Include="Identity.cpp" />
     <ClCompile Include="IdentityDlg.cpp" />
     <ClCompile Include="ListItems.cpp" />
-    <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="MasterMgmtDlg.cpp" />
     <ClCompile Include="MasterProf.cpp" />
     <ClCompile Include="NewMaster.cpp" />
@@ -155,7 +155,6 @@
     <ClInclude Include="Identity.h" />
     <ClInclude Include="IdentityDlg.h" />
     <ClInclude Include="ListItems.h" />
-    <ClInclude Include="MainFrm.h" />
     <ClInclude Include="MasterMgmtDlg.h" />
     <ClInclude Include="MasterProf.h" />
     <ClInclude Include="NewMaster.h" />

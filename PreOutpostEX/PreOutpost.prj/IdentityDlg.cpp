@@ -14,6 +14,43 @@
 #include "BBSdlg.h"
 
 
+IMPLEMENT_DYNAMIC(IdentityDlg, CDialog)
+
+
+BEGIN_MESSAGE_MAP(IdentityDlg, CDialog)
+  ON_BN_CLICKED(IDC_BUTTON4,        &OnTacticalBnClicked)
+  ON_EN_KILLFOCUS(IDC_EDIT4,        &OnTacCallLoseFoc)
+  ON_EN_KILLFOCUS(IDC_EDIT5,        &OnTacCallModA)
+  ON_EN_KILLFOCUS(IDC_EDIT6,        &OnTacCallModB)
+  ON_EN_KILLFOCUS(IDC_EDIT8,        &OnTacCallModC)
+  ON_EN_KILLFOCUS(IDC_EDIT1,        &OnFCCCallLoseFoc)
+  ON_EN_KILLFOCUS(IDC_EDIT2,        &OnFCCCallModA)
+  ON_EN_KILLFOCUS(IDC_EDIT3,        &OnFCCCallModB)
+  ON_EN_KILLFOCUS(IDC_EDIT7,        &OnFCCCallModC)
+  ON_COMMAND(ID_SetBBSsuffixes,     &OnSetBBSsuffixes)
+  ON_COMMAND(ID_ABOUT1,             &OnAbout)
+  ON_COMMAND(ID_HELP_OVERVIEW,      &OnHelpOverview)
+  ON_COMMAND(ID_HELP_IDENTITY,      &OnHelpIdentity)
+  ON_COMMAND(ID_HELP_ADDRESSBOOK,   &OnHelpAddressbook)
+  ON_COMMAND(ID_HELP_DeleteMaster,  &OnHelpDeleteMaster)
+  ON_COMMAND(ID_HELP_SelNewMaster,  &OnHelpSelNewMaster)
+  ON_COMMAND(ID_HELP_SelectProfile, &OnHelpSelectProfile)
+  ON_COMMAND(ID_SubjWSecurity,      &OnSubjWSecurity)
+  ON_COMMAND(ID_FindOutpost,        &OnFindOutpost)
+  ON_COMMAND(ID_IncludeAddrBook,    &OnIncludeAddrBook)
+END_MESSAGE_MAP()
+
+
+IdentityDlg::IdentityDlg(CWnd* pParent /*=NULL*/) : CDialog(IdentityDlg::IDD, pParent),
+  isTacticalID(false),   tacticalModified(false), userModified(false), subjWSecurity(false),
+  includeAddrBook(false),
+  tacticalCallSign(_T("")), tacticalText(_T("")), tacticalIDPrefix(_T("")), tacSignature(_T("")),
+  userCallSign(_T("")), userName(_T("")), userIDPrefix(_T("")), userSignature(_T("")), subject(_T("")),
+  severity(0), handling(0), subjStyle(0), profilesDesired(0), practiceDay(0) {}
+
+
+IdentityDlg::~IdentityDlg() {  }
+
 
 BOOL IdentityDlg::OnInitDialog() {
 CEdit*       p;                                          //{80,44,70,12};
@@ -48,18 +85,6 @@ COleDateTime ctm;
   }
 
 
-IMPLEMENT_DYNAMIC(IdentityDlg, CDialog)
-
-IdentityDlg::IdentityDlg(CWnd* pParent /*=NULL*/) : CDialog(IdentityDlg::IDD, pParent),
-  isTacticalID(false),   tacticalModified(false), userModified(false), subjWSecurity(false),
-  includeAddrBook(false),
-  tacticalCallSign(_T("")), tacticalText(_T("")), tacticalIDPrefix(_T("")), tacSignature(_T("")),
-  userCallSign(_T("")), userName(_T("")), userIDPrefix(_T("")), userSignature(_T("")), subject(_T("")),
-  severity(0), handling(0), subjStyle(0), profilesDesired(0), practiceDay(0) {}
-
-IdentityDlg::~IdentityDlg() {  }
-
-
 
 void IdentityDlg::DoDataExchange(CDataExchange* pDX) {
   CDialog::DoDataExchange(pDX);
@@ -89,39 +114,16 @@ void IdentityDlg::DoDataExchange(CDataExchange* pDX) {
   }
 
 
-BEGIN_MESSAGE_MAP(IdentityDlg, CDialog)
-  ON_BN_CLICKED(IDC_BUTTON4,      &IdentityDlg::OnTacticalBnClicked)
-  ON_EN_KILLFOCUS(IDC_EDIT4,      &IdentityDlg::OnTacCallLoseFoc)
-  ON_EN_KILLFOCUS(IDC_EDIT5,      &IdentityDlg::OnTacCallModA)
-  ON_EN_KILLFOCUS(IDC_EDIT6,      &IdentityDlg::OnTacCallModB)
-  ON_EN_KILLFOCUS(IDC_EDIT8,      &IdentityDlg::OnTacCallModC)
-  ON_EN_KILLFOCUS(IDC_EDIT1,      &IdentityDlg::OnFCCCallLoseFoc)
-  ON_EN_KILLFOCUS(IDC_EDIT2,      &IdentityDlg::OnFCCCallModA)
-  ON_EN_KILLFOCUS(IDC_EDIT3,      &IdentityDlg::OnFCCCallModB)
-  ON_EN_KILLFOCUS(IDC_EDIT7,      &IdentityDlg::OnFCCCallModC)
-  ON_COMMAND(ID_SetBBSsuffixes,   &IdentityDlg::OnSetBBSsuffixes)
-  ON_COMMAND(ID_ABOUT,            &IdentityDlg::OnAbout)
-  ON_COMMAND(ID_HELP_OVERVIEW,    &IdentityDlg::OnHelpOverview)
-  ON_COMMAND(ID_HELP_IDENTITY,    &IdentityDlg::OnHelpIdentity)
-  ON_COMMAND(ID_SubjWSecurity,    &IdentityDlg::OnSubjWSecurity)
-  ON_COMMAND(ID_FindOutpost,      &IdentityDlg::OnFindOutpost)
-  ON_COMMAND(ID_IncludeAddrBook,  &IdentityDlg::OnIncludeAddrBook)
-  ON_COMMAND(ID_HELP_ADDRESSBOOK, &IdentityDlg::OnHelpAddressbook)
-END_MESSAGE_MAP()
-
-
 
 
 
 void IdentityDlg::OnSubjWSecurity() {subjWSecurity = !subjWSecurity; setSubjWSecurity();}
 
 
-
 void IdentityDlg::OnFindOutpost() {outputPaths.choose();}
 
 
 void IdentityDlg::OnIncludeAddrBook() {includeAddrBook = !includeAddrBook; setIncludeAddrBook();}
-
 
 
 void IdentityDlg::setSubjWSecurity() {
@@ -253,7 +255,7 @@ String topic;
 
   topic = theApp.helpFile; topic += _T(">Introduction");
 
-  ::HtmlHelp(theApp.m_pMainWnd->m_hWnd, topic,  HH_DISPLAY_TOC, 0);
+  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
   }
 
 
@@ -262,7 +264,7 @@ String topic;
 
   topic = theApp.helpFile; topic += _T(">OneMaster");
 
-  ::HtmlHelp(theApp.m_pMainWnd->m_hWnd, topic,  HH_DISPLAY_TOC, 0);
+  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
   }
 
 
@@ -271,5 +273,33 @@ String topic;
 
   topic = theApp.helpFile; topic += _T(">AddressBook");
 
-  ::HtmlHelp(theApp.m_pMainWnd->m_hWnd, topic, HH_DISPLAY_TOC, 0);
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
   }
+
+
+void IdentityDlg::OnHelpDeleteMaster() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">DeleteMaster");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+
+
+void IdentityDlg::OnHelpSelNewMaster() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">SelectProfile");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+
+
+void IdentityDlg::OnHelpSelectProfile() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">TwoPlusMaster");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+

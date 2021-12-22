@@ -28,10 +28,16 @@ void NewMasterDlg::DoDataExchange(CDataExchange* pDX) {CDialog::DoDataExchange(p
 
 
 BEGIN_MESSAGE_MAP(NewMasterDlg, CDialog)
-  ON_BN_CLICKED(IDC_BUTTON1, &NewMasterDlg::OnOK)
-  ON_LBN_DBLCLK(IDC_LIST1,   &NewMasterDlg::OnDblclkList1)
-  ON_COMMAND(ID_ABOUT32780,  &NewMasterDlg::OnAbout32780)
-  ON_COMMAND(ID_HELP32779,   &NewMasterDlg::OnHelp32779)
+  ON_BN_CLICKED(IDC_BUTTON1,        &OnOK)
+  ON_LBN_DBLCLK(IDC_LIST1,          &OnDblclkList1)
+  ON_COMMAND(ID_ABOUT4,             &onAbout)
+  ON_COMMAND(ID_HELP_OVERVIEW,      &OnHelpOverview)
+  ON_COMMAND(ID_HELP_IDENTITY,      &OnHelpIdentity)
+  ON_COMMAND(ID_HELP_ADDRESSBOOK,   &OnHelpAddressbook)
+  ON_COMMAND(ID_HELP_MakeMaster,    &OnHelpMakeMaster)
+  ON_COMMAND(ID_HELP_DeleteMaster,  &OnHelpDeleteMaster)
+  ON_COMMAND(ID_HELP_SelNewMaster,  &OnHelpSelNewMaster)
+  ON_COMMAND(ID_HELP_SelectProfile, &OnHelpSelectProfile)
 END_MESSAGE_MAP()
 
 
@@ -48,13 +54,80 @@ void NewMasterDlg::OnDblclkList1() {OnOK();}
 NewMasterDlg::~NewMasterDlg() {}
 
 
-void NewMasterDlg::OnAbout32780() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
+void NewMasterDlg::onAbout() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
-
+#if 0
 void NewMasterDlg::OnHelp32779() {
 String topic;
 
   topic = theApp.helpFile; topic += _T(">SelectProfile");
 
-  ::HtmlHelp(theApp.m_pMainWnd->m_hWnd, topic,  HH_DISPLAY_TOC, 20);
+  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 20);
   }
+#endif
+
+
+void NewMasterDlg::OnHelpMakeMaster() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">CreateMaster");
+
+  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 20);
+  }
+
+
+
+void NewMasterDlg::OnHelpOverview() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">Introduction");
+
+  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
+  }
+
+
+void NewMasterDlg::OnHelpIdentity() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">OneMaster");
+
+  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
+  }
+
+
+void NewMasterDlg::OnHelpAddressbook() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">AddressBook");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+
+
+void NewMasterDlg::OnHelpDeleteMaster() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">DeleteMaster");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+
+
+void NewMasterDlg::OnHelpSelNewMaster() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">SelectProfile");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+
+
+
+void NewMasterDlg::OnHelpSelectProfile() {
+String topic;
+
+  topic = theApp.helpFile; topic += _T(">TwoPlusMaster");
+
+  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
+  }
+

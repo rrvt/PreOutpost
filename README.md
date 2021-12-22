@@ -19,6 +19,16 @@ A help file is included.  Let the author know if the help file needs improving..
 
 ## Updates
 
+### Update 12/21/21
+
+While creating a template for a dialog box only application with a toolbar the Library was added to and
+changed to hopefully simplify toolbar creation.  This version of the toolbar includes buttons, edit boxes,
+combo boxes and drop down menus as well as the traditional 16x15 icons.
+
+PreOutpost is a Dialog App and does not have any toolbars at this time.
+
+Also trimmed some of the unneeded MFC windows code from the InitInstance functions in both applications.
+
 ### Update 11/15/21
 
 Apparently CWinAppEx intializes the Shell Manager and CWinApp does not.  To get some functionality in

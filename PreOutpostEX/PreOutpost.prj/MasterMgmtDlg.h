@@ -40,6 +40,12 @@ public:
   afx_msg void createNew();
   afx_msg void delSelected();
   afx_msg void OnClickedButton1();
-  afx_msg void OnAbout32775();
-  afx_msg void OnHelp32776();
+  afx_msg void OnAbout();
+  afx_msg void OnHelpMakeMaster();
+  afx_msg void OnHelpOverview();
+  afx_msg void OnHelpIdentity();
+  afx_msg void OnHelpAddressbook();
+  afx_msg void OnHelpDeleteMaster();
+  afx_msg void OnHelpSelNewMaster();
+  afx_msg void OnHelpSelectProfile();
   };

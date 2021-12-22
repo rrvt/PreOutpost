@@ -72,6 +72,7 @@
   <ComponentRef Id="Slip.cmp"/>
   <ComponentRef Id="Info.cmp"/>
   <ComponentRef Id="BBSAssnmts.cmp"/>
+  <ComponentRef Id="CheckInOut.cmp"/>
 </ComponentGroup>
 <ComponentGroup Id="UninstallPreOutpost.ftr">
   <ComponentRef Id="UninstallPreOutpost.cmp"/>
@@ -195,12 +196,33 @@
               />
   </Component>
 
+  <Component Id="CheckInOut.cmp"  Guid="DC485E98-93E8-4DC7-A68F-1DBE3D401A9D"
+                                                                          Directory="PreOutpost.pff">
+    <File Id="CheckInOut.cmp" Source="$(var.SolutionDir)..\Docs\CheckInOutFormat.pdf" KeyPath="yes"/>
+
+    <Shortcut Id               = "CheckInOut.shc"
+              Name             = "CheckInOut"
+              Advertise        = "yes"
+              Directory        = "PreOutpost.pmf"
+              WorkingDirectory = "PreOutpost.pff"
+              Icon             = "RoutingIcon.ico"
+              />
+
+    <Shortcut Id               = "CheckInOut.dsk"
+              Name             = "CheckInOut"
+              Advertise        = "yes"
+              Directory        = "DesktopFolder"
+              WorkingDirectory = "PreOutpost.pff"
+              Icon             = "RoutingIcon.ico"
+              />
+  </Component>
+
 </Fragment>
 
 <Fragment>
 
   <Component Id="UninstallPreOutpost.cmp" 
-                              Guid="1710F484-7BCE-49A9-B07C-E76055D87AD9" Directory="PreOutpost.pmf">
+                              Guid="4A1BE669-D44D-4DFF-B25D-DF62A0D606C5" Directory="PreOutpost.pmf">
 
     <Shortcut Id               = "UninstallPreOutpost.shc"
               Name             = "Uninstall PreOutpost"
