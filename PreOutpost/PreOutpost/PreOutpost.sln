@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PreOutpost", "..\PreOutpost.prj\PreOutpost.vcxproj", "{842FBB02-DB38-410C-AA42-9660D2962E33}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4BB486A1-71EA-4F95-99BF-238FA918D66C} = {4BB486A1-71EA-4F95-99BF-238FA918D66C}
+		{347359E1-94A1-42B6-9EB7-AD084BF60BA5} = {347359E1-94A1-42B6-9EB7-AD084BF60BA5}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OPaddress", "..\OPaddress.prj\OPaddress.vcxproj", "{347359E1-94A1-42B6-9EB7-AD084BF60BA5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4BB486A1-71EA-4F95-99BF-238FA918D66C} = {4BB486A1-71EA-4F95-99BF-238FA918D66C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Library", "..\..\Library\Library.prj\Library.vcxproj", "{CF57F3EC-D3DB-4469-8519-3F9D73785D9B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4BB486A1-71EA-4F95-99BF-238FA918D66C} = {4BB486A1-71EA-4F95-99BF-238FA918D66C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PreOutpostHlp", "..\PreOutpost.hlp\PreOutpostHlp.vcxproj", "{4BB486A1-71EA-4F95-99BF-238FA918D66C}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "PreOutpostWix", "..\PreOutpost.wix\PreOutpostWix.wixproj", "{697706A7-4FEB-48D0-BDBD-522042CB4EDD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{842FBB02-DB38-410C-AA42-9660D2962E33} = {842FBB02-DB38-410C-AA42-9660D2962E33}
+		{4BB486A1-71EA-4F95-99BF-238FA918D66C} = {4BB486A1-71EA-4F95-99BF-238FA918D66C}
+		{347359E1-94A1-42B6-9EB7-AD084BF60BA5} = {347359E1-94A1-42B6-9EB7-AD084BF60BA5}
+		{CF57F3EC-D3DB-4469-8519-3F9D73785D9B} = {CF57F3EC-D3DB-4469-8519-3F9D73785D9B}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{842FBB02-DB38-410C-AA42-9660D2962E33}.Debug|Win32.ActiveCfg = Debug|Win32
+		{842FBB02-DB38-410C-AA42-9660D2962E33}.Debug|Win32.Build.0 = Debug|Win32
+		{842FBB02-DB38-410C-AA42-9660D2962E33}.Release|Win32.ActiveCfg = Release|Win32
+		{842FBB02-DB38-410C-AA42-9660D2962E33}.Release|Win32.Build.0 = Release|Win32
+		{347359E1-94A1-42B6-9EB7-AD084BF60BA5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{347359E1-94A1-42B6-9EB7-AD084BF60BA5}.Debug|Win32.Build.0 = Debug|Win32
+		{347359E1-94A1-42B6-9EB7-AD084BF60BA5}.Release|Win32.ActiveCfg = Release|Win32
+		{347359E1-94A1-42B6-9EB7-AD084BF60BA5}.Release|Win32.Build.0 = Release|Win32
+		{CF57F3EC-D3DB-4469-8519-3F9D73785D9B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CF57F3EC-D3DB-4469-8519-3F9D73785D9B}.Debug|Win32.Build.0 = Debug|Win32
+		{CF57F3EC-D3DB-4469-8519-3F9D73785D9B}.Release|Win32.ActiveCfg = Release|Win32
+		{CF57F3EC-D3DB-4469-8519-3F9D73785D9B}.Release|Win32.Build.0 = Release|Win32
+		{4BB486A1-71EA-4F95-99BF-238FA918D66C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4BB486A1-71EA-4F95-99BF-238FA918D66C}.Debug|Win32.Build.0 = Debug|Win32
+		{4BB486A1-71EA-4F95-99BF-238FA918D66C}.Release|Win32.ActiveCfg = Release|Win32
+		{4BB486A1-71EA-4F95-99BF-238FA918D66C}.Release|Win32.Build.0 = Release|Win32
+		{697706A7-4FEB-48D0-BDBD-522042CB4EDD}.Debug|Win32.ActiveCfg = Debug|x86
+		{697706A7-4FEB-48D0-BDBD-522042CB4EDD}.Debug|Win32.Build.0 = Debug|x86
+		{697706A7-4FEB-48D0-BDBD-522042CB4EDD}.Release|Win32.ActiveCfg = Release|x86
+		{697706A7-4FEB-48D0-BDBD-522042CB4EDD}.Release|Win32.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9FC6330-7FE5-4419-B020-2FEF5E116900}
+	EndGlobalSection
+EndGlobal
