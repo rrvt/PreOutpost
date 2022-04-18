@@ -63,15 +63,17 @@ String*   path;
 
   if (!iniFile.readString(PathSection, AcroRdKey, acroRd)) {
 
-    if (filePaths.findFiles(_T("C:"), _T("Program*"), _T("AcroRd32.exe"))) {
-      for (path = iter(); path; path = iter++) {
+    filePaths.findFiles(_T("C:"), _T("Program*"), _T("AcroRd32.exe"));
+    filePaths.findFiles(_T("C:"), _T("Program*"), _T("Acrobat*.exe"));
 
-        String   eula = getPath(path->str());
-        FileSrch eulaPath;
-        String   name;
-        if (eulaPath.findFiles(eula, _T("*Eula.exe")) && eulaPath.getName(name)) {acroRd = *path; break;}
-        }
+    for (path = iter(); path; path = iter++) {
+
+      String   eula = getPath(path->str());
+      FileSrch eulaPath;
+      String   name;
+      if (eulaPath.findFiles(eula, _T("*Eula.exe")) && eulaPath.getName(name)) {acroRd = *path; break;}
       }
+
 
     if (!acroRd.isEmpty()) iniFile.writeString(PathSection, AcroRdKey, acroRd);
     }

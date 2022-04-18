@@ -4,6 +4,7 @@
 #pragma once
 #include "ListBox.h"
 #include "LogFile.h"
+#include "WinPos.h"
 
 
 // AddrDlg dialog
@@ -12,6 +13,7 @@ class AddrDlg : public CDialogEx {
 
 static int baseUnits;
 
+WinPos  winPos;               // Position of dialog box
 int     dataTab;
 int     dx1;
 RECT    dlgRect;

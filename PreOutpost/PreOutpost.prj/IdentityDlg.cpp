@@ -166,12 +166,13 @@ CEdit*   callSign = (CEdit*) GetDlgItem(IDC_EDIT4);   if (!callSign) return;
 int      nBuf;
 UsrData& tac = idInfo.tacData;
 Tchar    buf[16];
+String   s;
 
-  nBuf = callSign->GetLine(0, buf, noElements(buf));    if (buf <= 0) return;
+  nBuf = callSign->GetLine(0, buf, noElements(buf));    if (nBuf <= 0) return;
 
-  buf[nBuf] = 0;
+  buf[nBuf] = 0;   s = buf;
 
-  if (tac.find(String(buf))) {
+  if (tac.find(s)) {
     SetDlgItemText(IDC_EDIT5, tac.name);
     SetDlgItemText(IDC_EDIT6, tac.userID);
     SetDlgItemText(IDC_EDIT8, tac.signature);
@@ -187,12 +188,13 @@ CEdit*   callSign = (CEdit*) GetDlgItem(IDC_EDIT1);   if (!callSign) return;
 int      nBuf;
 UsrData& usr = idInfo.usrData;
 Tchar    buf[16];
+String   s;
 
-  nBuf = callSign->GetLine(0, buf, noElements(buf));    if (buf <= 0) return;
+  nBuf = callSign->GetLine(0, buf, noElements(buf));    if (nBuf <= 0) return;
 
-  buf[nBuf] = 0;
+  buf[nBuf] = 0;  s = buf;
 
-  if (usr.find(String(buf))) {
+  if (usr.find(s)) {
     SetDlgItemText(IDC_EDIT2, usr.name);
     SetDlgItemText(IDC_EDIT3, usr.userID);
     SetDlgItemText(IDC_EDIT7, usr.signature);

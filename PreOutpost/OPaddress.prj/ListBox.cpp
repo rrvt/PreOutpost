@@ -62,7 +62,11 @@ Addr* ListBox::find() {
 int     x = GetCurSel();   if (x < 0) return 0;
 CString cs;
 
-  GetText(x, cs);  return addresses.find(parseListKey(cs));
+  GetText(x, cs);
+
+  String key = parseListKey(cs);
+
+  return addresses.find(key);
   }
 
 

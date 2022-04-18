@@ -97,8 +97,7 @@ PROCESS_INFORMATION processInfo;
     }
   WaitForSingleObject(processInfo.hProcess, INFINITE);
 
-
-  idInfo.clearOldProfiles(String(_T("*")));
+  String s = _T("*");   idInfo.clearOldProfiles(s);
 
   if (idInfo.includeAddrBook) killOPaddress();
   }

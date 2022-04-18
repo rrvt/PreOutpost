@@ -79,6 +79,7 @@ String       metaLabel;
 // Delete MetaProfile Selected
 
 void NewMaster::deleteMaster(String& selected) {
+String       mn = getMainName(selected);
 DelMasterDlg dlg;
 String       path;
 
@@ -90,7 +91,7 @@ String       path;
 
   if (PathFileExists(path)) removeFile(path);
 
-  idInfo.clearOldProfiles(getMainName(selected));
+  idInfo.clearOldProfiles(mn);
 
   masterProf.readIniFile();
   }

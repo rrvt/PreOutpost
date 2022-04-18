@@ -30,12 +30,12 @@
   <WixVariable Id="WixUIDialogBmp" Value="C:\Program Files (x86)\WixApp\dialog.bmp"/>
   <WixVariable Id="WixUIBannerBmp" Value="C:\Program Files (x86)\WixApp\banner.bmp"/>
 
-  <Icon     Id="UIPreOutpostIcon.ico"
-                              SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\UIPreOutpost.ico"/>
-  <Icon     Id="PreOutpostIcon.ico"
-                                SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\PreOutpost.ico"/>
-  <Icon     Id="RoutingIcon.ico" SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\Routing.ico"/>
-  <Property Id="ARPPRODUCTICON"  Value="UIPreOutpostIcon.ico" />
+  <Icon     Id="UIPreOutpost01Icon.ico"
+                            SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\UIPreOutpost01.ico"/>
+  <Icon     Id="PreOutpost01Icon.ico"
+                              SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\PreOutpost01.ico"/>
+  <Icon     Id="Routing01Icon.ico" SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\Routing01.ico"/>
+  <Property Id="ARPPRODUCTICON"  Value="UIPreOutpost01Icon.ico" />
 
   <!-- Custom Action to set the system (Machine) Path Variable -->
 
@@ -110,7 +110,7 @@
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "PreOutpostIcon.ico"
+              Icon             = "PreOutpost01Icon.ico"
               />
 
     <Shortcut Id               = "PreOutpost.dsk"
@@ -119,7 +119,7 @@
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "PreOutpostIcon.ico"
+              Icon             = "PreOutpost01Icon.ico"
               />
   </Component>
 
@@ -143,7 +143,7 @@
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "RoutingIcon.ico"
+              Icon             = "Routing01Icon.ico"
               />
 
     <Shortcut Id               = "Slip.dsk"
@@ -151,7 +151,7 @@
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "RoutingIcon.ico"
+              Icon             = "Routing01Icon.ico"
               />
   </Component>
 
@@ -163,7 +163,7 @@
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "RoutingIcon.ico"
+              Icon             = "Routing01Icon.ico"
               />
 
     <Shortcut Id               = "Info.dsk"
@@ -171,7 +171,7 @@
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "RoutingIcon.ico"
+              Icon             = "Routing01Icon.ico"
               />
   </Component>
 
@@ -184,7 +184,7 @@
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "RoutingIcon.ico"
+              Icon             = "Routing01Icon.ico"
               />
 
     <Shortcut Id               = "BBSAssnmts.dsk"
@@ -192,7 +192,7 @@
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "RoutingIcon.ico"
+              Icon             = "Routing01Icon.ico"
               />
   </Component>
 
@@ -205,7 +205,7 @@
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "RoutingIcon.ico"
+              Icon             = "Routing01Icon.ico"
               />
 
     <Shortcut Id               = "CheckInOut.dsk"
@@ -213,7 +213,7 @@
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "RoutingIcon.ico"
+              Icon             = "Routing01Icon.ico"
               />
   </Component>
 
@@ -222,14 +222,14 @@
 <Fragment>
 
   <Component Id="UninstallPreOutpost.cmp" 
-                              Guid="4A1BE669-D44D-4DFF-B25D-DF62A0D606C5" Directory="PreOutpost.pmf">
+                              Guid="50333007-AD8E-409F-9772-DD78FE5A3183" Directory="PreOutpost.pmf">
 
     <Shortcut Id               = "UninstallPreOutpost.shc"
               Name             = "Uninstall PreOutpost"
               Description      = "Uninstalls PreOutpost"
               Target           = "[System64Folder]msiexec.exe"
               Arguments        = "/x [ProductCode]"
-              Icon             = "UIPreOutpostIcon.ico"
+              Icon             = "UIPreOutpost01Icon.ico"
               />
     <RemoveFolder Id="PreOutpost.uni" Directory="PreOutpost.pmf" On="uninstall"/>
     <RegistryValue Root="HKCU" Key="Software\UninstallPreOutpost.cmp" Name="installed"

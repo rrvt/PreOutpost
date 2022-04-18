@@ -222,10 +222,10 @@ String LogFile::getBrktd() {
 int beg = line.find('[') + 1;
 int end = line.find(']') - beg;
 
-  return beg >= 0 && end >= 0 ? line.substr(beg, end) : _T("");
+  return beg >= 0 && end >= 0 ? line.substr(beg, end) : String(_T(""));
   }
 
 
 String LogFile::get()
-                    {int pos = line.find(_T(' '));  return pos >= 0 ? line.substr(pos).trim() : _T("");}
+             {int pos = line.find(_T(' '));  return pos >= 0 ? line.substr(pos).trim() : String(_T(""));}
 

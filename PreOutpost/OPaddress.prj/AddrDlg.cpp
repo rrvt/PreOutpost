@@ -12,7 +12,6 @@
 #include "resource.h"
 #include "Resources.h"
 #include "SaveAddrDlg.h"
-#include "WindowPos.h"
 #include "afxdialogex.h"
 
 #ifdef _DEBUG
@@ -47,12 +46,14 @@ END_MESSAGE_MAP()
 
 
 
-AddrDlg::AddrDlg(CWnd* pParent) : CDialogEx(IDD_AddrDlg, pParent)
-                                                        {m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);}
+AddrDlg::AddrDlg(CWnd* pParent) :
+          CDialogEx(IDD_AddrDlg, pParent) {m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);}
 
 BOOL AddrDlg::OnInitDialog() {
 
   CDialogEx::OnInitDialog();
+
+  winPos.onInit(this);
 
   // Add "About..." menu item to system menu.
 
@@ -81,7 +82,7 @@ BOOL AddrDlg::OnInitDialog() {
 
   loadAddresses();
 
-  windowPos.set(this);
+  winPos.set();
 
   return TRUE;                                    // return TRUE  unless you set the focus to a control
   }
@@ -307,11 +308,10 @@ void AddrDlg::OnPaint() {
 HCURSOR AddrDlg::OnQueryDragIcon() {return static_cast<HCURSOR>(m_hIcon);}
 
 
-void AddrDlg::OnSize(UINT nType, int cx, int cy)
-                                              {CDialogEx::OnSize(nType, cx, cy);   windowPos.getRect();}
+void AddrDlg::OnSize(UINT nType, int cx, int cy) {CDialogEx::OnSize(nType, cx, cy);   winPos.getRect();}
 
 
-void AddrDlg::OnMove(int x, int y) {CDialogEx::OnMove(x, y);  windowPos.getRect();}
+void AddrDlg::OnMove(int x, int y) {CDialogEx::OnMove(x, y);  winPos.getRect();}
 
 
 BOOL AddrDlg::PreTranslateMessage(MSG* pMsg) {

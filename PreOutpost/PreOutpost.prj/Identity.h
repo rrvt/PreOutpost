@@ -47,8 +47,8 @@ UsrData usrData;
 UsrData tacData;
 
   IdentityInfo() : isTacticalID(false), profilesDesired(0), severity(0), handling(0), subjStyle(0),
-                    practiceDay(0), subjWSecurity(false), includeAddrBook(false),
-                    usrData(_T("usr")), tacData(_T("tac")) {}
+                   practiceDay(0), subjWSecurity(false), includeAddrBook(false),
+                   usrData(_T("usr")), tacData(_T("tac")) {}
  ~IdentityInfo() {}
 
   bool operator() (TCchar* profileName, String& metaPath, int allProfiles);

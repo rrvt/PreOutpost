@@ -18,7 +18,7 @@ IniFile usrPPF;                                   // Private Profile File
 String  usrPath;
 String  extension;
 
-  UsrData(Tchar* ext) {extension = ext;};
+  UsrData(TCchar* ext) {extension = ext;};
 
   void initialize(String& profilePath);
   bool find(String& callSign);
