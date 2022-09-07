@@ -19,6 +19,10 @@ A help file is included.  Let the author know if the help file needs improving..
 
 ## Updates
 
+### Update 9/6/22
+
+The subject line needed a 4 digit year.
+
 ### Update 8/4/22
 
 Minor Library Update.

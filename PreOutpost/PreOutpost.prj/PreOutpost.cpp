@@ -10,7 +10,7 @@
 #include "filename.h"
 #include "IdentityDlg.h"
 #include "DelMasterDlg.h"
-#include "LoadScratchPad.h"
+#include "LoadClipBoard.h"
 #include "MasterProf.h"
 #include "MasterMgmtDlg.h"
 #include "MessageBox.h"
@@ -87,7 +87,7 @@ PROCESS_INFORMATION processInfo;
 
   outpostDir = getPath(outputPaths.outpostPath);
 
-  loadScratchPad(subjectLine);
+  loadClipBoard(subjectLine);
 
   if (!CreateProcess(outputPaths.outpostPath, 0, 0, 0, false, NORMAL_PRIORITY_CLASS, 0,
                                                               outpostDir, &startUpInfo, &processInfo)) {

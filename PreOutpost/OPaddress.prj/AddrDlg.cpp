@@ -6,7 +6,7 @@
 #include "AboutDlg.h"
 #include "DeleteDlg.h"
 #include "filename.h"
-#include "LoadScratchPad.h"
+#include "LoadClipBoard.h"
 #include "MessageBox.h"
 #include "OPaddress.h"
 #include "resource.h"

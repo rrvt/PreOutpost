@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "ListBox.h"
-#include "LoadScratchPad.h"
+#include "LoadClipBoard.h"
 #include "resource.h"
 
 
@@ -49,9 +49,9 @@ void ListBox::OnCopyactualaddr()  {copyActual();}
 
 void ListBox::OnDblclkList()      {copyActual();}
 
-void ListBox::copyActual() {Addr* addr = find();    if (addr) loadScratchPad(addr->actual);}
-void ListBox::copyVirt()   {Addr* addr = find();    if (addr) loadScratchPad(addr->virt);}
-void ListBox::copyLoc()    {Addr* addr = find();    if (addr) loadScratchPad(addr->orgLoc);}
+void ListBox::copyActual() {Addr* addr = find();    if (addr) loadClipBoard(addr->actual);}
+void ListBox::copyVirt()   {Addr* addr = find();    if (addr) loadClipBoard(addr->virt);}
+void ListBox::copyLoc()    {Addr* addr = find();    if (addr) loadClipBoard(addr->orgLoc);}
 
 
 void ListBox::add(Addr& addr) {String s = addr.virt + _T("\t") + addr.actual;   AddString(s);}

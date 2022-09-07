@@ -405,7 +405,7 @@ bool             bareSubj = false;
 
       if (delta != 0.0) {COleDateTimeSpan span( delta); ctm += span;}
 
-      stg += ctm.Format(_T("%x"));
+      stg += ctm.Format(_T("%m/%d/%Y"));
       }
     }
   }
