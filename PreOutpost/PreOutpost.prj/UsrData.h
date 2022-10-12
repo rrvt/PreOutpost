@@ -20,11 +20,13 @@ String  extension;
 
   UsrData(TCchar* ext) {extension = ext;};
 
-  void initialize(String& profilePath);
+  void initialize();
   bool find(String& callSign);
   void load(String& callSign);
   void store(String& callSign);
+
 private:
+
   UsrData() {}                                    // prevent null extension
   };
 

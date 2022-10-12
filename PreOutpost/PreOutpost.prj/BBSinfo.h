@@ -7,7 +7,6 @@
 #include "qsort.h"
 
 
-
 struct BBSdata {
 
 int    bbsNo;

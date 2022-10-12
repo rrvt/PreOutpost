@@ -2,13 +2,13 @@
 // IdentityDlg.cpp : implementation file
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "IdentityDlg.h"
 #include "AboutDlgEx.h"
 #include "BBSinfo.h"
 #include "HtmlHelp.h"
 #include "MessageBox.h"
-#include "OutpostChoiceDlg.h"
+#include "Outpost.h"
 #include "PreOutpost.h"
 #include "ProgramFiles.h"
 #include "BBSdlg.h"
@@ -120,7 +120,7 @@ void IdentityDlg::DoDataExchange(CDataExchange* pDX) {
 void IdentityDlg::OnSubjWSecurity() {subjWSecurity = !subjWSecurity; setSubjWSecurity();}
 
 
-void IdentityDlg::OnFindOutpost() {outputPaths.choose();}
+void IdentityDlg::OnFindOutpost() {outpost.choose();}
 
 
 void IdentityDlg::OnIncludeAddrBook() {includeAddrBook = !includeAddrBook; setIncludeAddrBook();}

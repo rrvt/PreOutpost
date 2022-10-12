@@ -1,7 +1,7 @@
 // Class that corresponds to the Dialog Box that allows the user to select the Master Profile when there
 // are two or more Master Profiles
 
-#include "stdafx.h"
+#include "pch.h"
 #include "PreOutpost.h"
 #include "SelectMasterDlg.h"
 #ifndef Win2K

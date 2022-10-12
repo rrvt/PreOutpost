@@ -5,27 +5,25 @@
 
 #pragma once
 #include "CApp.h"
+#include "Executable.h"
 #include "iniFile.h"
 #include "Identity.h"
 #include "MasterProf.h"
 
 
 class PreOutpost : public CApp {
-bool                subjWSecurity;
-bool                includeAddrBook;
+bool       subjWSecurity;
+bool       includeAddrBook;
 
 public:
 
-bool                makeMaster;              // When true make a Master Profile
-String              myPath;                  // Path to this program when running
-String              helpFile;                // path and filename for help file
-String              roamingPath;             // Path to roaming directory
-String              subjectLine;
+String     myPath;                                // Path to this program when running
+String     helpFile;                              // path and filename for help file
+String     roamingPath;                           // Path to roaming directory
+String     subjectLine;
+Executable opAddrExe;
 
-STARTUPINFO         startUpInfo;
-PROCESS_INFORMATION OPaddrPrcInfo;
-
-  PreOutpost() : CApp(this), subjWSecurity(false), includeAddrBook(false), makeMaster(false) { }
+  PreOutpost() : CApp(this), subjWSecurity(false), includeAddrBook(false) { }
 
 public:
 
@@ -41,8 +39,8 @@ private:
 
   void startOutpost();
   bool startOPaddress();
-  void killOPaddress();
   };
 
 
 extern PreOutpost theApp;
+

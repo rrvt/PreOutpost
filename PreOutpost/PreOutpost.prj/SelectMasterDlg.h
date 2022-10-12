@@ -47,3 +47,4 @@ public:
   afx_msg void OnHelpSelNewMaster();
   afx_msg void OnHelpSelectProfile();
   };
+

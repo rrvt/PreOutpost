@@ -23,7 +23,7 @@ void PathDlgDsc::copy(PathDlgDsc& dsc)
                            {title = dsc.title;  name = dsc.name;   ext = dsc.ext;  pattern = dsc.pattern;}
 
 
-static bool dlgPath(CFileDialog* dlg, TCchar* title, String& path);
+//static bool dlgPath(CFileDialog* dlg, TCchar* title, String& path);
 
 // Start a dialog box to obtain the path to a file
 //   title       - the name of the file type (e.g. "Text)"
@@ -90,28 +90,34 @@ OPENFILENAME& ofn = fileDialog.m_ofn;
 
 
 bool getDirPathDlg(TCchar* title, String& path) {
-CFolderPickerDialog fileDialog(path);
+CFolderPickerDialog dlg(path);
 
+#if 0
   return dlgPath(&fileDialog, title, path);
+#else
 
-  fileDialog.m_ofn.lpstrTitle = title;
+  dlg.m_ofn.lpstrTitle = title;
 
-  if (fileDialog.DoModal() == IDOK) {path = fileDialog.GetPathName(); return true;}
+  if (!path.isEmpty()) dlg.m_ofn.lpstrInitialDir = path;
+
+  if (dlg.DoModal() == IDOK) {path = dlg.GetPathName(); return true;}
 
   return false;
+#endif
   }
 
 
 
 bool dlgPath(CFileDialog* dlg, TCchar* title, String& path) {
+
   if (!dlg) return false;
 
   dlg->m_ofn.lpstrTitle = title;
+
   if (!path.isEmpty()) dlg->m_ofn.lpstrInitialDir = path;
 
   if (dlg->DoModal() == IDOK) {path = dlg->GetPathName(); return true;}
 
   return false;
-
   }
 

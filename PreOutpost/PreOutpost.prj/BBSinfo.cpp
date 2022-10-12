@@ -1,12 +1,13 @@
 // BBS Data
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "BBSinfo.h"
 #include "BBSdlg.h"
 #include "filesrch.h"
 #include "filename.h"
 #include "IniFile.h"
+#include "Outpost.h"
 #include "ProgramFiles.h"
 #include "SrchFile.h"
 
@@ -81,7 +82,7 @@ String   key;
 
 
 void BBSinfo::findBBSfiles() {
-String    bbsPath = outputPaths.profilePath + _T("bbs.d\\");
+String    bbsPath = outpost.getProfile() + _T("bbs.d\\");
 String    bbsArb  = _T("X*.bbs");
 FileSrch  srch;
 String    path;

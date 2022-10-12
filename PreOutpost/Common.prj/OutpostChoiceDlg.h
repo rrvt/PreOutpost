@@ -4,9 +4,9 @@
 #pragma once
 #include "IniFile.h"
 #include "ProgramFiles.h"
+#include "Resource.h"
 
-
-// OutpostChoiceDlg dialog
+// Outpost Choice dialog
 
 class OutpostChoiceDlg : public CDialogEx {
 
@@ -18,9 +18,14 @@ public:
 
 CListBox outpostList;
 CString  outpostChoice;
+String   confFilePath;
+String   exeFilePath;
 
-           OutpostChoiceDlg(CWnd* pParent = nullptr);
-  virtual ~OutpostChoiceDlg();
+               OutpostChoiceDlg(CWnd* pParent = nullptr);
+  virtual     ~OutpostChoiceDlg();
+
+  virtual BOOL OnInitDialog();
+  virtual void OnOK();
 
 // Dialog Data
 #ifdef AFX_DESIGN_TIME
@@ -32,7 +37,4 @@ protected:
   virtual void DoDataExchange(CDataExchange* pDX);
 
   DECLARE_MESSAGE_MAP()
-public:
-  virtual BOOL OnInitDialog();
-  virtual void OnOK();
   };

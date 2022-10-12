@@ -1,9 +1,11 @@
+// IdentityDlg dialog
+
+
 #pragma once
 #include "resource.h"
 #include "afxwin.h"
 
 
-// IdentityDlg dialog
 
 class IdentityDlg : public CDialog {
 

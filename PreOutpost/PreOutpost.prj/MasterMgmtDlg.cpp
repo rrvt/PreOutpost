@@ -1,7 +1,7 @@
 // Class that corresponds to the Dialog Box that allows the user to create a new Master Profile or Delete
 // a Master Profile.
 
-#include "stdafx.h"
+#include "pch.h"
 #include "PreOutpost.h"
 #include "AboutDlgEx.h"
 #include "MasterMgmtDlg.h"

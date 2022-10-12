@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Sources\PreOutpost\Release\OPaddress.exe</FullPath>
+      <FullPath>D:\Sources\PreOutpost\Release\OpAddr.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>D:\Sources\PreOutpost\Release\PreOutpost.exe</FullPath>

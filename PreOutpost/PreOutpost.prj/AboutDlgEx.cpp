@@ -1,11 +1,12 @@
 // About Dialog
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "AboutDlgEx.h"
 #include "ExtraResource.h"
 #include "FileIO.h"
 #include "match.h"
+#include "Outpost.h"
 #include "ProgramFiles.h"
 #include "Resources.h"
 
@@ -69,7 +70,7 @@ bool         rslt;
 
 
 void AboutDlgEx::getOutpostData() {
-ResourceData res(outputPaths.outpostPath);
+ResourceData res(outpost.getPath());
 String       t;
 String       v;
 FileIO       file;
@@ -83,7 +84,7 @@ String       dt;
   if (res.getCopyRight(t))
     {v = _T("Outpost Copyright: ") + t.trim();    SetDlgItemText(IDC_OutpostCopyRight, v);}
 
-  if (file.open(outputPaths.outpostPath, FileIO::Read)) {
+  if (file.open(outpost.getPath(), FileIO::Read)) {
     if (file.getModifiedTime(tm)) dt = tm.Format(_T("%e %B %y"));
 
     if (!dt.trim().isEmpty()) {v = _T("Build Date: ") + dt;  SetDlgItemText(IDC_BuildDate, v);}

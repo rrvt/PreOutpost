@@ -1,23 +1,19 @@
-
 // PreOutpost.cpp : Defines the class behaviors for the application.
-//
 
-#include "stdafx.h"
+
+#include "pch.h"
 #include "PreOutpost.h"
-//#include "MainFrm.h"
 #include "BBSinfo.h"
+#include "ClipLine.h"
 #include "filesrch.h"
 #include "filename.h"
 #include "IdentityDlg.h"
 #include "DelMasterDlg.h"
-#include "LoadClipBoard.h"
 #include "MasterProf.h"
 #include "MasterMgmtDlg.h"
-#include "MessageBox.h"
 #include "NewMaster.h"
-#include "OutpostChoiceDlg.h"
+#include "Outpost.h"
 #include "Resources.h"
-#include <TlHelp32.h>
 
 
 static TCchar* PathSection = _T("Path");
@@ -37,9 +33,15 @@ END_MESSAGE_MAP()
 
 // PreOutpost initialization
 // This program uses it's own INI file, see IniFile.h for details.
+// Collect ID and Report information from the user in the dialog box and create new Outpost Profiles
+// from the information.  If there is no Master Profile, create one.  If there is only one Master Profile
+// then collect the identity info and start Outpost.  If there are two or more, then select one or all
+// Master Profiles.  One additional choice is included with the ID and Report Information, whether
+// profiles for all six BBSes or just W1XSC should be created.
 
 BOOL PreOutpost::InitInstance() {
-
+bool   makeMaster;                                // When true make a Master Profile
+String s;
   CWinApp::InitInstance();
 
   makeMaster = !StrCmp(m_lpCmdLine, _T("/MakeMaster")) || !StrCmp(m_lpCmdLine, _T("-MakeMaster"));
@@ -50,97 +52,47 @@ BOOL PreOutpost::InitInstance() {
 
   m_pMainWnd = 0;
 
-  GetStartupInfo(&startUpInfo);
-
-  outputPaths.getProfilePath();
+  outpost.getProfilePath();
   masterProf.readIniFile();
 
-  idInfo.usrData.initialize(outputPaths.profilePath);
-  idInfo.tacData.initialize(outputPaths.profilePath);
+  idInfo.usrData.initialize();
+  idInfo.tacData.initialize();
 
   bbsInfo.load();
 
   if (makeMaster || !masterProf.nMasters()) {NewMaster newMaster;  newMaster();}
 
-  startOutpost();
-
-  return 0;
-  }
-
-
-
-// Collect ID and Report information from the user in the dialog box and create new Outpost Profiles
-// from the information.  If there is no Master Profile, create one.  If there is only one Master Profile
-// then collect the identity info and start Outpost.  If there are two or more, then select one or all
-// Master Profiles.  One additional choice is included with the ID and Report Information, whether
-// profiles for all six BBSes or just W1XSC should be created.
-
-void PreOutpost::startOutpost() {
-String              outpostDir;
-PROCESS_INFORMATION processInfo;
-
-  if (!masterProf.process(masterProf.select())) return;
+  if (!masterProf.process(masterProf.select())) return 0;
 
   idInfo.createSubjLine(subjectLine);
 
   if (idInfo.includeAddrBook) startOPaddress();
 
-  outpostDir = getPath(outputPaths.outpostPath);
-
   loadClipBoard(subjectLine);
 
-  if (!CreateProcess(outputPaths.outpostPath, 0, 0, 0, false, NORMAL_PRIORITY_CLASS, 0,
-                                                              outpostDir, &startUpInfo, &processInfo)) {
-    String err;
+  startOutpost();
 
-    getError(GetLastError(), err);  messageBox(err); return;
-    }
-  WaitForSingleObject(processInfo.hProcess, INFINITE);
+  idInfo.clearOldProfiles(_T("*"));
 
-  String s = _T("*");   idInfo.clearOldProfiles(s);
+  if (idInfo.includeAddrBook) opAddrExe.stop();
 
-  if (idInfo.includeAddrBook) killOPaddress();
+  return 0;
   }
-
 
 
 bool PreOutpost::startOPaddress() {
-String cmdName    = myPath;
-String outpostDir = getPath(outputPaths.outpostPath);
+String cmd   = myPath + _T("OpAddr.exe");
 
-  cmdName += _T("OPaddress.exe");
+String opDir = getPath(outpost.getPath());
+String prDir = outpost.getProfile();
+String args  = opAddrExe.addQuotes(opDir) + _T(' ') + opAddrExe.addQuotes(prDir);
 
-  return (bool) CreateProcess(cmdName, 0, 0, 0, false, NORMAL_PRIORITY_CLASS, 0,
-                                                              outpostDir, &startUpInfo, &OPaddrPrcInfo);
+  return opAddrExe.start(cmd, args);
   }
 
 
-
-static HWND opAddrHwnd;
-static BOOL CALLBACK EnumWindowsProcMy(HWND hwnd, LPARAM opAddrProcID);
-
-
-void PreOutpost::killOPaddress() {
-
-  opAddrHwnd = 0;
-
-  if (EnumWindows(EnumWindowsProcMy, OPaddrPrcInfo.dwProcessId)) return;
-
-  if (opAddrHwnd) SendMessage(opAddrHwnd, WM_CLOSE, 0, 0);
-  }
-
-
-// Called for each top-level window on the screen
-
-BOOL CALLBACK EnumWindowsProcMy(HWND hwnd, LPARAM opAddrProcID) {
-DWORD processID;
-
-  GetWindowThreadProcessId(hwnd, &processID);
-
-  if (processID == opAddrProcID) {opAddrHwnd = hwnd; return false;}
-
-  return true;
-  }
+void PreOutpost::startOutpost()
+                {Executable outpostExe;   if (outpostExe.start(outpost.getPath(), 0)) outpostExe.wait();}
 
 
 // Just exit.
@@ -151,28 +103,37 @@ int PreOutpost::ExitInstance() {return CWinApp::ExitInstance();}
 
 
 #if 0
-  // To create the main window, this code creates a new frame window
-  // object and then sets it as the application's main window object
-
-  MainFrame* pFrame = new MainFrame;   if (!pFrame) return FALSE;
-
-  m_pMainWnd = pFrame;
-
-  // create and load the frame with its resources
-
-  pFrame->LoadFrame(IDR_MAINFRAME, WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, NULL, NULL);
-
-  // The one and only window has been initialized, but implement the program with dialog boxes
-  // and then quit...
+  startOutpost();
+#else
 #endif
-#if 0
-  // Apparently opening multiple dialog boxes requires at least the semblance of a windows program.
-  // However, we don't actually need to show the window...
+#if 1
+#else
+  if (outpostExe.start(outpost.getPath(), 0, myPath)) outpostExe.wait();
+#endif
+#if 1
+#else
+// Collect ID and Report information from the user in the dialog box and create new Outpost Profiles
+// from the information.  If there is no Master Profile, create one.  If there is only one Master Profile
+// then collect the identity info and start Outpost.  If there are two or more, then select one or all
+// Master Profiles.  One additional choice is included with the ID and Report Information, whether
+// profiles for all six BBSes or just W1XSC should be created.
 
-  pFrame->SetWindowPos(&CWnd::wndTopMost, 200, 200, 600, 600, SWP_NOMOVE);
+String     outpostDir;
 
-  pFrame->ShowWindow(SW_SHOW); pFrame->UpdateWindow();
+  if (!masterProf.process(masterProf.select())) return;
 
-  return TRUE;
+  idInfo.createSubjLine(subjectLine);
+
+  if (idInfo.includeAddrBook) startOPaddress();
+
+  outpostDir = getPath(outpost.getPath());
+
+  loadClipBoard(subjectLine);
+
+
+  String s = _T("*");   idInfo.clearOldProfiles(s);
+
+  if (idInfo.includeAddrBook) opAddrExe.stop();
+  }
 #endif
 

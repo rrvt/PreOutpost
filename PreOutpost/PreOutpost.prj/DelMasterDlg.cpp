@@ -1,6 +1,6 @@
 // DelMasterDlg.cpp : implementation file
 
-#include "stdafx.h"
+#include "pch.h"
 #include "PreOutpost.h"
 #include "AboutDlgEx.h"
 #include "DelMasterDlg.h"
@@ -50,15 +50,6 @@ DelMasterDlg::~DelMasterDlg() { }
 
 void DelMasterDlg::OnAbout() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
-#if 0
-void DelMasterDlg::OnHelp() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">DeleteMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 20);
-  }
-#endif
 
 void DelMasterDlg::OnHelpMakeMaster() {
 String topic;
@@ -67,7 +58,6 @@ String topic;
 
   ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 20);
   }
-
 
 
 void DelMasterDlg::OnHelpOverview() {

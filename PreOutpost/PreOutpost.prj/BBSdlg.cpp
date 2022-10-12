@@ -1,18 +1,13 @@
 // BBSdlg.cpp : implementation file
-//
 
-#include "stdafx.h"
+
+#include "pch.h"
 #include "BBSdlg.h"
-
-//#include "PreOutpost.h"
-//#include "ProgramFiles.h"
-//#include "SrchFile.h"
 
 
 static TCchar* Section = _T("BBS");
 static TCchar* Suffix  = _T("Suffix");
 static TCchar* Cname   = _T("CName");
-
 
 
 // BBSdlg dialog

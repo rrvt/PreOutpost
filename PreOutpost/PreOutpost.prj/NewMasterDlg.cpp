@@ -1,6 +1,6 @@
 // Class that corresponds to Dialog box to select Master Profile
 
-#include "stdafx.h"
+#include "pch.h"
 #include "NewMasterDlg.h"
 #include "AboutDlgEx.h"
 #include "PreOutpost.h"
@@ -55,16 +55,6 @@ NewMasterDlg::~NewMasterDlg() {}
 
 
 void NewMasterDlg::onAbout() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
-
-#if 0
-void NewMasterDlg::OnHelp32779() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">SelectProfile");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 20);
-  }
-#endif
 
 
 void NewMasterDlg::OnHelpMakeMaster() {

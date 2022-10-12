@@ -1,9 +1,10 @@
 // Usr File Management
 //$(LibraryPath)\; $(ProgramFiles)\Microsoft SDKs\Windows\v7.1A\Lib\
 
-#include "stdafx.h"
+#include "pch.h"
 #include "UsrData.h"
 #include "filename.h"
+#include "Outpost.h"
 
 
 static const String Section = _T("USER DEFINITION");
@@ -17,8 +18,8 @@ static const String SigData = _T("SigData");
 static const String VerVal  = _T("3.2.118/18232:113207");
 
 
-void UsrData::initialize(String& profilePath) {
-usrPath = profilePath;
+void UsrData::initialize() {
+usrPath = outpost.getProfile();
 
   usrPath += _T("usr.d\\");
   }
@@ -61,6 +62,4 @@ String path = usrPath + call;   path += _T(".");   path += extension;
   usrPPF.writeInt(   Section, SigFlag, signature.empty() ? false : true);
   usrPPF.writeString(Section, SigData, signature);
   }
-
-
 

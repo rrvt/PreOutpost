@@ -67,11 +67,11 @@
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\Common.prj;$(SolutionDir)..\..\Library\Library.prj\;$(SolutionDir)..\..\Library\Extras\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <BasicRuntimeChecks />
+      <BasicRuntimeChecks/>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <FunctionLevelLinking>false</FunctionLevelLinking>
-      <PrecompiledHeaderFile />
-      <PrecompiledHeaderOutputFile />
+      <PrecompiledHeaderFile/>
+      <PrecompiledHeaderOutputFile/>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -108,9 +108,9 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <BasicRuntimeChecks />
-      <PrecompiledHeaderFile />
-      <PrecompiledHeaderOutputFile />
+      <BasicRuntimeChecks/>
+      <PrecompiledHeaderFile/>
+      <PrecompiledHeaderOutputFile/>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -121,7 +121,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>Htmlhelp.lib;Version.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <ProgramDatabaseFile />
+      <ProgramDatabaseFile/>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -137,10 +137,11 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
   <ItemGroup>
+    <ClCompile Include="..\Common.prj\Executable.cpp" />
+    <ClCompile Include="..\Common.prj\Outpost.cpp" />
     <ClCompile Include="AboutDlgEx.cpp" />
     <ClCompile Include="BBSdlg.cpp" />
     <ClCompile Include="BBSinfo.cpp" />
-    <ClCompile Include="ChildView.cpp" />
     <ClCompile Include="DelMasterDlg.cpp" />
     <ClCompile Include="Identity.cpp" />
     <ClCompile Include="IdentityDlg.cpp" />
@@ -150,19 +151,21 @@
     <ClCompile Include="NewMaster.cpp" />
     <ClCompile Include="NewMasterDlg.cpp" />
     <ClCompile Include="..\Common.prj\OutpostChoiceDlg.cpp" />
+    <ClCompile Include="pch.cpp" />
     <ClCompile Include="PreOutpost.cpp" />
     <ClCompile Include="..\Common.prj\ProgramFiles.cpp" />
     <ClCompile Include="SelectMasterDlg.cpp" />
-    <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="UsrData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Library\Extras\ExtraResource.h" />
+    <ClInclude Include="..\Common.prj\Executable.h" />
+    <ClInclude Include="..\Common.prj\Outpost.h" />
     <ClInclude Include="AboutDlgEx.h" />
     <ClInclude Include="BBSdlg.h" />
     <ClInclude Include="BBSinfo.h" />
-    <ClInclude Include="ChildView.h" />
     <ClInclude Include="DelMasterDlg.h" />
+    <ClInclude Include="framework.h" />
     <ClInclude Include="Identity.h" />
     <ClInclude Include="IdentityDlg.h" />
     <ClInclude Include="ListItems.h" />
@@ -171,11 +174,11 @@
     <ClInclude Include="NewMaster.h" />
     <ClInclude Include="NewMasterDlg.h" />
     <ClInclude Include="..\Common.prj\OutpostChoiceDlg.h" />
+    <ClInclude Include="pch.h" />
     <ClInclude Include="PreOutpost.h" />
     <ClInclude Include="..\Common.prj\ProgramFiles.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SelectMasterDlg.h" />
-    <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="UsrData.h" />
   </ItemGroup>
@@ -197,6 +200,7 @@
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\PreOutpost.ini" />
     <None Include="res\PreOutpost.rc2" />
     <None Include="..\README.md" />
+  <None Include="C:\Program Files (x86)\SCCo Packet\Outpost.conf" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\PreOutpost.ico" />

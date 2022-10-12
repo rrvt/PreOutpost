@@ -10,7 +10,6 @@ CString cName;
 };
 
 
-
 // BBSdlg dialog
 
 class BBSdlg : public CDialog {

@@ -5,7 +5,6 @@
 #include "Expandable.h"
 
 
-
 class ProgramDsc {
 public:
 String path;
@@ -49,20 +48,3 @@ private:
   void    findFiles(TCchar* initialPath, TCchar* srchPat, Descriptors& files);
   };
 
-
-struct OutputPaths {
-String outpostPath;                           // Full path to Outpost executable including file name
-String profilePath;                           // Path to directory where Outpost stores its profiles
-
-
-  OutputPaths() { }
- ~OutputPaths() { }
-
-  void getProfilePath( );      // Little function to find profilePath and outpostPath
-  void choose();
-
-  void saveOutpostPath(String& profile, String& exe);
-  };
-
-
-extern OutputPaths outputPaths;

@@ -34,7 +34,8 @@
                             SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\UIPreOutpost01.ico"/>
   <Icon     Id="PreOutpost01Icon.ico"
                               SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\PreOutpost01.ico"/>
-  <Icon     Id="Routing01Icon.ico" SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\Routing01.ico"/>
+  <Icon     Id="Routing01_Icon.exe"
+                                  SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\Routing01.ico"/>
   <Property Id="ARPPRODUCTICON"  Value="UIPreOutpost01Icon.ico" />
 
   <!-- Custom Action to set the system (Machine) Path Variable -->
@@ -86,11 +87,11 @@
       <Directory Id="PreOutpost.pff" Name="PreOutpost" />
     </Directory>
 
-    <Directory Id="ProgramMenuFolder" Name="StartMenu">
+    <Directory Id="ProgramMenuFolder">
       <Directory Id="PreOutpost.pmf" Name="PreOutpost" />
     </Directory>
 
-    <Directory Id="DesktopFolder" Name="Desktop" />
+    <Directory Id="DesktopFolder" />
   </Directory>
 
   <Property Id="ApplicationFolderName" Value="PreOutpost" />
@@ -128,7 +129,7 @@
   </Component>
 
   <Component Id="AddrBook.cmp"  Guid="B8E4EE39-4052-41D6-BDE4-0A2D5E280455" Directory="PreOutpost.pff">
-    <File Id="AddrBook.cmp" Source="$(var.SolutionDir)..\Release\OPaddress.exe" KeyPath="yes"/>
+    <File Id="AddrBook.cmp" Source="$(var.SolutionDir)..\Release\OpAddr.exe" KeyPath="yes"/>
   </Component>
 
 </Fragment>
@@ -136,14 +137,14 @@
 <Fragment>
 
   <Component Id="Slip.cmp"  Guid="0D94F8F8-A5F4-46A7-8E85-C3178BDB1F67" Directory="PreOutpost.pff">
-    <File Id="Slip.cmp" Source="$(var.SolutionDir)..\Docs\RoutingSlip.pdf" KeyPath="yes"/>
+    <File Id="Slip.cmp" Source="$(var.SolutionDir)..\Docs\RoutingSlip.190527.pdf" KeyPath="yes"/>
 
     <Shortcut Id               = "Slip.shc"
               Name             = "Slip"
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "Routing01Icon.ico"
+              Icon             = "Routing01_Icon.exe"
               />
 
     <Shortcut Id               = "Slip.dsk"
@@ -151,19 +152,19 @@
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "Routing01Icon.ico"
+              Icon             = "Routing01_Icon.exe"
               />
   </Component>
 
   <Component Id="Info.cmp"  Guid="99AEC4ED-3520-4452-9E7A-A0F64E2AAD86" Directory="PreOutpost.pff">
-    <File Id="Info.cmp" Source="$(var.SolutionDir)..\Docs\RoutingInfo.pdf" KeyPath="yes"/>
+    <File Id="Info.cmp" Source="$(var.SolutionDir)..\Docs\RoutingInfo.220618.pdf" KeyPath="yes"/>
 
     <Shortcut Id               = "Info.shc"
               Name             = "Info"
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "Routing01Icon.ico"
+              Icon             = "Routing01_Icon.exe"
               />
 
     <Shortcut Id               = "Info.dsk"
@@ -171,20 +172,21 @@
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "Routing01Icon.ico"
+              Icon             = "Routing01_Icon.exe"
               />
   </Component>
 
   <Component Id="BBSAssnmts.cmp"  Guid="3C1D909B-AB95-4A6D-8156-BEE9F9286F47"
                                                                           Directory="PreOutpost.pff">
-    <File Id="BBSAssnmts.cmp" Source="$(var.SolutionDir)..\Docs\BBS_Assgnmnts.pdf" KeyPath="yes"/>
+    <File Id="BBSAssnmts.cmp"
+                        Source="$(var.SolutionDir)..\Docs\BBS_Assignments.221215.pdf" KeyPath="yes"/>
 
     <Shortcut Id               = "BBSAssnmts.shc"
               Name             = "BBSAssnmts"
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "Routing01Icon.ico"
+              Icon             = "Routing01_Icon.exe"
               />
 
     <Shortcut Id               = "BBSAssnmts.dsk"
@@ -192,20 +194,21 @@
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "Routing01Icon.ico"
+              Icon             = "Routing01_Icon.exe"
               />
   </Component>
 
   <Component Id="CheckInOut.cmp"  Guid="DC485E98-93E8-4DC7-A68F-1DBE3D401A9D"
                                                                           Directory="PreOutpost.pff">
-    <File Id="CheckInOut.cmp" Source="$(var.SolutionDir)..\Docs\CheckInOutFormat.pdf" KeyPath="yes"/>
+    <File Id="CheckInOut.cmp"
+                        Source="$(var.SolutionDir)..\Docs\CheckInOutFormat.220323.pdf" KeyPath="yes"/>
 
     <Shortcut Id               = "CheckInOut.shc"
               Name             = "CheckInOut"
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "Routing01Icon.ico"
+              Icon             = "Routing01_Icon.exe"
               />
 
     <Shortcut Id               = "CheckInOut.dsk"
@@ -213,7 +216,7 @@
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "PreOutpost.pff"
-              Icon             = "Routing01Icon.ico"
+              Icon             = "Routing01_Icon.exe"
               />
   </Component>
 
@@ -222,7 +225,7 @@
 <Fragment>
 
   <Component Id="UninstallPreOutpost.cmp" 
-                              Guid="50333007-AD8E-409F-9772-DD78FE5A3183" Directory="PreOutpost.pmf">
+                              Guid="EE8A9C39-2F13-4538-A746-785A9C88524B" Directory="PreOutpost.pmf">
 
     <Shortcut Id               = "UninstallPreOutpost.shc"
               Name             = "Uninstall PreOutpost"

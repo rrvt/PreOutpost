@@ -1,7 +1,7 @@
 // Master Profile Manipulation
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "MasterProf.h"
 #include "copyFile.h"
 #include "DelMasterDlg.h"
@@ -116,10 +116,6 @@ MPIter  iter(*this);
 
   return true;
   }
-
-
-
-
 
 
 // Insertion sort new profile into metaProfilePath

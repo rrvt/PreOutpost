@@ -19,6 +19,13 @@ A help file is included.  Let the author know if the help file needs improving..
 
 ## Updates
 
+### Update 10/12/22
+
+Well Microsoft seems to have done it again.  The latest Win11 update deleted a copy of my favorite
+Klondike Solitare game and caused PreOutpost's companion program OPAddress to crash upon starting.  So I
+had to start over with the underlying application to get it to work again.  Who knows what MS did to
+cause it to crash.
+
 ### Update 9/6/22
 
 The subject line needed a 4 digit year.

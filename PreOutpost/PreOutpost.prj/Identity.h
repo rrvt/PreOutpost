@@ -60,7 +60,7 @@ UsrData tacData;
   void loadDialogBox(  IdentityDlg& dlg);
   void unloadDialogBox(IdentityDlg& dlg);
 
-  void clearOldProfiles(String& metaPath);    // Remove old created profiles from Outposts data dir
+  void clearOldProfiles(TCchar* metaPath);    // Remove old created profiles from Outposts data dir
 
 private:
 

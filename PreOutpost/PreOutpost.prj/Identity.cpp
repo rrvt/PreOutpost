@@ -2,7 +2,7 @@
 // rrvt Copywrite, all rights reserved
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "Identity.h"
 #include "BBSinfo.h"
 #include "CopyFile.h"
@@ -11,6 +11,7 @@
 #include "IdentityDlg.h"
 #include "IniFile.h"
 #include "PreOutpost.h"
+#include "Outpost.h"
 #include "ProgramFiles.h"
 #include "Resources.h"
 
@@ -167,7 +168,7 @@ String   s;
 
     s  = _T("~"); s += getMainName(metaPath); s += _T("~"); s += bbs->suffix; s += _T("~.profile");
 
-    s = outputPaths.profilePath + s;
+    s = outpost.getProfile() + s;
 
     metaProfile.writeString(_T("GENERAL VARIABLES"), _T("BbsCName"), bbs->cName);
     metaProfile.writeString(_T("GENERAL VARIABLES"), _T("BbsFName"), bbs->fName);
@@ -181,7 +182,7 @@ String   s;
 
 // Delete all Outpost Profiles that contain metaName.
 
-void IdentityInfo::clearOldProfiles(String& metaPath) {
+void IdentityInfo::clearOldProfiles(TCchar* metaPath) {
 String   wildCardPat;
 FileSrch fileSrch;
 RegExpr  re;
@@ -191,7 +192,7 @@ String   name;
 
   re.setWildCardPattern(wildCardPat);
 
-  if (fileSrch.findFiles(outputPaths.profilePath, _T("*.profile")))
+  if (fileSrch.findFiles(outpost.getProfile(), _T("*.profile")))
     while (fileSrch.getName(name))
       if (re.match(name)) removeFile(name);
   }
@@ -339,9 +340,6 @@ void IdentityInfo::writeMetaFile() {
   metaProfile.writeString(  RptSection, TaskIDKey,      taskID);
   metaProfile.writeString(  RptSection, TaskNameKey,    taskName);
   }
-
-
-
 
 
 // Various Formats for raw message subject lines:

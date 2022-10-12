@@ -15,6 +15,7 @@
     <ClCompile Include="CalibDpsPrt.cpp" />
     <ClCompile Include="CApp.cpp" />
     <ClCompile Include="CDoc.cpp" />
+    <ClCompile Include="ClipLine.cpp" />
     <ClCompile Include="CMainFrm.cpp" />
     <ClCompile Include="ComboBox.cpp" />
     <ClCompile Include="CopyFile.cpp" />
@@ -45,7 +46,6 @@
     <ClCompile Include="Horiz.cpp" />
     <ClCompile Include="IniFile.cpp" />
     <ClCompile Include="LexTOut.cpp" />
-    <ClCompile Include="LoadClipBoard.cpp" />
     <ClCompile Include="match.cpp" />
     <ClCompile Include="MessageBox.cpp" />
     <ClCompile Include="Node.cpp" />
@@ -59,6 +59,7 @@
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="ShowMgr.cpp" />
     <ClCompile Include="SrchFile.cpp" />
+    <ClCompile Include="Static.cpp" />
     <ClCompile Include="StatusBar.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Strings.cpp" />
@@ -89,6 +90,7 @@
     <ClInclude Include="CApp.h" />
     <ClInclude Include="CbxItem.h" />
     <ClInclude Include="CDoc.h" />
+    <ClInclude Include="ClipLine.h" />
     <ClInclude Include="CMainFrm.h" />
     <ClInclude Include="ComboBox.h" />
     <ClInclude Include="CopyFile.h" />
@@ -123,7 +125,6 @@
     <ClInclude Include="IterT.h" />
     <ClInclude Include="LexT.h" />
     <ClInclude Include="LexTOut.h" />
-    <ClInclude Include="LoadClipBoard.h" />
     <ClInclude Include="ManipT.h" />
     <ClInclude Include="match.h" />
     <ClInclude Include="MessageBox.h" />
@@ -140,6 +141,7 @@
     <ClInclude Include="Resources.h" />
     <ClInclude Include="ShowMgr.h" />
     <ClInclude Include="SrchFile.h" />
+    <ClInclude Include="Static.h" />
     <ClInclude Include="StatusBar.h" />
     <ClInclude Include="std.h" />
     <ClInclude Include="stdafx.h" />

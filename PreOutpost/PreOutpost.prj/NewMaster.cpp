@@ -1,7 +1,7 @@
 // Create New Masters
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "NewMaster.h"
 #include "CopyFile.h"
 #include "DelMasterDlg.h"
@@ -10,6 +10,7 @@
 #include "MasterMgmtDlg.h"
 #include "MasterProf.h"
 #include "NewMasterDlg.h"
+#include "Outpost.h"
 #include "PreOutpost.h"
 #include "ProgramFiles.h"
 
@@ -50,7 +51,7 @@ String       newMetaProfile;
 String       metaProfileName;
 String       metaLabel;
 
-  fileSrch.findFiles(outputPaths.profilePath, _T("*.profile"));
+  fileSrch.findFiles(outpost.getProfile(), _T("*.profile"));
 
   re.setWildCardPattern(_T("~*~W*~"));
 
@@ -64,7 +65,7 @@ String       metaLabel;
   if (dlg.DoModal() != IDOK) return;
 
   selected = dlg.getListBoxSelection();
-  selection += outputPaths.profilePath;
+  selection += outpost.getProfile();
   selection += selected;
   newMetaProfile = theApp.roamingPath + selected;
 
@@ -95,3 +96,4 @@ String       path;
 
   masterProf.readIniFile();
   }
+

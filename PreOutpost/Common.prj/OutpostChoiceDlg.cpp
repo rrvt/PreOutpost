@@ -1,10 +1,8 @@
 // OutpostChoiceDlg.cpp : implementation file
-//
 
-#include "stdafx.h"
+
+#include "pch.h"
 #include "OutpostChoiceDlg.h"
-#include "resource.h"
-
 
 
 BEGIN_MESSAGE_MAP(OutpostChoiceDlg, CDialogEx)
@@ -22,10 +20,8 @@ OutpostChoiceDlg::OutpostChoiceDlg(CWnd* pParent) :
 OutpostChoiceDlg::~OutpostChoiceDlg() { }
 
 
-
-
 BOOL OutpostChoiceDlg::OnInitDialog() {
-int           i;
+int i;
 
   CDialogEx::OnInitDialog();
 
@@ -56,13 +52,10 @@ void OutpostChoiceDlg::DoDataExchange(CDataExchange* pDX) {
 
 void OutpostChoiceDlg::OnOK() {
 String path;
-String confFilePath;
-String exeFilePath;
 
   CDialogEx::OnOK();      path = outpostChoice;
 
   confFilePath = progFiles.getProfilePath(path);
   exeFilePath  = progFiles.findExeFile(path);
-
-  outputPaths.saveOutpostPath(confFilePath, exeFilePath);
   }
+
