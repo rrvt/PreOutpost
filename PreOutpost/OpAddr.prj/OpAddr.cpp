@@ -28,35 +28,49 @@ OpAddr::OpAddr() noexcept : CApp(this) { }
 // OpAddr.exe \"C:\\Program Files (x86)\\SCCo Packet\\ \" \"D:\\SCCoPacket\\ \"
 
 BOOL OpAddr::InitInstance() {
-LPWSTR*   szArglist;
-int       nArgs;
-int       i;
-OpAddrDlg dlg(m_pszHelpFilePath);
+Executable exe;
+int        i;
+ArgIter    iter(exe);
+String*    arg;
+String     args[5];
+
+OpAddrDlg  dlg(m_pszHelpFilePath);
 
   CWinApp::InitInstance();
 
-  szArglist = CommandLineToArgvW(GetCommandLine(), &nArgs);
+  exe.procArgs(m_lpCmdLine);
 
-  if (szArglist ) for (i = 0; i < nArgs && i < noElements(cmdLine); i++)
-                             {cmdLine[i] = szArglist[i];   cmdLine[i].trim();   addBackSlash(cmdLine[i]);}
-  LocalFree(szArglist);
+  for (arg = iter(), i = 0; arg && i < noElements(args); i++, arg = iter++)
+                                         {String& s = args[i];   s = *arg;   s.trim();   addBackSlash(s);}
 
   iniFile.setAppDataPath(m_pszHelpFilePath, *this);
 
-  outpost.initialize(cmdLine[1], cmdLine[2]);
-
-  GetStartupInfo(&startUpInfo);
+  outpost.initialize(args[0], args[1]);
 
   dlg.DoModal();   m_pMainWnd = 0;   return 0;
   }
 
 
 void OpAddr::addBackSlash(String& path) {
-int pos = path.length()-1;
+int pos = path.length()-1;   if (pos < 0) return;
 
   if (path[pos] != _T('\\')) path += _T('\\');
   }
 
 
 int OpAddr::ExitInstance() {return CWinApp::ExitInstance();}
+
+
+
+#if 1
+#else
+  LPWSTR*    szArglist;
+  int        nArgs;
+  int        i;
+  szArglist = CommandLineToArgvW(GetCommandLine(), &nArgs);
+
+  if (szArglist ) for (i = 0; i < nArgs && i < noElements(args); i++)
+                             {args[i] = szArglist[i];   args[i].trim();   addBackSlash(args[i]);}
+  LocalFree(szArglist);
+#endif
 

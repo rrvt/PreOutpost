@@ -4,11 +4,11 @@
     <RESOURCE_FILE>OpAddr.rc</RESOURCE_FILE>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LocalDebuggerCommandArguments>"C:\Program Files (x86)\SCCo Packet\ " "D:\SCCoPacket\ " </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>"OpAddr.exe" "C:\Program Files (x86)\SCCo Packet\Outpost.exe" "D:\SCCoPacket" </LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LocalDebuggerCommandArguments>"C:\Program Files (x86)\SCCo Packet\ " "D:\SCCoPacket\ " </LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>"OpAddr.exe" "C:\Program Files (x86)\SCCo Packet\Outpost.exe" "D:\SCCoPacket" </LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

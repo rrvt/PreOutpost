@@ -1,7 +1,7 @@
 // About Dialog
 
 
-#include "pch.h"
+#include "stdafx.h"
 #include "AboutDlg.h"
 #include "ExtraResource.h"
 #include "Resources.h"

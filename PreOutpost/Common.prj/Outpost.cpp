@@ -19,17 +19,17 @@ static TCchar* OutpostKey  = _T("Outpost");
 void Outpost::initialize(TCchar* outpost, TCchar* profile) {
 String path;
 
-  if (iniFile.readString(PathSection, ProfileKey, path)) {
-    if (path == profile) dataPath = path;
-    else setProfile(profile);
-    }
-  else setProfile(profile);
-
   if (iniFile.readString(PathSection, OutpostKey, path)) {
     if (path == outpost) exePath = path;
     else setOutpost(outpost);
     }
   else setOutpost(outpost);
+
+  if (iniFile.readString(PathSection, ProfileKey, path)) {
+    if (path == profile) dataPath = path;
+    else setProfile(profile);
+    }
+  else setProfile(profile);
 
   if (exePath.isEmpty() || dataPath.isEmpty()) choose();
   }

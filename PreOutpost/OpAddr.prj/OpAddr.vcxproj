@@ -144,7 +144,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\Library\Extras\AboutDlg.h" />
     <ClInclude Include="..\..\Library\Extras\ExtraResource.h" />
-    <ClInclude Include="..\Common.prj\Executable.h" />
     <ClInclude Include="..\Common.prj\Outpost.h" />
     <ClInclude Include="..\Common.prj\OutpostChoiceDlg.h" />
     <ClInclude Include="..\Common.prj\ProgramFiles.h" />
@@ -166,7 +165,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Library\Extras\AboutDlg.cpp" />
-    <ClCompile Include="..\Common.prj\Executable.cpp" />
     <ClCompile Include="..\Common.prj\Outpost.cpp" />
     <ClCompile Include="..\Common.prj\OutpostChoiceDlg.cpp" />
     <ClCompile Include="..\Common.prj\ProgramFiles.cpp" />

@@ -19,6 +19,12 @@ A help file is included.  Let the author know if the help file needs improving..
 
 ## Updates
 
+### Update 10/13/22
+
+Modified and moved Executable to the Library.  Also noted that the m_lpCmdLine of the CWinAppEx class only
+has the arguments and not the path to the application.  Modified the Executable start to accept an
+arbitrary number of arguments of which the first must the the path to application that needs starting.
+
 ### Update 10/12/22
 
 Well Microsoft seems to have done it again.  The latest Win11 update deleted a copy of my favorite

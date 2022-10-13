@@ -16,11 +16,11 @@ static TCchar* AcroRdKey   = _T("AcroRdPath");
 
 
 void PdfInfo::show(TCchar* name) {
-String pdfPath = _T("\"") + myPath + name;   pdfPath += _T("\"");
+String pdfPath = myPath + name;
 
   if (!getAcroRd()) return;
 
-  if (pdfExe.start(acroRd, pdfPath)) {pdfExe.wait(); return;}
+  if (pdfExe.start(2, acroRd.str(), pdfPath.str())) {pdfExe.wait(); return;}
   }
 
 

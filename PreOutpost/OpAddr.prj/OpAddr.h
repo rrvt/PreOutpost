@@ -7,12 +7,7 @@
 
 class OpAddr : public CApp {
 
-String      cmdLine[5];
-
 public:
-
-STARTUPINFO startUpInfo;
-
                OpAddr() noexcept;
 
   virtual BOOL InitInstance();

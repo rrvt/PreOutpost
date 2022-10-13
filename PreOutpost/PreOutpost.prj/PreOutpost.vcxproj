@@ -67,11 +67,11 @@
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\Common.prj;$(SolutionDir)..\..\Library\Library.prj\;$(SolutionDir)..\..\Library\Extras\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <BasicRuntimeChecks/>
+      <BasicRuntimeChecks />
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <FunctionLevelLinking>false</FunctionLevelLinking>
-      <PrecompiledHeaderFile/>
-      <PrecompiledHeaderOutputFile/>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -108,9 +108,9 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <BasicRuntimeChecks/>
-      <PrecompiledHeaderFile/>
-      <PrecompiledHeaderOutputFile/>
+      <BasicRuntimeChecks />
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -121,7 +121,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>Htmlhelp.lib;Version.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <ProgramDatabaseFile/>
+      <ProgramDatabaseFile />
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -137,7 +137,6 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
   <ItemGroup>
-    <ClCompile Include="..\Common.prj\Executable.cpp" />
     <ClCompile Include="..\Common.prj\Outpost.cpp" />
     <ClCompile Include="AboutDlgEx.cpp" />
     <ClCompile Include="BBSdlg.cpp" />
@@ -159,7 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Library\Extras\ExtraResource.h" />
-    <ClInclude Include="..\Common.prj\Executable.h" />
     <ClInclude Include="..\Common.prj\Outpost.h" />
     <ClInclude Include="AboutDlgEx.h" />
     <ClInclude Include="BBSdlg.h" />
@@ -200,7 +198,7 @@
     <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\PreOutpost.ini" />
     <None Include="res\PreOutpost.rc2" />
     <None Include="..\README.md" />
-  <None Include="C:\Program Files (x86)\SCCo Packet\Outpost.conf" />
+    <None Include="C:\Program Files (x86)\SCCo Packet\Outpost.conf" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\PreOutpost.ico" />

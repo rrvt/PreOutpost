@@ -83,16 +83,15 @@ String s;
 bool PreOutpost::startOPaddress() {
 String cmd   = myPath + _T("OpAddr.exe");
 
-String opDir = getPath(outpost.getPath());
+String opDir = outpost.getPath();
 String prDir = outpost.getProfile();
-String args  = opAddrExe.addQuotes(opDir) + _T(' ') + opAddrExe.addQuotes(prDir);
 
-  return opAddrExe.start(cmd, args);
+  return opAddrExe.start(3, cmd.str(), opDir.str(), prDir.str());
   }
 
 
 void PreOutpost::startOutpost()
-                {Executable outpostExe;   if (outpostExe.start(outpost.getPath(), 0)) outpostExe.wait();}
+                {Executable outpostExe;   if (outpostExe.start(1, outpost.getPath().str())) outpostExe.wait();}
 
 
 // Just exit.
