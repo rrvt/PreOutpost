@@ -19,6 +19,10 @@ A help file is included.  Let the author know if the help file needs improving..
 
 ## Updates
 
+### Update
+
+Add logic to position the Identity Dialog Box on startup where it was the last time it shut down.
+
 ### Update 10/13/22
 
 Modified and moved Executable to the Library.  Also noted that the m_lpCmdLine of the CWinAppEx class only

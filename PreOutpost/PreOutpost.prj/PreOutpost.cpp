@@ -91,7 +91,7 @@ String prDir = outpost.getProfile();
 
 
 void PreOutpost::startOutpost()
-                {Executable outpostExe;   if (outpostExe.start(1, outpost.getPath().str())) outpostExe.wait();}
+           {Executable outpostExe;   if (outpostExe.start(1, outpost.getPath().str())) outpostExe.wait();}
 
 
 // Just exit.

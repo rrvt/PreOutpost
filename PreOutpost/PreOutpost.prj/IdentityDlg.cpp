@@ -14,10 +14,12 @@
 #include "BBSdlg.h"
 
 
-IMPLEMENT_DYNAMIC(IdentityDlg, CDialog)
+IMPLEMENT_DYNAMIC(IdentityDlg, CDialogEx)
 
 
-BEGIN_MESSAGE_MAP(IdentityDlg, CDialog)
+BEGIN_MESSAGE_MAP(IdentityDlg, CDialogEx)
+  ON_WM_MOVE()
+
   ON_BN_CLICKED(IDC_BUTTON4,        &OnTacticalBnClicked)
   ON_EN_KILLFOCUS(IDC_EDIT4,        &OnTacCallLoseFoc)
   ON_EN_KILLFOCUS(IDC_EDIT5,        &OnTacCallModA)
@@ -41,9 +43,9 @@ BEGIN_MESSAGE_MAP(IdentityDlg, CDialog)
 END_MESSAGE_MAP()
 
 
-IdentityDlg::IdentityDlg(CWnd* pParent /*=NULL*/) : CDialog(IdentityDlg::IDD, pParent),
-  isTacticalID(false),   tacticalModified(false), userModified(false), subjWSecurity(false),
-  includeAddrBook(false),
+IdentityDlg::IdentityDlg(CWnd* pParent /*=NULL*/) : CDialogEx(IdentityDlg::IDD, pParent),
+  isInitialized(false), isTacticalID(false),   tacticalModified(false), userModified(false),
+  subjWSecurity(false), includeAddrBook(false),
   tacticalCallSign(_T("")), tacticalText(_T("")), tacticalIDPrefix(_T("")), tacSignature(_T("")),
   userCallSign(_T("")), userName(_T("")), userIDPrefix(_T("")), userSignature(_T("")), subject(_T("")),
   severity(0), handling(0), subjStyle(0), profilesDesired(0), practiceDay(0) {}
@@ -53,14 +55,17 @@ IdentityDlg::~IdentityDlg() {  }
 
 
 BOOL IdentityDlg::OnInitDialog() {
+CRect        winRect;
 CEdit*       p;                                          //{80,44,70,12};
 CString      s;
 CWnd*        q;
 COleDateTime ctm;
 
-  CDialog::OnInitDialog();
+  CDialogEx::OnInitDialog();
 
-  SetWindowText(title);
+  GetWindowRect(&winRect);
+
+  SetWindowText(title);   winPos.initialPos(this, winRect);   isInitialized = true;
 
   menu = GetMenu(); setSubjWSecurity();
 
@@ -81,13 +86,13 @@ COleDateTime ctm;
 
   setSubjWSecurity();   setIncludeAddrBook();
 
-  return TRUE;
+  SetWindowText(title);   winPos.initialPos(this, winRect);   isInitialized = true;   return TRUE;
   }
 
 
 
 void IdentityDlg::DoDataExchange(CDataExchange* pDX) {
-  CDialog::DoDataExchange(pDX);
+  CDialogEx::DoDataExchange(pDX);
   DDX_Text( pDX, IDC_EDIT1,     userCallSign);
   DDX_Text( pDX, IDC_EDIT2,     userName);
   DDX_Text( pDX, IDC_EDIT3,     userIDPrefix);
@@ -114,7 +119,8 @@ void IdentityDlg::DoDataExchange(CDataExchange* pDX) {
   }
 
 
-
+void IdentityDlg::OnMove(int x, int y)
+            {CRect winRect;   GetWindowRect(&winRect);   winPos.set(winRect);   CDialogEx::OnMove(x, y);}
 
 
 void IdentityDlg::OnSubjWSecurity() {subjWSecurity = !subjWSecurity; setSubjWSecurity();}

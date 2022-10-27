@@ -4,14 +4,18 @@
 #pragma once
 #include "resource.h"
 #include "afxwin.h"
+#include "WinPos.h"
 
 
 
-class IdentityDlg : public CDialog {
+class IdentityDlg : public CDialogEx {
 
   DECLARE_DYNAMIC(IdentityDlg)
 
 CMenu*  menu;
+
+bool    isInitialized;
+WinPos  winPos;                                // Position of dialog box
 
 public:
 
@@ -78,6 +82,8 @@ private:
   void setIncludeAddrBook();
 
 public:
+  afx_msg void OnMove(int x, int y);
+
   afx_msg void OnTacticalBnClicked();
   afx_msg void OnTacCallLoseFoc();
   afx_msg void OnTacCallModA();

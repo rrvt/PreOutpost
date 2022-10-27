@@ -2,18 +2,18 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 
 <Product Id="*" UpgradeCode="3C3F8C11-62C2-46DF-9506-FB759907D7B0" Language="1033"
-         Manufacturer="Bob -- K6RWY" Name="PreOutpost"
-         Version="!(bind.fileVersion.PreOutpost.cmp)"
-         >
+                  Manufacturer="Bob -- K6RWY" Name="PreOutpost"
+                  Version="!(bind.fileVersion.PreOutpost.cmp)"
+                  >
 
   <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"
-           Manufacturer="Bob -- K6RWY" Description="Installs PreOutpost"
-           Comments="Copyright (c) Bob -- K6RWY"
-           />
+                      Manufacturer="Bob -- K6RWY" Description="Installs PreOutpost"
+                      Comments="Copyright (c) Bob -- K6RWY"
+                      />
 
   <MajorUpgrade Schedule="afterInstallInitialize"
-                AllowDowngrades="no"   IgnoreRemoveFailure="no"   AllowSameVersionUpgrades="no"
-                DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+                                AllowDowngrades="no"   IgnoreRemoveFailure="no"   AllowSameVersionUpgrades="no"
+                                DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 
   <MediaTemplate EmbedCab="yes" />
 
@@ -27,8 +27,8 @@
     </Publish>
   </UI>
 
-  <WixVariable Id="WixUIDialogBmp" Value="C:\Program Files (x86)\WixApp\dialog.bmp"/>
-  <WixVariable Id="WixUIBannerBmp" Value="C:\Program Files (x86)\WixApp\banner.bmp"/>
+  <WixVariable Id="WixUIDialogBmp" Value="D:\Sources\WixApp\Release\dialog.bmp"/>
+  <WixVariable Id="WixUIBannerBmp" Value="D:\Sources\WixApp\Release\banner.bmp"/>
 
   <Icon     Id="UIPreOutpost01Icon.ico"
                             SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\UIPreOutpost01.ico"/>
@@ -59,7 +59,7 @@
   <Feature Id="ProductFeatures" Title="Main Product" Level="1" >
     <ComponentGroupRef Id="PreOutpost.ftr"/>
     <ComponentGroupRef Id="PDF.ftr"/>
-    <ComponentGroupRef Id="UninstallPreOutpost.ftr"/>
+    <ComponentGroupRef Id="Uninstall_PreOutpost.ftr"/>
   </Feature>
 </Product>
 
@@ -75,8 +75,8 @@
   <ComponentRef Id="BBSAssnmts.cmp"/>
   <ComponentRef Id="CheckInOut.cmp"/>
 </ComponentGroup>
-<ComponentGroup Id="UninstallPreOutpost.ftr">
-  <ComponentRef Id="UninstallPreOutpost.cmp"/>
+<ComponentGroup Id="Uninstall_PreOutpost.ftr">
+  <ComponentRef Id="Uninstall_PreOutpost.cmp"/>
 </ComponentGroup>
 </Fragment>
 
@@ -92,6 +92,7 @@
     </Directory>
 
     <Directory Id="DesktopFolder" />
+
   </Directory>
 
   <Property Id="ApplicationFolderName" Value="PreOutpost" />
@@ -224,8 +225,8 @@
 
 <Fragment>
 
-  <Component Id="UninstallPreOutpost.cmp" 
-                              Guid="EE8A9C39-2F13-4538-A746-785A9C88524B" Directory="PreOutpost.pmf">
+  <Component Id="Uninstall_PreOutpost.cmp" 
+                              Guid="C65F9576-8B9F-4DDE-936E-4AB41D87539D" Directory="PreOutpost.pmf">
 
     <Shortcut Id               = "UninstallPreOutpost.shc"
               Name             = "Uninstall PreOutpost"
@@ -235,7 +236,7 @@
               Icon             = "UIPreOutpost01Icon.ico"
               />
     <RemoveFolder Id="PreOutpost.uni" Directory="PreOutpost.pmf" On="uninstall"/>
-    <RegistryValue Root="HKCU" Key="Software\UninstallPreOutpost.cmp" Name="installed"
+    <RegistryValue Root="HKCU" Key="Software\Uninstall_PreOutpost.cmp" Name="installed"
                    Type="integer" Value="1" KeyPath="yes"/>
   </Component>
 

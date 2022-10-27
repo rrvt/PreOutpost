@@ -1,7 +1,8 @@
 [SolutionInfo]
+RootPath=D:\Sources\PreOutpost
 Path=D:\Sources\PreOutpost\PreOutpost\PreOutpost.sln
 Name=PreOutpost
-Version=2.0
+Version=2.100000
 [DefaultPath]
 NPaths=3
 DefKey0=PreOutpost.ftr
@@ -28,8 +29,7 @@ IconPath=D:\Sources\PreOutpost\PreOutpost.prj\res\Routing01.ico
 ProductName=PreOutpost
 Company=Bob -- K6RWY
 WixName=PreOutpost
-WixVersion=1.5.13.0
-UpgradeGUID=3C3F8C11-62C2-46DF-9506-FB759907D7B0
+WixVersion=1.5.16.0
 UpgradeCode=3C3F8C11-62C2-46DF-9506-FB759907D7B0
 SaveVerAllowed=0
 LicenseRequired=0

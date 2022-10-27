@@ -92,10 +92,6 @@ OPENFILENAME& ofn = fileDialog.m_ofn;
 bool getDirPathDlg(TCchar* title, String& path) {
 CFolderPickerDialog dlg(path);
 
-#if 0
-  return dlgPath(&fileDialog, title, path);
-#else
-
   dlg.m_ofn.lpstrTitle = title;
 
   if (!path.isEmpty()) dlg.m_ofn.lpstrInitialDir = path;
@@ -103,7 +99,6 @@ CFolderPickerDialog dlg(path);
   if (dlg.DoModal() == IDOK) {path = dlg.GetPathName(); return true;}
 
   return false;
-#endif
   }
 
 
@@ -120,4 +115,11 @@ bool dlgPath(CFileDialog* dlg, TCchar* title, String& path) {
 
   return false;
   }
+
+
+
+#if 0
+  return dlgPath(&fileDialog, title, path);
+#else
+#endif
 
