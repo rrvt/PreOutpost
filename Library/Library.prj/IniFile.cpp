@@ -2,7 +2,7 @@
 // Copyright Software Design & Engineering, Robert R. Van Tuyl, 2013.  All rights reserved.
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "IniFile.h"
 #include "fileName.h"
 #include <Shlobj.h>
@@ -195,11 +195,6 @@ Tchar stg[1024];
   return false;
   }
 
-
-#if 0
-int IniFile::read(TCchar* section, TCchar* key, int def)
-                                            {return GetPrivateProfileInt(section, key, def, iniFilePath);}
-#endif
 
 int IniFile::readInt(TCchar* section, TCchar* key, int def)
                                             {return GetPrivateProfileInt(section, key, def, iniFilePath);}

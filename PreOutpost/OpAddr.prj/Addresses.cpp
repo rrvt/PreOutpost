@@ -1,7 +1,7 @@
 // Outpost Addresses
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "Addresses.h"
 #include "AddressDlg.h"
 #include "DeleteDlg.h"

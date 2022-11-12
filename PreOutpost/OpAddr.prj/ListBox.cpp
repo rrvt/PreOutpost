@@ -1,7 +1,7 @@
 // ListBox.cpp : implementation file
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "ListBox.h"
 #include "ClipLine.h"
 #include "resource.h"

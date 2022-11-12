@@ -19,6 +19,10 @@ A help file is included.  Let the author know if the help file needs improving..
 
 ## Updates
 
+### Update 11/11/22
+
+Replace stdafx.h with pch.h/framework.h.
+
 ### Update
 
 Add logic to position the Identity Dialog Box on startup where it was the last time it shut down.
