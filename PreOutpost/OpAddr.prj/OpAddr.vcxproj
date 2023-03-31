@@ -143,7 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Library\Extras\AboutDlg.h" />
-    <ClInclude Include="..\..\Library\Extras\ExtraResource.h" />
+    <ClInclude Include="..\..\Library\Extras\ResourceExtra.h" />
     <ClInclude Include="..\Common.prj\Outpost.h" />
     <ClInclude Include="..\Common.prj\OutpostChoiceDlg.h" />
     <ClInclude Include="..\Common.prj\ProgramFiles.h" />

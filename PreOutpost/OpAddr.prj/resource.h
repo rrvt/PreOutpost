@@ -50,6 +50,7 @@
 #define ID_CopyVirtAddr                 410
 #define ID_CopyLoc                      411
 #define ID_CopyActAddr                  412
+#define ID_App_About                    413
 #define ID_App_Exit                     499
 
 // Next default values for new objects
@@ -62,6 +63,3 @@
 #define _APS_NEXT_SYMED_VALUE           201
 #endif
 #endif
-
-
-#include "ExtraResource.h"

@@ -2,7 +2,6 @@
 // Microsoft Visual C++ generated include file.
 // Used by PreOutpost.rc
 
-#include "ExtraResource.h"
 
 #define IDR_MAINFRAME                   100
 #define IDR_MENU1                       101
@@ -127,6 +126,7 @@
 #define ID_SubjWSecurity                416
 #define ID_FindOutpost                  417
 #define ID_IncludeAddrBook              418
+#define ID_App_About                    419
 
 // Next default values for new objects
 

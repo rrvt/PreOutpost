@@ -3,7 +3,6 @@
 
 #include "pch.h"
 #include "AboutDlgEx.h"
-#include "ExtraResource.h"
 #include "FileIO.h"
 #include "match.h"
 #include "Outpost.h"
