@@ -38,6 +38,10 @@ BEGIN_MESSAGE_MAP(NewMasterDlg, CDialog)
   ON_COMMAND(ID_HELP_DeleteMaster,  &OnHelpDeleteMaster)
   ON_COMMAND(ID_HELP_SelNewMaster,  &OnHelpSelNewMaster)
   ON_COMMAND(ID_HELP_SelectProfile, &OnHelpSelectProfile)
+
+#ifdef DialogSizable03
+  ON_WM_SIZE()
+#endif
 END_MESSAGE_MAP()
 
 
@@ -120,4 +124,18 @@ String topic;
 
   ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
   }
+
+
+#ifdef DialogSizable03
+
+void NewMasterDlg::OnSize(UINT nType, int cx, int cy) {
+CRect winRect;
+
+  CDialogEx::OnSize(nType, cx, cy);
+
+  if (!isInitialized) return;
+
+  GetWindowRect(&winRect);   winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
+  }
+#endif
 

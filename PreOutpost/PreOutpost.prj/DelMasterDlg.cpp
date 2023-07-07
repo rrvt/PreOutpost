@@ -9,14 +9,14 @@
 
 // DelMasterDlg dialog
 
-IMPLEMENT_DYNAMIC(DelMasterDlg, CDialog)
+IMPLEMENT_DYNAMIC(DelMasterDlg, CDialogEx)
 
 
-DelMasterDlg::DelMasterDlg(CWnd* pParent) : CDialog(DelMasterDlg::IDD, pParent),
+DelMasterDlg::DelMasterDlg(CWnd* pParent) : CDialogEx(DelMasterDlg::IDD, pParent),
                                                                             MasterProfileName(_T("")) { }
 
 void DelMasterDlg::DoDataExchange(CDataExchange* pDX) {
-  CDialog::DoDataExchange(pDX);
+  CDialogEx::DoDataExchange(pDX);
   DDX_Text(pDX, IDC_EDIT1, MasterProfileName);
   }
 
@@ -32,6 +32,11 @@ BEGIN_MESSAGE_MAP(DelMasterDlg, CDialog)
   ON_COMMAND(ID_HELP_DeleteMaster,  &OnHelpDeleteMaster)
   ON_COMMAND(ID_HELP_SelNewMaster,  &OnHelpSelNewMaster)
   ON_COMMAND(ID_HELP_SelectProfile, &OnHelpSelectProfile)
+
+#ifdef DialogSizable01
+  ON_WM_SIZE()
+#endif
+
 END_MESSAGE_MAP()
 
 
@@ -112,4 +117,19 @@ String topic;
 
   ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
   }
+
+
+
+#ifdef DialogSizable01
+
+void DelMasterDlg::OnSize(UINT nType, int cx, int cy) {
+CRect winRect;
+
+  CDialogEx::OnSize(nType, cx, cy);
+
+  if (!isInitialized) return;
+
+  GetWindowRect(&winRect);   winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
+  }
+#endif
 

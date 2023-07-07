@@ -8,7 +8,7 @@
 
 // SelectMasterDlg dialog
 
-class SelectMasterDlg : public CDialog {
+class SelectMasterDlg : public CDialogEx {
 
   DECLARE_DYNAMIC(SelectMasterDlg)
 
@@ -46,5 +46,8 @@ public:
   afx_msg void OnHelpDeleteMaster();
   afx_msg void OnHelpSelNewMaster();
   afx_msg void OnHelpSelectProfile();
+#ifdef DialogSizable04X
+  afx_msg void OnSize(UINT nType, int cx, int cy);
+#endif
   };
 

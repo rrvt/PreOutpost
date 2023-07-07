@@ -46,4 +46,7 @@ public:
   afx_msg void OnHelpDeleteMaster();
   afx_msg void OnHelpSelNewMaster();
   afx_msg void OnHelpSelectProfile();
+#ifdef DialogSizable03
+  afx_msg void OnSize(UINT nType, int cx, int cy);
+#endif
   };
