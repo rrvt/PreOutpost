@@ -4,9 +4,9 @@
 #include "pch.h"
 #include "AboutDlgEx.h"
 #include "FileIO.h"
-#include "match.h"
 #include "Outpost.h"
 #include "ProgramFiles.h"
+#include "RegExpr.h"
 #include "Resources.h"
 
 

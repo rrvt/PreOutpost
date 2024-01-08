@@ -412,8 +412,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,5,20
- PRODUCTVERSION 1,5,20
+ FILEVERSION 1,5,21
+ PRODUCTVERSION 1,5,21
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -430,12 +430,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Bob -- K6RWY"
             VALUE "FileDescription", "PreOutpost provides proven profiles to Outpost and starts Outpost."
-            VALUE "FileVersion", "1.5.20"
+            VALUE "FileVersion", "1.5.21"
             VALUE "InternalName", "PreOutpost.exe"
             VALUE "LegalCopyright", "(c) Bob -- K6RWY.  All rights reserved."
             VALUE "OriginalFilename", "PreOutpost.exe"
             VALUE "ProductName", "PreOutpost"
-            VALUE "ProductVersion", "1.5.20"
+            VALUE "ProductVersion", "1.5.21"
         END
     END
     BLOCK "VarFileInfo"

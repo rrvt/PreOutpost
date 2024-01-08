@@ -6,8 +6,8 @@
 #include "filename.h"
 #include "filesrch.h"
 #include "IniFile.h"
-#include "match.h"
 #include "MessageBox.h"
+#include "RegExpr.h"
 
 
 ProgramFiles::ProgramFiles() {

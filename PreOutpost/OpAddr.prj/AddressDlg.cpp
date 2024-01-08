@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "Addresses.h"
 #include "AddressDlg.h"
-#include "match.h"
+#include "RegExpr.h"
 #include "resource.h"
 
 

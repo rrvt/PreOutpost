@@ -5,9 +5,9 @@
 #include "LogFile.h"
 #include "Addresses.h"
 #include "filesrch.h"
-#include "match.h"
 #include "Outpost.h"
 #include "ProgramFiles.h"
+#include "RegExpr.h"
 
 
 static RegExpr re[] = {_T("^~$"),                       // Nil
