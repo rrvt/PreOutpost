@@ -47,8 +47,8 @@ IdentityDlg::IdentityDlg(CWnd* pParent /*=NULL*/) : CDialogEx(IdentityDlg::IDD, 
   isInitialized(false), isTacticalID(false),   tacticalModified(false), userModified(false),
   subjWSecurity(false), includeAddrBook(false),
   tacticalCallSign(_T("")), tacticalText(_T("")), tacticalIDPrefix(_T("")), tacSignature(_T("")),
-  userCallSign(_T("")), userName(_T("")), userIDPrefix(_T("")), userSignature(_T("")), subject(_T("")),
-  severity(0), handling(0), subjStyle(0), profilesDesired(0), practiceDay(0) {}
+  userCallSign(_T("")), userName(_T("")), userIDPrefix(_T("")), userSignature(_T("")),
+  subject(_T("")), severity(0), handling(0), subjStyle(0), profilesDesired(0), practiceDay(0) { }
 
 
 IdentityDlg::~IdentityDlg() {  }
@@ -120,7 +120,7 @@ void IdentityDlg::DoDataExchange(CDataExchange* pDX) {
 
 
 void IdentityDlg::OnMove(int x, int y)
-            {CRect winRect;   GetWindowRect(&winRect);   winPos.set(winRect);   CDialogEx::OnMove(x, y);}
+      {CRect winRect;   GetWindowRect(&winRect);   winPos.set(winRect);   CDialogEx::OnMove(x, y);}
 
 
 void IdentityDlg::OnSubjWSecurity() {subjWSecurity = !subjWSecurity; setSubjWSecurity();}
@@ -208,13 +208,18 @@ String   s;
   }
 
 
-void IdentityDlg::OnTacCallModA() {if (isNotEqual(tacticalText, IDC_EDIT5))  tacticalModified = true;}
-void IdentityDlg::OnTacCallModB() {if (isNotEqual(tacticalIDPrefix, IDC_EDIT6))
-                                                                                tacticalModified = true;}
-void IdentityDlg::OnTacCallModC() {if (isNotEqual(tacSignature, IDC_EDIT8))  tacticalModified = true;}
-void IdentityDlg::OnFCCCallModA() {if (isNotEqual(userName, IDC_EDIT2))      userModified     = true;}
-void IdentityDlg::OnFCCCallModB() {if (isNotEqual(userIDPrefix, IDC_EDIT3))  userModified     = true;}
-void IdentityDlg::OnFCCCallModC() {if (isNotEqual(userSignature, IDC_EDIT7)) userModified     = true;}
+void IdentityDlg::OnTacCallModA()
+                            {if (isNotEqual(tacticalText, IDC_EDIT5))     tacticalModified = true;}
+void IdentityDlg::OnTacCallModB()
+                            {if (isNotEqual(tacticalIDPrefix, IDC_EDIT6)) tacticalModified = true;}
+void IdentityDlg::OnTacCallModC()
+                            {if (isNotEqual(tacSignature, IDC_EDIT8))     tacticalModified = true;}
+void IdentityDlg::OnFCCCallModA()
+                            {if (isNotEqual(userName, IDC_EDIT2))         userModified     = true;}
+void IdentityDlg::OnFCCCallModB()
+                            {if (isNotEqual(userIDPrefix, IDC_EDIT3))     userModified     = true;}
+void IdentityDlg::OnFCCCallModC()
+                            {if (isNotEqual(userSignature, IDC_EDIT7))    userModified     = true;}
 
 
 bool IdentityDlg::isNotEqual(CString& s, int x) {

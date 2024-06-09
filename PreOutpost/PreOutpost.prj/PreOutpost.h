@@ -1,5 +1,5 @@
-// PreOutpost.h : An application composed of two dialog boxes to support Outpost, an Amateur Radio Packet
-//                application.
+// PreOutpost.h : An application composed of two dialog boxes to support Outpost, an Amateur Radio
+//                Packet application.
 // rrvt 6/6/16  Copyright all rights reserved
 
 

@@ -35,9 +35,10 @@ String        selected;
   }
 
 
-// Find all the Outpost profiles that have not been created by this program.  Put them in a Dialog list
-// box.  Choose one for the new Master Profile, make a copy in this programs directory and insert the name
-// in the INI file for this program.  The insertion is done so that the list remains sorted.
+// Find all the Outpost profiles that have not been created by this program.  Put them in a Dialog
+// list box.  Choose one for the new Master Profile, make a copy in this programs directory and
+// insert the name in the INI file for this program.  The insertion is done so that the list
+// remains sorted.
 
 void NewMaster::selectNew() {
 NewMasterDlg dlg;

@@ -13,7 +13,7 @@ IMPLEMENT_DYNAMIC(DelMasterDlg, CDialogEx)
 
 
 DelMasterDlg::DelMasterDlg(CWnd* pParent) : CDialogEx(DelMasterDlg::IDD, pParent),
-                                                                            MasterProfileName(_T("")) { }
+                                                                      MasterProfileName(_T("")) { }
 
 void DelMasterDlg::DoDataExchange(CDataExchange* pDX) {
   CDialogEx::DoDataExchange(pDX);
@@ -129,7 +129,9 @@ CRect winRect;
 
   if (!isInitialized) return;
 
-  GetWindowRect(&winRect);   winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
+  GetWindowRect(&winRect);
+
+  winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
   }
 #endif
 

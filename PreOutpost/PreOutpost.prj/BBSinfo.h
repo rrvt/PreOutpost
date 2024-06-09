@@ -24,8 +24,8 @@ String suffix;
 //  *p >  *q
 //  *p <= *q
 
-  BBSdata& operator=
-       (BBSdata& b) {bbsNo = b.bbsNo; fName = b.fName; cName = b.cName; suffix = b.suffix; return *this;}
+  BBSdata& operator= (BBSdata& b)
+              {bbsNo = b.bbsNo; fName = b.fName; cName = b.cName; suffix = b.suffix; return *this;}
   bool operator== (BBSdata& b) {return bbsNo == b.bbsNo;}
   bool operator>  (BBSdata& b) {return bbsNo >  b.bbsNo;}
   bool operator<= (BBSdata& b) {return bbsNo <= b.bbsNo;}
@@ -61,7 +61,7 @@ private:
 
   BBSdata* datum(int i) {return 0 <= i && i < nData() ? &data[i] : 0;}       // or data[i].p
 
-  int   nData()      {return data.end();}                       // returns number of data items in array
+  int   nData()      {return data.end();}                  // returns number of data items in array
 
   friend typename BBSIter;
   };

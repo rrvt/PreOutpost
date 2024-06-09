@@ -1,5 +1,5 @@
-// Class that corresponds to the Dialog Box that allows the user to select the Master Profile when there
-// are two or more Master Profiles
+// Class that corresponds to the Dialog Box that allows the user to select the Master Profile when
+// there are two or more Master Profiles
 
 #include "pch.h"
 #include "PreOutpost.h"
@@ -16,7 +16,7 @@
 IMPLEMENT_DYNAMIC(SelectMasterDlg, CDialogEx)
 
 SelectMasterDlg::SelectMasterDlg(CWnd* pParent) : CDialogEx(SelectMasterDlg::IDD, pParent),
-                                                        allProfiles(0) {listItems.init(this, IDC_LIST1);}
+                                                   allProfiles(0) {listItems.init(this, IDC_LIST1);}
 
 
 BOOL SelectMasterDlg::OnInitDialog() {
@@ -142,7 +142,8 @@ void SelectMasterDlg::OnSize(UINT nType, int cx, int cy) {
 CRect winRect;
   if (!isInitialized) return;
 
-  GetWindowRect(&winRect);   winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
+  GetWindowRect(&winRect);
+  winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
 #endif
   }
 #endif

@@ -24,7 +24,8 @@ void BBSinfo::clear() {
 BBSIter  iter(*this)  ;
 BBSdata* b;
 
-  for (b = iter(); b; b = iter++) {b->bbsNo = -1, b->cName.clear(); b->fName.clear(); b->suffix.clear();}
+  for (b = iter(); b; b = iter++)
+                            {b->bbsNo = -1, b->cName.clear(); b->fName.clear(); b->suffix.clear();}
   data.clear();
   }
 
@@ -41,7 +42,7 @@ String   key;
   n = iniFile.readInt(Section, NoBBS, 0);    if (!n) getSuffixes();
 
   for (b = iter(), i = 1; b != 0 && i <= n; b = iter++, i++)
-                                  {key = Suffix; key += i;   iniFile.readString(Section, key, b->suffix);}
+                           {key = Suffix; key += i;   iniFile.readString(Section, key, b->suffix);}
   }
 
 
@@ -60,7 +61,7 @@ int      i;
   if (dlg.DoModal() == IDOK) {
 
     for (d = iter(), i = 0; d; d = iter++, i++)
-                                            {BBSdlgDatum& dlgD = dlg.data[i];   d->suffix = dlgD.suffix;}
+                                      {BBSdlgDatum& dlgD = dlg.data[i];   d->suffix = dlgD.suffix;}
     bbsInfo.save();
     }
 
@@ -75,7 +76,7 @@ int      n;
 String   key;
 
   for (d = iter(), n = 0; d; d = iter++, n++)
-                         {key = Suffix; key += d->bbsNo;   iniFile.writeString(Section, key, d->suffix);}
+                   {key = Suffix; key += d->bbsNo;   iniFile.writeString(Section, key, d->suffix);}
 
   iniFile.writeInt(Section, NoBBS, n);
   }

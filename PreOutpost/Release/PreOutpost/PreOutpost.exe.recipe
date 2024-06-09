@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Sources\PreOutpost\Release\OpAddr.exe</FullPath>
+      <FullPath>D:\Sources\PreOutpost\Release\OpAddrBk.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>D:\Sources\PreOutpost\Release\PreOutpost.exe</FullPath>
@@ -13,6 +13,9 @@
   <NonRecipeFileRefs>
     <NonRecipeFileRef>
       <FullPath>D:\Sources\PreOutpost\PreOutpost.hlp\PreOutpostHlp.vcxproj</FullPath>
+    </NonRecipeFileRef>
+    <NonRecipeFileRef>
+      <FullPath>D:\Sources\PreOutpost\OpAddrBk.hlp\OpAddrBk.hlp.vcxproj</FullPath>
     </NonRecipeFileRef>
   </NonRecipeFileRefs>
 </Project>

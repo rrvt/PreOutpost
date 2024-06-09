@@ -33,11 +33,11 @@ END_MESSAGE_MAP()
 
 // PreOutpost initialization
 // This program uses it's own INI file, see IniFile.h for details.
-// Collect ID and Report information from the user in the dialog box and create new Outpost Profiles
-// from the information.  If there is no Master Profile, create one.  If there is only one Master Profile
-// then collect the identity info and start Outpost.  If there are two or more, then select one or all
-// Master Profiles.  One additional choice is included with the ID and Report Information, whether
-// profiles for all six BBSes or just W1XSC should be created.
+// Collect ID and Report information from the user in the dialog box and create new Outpost
+// Profiles from the information.  If there is no Master Profile, create one.  If there is only
+// one Master Profile then collect the identity info and start Outpost.  If there are two or more,
+// then select one or all Master Profiles.  One additional choice is included with the ID and
+// Report Information, whether profiles for all six BBSes or just W1XSC should be created.
 
 BOOL PreOutpost::InitInstance() {
 bool   makeMaster;                                // When true make a Master Profile
@@ -81,7 +81,7 @@ String s;
 
 
 bool PreOutpost::startOPaddress() {
-String cmd   = myPath + _T("OpAddr.exe");
+String cmd   = myPath + _T("OpAddrBk.exe");
 
 String opDir = outpost.getPath();
 String prDir = outpost.getProfile();
@@ -91,7 +91,7 @@ String prDir = outpost.getProfile();
 
 
 void PreOutpost::startOutpost()
-           {Executable outpostExe;   if (outpostExe.start(1, outpost.getPath().str())) outpostExe.wait();}
+    {Executable outpostExe;   if (outpostExe.start(1, outpost.getPath().str())) outpostExe.wait();}
 
 
 // Just exit.

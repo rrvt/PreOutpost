@@ -58,11 +58,18 @@ bool         rslt;
 
 BEGIN_MESSAGE_MAP(AboutDlg, CDialogEx)
     ON_BN_CLICKED(IDOK, &AboutDlg::onOk)
+	ON_EN_CHANGE(IDC_PDFapps, &AboutDlg::onChangePdfapps)
 END_MESSAGE_MAP()
 
 
-void AboutDlg::onOk()
-{
-    // TODO: Add your control notification handler code here
-    CDialogEx::OnOK();
-}
+void AboutDlg::onOk() {CDialogEx::OnOK();}
+
+
+void AboutDlg::onChangePdfapps() {
+	// TODO:  If this is a RICHEDIT control, the control will not
+	// send this notification unless you override the CDialogEx::OnInitDialog()
+	// function and call CRichEditCtrl().SetEventMask()
+	// with the ENM_CHANGE flag ORed into the mask.
+
+	// TODO:  Add your control notification handler code here
+  }

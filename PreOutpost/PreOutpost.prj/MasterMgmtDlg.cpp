@@ -1,5 +1,5 @@
-// Class that corresponds to the Dialog Box that allows the user to create a new Master Profile or Delete
-// a Master Profile.
+// Class that corresponds to the Dialog Box that allows the user to create a new Master Profile or
+// Delete a Master Profile.
 
 #include "pch.h"
 #include "PreOutpost.h"
@@ -37,14 +37,14 @@ END_MESSAGE_MAP()
 
 
 MasterMgmtDlg::MasterMgmtDlg(CWnd* pParent) :
-                  CDialog(MasterMgmtDlg::IDD, pParent) {listItems.init(this, IDC_LIST1);}
+                            CDialog(MasterMgmtDlg::IDD, pParent) {listItems.init(this, IDC_LIST1);}
 
 
 BOOL MasterMgmtDlg::OnInitDialog() {
   CDialog::OnInitDialog();
   listItems.addToControl();
-  return TRUE;                                    // return TRUE unless you set the focus to a control
-  }                                               // EXCEPTION: OCX Property Pages should return FALSE
+  return TRUE;                                // return TRUE unless you set the focus to a control
+  }                                           // EXCEPTION: OCX Property Pages should return FALSE
 
 
 void MasterMgmtDlg::DoDataExchange(CDataExchange* pDX) {CDialog::DoDataExchange(pDX);}
@@ -60,7 +60,7 @@ void MasterMgmtDlg::OnSetBBSsuffixes() {bbsInfo.getSuffixes();}
 // MasterMgmtDlg message handlers
 
 
-void MasterMgmtDlg::createNew() {listItems.getSelected(); EndDialog(CreateMaster);}
+void MasterMgmtDlg::createNew()   {listItems.getSelected(); EndDialog(CreateMaster);}
 
 
 void MasterMgmtDlg::delSelected() {listItems.getSelected(); EndDialog(DeleteMaster);}
@@ -145,7 +145,8 @@ CRect winRect;
 
   if (!isInitialized) return;
 
-  GetWindowRect(&winRect);   winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
+  GetWindowRect(&winRect);
+  winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
   }
 #endif
 

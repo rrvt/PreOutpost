@@ -5,19 +5,60 @@ a twist of a knob on the radio the user may change BBSes.  A Subject Line may be
 clipboard for subsequent pasting into a subject line or other location in a form.  The complete personal
 and tactical information may be entered once and sent to all BBS profiles with this application.
 
-The complete address book is displayed in a sister window (note scrolling may be necessary).  The address
-name and text that the name represents is shown.  Additional addresses may be created.  The PDF files that
-describe where messages should be sent is available from one of the menu items (Routing) and a pdf Routing
-Slip is also available.
+# Address Book
+
+The complete Outpost address book is displayed in a sister window.
+
+Outpost utilizes an Address Book which is accessed by selecting the To: button and
+selecting a virtual address. In Outpost one can create and edit addresses so that a
+virtual address translate to one or more real addresses. However, one can only view
+eight virtual addresses at a time (scrolling down to view more) and must select an
+address to see what the actual addresses are.
+
+The app may be started independently with or without Outpost or if one use
+PreOutpost to setup several profiles, preOutpost starts the Outpost Address Book App
+and Outpost at the same time. When Outpost is closed, the Outpost Address Book App
+is also closed. I find using a quarter of the screen for this app allows me to see the
+useful addresses while operating.
+
+This app provides a way to view more addresses and to also see the actual addresses
+for each virtual address displayed. While it provides a way to create, edit and delete
+address records it only provides one line per virtual address/actual addresses on the
+main window. In addition one can copy the virtual and actual addresses to the clipboard
+for one of the highlighted lines.
+
+Documentation for outpost keeps changing. So this app includes five pdf files:
+
+  - SCCo-packet-freqs
+  - SCCo_RACES_Rec_Form_Routing
+  - SCCo_Std_Fmt_Pkt_Subj_Line
+  - SCCo_Std_Packet_Check-In-Out
+  - XSC_RACES_Routing_Slip_Fillable
+
+They may be viewed by selecting the particular item in a drop down list on the toolbar.
+The local pdf reader is sent the file selected. This requires the app know where the
+local pdf reader is located (its path) and if the pdf files change a way to know the path
+to the files.
+
+There are commands to find a suitable pdf reader and another to identify the pdf file in
+the Program/PreOutpost directory.
+
+The last feature is the best: There is a command to place the following string in the
+clipboard: "*** This is drill traffic ***". Of course this is only useful during the weekly
+check-ins.
 
 ## Getting Started
 
 The Windows PreOutpostInstaller.msi file will install the program.  At this time only one version of
-PreOutpost is produced.  It should run on Win7, 8 and 10.
+PreOutpost is produced.  It should run on Win7, 8, 10 and 11.
 
-A help file is included.  Let the author know if the help file needs improving...
+A help file is included in both apps.  Let the author know if the help file needs improving...
 
 ## Updates
+
+### Update 6/5/24
+
+Clean up a whole variety of things in the app.  Improved the user interface.
 
 ### Update 2/17/24
 

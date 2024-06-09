@@ -40,7 +40,9 @@ IdentityDlg dlg;
 
   tacData.load(tacticalCallSign);
 
-  tacticalText = tacData.name;   tacticalIDPrefix = tacData.userID;   tacSignature = tacData.signature;
+  tacticalText     = tacData.name;
+  tacticalIDPrefix = tacData.userID;
+  tacSignature     = tacData.signature;
 
   loadDialogBox(dlg);
 
@@ -58,8 +60,8 @@ IdentityDlg dlg;
   }
 
 
-// Use the input ID and Report input to update the master profile.  Then update the Master File with
-// the BBS name for each profile to be copied to the Outpost profile directory.
+// Use the input ID and Report input to update the master profile.  Then update the Master File
+// with the BBS name for each profile to be copied to the Outpost profile directory.
 
 void IdentityInfo::process(TCchar* profileName, String& metaPath) {
 

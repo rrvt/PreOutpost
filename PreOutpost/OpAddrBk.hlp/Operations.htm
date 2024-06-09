@@ -1,0 +1,200 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/OneColumnPage.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Operations</title>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<link href="App.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div class="container">
+<div class="content">
+<!-- InstanceBeginEditable name="Title" -->
+<h1>Outpost Address Book Operations</h1>
+<!-- InstanceEndEditable -->
+
+<!-- InstanceBeginEditable name="Body" -->
+<h2>Main Window</h2>
+<p>
+The main window has several components:
+</p>
+<ul>
+<li>A Menu Bar</li>
+<li>A Tool Bar</li>
+<li>A Heading for the List of Addresses</li>
+<li>A List Box (with optional vertical scroll bar)</li>
+<li>Status Bar at the bottom Left hand side of Main Window</li>
+</ul>
+<p>
+The main window will remember where it was last located on the screen and it may be moved by grabing
+the Window's Title Bar and dragging.  Furthermore it will remember the width and height of the window.
+The width and height may be changed by grabbing any of the edges and dragging.
+</p>
+<p>
+The Status Bar, when it is useful, will show something about the current command.
+</p>
+
+<h2>Main Window ToolBar Operations</h2>
+<p>
+Most of the operations may be invoked from the toolbar.  There is a menu too which includes this help
+file.
+</p>
+
+<h3><img src="Images/NewAddr.jpg" width="32" height="30"> Create a New Address</h3>
+<p>
+Opens the Address Form dialog box set up to input a new Outpost Address.  The dialog box is discussed
+in detail below.  But as a new address, one cannot input a Virtual Name (labelled "Name") which is the
+same as an existing address.  If one needs to change an existing address use the Edit command.  Note
+the Delete Button is disabled when inputing a new address.
+</p>
+
+<h3><img src="Images/EditAddr.jpg" width="32" height="30"> Edit Address</h3>
+<p>
+Opens the Address Form dialog box with the address data that is high lighted set up to edit the address
+details.  The dialog box is discussed in detail below.  Please note that the Virtual Name (labelled "Name") may be changed but the file containing the original named address will be deleted and another
+file created.  If the name is not changed then the details changed will be written to the file either
+when "Save All" or "Exit" commands is selected.
+</p>
+
+
+<h3><img src="Images/Refresh.jpg" width="32" height="30"> Refresh </h3>
+<p>
+Att this time this command is not documented.
+</p>
+
+<h3><img src="Images/PacketDocs.jpg" width="185" height="30"> Packet Docs</h3>
+<p>
+Click anywhere in this button/drop down list and a drop down list with five documents listed:
+</p>
+<ul>
+<li>Packet Frequencies</li>
+<li>Form Routing</li>
+<li>Packet Subject Line</li>
+<li>Check In/Out</li>
+<li>Routing Slip</li>
+</ul>
+<p>
+Selecting (Clicking) on one of the titles will cause the PDF reader of your choice to show the content
+of the pdf file.  The PDF reader will be operating stand alone so the user will need to minimize or
+close it to recover the screen space it uses.
+</p>
+<h3><img src="Images/Options.jpg" width="171" height="30"> Options</h3>
+<p>
+This is a drop down list of some seldom used commands:
+</p>
+<ul>
+<li>Find PDF Reader</li>
+<li>Find PDF Files</li>
+<li>Set Drill Traffic</li>
+</ul>
+<p>
+Find PDF Reader opens a dialog box.  There are several PDF readers in the world.  The user must supply
+the executable name (or names separated by spaces) in the edit box of the dialog box and press the "Find Paths" button (or just hit the return key).  After some time one or more paths to the executable name will appear in the list box.
+</p>
+<p>
+The problem, I found, is that not all executables will accept a file name when started.  So the next
+step is to test each executable by double clicking on each path in the list box.  The Status Box at the
+bottom of the main window of the App will show the path when the test starts.  If a file is opened in
+the PDF reader the test was a success.  When the PDF reader is closed the Status Box wil show "Testing
+Complete".  If the Status Box shows "Testing Complete without a PDF reader opening the test has failed.
+Once a viable reader has been found selecting the button "PDF App Found" will store the path away for
+future use.
+</p>
+<p>
+The "Find PDF Files" command attempts to find all the pdf files stored in the Program Directory.  They
+do this by searching the pdf files that match specific patterns in their file names.  The file names
+only need to contain the patterns, they do not need to exactly match the pattern.  Here are the
+patterns:
+</p>
+<ul>
+<li>"packet-freqs"</li>
+<li>"Form_Routing"</li>
+<li>"Subj_Line"</li>
+<li>"Check-In"</li>
+<li>"Routing_Slip"</li>
+</ul>
+<p>
+So the obvious caution is that before changing the files in the Program Directory be sure that
+the patterns exist in the file names.
+</p>
+<p>
+The last option is to "Set Drill Traffic".  It only puts the string "**** This is drill traffic ****"
+into the clipboard making it available for pasting into another document or App.
+</p>
+
+<h3><img src="Images/SaveAddr.jpg" width="32" height="30"> Save All Modified Addresses</h3>
+<p>
+This command saves the modified files, delete the files marked for deletion and creates new files
+when they have been created in the App.  It does nothing with address that have not been modified,
+created or deleted.
+</p>
+
+<h3><img src="Images/About.jpg" width="16" height="15"> About</h3>
+<p>
+Displays the About Box.
+</p>
+<h3><img src="Images/Exit.jpg" width="16" height="15"> Exit</h3>
+<p>
+If any addresses have been modified, created or deleted a dialog box will appear asking if
+the address should be saved.  The save operation is the same as the "Save All Modified Addresses"
+command.
+Then the application exits. </p>
+
+<h2>Main Window High Lighted line Right Mouse Button Menu and Hot Keys</h2>
+<p>
+The List Box on the Main Window contains lines which show each Virtual Address and Actual Address
+for each Address Record in Outpost. Using the Left Mouse Button to high light an Address represented
+by a line.  Then there are four commands that may be executed by selecting the command on a Right
+Mouse button popup menu.  The four commands may also be executed by using the corresponding Control +
+key (a hot key).  Here are the four commands given in the Right Mouse popup menu:
+</p>
+<ul>
+<li>Copy Virtual Address&nbsp;&nbsp; Ctrl+B</li>
+<li>Copy Organization&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl+O</li>
+<li>Copy Actual Addr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl+C</li>
+<li>Edit Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ctrl+E</li>
+</ul>
+
+<h2>Address Detail Dialog Box</h2>
+<p>
+There are several ways this dialog box is invoked.  It allows one to create a new address, edit
+an existing address or delete an existing address.  However, all the operations performed in this dialog
+box only change data within the App until either the "Save All" or "Exit" commands in the App are
+executed.  Exiting the App via the 'X' in the upper right hand corner will cause all the changes to be
+forgotten.
+</p>
+<h3></h3>
+
+<h2>File Menu</h2>
+<h3>Save All</h3>
+<p>
+Performs the save all modified addresses command as detailed above.
+</p>
+
+<h3>Exit</h3>
+<p>Performs the conditional save all command then exits</p>
+
+<h2>Options Menu</h2>
+<p>Includes the same commands as the Options drop down command list on the toolbar.</p>
+
+<h2>Help</h2>
+<h3>Introduction</h3>
+<p>
+Starts the help app with the Introduction page.
+</p>
+
+<h3>About OPAddrBk...</h3>
+<p>
+Show the About Dialob box as described above.
+</p>
+
+<!-- InstanceEndEditable -->
+</div><!-- end .content -->
+</div><!-- end .container -->
+</body>
+<!-- InstanceEnd --></html>

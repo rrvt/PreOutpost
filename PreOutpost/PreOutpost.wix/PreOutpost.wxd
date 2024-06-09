@@ -29,7 +29,7 @@ IconPath=D:\Sources\PreOutpost\PreOutpost.prj\res\Routing01.ico
 ProductName=PreOutpost
 Company=Bob -- K6RWY
 WixName=PreOutpost
-WixVersion=1.5.16.0
+WixVersion=1.6.0.0
 UpgradeCode=3C3F8C11-62C2-46DF-9506-FB759907D7B0
 SaveVerAllowed=0
 LicenseRequired=0
@@ -39,7 +39,7 @@ IconID=UIPreOutpost01
 NoDirectories=1
 [PFFDirDesc00]
 ID=PreOutpost
-WixID=PreOutpost.pff
+WixID=PREOUTPOST.PFF
 Parent=
 Name=PreOutpost
 HasChildren=0
@@ -58,8 +58,8 @@ CurSel=PDF
 FeatureID=PreOutpost
 ProgramID=PreOutpost
 StartMenuID=PreOutpost
-CurSel=PreOutpost
-NoComponents=3
+CurSel=Help
+NoComponents=4
 [Ftr00Cmp00]
 ID=PreOutpost
 Path=D:\Sources\PreOutpost\Release\PreOutpost.exe
@@ -76,39 +76,45 @@ Path=D:\Sources\PreOutpost\Release\PreOutpost.chm
 Guid=2F1BEFF9-2FBB-4FDF-B981-CC4955C94600
 [Ftr00Cmp02]
 ID=AddrBook
-Path=D:\Sources\PreOutpost\Release\OpAddr.exe
+Path=D:\Sources\PreOutpost\Release\OpAddrBk.exe
 Guid=B8E4EE39-4052-41D6-BDE4-0A2D5E280455
+[Ftr00Cmp03]
+ID=AddrHelp
+Path=D:\Sources\PreOutpost\Release\OpAddrBk.chm
+Guid=9D5EEDEC-DCA9-4DBB-8C5C-7A8595E4E911
 [Ftr01]
 FeatureID=PDF
 ProgramID=PreOutpost
 StartMenuID=PreOutpost
-CurSel=BBSAssnmts
-NoComponents=4
+CurSel=Packet Freqs
+NoComponents=5
 [Ftr01Cmp00]
-ID=Slip
-Path=D:\Sources\PreOutpost\Docs\RoutingSlip.190527.pdf
-Guid=0D94F8F8-A5F4-46A7-8E85-C3178BDB1F67
+ID=Subject Line
+Path=D:\Sources\PreOutpost\Docs\SCCo_Std_Fmt_Pkt_Subj_Line.220803.pdf
+Guid=EC17A52B-99EF-4D43-A842-3DEE4155E159
 IconID=Routing01
 IsStartMenu=1
-IsDeskTop=1
 [Ftr01Cmp01]
-ID=Info
-Path=D:\Sources\PreOutpost\Docs\RoutingInfo.220618.pdf
-Guid=99AEC4ED-3520-4452-9E7A-A0F64E2AAD86
+ID=Packet Freqs
+Path=D:\Sources\PreOutpost\Docs\SCCo-packet-freqs.230824.pdf
+Guid=131FC610-5685-48E2-8DD8-CFA5EF2857E7
 IconID=Routing01
 IsStartMenu=1
-IsDeskTop=1
 [Ftr01Cmp02]
-ID=BBSAssnmts
-Path=D:\Sources\PreOutpost\Docs\BBS_Assignments.221215.pdf
-Guid=3C1D909B-AB95-4A6D-8156-BEE9F9286F47
+ID=Recommended Routing
+Path=D:\Sources\PreOutpost\Docs\SCCo_RACES_Rec_Form_Routing.240218.pdf
+Guid=46423EA3-1C61-4CCB-B69A-EC72D67A2C9A
 IconID=Routing01
 IsStartMenu=1
-IsDeskTop=1
 [Ftr01Cmp03]
-ID=CheckInOut
-Path=D:\Sources\PreOutpost\Docs\CheckInOutFormat.220323.pdf
-Guid=DC485E98-93E8-4DC7-A68F-1DBE3D401A9D
+ID=Check In or Out
+Path=D:\Sources\PreOutpost\Docs\SCCo_Std_Packet_Check-In-Out.240121.pdf
+Guid=7DA36D56-11EF-4A4C-A7D0-A6C6394E5C0F
 IconID=Routing01
 IsStartMenu=1
-IsDeskTop=1
+[Ftr01Cmp04]
+ID=Routing Slip
+Path=D:\Sources\PreOutpost\Docs\XSC_RACES_Routing_Slip_Fillable.190527.pdf
+Guid=73215B72-BB5E-470A-A551-272199694951
+IconID=Routing01
+IsStartMenu=1

@@ -22,8 +22,8 @@ static TCchar* Section = _T("MetaProfiles");
 MasterProf masterProf;
 
 
-// Read .ini file for all meta profiles, checking that they are still available and correcting .ini file
-// in the process
+// Read .ini file for all meta profiles, checking that they are still available and correcting
+// .ini file in the process
 
 void MasterProf::readIniFile() {
 int    n;
@@ -70,7 +70,9 @@ String metaProfile;
 // for MetaProfile00 to MetaProfile99.  Should be enough for this program...
 
 String MasterProf::getKey(int i) {
-String name = _T("MetaProfile");   if (i < 10) name += _T("0");   name += toString(i);   return name;
+String name = _T("MetaProfile");
+
+  if (i < 10) name += _T("0");   name += toString(i);   return name;
   }
 
 

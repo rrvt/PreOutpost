@@ -35,7 +35,7 @@ private:
 
   String* datum(int i) {return 0 <= i && i < nData() ? &items[i] : 0;}       // or data[i].p
 
-  int   nData()      {return items.end();}                       // returns number of data items in array
+  int   nData()      {return items.end();}                 // returns number of data items in array
 
   friend typename LIIter;
   };

@@ -2,8 +2,8 @@
 // Microsoft Visual C++ generated include file.
 // Used by PreOutpost.rc
 
-// DialogSizable will cause the inclusion of statments and functions that allow the main Dialog Box to
-// be resized
+// DialogSizable will cause the inclusion of statments and functions that allow the main Dialog
+// Box to be resized
 
 #define DialogSizable
 #define DialogSizable00

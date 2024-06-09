@@ -1,5 +1,5 @@
-// Class that corresponds to the Dialog Box that allows the user to create a new Master Profile or Delete
-// a Master Profile.
+// Class that corresponds to the Dialog Box that allows the user to create a new Master Profile or
+// Delete a Master Profile.
 
 #pragma once
 #include "ListItems.h"

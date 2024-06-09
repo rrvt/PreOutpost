@@ -19,7 +19,7 @@ int n = noElements(data);
 int i;
 
   for (i = 0; i < n; i++)
-                    {BBSdlgDatum& d = data[i];  d.suffix.Empty();    d.fName.Empty();   d.cName.Empty();}
+              {BBSdlgDatum& d = data[i];  d.suffix.Empty();    d.fName.Empty();   d.cName.Empty();}
   }
 
 
@@ -40,7 +40,8 @@ BBSdlgDatum* d;
 
   for (i = 0; i < nData; i++) {
     d = &data[i];
-    p = (CEdit*) GetDlgItem(IDC_EDIT20   + i); if (p) {p->SetWindowText(d->suffix); p->SetLimitText(3);}
+    p = (CEdit*) GetDlgItem(IDC_EDIT20   + i);
+    if (p) {p->SetWindowText(d->suffix); p->SetLimitText(3);}
     q = (CWnd*)  GetDlgItem(IDC_STATIC10 + i); if (q)  q->SetWindowText(d->cName);
     q = (CWnd*)  GetDlgItem(IDC_STATIC20 + i); if (q)  q->SetWindowText(d->fName);
     }

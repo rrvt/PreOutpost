@@ -135,7 +135,8 @@ CRect winRect;
 
   if (!isInitialized) return;
 
-  GetWindowRect(&winRect);   winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
+  GetWindowRect(&winRect);
+  winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
   }
 #endif
 
