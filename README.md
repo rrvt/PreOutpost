@@ -56,6 +56,11 @@ A help file is included in both apps.  Let the author know if the help file need
 
 ## Updates
 
+### Update 6/10/24
+
+Added an msi file to install OpAddrBk independently.  Note:  PreOutpost also installs a copy of
+OpAddrBk.
+
 ### Update 6/5/24
 
 Clean up a whole variety of things in the app.  Improved the user interface.

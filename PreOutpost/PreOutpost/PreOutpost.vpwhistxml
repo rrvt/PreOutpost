@@ -1,13 +1,14 @@
 <vpwhist>
 	<active_config>
-		<p n="..\PreOutpost.prj\PreOutpost.vpj" v=",Release|Win32"/>
+		<p n="..\PreOutpost.prj\PreOutpost.vpj" v=",Debug|Win32"/>
 		<p n="..\..\Library\Library.prj\Library.vpj" v=""/>
 		<p n="..\PreOutpost.hlp\PreOutpostHlp.vpj" v=",Debug|Win32"/>
 		<p n="..\PreOutpost.wix\PreOutpostWix.vpj" v=",Debug|x86"/>
 		<p n="..\OpAddr.prj\OpAddr.vpj" v=",Debug|Win32"/>
 		<p n="..\..\Library\Library\Library.vpj" v=",Debug|Win32"/>
 		<p n="..\OpAddrBk.hlp\OpAddrBk.hlp.vpj" v=",Debug|Win32"/>
-		<p n="..\OpAddrBk.prj\OpAddrBk.vpj" v=",Release|Win32"/>
+		<p n="..\OpAddrBk.prj\OpAddrBk.vpj" v=",Debug|Win32"/>
+		<p n="..\OpAddrBk.wix\OpAddrBk.wix.vpj" v=",Debug|x86"/>
 	</active_config>
 	<global>
 		<p n="CurrentProject" v="..\OpAddrBk.prj\OpAddrBk.vpj"/>
@@ -20,15 +21,21 @@
 		<p n="..\..\Library\Library\Library.vcxproj" v="20240403052307595"/>
 		<p n="..\OpAddrBk.hlp\OpAddrBk.hlp.vcxproj" v="20240518220312583"/>
 		<p n="..\OpAddrBk.prj\OpAddrBk.vcxproj" v="20240607044222457"/>
+		<p n="..\OpAddrBk.wix\OpAddrBk.wix.wixproj" v="20240518210939187"/>
 	</project_dates>
-	<tree_expansion scroll="18">
+	<tree_expansion scroll="0">
 		<p n="..\..\Library\Library\Library.vcxproj" v="+@"/>
 		<p n="..\OpAddrBk.hlp\OpAddrBk.hlp.vcxproj" v="+@"/>
-		<p n="..\OpAddrBk.prj\OpAddrBk.vcxproj" v="+@"/>
-		<p n="..\PreOutpost.prj\PreOutpost.vcxproj" v="-@">
-			<p n="Header Files" v="-"/>
+		<p n="..\OpAddrBk.prj\OpAddrBk.vcxproj" v="+@">
+			<p n="Header Files" v="+"/>
 			<p n="Resource Files" v="+"/>
-			<p n="Source Files" v="-"/>
+			<p n="Source Files" v="+"/>
+		</p>
+		<p n="..\OpAddrBk.wix\OpAddrBk.wix.wixproj" v="-@"/>
+		<p n="..\PreOutpost.prj\PreOutpost.vcxproj" v="-@">
+			<p n="Header Files" v="+"/>
+			<p n="Resource Files" v="+"/>
+			<p n="Source Files" v="+"/>
 		</p>
 		<p n="..\PreOutpost.hlp\PreOutpostHlp.vcxproj" v="+@"/>
 		<p n="..\PreOutpost.wix\PreOutpostWix.wixproj" v="+@"/>
@@ -36,8 +43,8 @@
 	<state>
 		<monitor_configs>
 			<monitor_config v="0 0 1920 1080">
-				<screen v="1920 1080 651 2 1247 1048 0 0 N 0 0 0 0 1011 728 0"/>
-				<mdistate v="AAAAAwAAAAIAAAAD2gAAAAIAMAAAAAAAAABAAAAE3gAABAAAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAARsAAAAAvsAAAAJAAAACQAAAAcAAAAIAAAABgAAAAUAAAADAAAAAgAAAAAAAAABAAAABPsAAAAJAAAACQAAAAcAAAAGAAAABQAAAAMAAAACAAAAAAAAAAQAAAAIAAAAAfwAAABhAAAAAFQANQA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwATABpAGIAcgBhAHIAeQBcAEUAeAB0AHIAYQBzAFwAQQBiAG8AdQB0AEQAbABnAC4AcgBjADIAAP////8AAPwAAABxAAAAAGQAMgA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAHAAcgBqAFwATwBwAEEAZABkAHIAQgBrAC4AcgBjAAD/////AAD8AAAAewAAAABuADYAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAHIAZQBzAFwATwBwAEEAZABkAHIAQgBrAC4AcgBjADIAAP////8AAPwAAAB5AAAAAGwANwA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAHAAcgBqAFwATwBwAEEAZABkAHIAQgBrAEQAbABnAC4AYwBwAHAAAP////8AAPwAAAB1AAAAAGgANAA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAHAAcgBqAFwATwBwAEEAZABkAHIAQgBrAEQAbABnAC4AaAAA/////wAA/AAAAHcAAAAAagA5ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABQAHIAZQBPAHUAdABwAG8AcwB0AFwATwBwAEEAZABkAHIAQgBrAC4AaABsAHAAXABPAHAAZQByAGEAdABpAG8AbgBzAC4AaAB0AG0AAP////8AAPwAAABxAAAAAGQAOAA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAHAAcgBqAFwAUABkAGYASQBuAGYAbwAuAGMAcABwAAD/////AAD8AAAAVQAAAABIADEAMAA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAFIARQBBAEQATQBFAC4AbQBkAQD/////AAH8AAAAaQAAAABcADMAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEwAaQBiAHIAYQByAHkAXABMAGkAYgByAGEAcgB5AFwAVABvAG8AbABCAGEAcgBCAGEAcwBlAC4AYwBwAHAAAP////8AAAAAAADaAAAAHgAwAC0AMQA2ADEAMQAxADgANAAyADYANQAyADMAMABOAAAE5wAAAQkAAAaGAAADugAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAANoAAAAeADAALQAxADYANgA0ADQAMAA3ADIANAA0ADgAMgA3AE4AAARFAAABtAAABekAAAKtAAAAAAAAAAAAAAd/AAAENwAAAALqAAAAFgAAAAL7AAAAAAAAAAD7AAAAAAAAAAAAAAAA"/>
+				<screen v="1920 1080 652 0 1197 1048 0 0 N 0 0 0 0 961 728 0"/>
+				<mdistate v="AAAAAwAAAAIAAAAE2gAAAAIAMAAAAAAAAABAAAAErAAABAAAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAVqAAAAAvsAAAALAAAACwAAAAgAAAAHAAAAAwAAAAkAAAACAAAAAQAAAAoAAAAGAAAABQAAAAAAAAAE+wAAAAsAAAALAAAABwAAAAkAAAAIAAAABgAAAAUAAAADAAAAAgAAAAAAAAAEAAAACgAAAAH8AAAAYQAAAABUADUAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEwAaQBiAHIAYQByAHkAXABFAHgAdAByAGEAcwBcAEEAYgBvAHUAdABEAGwAZwAuAHIAYwAyAAD/////AAD8AAAAcQAAAABkADIAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAE8AcABBAGQAZAByAEIAawAuAHIAYwAA/////wAA/AAAAHsAAAAAbgA2ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABQAHIAZQBPAHUAdABwAG8AcwB0AFwATwBwAEEAZABkAHIAQgBrAC4AcAByAGoAXAByAGUAcwBcAE8AcABBAGQAZAByAEIAawAuAHIAYwAyAAD/////AAD8AAAAeQAAAABsADcAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAE8AcABBAGQAZAByAEIAawBEAGwAZwAuAGMAcABwAAD/////AAD8AAAAdQAAAABoADQAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAE8AcABBAGQAZAByAEIAawBEAGwAZwAuAGgAAP////8AAPwAAAB3AAAAAGoAOQA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAGgAbABwAFwATwBwAGUAcgBhAHQAaQBvAG4AcwAuAGgAdABtAAD/////AAD8AAAAcQAAAABkADgAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAFAAZABmAEkAbgBmAG8ALgBjAHAAcAAA/////wAA/AAAAHMAAAAAZgAxADIAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgB3AGkAeABcAFAAcgBvAGQAdQBjAHQALgB3AHgAcwAA/////wAA/AAAAFUAAAAASAAxADAAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABSAEUAQQBEAE0ARQAuAG0AZAEA/////wAB/AAAAHEAAAAAZAAxADEAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAHIAZQBzAG8AdQByAGMAZQAuAGgAAP////8AAPwAAABpAAAAAFwAMwA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwATABpAGIAcgBhAHIAeQBcAEwAaQBiAHIAYQByAHkAXABUAG8AbwBsAEIAYQByAEIAYQBzAGUALgBjAHAAcAAA/////wAAAAAAANoAAAAeADAALQAxADYAMQAxADEAOAA0ADIANgA1ADIAMwAwAE4AAATnAAABCQAABoYAAAMOAAAAAAAAAAAAAAd/AAAENwAAAALqAAAAFgAAAAL7AAAAAAAAAAD7AAAAAAAAAAAAAAAA2gAAAB4AMAAtADEANgA2ADQANAAwADcAMgA0ADQAOAAyADcATgAABEUAAAG0AAAF6QAAAq0AAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAAWAAAAAvsAAAAAAAAAAPsAAAAAAAAAAAAAAADaAAAAHgAwAC0AMQA3ADEAOAAwADUANwAyADkAMwAyADkAOABOAAAEXQAAAb4AAAV4AAAClwAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAAA=="/>
 				<debug_layout version="1" state="N" fullscreen="0">
 					<toolwindowinfo>
 						<p n="_tbannotations_browser_form" f="0"/>
@@ -217,8 +224,8 @@
 						<p n="_tbtagwin_form" t="0"/>
 						<p n="_tbterminal_form" t="0"/>
 					</toolwindows>
-					<mdistate v="AAAAAwAAAAEAAAAD2gAAAAIAMAAAAAAAAABAAAAE3gAABAAAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAS6AAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAOcAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAMAAAACAAAAAfsAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAALFAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAD8wABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAAC2AAB/QAAAkUAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAADkAAAAAAAC+wAAAAcAAAAHAAAAAAAAAAYAAAAFAAAABAAAAAMAAAACAAAAAfsAAAAHAAAABwAAAAEAAAACAAAAAwAAAAAAAAAEAAAABQAAAAb8AAAANwAAAAAiADAAOgA6ADoAXwB0AGIAcwBoAGUAbABsAF8AZgBvAHIAbQEA/////wAA///////////8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAcwBlAGEAcgBjAGgAXwBmAG8AcgBtAAD/////AAD///////////wAAAA5AAAAACQAMAA6ADoAOgBfAHQAYgB0AGEAZwB3AGkAbgBfAGYAbwByAG0AAP////8AAP///////////AAAADsAAAAAJgAxADoAOgA6AF8AdABiAHQAYQBnAHIAZQBmAHMAXwBmAG8AcgBtAAD/////AAD///////////wAAABNAAAAADgAMAA6ADoAOgBfAHQAYgBtAGUAcwBzAGEAZwBlAHMAXwBiAHIAbwB3AHMAZQByAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPQAAAAAoADAAOgA6ADoAXwB0AGIAdABlAHIAbQBpAG4AYQBsAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPwAAAAAqADAAOgA6ADoAXwB0AGIAbwB1AHQAcAB1AHQAdwBpAG4AXwBmAG8AcgBtAAD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA2ADEAMQAxADgANAAyADYANQAyADMAMABOAAAE5wAAAQkAAAaGAAADugAAAAAAAAAAAAAHfwAABDcAAAAB6wAAAQgAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACLAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAACgAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEEBAAAAIAAxADoAOgA6AF8AdABiAGYAaQBuAGQAXwBmAG8AcgBtAAH/////AAAAAAGQAAACjwAAAY/6TMfkAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA2gAAAB4AMAAtADEANgA2ADQANAAwADcAMgA0ADQAOAAyADcATgAABEUAAAG0AAAF6QAAAq0AAAAAAAAAAAAAB38AAAQ3AAAAAesAAAEYAAAAAPsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAAAAAAH9AAAAmwAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEAAQAAAoAAAAAAAAL7AAAAAQAAAAEAAAAA+wAAAAEAAAABAAAAAPwAAABRAQAAADAAMAA6ADoAOgBfAHQAYgBzAGwAaQBjAGsAYwBfAHMAdABhAGMAawBfAGYAbwByAG0AAf////8AAAAAAZUAAADXAAABg4ZnHm0AAAAA/AAAACkAAAAAHAA6ADoAOgBNAEQASQBBAFIARQBBAFQASQBMAEUAAf////8AAAAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAAA="/>
-					<toolbars state="AAAA/wAAAAD9AAAAAAAABN8AAAPBAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAQ7/////wAAAAAAAAAA">
+					<mdistate v="AAAAAwAAAAEAAAAE2gAAAAIAMAAAAAAAAABAAAAErAAABAAAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAS6AAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAOcAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAMAAAACAAAAAfsAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAALFAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAD8wABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAAC2AAB/QAAAkUAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAADkAAAAAAAC+wAAAAcAAAAHAAAAAAAAAAYAAAAFAAAABAAAAAMAAAACAAAAAfsAAAAHAAAABwAAAAEAAAACAAAAAwAAAAAAAAAEAAAABQAAAAb8AAAANwAAAAAiADAAOgA6ADoAXwB0AGIAcwBoAGUAbABsAF8AZgBvAHIAbQEA/////wAA///////////8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAcwBlAGEAcgBjAGgAXwBmAG8AcgBtAAD/////AAD///////////wAAAA5AAAAACQAMAA6ADoAOgBfAHQAYgB0AGEAZwB3AGkAbgBfAGYAbwByAG0AAP////8AAP///////////AAAADsAAAAAJgAxADoAOgA6AF8AdABiAHQAYQBnAHIAZQBmAHMAXwBmAG8AcgBtAAD/////AAD///////////wAAABNAAAAADgAMAA6ADoAOgBfAHQAYgBtAGUAcwBzAGEAZwBlAHMAXwBiAHIAbwB3AHMAZQByAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPQAAAAAoADAAOgA6ADoAXwB0AGIAdABlAHIAbQBpAG4AYQBsAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPwAAAAAqADAAOgA6ADoAXwB0AGIAbwB1AHQAcAB1AHQAdwBpAG4AXwBmAG8AcgBtAAD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA2ADEAMQAxADgANAAyADYANQAyADMAMABOAAAE5wAAAQkAAAaGAAADDgAAAAAAAAAAAAAHfwAABDcAAAAB6wAAAQgAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACLAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAACgAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEEBAAAAIAAxADoAOgA6AF8AdABiAGYAaQBuAGQAXwBmAG8AcgBtAAH/////AAAAAAGQAAAB4wAAAZAEMkT1AAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA2gAAAB4AMAAtADEANgA2ADQANAAwADcAMgA0ADQAOAAyADcATgAABEUAAAG0AAAF6QAAAq0AAAAAAAAAAAAAB38AAAQ3AAAAAesAAAEYAAAAAPsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAAAAAAH9AAAAmwAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEAAQAAAoAAAAAAAAL7AAAAAQAAAAEAAAAA+wAAAAEAAAABAAAAAPwAAABRAQAAADAAMAA6ADoAOgBfAHQAYgBzAGwAaQBjAGsAYwBfAHMAdABhAGMAawBfAGYAbwByAG0AAf////8AAAAAAZUAAADXAAABg4ZnHm0AAAAA/AAAACkAAAAAHAA6ADoAOgBNAEQASQBBAFIARQBBAFQASQBMAEUAAf////8AAAAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA3ADEAOAAwADUANwAyADkAMwAyADkAOABOAAAEXQAAAb4AAAV4AAAClwAAAAAAAAAAAAAHfwAABDcAAAAB6wAAARIAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACVAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAACgAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEsBAAAAKgAxADoAOgA6AF8AdABiAGIAbwBvAGsAbQBhAHIAawBzAF8AZgBvAHIAbQAB/////wAAAAABDAAAALcAAAGQBDIzrQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQAB/////wAAAAAAANsAAAAAAAAAAtsAAAAAAAAAAdsAAAAAAAAAA9sAAAAAAAAAAA=="/>
+					<toolbars state="AAAA/wAAAAD9AAAAAAAABK0AAAPBAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAQ7/////wAAAAAAAAAA">
 						<p n="_tbstandard_form" movable="1"/>
 						<p n="_tbcontext_form" movable="1"/>
 					</toolbars>
@@ -285,8 +292,8 @@
 						<p n="_tbtagwin_form" t="0"/>
 						<p n="_tbterminal_form" t="0"/>
 					</toolwindows>
-					<mdistate v="AAAAAwAAAAEAAAAD2gAAAAIAMAAAAAAAAABAAAAE3gAABAAAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAS6AAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAOcAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAMAAAACAAAAAfsAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAALFAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAD8wABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAAC2AAB/QAAAkUAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAADkAAAAAAAC+wAAAAcAAAAHAAAAAAAAAAYAAAAFAAAABAAAAAMAAAACAAAAAfsAAAAHAAAABwAAAAEAAAACAAAAAwAAAAAAAAAEAAAABQAAAAb8AAAANwAAAAAiADAAOgA6ADoAXwB0AGIAcwBoAGUAbABsAF8AZgBvAHIAbQEA/////wAA///////////8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAcwBlAGEAcgBjAGgAXwBmAG8AcgBtAAD/////AAD///////////wAAAA5AAAAACQAMAA6ADoAOgBfAHQAYgB0AGEAZwB3AGkAbgBfAGYAbwByAG0AAP////8AAP///////////AAAADsAAAAAJgAxADoAOgA6AF8AdABiAHQAYQBnAHIAZQBmAHMAXwBmAG8AcgBtAAD/////AAD///////////wAAABNAAAAADgAMAA6ADoAOgBfAHQAYgBtAGUAcwBzAGEAZwBlAHMAXwBiAHIAbwB3AHMAZQByAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPQAAAAAoADAAOgA6ADoAXwB0AGIAdABlAHIAbQBpAG4AYQBsAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPwAAAAAqADAAOgA6ADoAXwB0AGIAbwB1AHQAcAB1AHQAdwBpAG4AXwBmAG8AcgBtAAD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA2ADEAMQAxADgANAAyADYANQAyADMAMABOAAAE5wAAAQkAAAaGAAADugAAAAAAAAAAAAAHfwAABDcAAAAB6wAAAQgAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACLAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAACgAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEEBAAAAIAAxADoAOgA6AF8AdABiAGYAaQBuAGQAXwBmAG8AcgBtAAH/////AAAAAAGQAAACjwAAAY/6TMfkAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA2gAAAB4AMAAtADEANgA2ADQANAAwADcAMgA0ADQAOAAyADcATgAABEUAAAG0AAAF6QAAAq0AAAAAAAAAAAAAB38AAAQ3AAAAAesAAAEYAAAAAPsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAAAAAAH9AAAAmwAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEAAQAAAoAAAAAAAAL7AAAAAQAAAAEAAAAA+wAAAAEAAAABAAAAAPwAAABRAQAAADAAMAA6ADoAOgBfAHQAYgBzAGwAaQBjAGsAYwBfAHMAdABhAGMAawBfAGYAbwByAG0AAf////8AAAAAAZUAAADXAAABg4ZnHm0AAAAA/AAAACkAAAAAHAA6ADoAOgBNAEQASQBBAFIARQBBAFQASQBMAEUAAf////8AAAAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAAA="/>
-					<toolbars state="AAAA/wAAAAD9AAAAAAAABN8AAAPBAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAQ7/////wAAAAAAAAAA">
+					<mdistate v="AAAAAwAAAAEAAAAE2gAAAAIAMAAAAAAAAABAAAAErAAABAAAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAS6AAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAOcAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAMAAAACAAAAAfsAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAALFAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAD8wABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAAC2AAB/QAAAkUAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAADkAAAAAAAC+wAAAAcAAAAHAAAAAAAAAAYAAAAFAAAABAAAAAMAAAACAAAAAfsAAAAHAAAABwAAAAEAAAACAAAAAwAAAAAAAAAEAAAABQAAAAb8AAAANwAAAAAiADAAOgA6ADoAXwB0AGIAcwBoAGUAbABsAF8AZgBvAHIAbQEA/////wAA///////////8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAcwBlAGEAcgBjAGgAXwBmAG8AcgBtAAD/////AAD///////////wAAAA5AAAAACQAMAA6ADoAOgBfAHQAYgB0AGEAZwB3AGkAbgBfAGYAbwByAG0AAP////8AAP///////////AAAADsAAAAAJgAxADoAOgA6AF8AdABiAHQAYQBnAHIAZQBmAHMAXwBmAG8AcgBtAAD/////AAD///////////wAAABNAAAAADgAMAA6ADoAOgBfAHQAYgBtAGUAcwBzAGEAZwBlAHMAXwBiAHIAbwB3AHMAZQByAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPQAAAAAoADAAOgA6ADoAXwB0AGIAdABlAHIAbQBpAG4AYQBsAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPwAAAAAqADAAOgA6ADoAXwB0AGIAbwB1AHQAcAB1AHQAdwBpAG4AXwBmAG8AcgBtAAD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA2ADEAMQAxADgANAAyADYANQAyADMAMABOAAAE5wAAAQkAAAaGAAADDgAAAAAAAAAAAAAHfwAABDcAAAAB6wAAAQgAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACLAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAACgAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEEBAAAAIAAxADoAOgA6AF8AdABiAGYAaQBuAGQAXwBmAG8AcgBtAAH/////AAAAAAGQAAAB4wAAAZAEMkT1AAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA2gAAAB4AMAAtADEANgA2ADQANAAwADcAMgA0ADQAOAAyADcATgAABEUAAAG0AAAF6QAAAq0AAAAAAAAAAAAAB38AAAQ3AAAAAesAAAEYAAAAAPsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAAAAAAH9AAAAmwAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEAAQAAAoAAAAAAAAL7AAAAAQAAAAEAAAAA+wAAAAEAAAABAAAAAPwAAABRAQAAADAAMAA6ADoAOgBfAHQAYgBzAGwAaQBjAGsAYwBfAHMAdABhAGMAawBfAGYAbwByAG0AAf////8AAAAAAZUAAADXAAABg4ZnHm0AAAAA/AAAACkAAAAAHAA6ADoAOgBNAEQASQBBAFIARQBBAFQASQBMAEUAAf////8AAAAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA3ADEAOAAwADUANwAyADkAMwAyADkAOABOAAAEXQAAAb4AAAV4AAAClwAAAAAAAAAAAAAHfwAABDcAAAAB6wAAARIAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACVAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAACgAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEsBAAAAKgAxADoAOgA6AF8AdABiAGIAbwBvAGsAbQBhAHIAawBzAF8AZgBvAHIAbQAB/////wAAAAABDAAAALcAAAGQBDIzrQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQAB/////wAAAAAAANsAAAAAAAAAAtsAAAAAAAAAAdsAAAAAAAAAA9sAAAAAAAAAAA=="/>
+					<toolbars state="AAAA/wAAAAD9AAAAAAAABK0AAAPBAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAQ7/////wAAAAAAAAAA">
 						<p n="_tbstandard_form" movable="1"/>
 						<p n="_tbcontext_form" movable="1"/>
 					</toolbars>
@@ -1089,7 +1096,7 @@
 			</monitor_config>
 			<monitor_config v="0 0 2048 1152">
 				<screen v="2048 1152 457 1 1485 1049 0 0 N 0 0 0 0 1243 744 0"/>
-				<mdistate v="AAAAAwAAAAIAAAAD2gAAAAIAMAAAAAAAAABAAAAE3gAABAAAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAQKAAAAAvsAAAAIAAAACAAAAAcAAAAGAAAABQAAAAMAAAACAAAAAAAAAAEAAAAE+wAAAAgAAAAIAAAABgAAAAUAAAADAAAAAgAAAAAAAAAEAAAABwAAAAH8AAAAYQAAAABUADUAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEwAaQBiAHIAYQByAHkAXABFAHgAdAByAGEAcwBcAEEAYgBvAHUAdABEAGwAZwAuAHIAYwAyAAD/////AAD8AAAAcQAAAABkADIAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAE8AcABBAGQAZAByAEIAawAuAHIAYwAA/////wAA/AAAAHsAAAAAbgA2ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABQAHIAZQBPAHUAdABwAG8AcwB0AFwATwBwAEEAZABkAHIAQgBrAC4AcAByAGoAXAByAGUAcwBcAE8AcABBAGQAZAByAEIAawAuAHIAYwAyAAD/////AAD8AAAAeQAAAABsADcAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAE8AcABBAGQAZAByAEIAawBEAGwAZwAuAGMAcABwAAD/////AAD8AAAAdQAAAABoADQAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAE8AcABBAGQAZAByAEIAawBEAGwAZwAuAGgAAP////8AAPwAAAB3AAAAAGoAOQA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAGgAbABwAFwATwBwAGUAcgBhAHQAaQBvAG4AcwAuAGgAdABtAAD/////AAD8AAAAcQAAAABkADgAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAFAAZABmAEkAbgBmAG8ALgBjAHAAcAAA/////wAA/AAAAGkAAAAAXAAzADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABMAGkAYgByAGEAcgB5AFwATABpAGIAcgBhAHIAeQBcAFQAbwBvAGwAQgBhAHIAQgBhAHMAZQAuAGMAcABwAQD/////AAEAAAAA2gAAAB4AMAAtADEANgAxADEAMQA4ADQAMgA2ADUAMgAzADAATgAABOcAAAEJAAAGhgAAA7oAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAAWAAAAAvsAAAAAAAAAAPsAAAAAAAAAAAAAAADaAAAAHgAwAC0AMQA2ADYANAA0ADAANwAyADQANAA4ADIANwBOAAAERQAAAbQAAAXpAAACrQAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAAA=="/>
+				<mdistate v="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"/>
 				<fullscreen_layout version="1" state="N" fullscreen="0">
 					<toolwindowinfo>
 						<p n="_tbannotations_browser_form" f="0"/>
@@ -1349,91 +1356,107 @@
 			<bi ma="1 110 1" tabs="2 " wws="1" iwt="" st="0" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
 			<view ln=".0" cl="1" le="0" cx="0" cy="0" wi="5" bi="1" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</buffer>
-		<buffer bn="..\OpAddrBk.prj\OpAddrBk.rc" dn="" mtn="">
-			<bi ma="1 74 1" tabs="2 " wws="1" iwt="" st="0" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="73" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".4226" cl="19" le="0" cx="18" cy="5" wi="5" bi="2" ht="0" hn="0" hf="0" hc="4" hb="4"/>
-		</buffer>
-		<buffer bn="..\OpAddrBk.prj\res\OpAddrBk.rc2" dn="" mtn="">
-			<bi ma="1 110 1" tabs="2 " wws="1" iwt="" st="0" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="73" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".4029" cl="53" le="0" cx="52" cy="18" wi="5" bi="3" ht="0" hn="0" hf="0" hc="4" hb="4"/>
-		</buffer>
 		<buffer bn="..\OpAddrBk.prj\OpAddrBkDlg.h" dn="" mtn="">
 			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="8" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".518" cl="3" le="0" cx="2" cy="21" wi="5" bi="4" ht="0" hn="0" hf="0" hc="4" hb="4"/>
-		</buffer>
-		<buffer bn="..\OpAddrBk.prj\OpAddrBkDlg.cpp" dn="" mtn="">
-			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="8" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".6655" cl="50" le="0" cx="49" cy="21" wi="5" bi="5" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".518" cl="3" le="0" cx="2" cy="21" wi="5" bi="2" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</buffer>
 		<buffer bn="..\OpAddrBk.hlp\Operations.htm" dn="" mtn="">
 			<bi ma="1 100 1" tabs="" wws="1" iwt="" st="0" in="2" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="70" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".5947" cl="27" le="0" cx="26" cy="18" wi="5" bi="6" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".5947" cl="27" le="0" cx="26" cy="18" wi="5" bi="3" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</buffer>
 		<buffer bn="..\OpAddrBk.prj\PdfInfo.cpp" dn="" mtn="">
 			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="8" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".1851" cl="52" le="0" cx="51" cy="10" wi="5" bi="7" ht="0" hn="0" hf="0" hc="4" hb="4"/>
-		</buffer>
-		<buffer bn="..\..\Library\Library\ToolBarBase.cpp" dn="" mtn="">
-			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="8" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="87097952" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".915" cl="65" le="0" cx="64" cy="17" wi="5" bi="8" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".1851" cl="52" le="0" cx="51" cy="10" wi="5" bi="4" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</buffer>
 		<buffer bn="..\README.md" dn="" mtn="">
-			<bi ma="1 74 1" tabs="2 " wws="1" iwt="" st="8" in="2" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="87163424" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="2" sm="" ldf="42" stat="" bfont="" mfont="" df="0" sco="" of=""/>
-			<view ln=".444" cl="72" le="0" cx="71" cy="9" wi="5" bi="9" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<bi ma="1 74 1" tabs="2 " wws="1" iwt="" st="8" in="2" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="87032352" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="2" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
+			<view ln=".444" cl="72" le="0" cx="71" cy="9" wi="5" bi="5" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</buffer>
-		<window x="1" y="1" width="1009" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="5" font_info=",,," did="0" mi="*,,," pi="0">
+		<buffer bn="..\..\Library\Library\ToolBarBase.cpp" dn="" mtn="">
+			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="8" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
+			<view ln=".915" cl="65" le="0" cx="64" cy="17" wi="5" bi="6" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</buffer>
+		<buffer bn="..\OpAddrBk.prj\OpAddrBk.rc" dn="" mtn="">
+			<bi ma="1 74 1" tabs="2 " wws="1" iwt="" st="0" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="73" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
+			<view ln=".4226" cl="19" le="0" cx="18" cy="5" wi="5" bi="7" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</buffer>
+		<buffer bn="..\OpAddrBk.prj\res\OpAddrBk.rc2" dn="" mtn="">
+			<bi ma="1 110 1" tabs="2 " wws="1" iwt="" st="0" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="73" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
+			<view ln=".4029" cl="53" le="0" cx="52" cy="18" wi="5" bi="8" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</buffer>
+		<buffer bn="..\OpAddrBk.prj\resource.h" dn="" mtn="">
+			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="8" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
+			<view ln=".2714" cl="9" le="0" cx="8" cy="19" wi="5" bi="9" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</buffer>
+		<buffer bn="..\OpAddrBk.prj\OpAddrBkDlg.cpp" dn="" mtn="">
+			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="8" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
+			<view ln=".2414" cl="59" le="0" cx="58" cy="19" wi="5" bi="10" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</buffer>
+		<buffer bn="..\OpAddrBk.wix\Product.wxs" dn="" mtn="">
+			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="0" in="2" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="2097152" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="70" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
+			<view ln=".7460" cl="46" le="0" cx="45" cy="20" wi="5" bi="11" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</buffer>
+		<window x="1" y="1" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="5" font_info=",,," did="0" mi="*,,," pi="0">
 			<buffer bn="..\..\Library\Extras\AboutDlg.rc2" dn="" mtn=""/>
 			<view ln=".0" cl="1" le="0" cx="0" cy="0" wi="13" bi="1" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</window>
-		<window x="1" y="1" width="1145" height="439" icon_x="0" icon_y="0" state="N" wf="0" wt="2" font_info="Default Unicode Font,11,0,1" did="0" mi="*,,," pi="0">
-			<buffer bn="..\OpAddrBk.prj\OpAddrBk.rc" dn="" mtn=""/>
-			<view ln=".4226" cl="19" le="0" cx="18" cy="5" wi="16" bi="2" ht="0" hn="0" hf="0" hc="4" hb="4"/>
-		</window>
-		<window x="1" y="1" width="1145" height="912" icon_x="0" icon_y="0" state="N" wf="0" wt="6" font_info="Default Unicode Font,11,0,1" did="0" mi="*,,," pi="0">
-			<buffer bn="..\OpAddrBk.prj\res\OpAddrBk.rc2" dn="" mtn=""/>
-			<view ln=".4029" cl="53" le="0" cx="52" cy="18" wi="19" bi="3" ht="0" hn="0" hf="0" hc="4" hb="4"/>
-		</window>
-		<window x="1" y="1" width="1145" height="912" icon_x="0" icon_y="0" state="N" wf="0" wt="4" font_info=",,," did="0" mi="*,,," pi="2">
+		<window x="1" y="1" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="4" font_info=",,," did="0" mi="*,,," pi="2">
 			<buffer bn="..\OpAddrBk.prj\OpAddrBkDlg.h" dn="" mtn=""/>
-			<view ln=".518" cl="3" le="0" cx="2" cy="21" wi="22" bi="4" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".518" cl="3" le="0" cx="2" cy="21" wi="16" bi="2" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</window>
-		<window x="1" y="1" width="1145" height="912" icon_x="0" icon_y="0" state="N" wf="0" wt="7" font_info=",,," did="0" mi="*,,," pi="1">
-			<buffer bn="..\OpAddrBk.prj\OpAddrBkDlg.cpp" dn="" mtn=""/>
-			<view ln=".6655" cl="50" le="0" cx="49" cy="21" wi="25" bi="5" ht="0" hn="0" hf="0" hc="4" hb="4"/>
-		</window>
-		<window x="1" y="1" width="1145" height="821" icon_x="0" icon_y="0" state="N" wf="0" wt="9" font_info="Default Unicode Font,11,0,1" did="0" mi="*,,," pi="1">
+		<window x="1" y="1" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="9" font_info="Default Unicode Font,11,0,1" did="0" mi="*,,," pi="1">
 			<buffer bn="..\OpAddrBk.hlp\Operations.htm" dn="" mtn=""/>
-			<view ln=".5947" cl="27" le="0" cx="26" cy="18" wi="28" bi="6" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".5947" cl="27" le="0" cx="26" cy="18" wi="19" bi="3" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</window>
-		<window x="1" y="1" width="1145" height="821" icon_x="0" icon_y="0" state="N" wf="0" wt="8" font_info=",,," did="0" mi="*,,," pi="0">
+		<window x="1" y="1" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="8" font_info=",,," did="0" mi="*,,," pi="0">
 			<buffer bn="..\OpAddrBk.prj\PdfInfo.cpp" dn="" mtn=""/>
-			<view ln=".1851" cl="52" le="0" cx="51" cy="10" wi="31" bi="7" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".1851" cl="52" le="0" cx="51" cy="10" wi="22" bi="4" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</window>
-		<window x="1" y="22" width="1009" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="3" font_info=",,," did="0" mi="*,,," pi="0">
+		<window x="1" y="1" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="2" font_info="Default Unicode Font,11,0,1" did="0" mi="*,,," pi="0">
+			<buffer bn="..\OpAddrBk.prj\OpAddrBk.rc" dn="" mtn=""/>
+			<view ln=".4226" cl="19" le="0" cx="18" cy="5" wi="31" bi="7" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</window>
+		<window x="1" y="1" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="6" font_info="Default Unicode Font,11,0,1" did="0" mi="*,,," pi="0">
+			<buffer bn="..\OpAddrBk.prj\res\OpAddrBk.rc2" dn="" mtn=""/>
+			<view ln=".4029" cl="53" le="0" cx="52" cy="18" wi="34" bi="8" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</window>
+		<window x="1" y="1" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="7" font_info=",,," did="0" mi="*,,," pi="1">
+			<buffer bn="..\OpAddrBk.prj\OpAddrBkDlg.cpp" dn="" mtn=""/>
+			<view ln=".2414" cl="59" le="0" cx="58" cy="19" wi="40" bi="10" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</window>
+		<window x="1" y="1" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="11" font_info=",,," did="0" mi="*,,," pi="1">
+			<buffer bn="..\OpAddrBk.prj\resource.h" dn="" mtn=""/>
+			<view ln=".2714" cl="9" le="0" cx="8" cy="19" wi="37" bi="9" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</window>
+		<window x="1" y="1" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="3" font_info=",,," did="0" mi="*,,," pi="0">
 			<buffer bn="..\..\Library\Library\ToolBarBase.cpp" dn="" mtn=""/>
-			<view ln=".915" cl="65" le="0" cx="65" cy="17" wi="34" bi="8" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".915" cl="65" le="0" cx="64" cy="17" wi="28" bi="6" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</window>
-		<window x="1" y="22" width="1009" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="10" font_info=",,," did="0" mi="*,,," pi="0">
+		<window x="1" y="22" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="12" font_info="Default Unicode Font,11,0,1" did="0" mi="*,,," pi="1">
+			<buffer bn="..\OpAddrBk.wix\Product.wxs" dn="" mtn=""/>
+			<view ln=".7460" cl="46" le="0" cx="47" cy="20" wi="43" bi="11" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</window>
+		<window x="1" y="22" width="959" height="705" icon_x="0" icon_y="0" state="N" wf="0" wt="10" font_info=",,," did="0" mi="*,,," pi="0">
 			<buffer bn="..\README.md" dn="" mtn=""/>
-			<view ln=".444" cl="72" le="0" cx="72" cy="9" wi="244" bi="9" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".2873" cl="10" le="0" cx="10" cy="22" wi="25" bi="5" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</window>
-		<mdistate v="AAAAAwAAAAIAAAAD2gAAAAIAMAAAAAAAAABAAAAE3gAABAAAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAARsAAAAAvsAAAAJAAAACQAAAAcAAAAIAAAABgAAAAUAAAADAAAAAgAAAAAAAAABAAAABPsAAAAJAAAACQAAAAcAAAAGAAAABQAAAAMAAAACAAAAAAAAAAQAAAAIAAAAAfwAAABhAAAAAFQANQA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwATABpAGIAcgBhAHIAeQBcAEUAeAB0AHIAYQBzAFwAQQBiAG8AdQB0AEQAbABnAC4AcgBjADIAAP////8AAPwAAABxAAAAAGQAMgA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAHAAcgBqAFwATwBwAEEAZABkAHIAQgBrAC4AcgBjAAD/////AAD8AAAAewAAAABuADYAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAHIAZQBzAFwATwBwAEEAZABkAHIAQgBrAC4AcgBjADIAAP////8AAPwAAAB5AAAAAGwANwA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAHAAcgBqAFwATwBwAEEAZABkAHIAQgBrAEQAbABnAC4AYwBwAHAAAP////8AAPwAAAB1AAAAAGgANAA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAHAAcgBqAFwATwBwAEEAZABkAHIAQgBrAEQAbABnAC4AaAAA/////wAA/AAAAHcAAAAAagA5ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABQAHIAZQBPAHUAdABwAG8AcwB0AFwATwBwAEEAZABkAHIAQgBrAC4AaABsAHAAXABPAHAAZQByAGEAdABpAG8AbgBzAC4AaAB0AG0AAP////8AAPwAAABxAAAAAGQAOAA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAHAAcgBqAFwAUABkAGYASQBuAGYAbwAuAGMAcABwAAD/////AAD8AAAAVQAAAABIADEAMAA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAFIARQBBAEQATQBFAC4AbQBkAQD/////AAH8AAAAaQAAAABcADMAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEwAaQBiAHIAYQByAHkAXABMAGkAYgByAGEAcgB5AFwAVABvAG8AbABCAGEAcgBCAGEAcwBlAC4AYwBwAHAAAP////8AAAAAAADaAAAAHgAwAC0AMQA2ADEAMQAxADgANAAyADYANQAyADMAMABOAAAE5wAAAQkAAAaGAAADugAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAANoAAAAeADAALQAxADYANgA0ADQAMAA3ADIANAA0ADgAMgA3AE4AAARFAAABtAAABekAAAKtAAAAAAAAAAAAAAd/AAAENwAAAALqAAAAFgAAAAL7AAAAAAAAAAD7AAAAAAAAAAAAAAAA"/>
+		<mdistate v="AAAAAwAAAAIAAAAE2gAAAAIAMAAAAAAAAABAAAAErAAABAAAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAVqAAAAAvsAAAALAAAACwAAAAgAAAAHAAAAAwAAAAkAAAACAAAAAQAAAAoAAAAGAAAABQAAAAAAAAAE+wAAAAsAAAALAAAABwAAAAkAAAAIAAAABgAAAAUAAAADAAAAAgAAAAAAAAAEAAAACgAAAAH8AAAAYQAAAABUADUAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEwAaQBiAHIAYQByAHkAXABFAHgAdAByAGEAcwBcAEEAYgBvAHUAdABEAGwAZwAuAHIAYwAyAAD/////AAD8AAAAcQAAAABkADIAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAE8AcABBAGQAZAByAEIAawAuAHIAYwAA/////wAA/AAAAHsAAAAAbgA2ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABQAHIAZQBPAHUAdABwAG8AcwB0AFwATwBwAEEAZABkAHIAQgBrAC4AcAByAGoAXAByAGUAcwBcAE8AcABBAGQAZAByAEIAawAuAHIAYwAyAAD/////AAD8AAAAeQAAAABsADcAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAE8AcABBAGQAZAByAEIAawBEAGwAZwAuAGMAcABwAAD/////AAD8AAAAdQAAAABoADQAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAE8AcABBAGQAZAByAEIAawBEAGwAZwAuAGgAAP////8AAPwAAAB3AAAAAGoAOQA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAUAByAGUATwB1AHQAcABvAHMAdABcAE8AcABBAGQAZAByAEIAawAuAGgAbABwAFwATwBwAGUAcgBhAHQAaQBvAG4AcwAuAGgAdABtAAD/////AAD8AAAAcQAAAABkADgAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAFAAZABmAEkAbgBmAG8ALgBjAHAAcAAA/////wAA/AAAAHMAAAAAZgAxADIAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgB3AGkAeABcAFAAcgBvAGQAdQBjAHQALgB3AHgAcwAA/////wAA/AAAAFUAAAAASAAxADAAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABSAEUAQQBEAE0ARQAuAG0AZAEA/////wAB/AAAAHEAAAAAZAAxADEAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAFAAcgBlAE8AdQB0AHAAbwBzAHQAXABPAHAAQQBkAGQAcgBCAGsALgBwAHIAagBcAHIAZQBzAG8AdQByAGMAZQAuAGgAAP////8AAPwAAABpAAAAAFwAMwA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwATABpAGIAcgBhAHIAeQBcAEwAaQBiAHIAYQByAHkAXABUAG8AbwBsAEIAYQByAEIAYQBzAGUALgBjAHAAcAAA/////wAAAAAAANoAAAAeADAALQAxADYAMQAxADEAOAA0ADIANgA1ADIAMwAwAE4AAATnAAABCQAABoYAAAMOAAAAAAAAAAAAAAd/AAAENwAAAALqAAAAFgAAAAL7AAAAAAAAAAD7AAAAAAAAAAAAAAAA2gAAAB4AMAAtADEANgA2ADQANAAwADcAMgA0ADQAOAAyADcATgAABEUAAAG0AAAF6QAAAq0AAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAAWAAAAAvsAAAAAAAAAAPsAAAAAAAAAAAAAAADaAAAAHgAwAC0AMQA3ADEAOAAwADUANwAyADkAMwAyADkAOABOAAAEXQAAAb4AAAV4AAAClwAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAAA=="/>
 		<filehist>
-			<p n="..\..\Library\Library\WinPos.h"/>
-			<p n="..\..\Library\Library\ToolBarBase.h"/>
-			<p n="..\..\Library\Library\ToolBarBase.cpp"/>
 			<p n="..\OpAddrBk.prj\OpAddrBkDlg.h"/>
-			<p n="..\OpAddrBk.prj\OpAddrBkDlg.cpp"/>
 			<p n="..\OpAddrBk.prj\PdfInfo.cpp"/>
 			<p n="..\OpAddrBk.hlp\Operations.htm"/>
 			<p n="C:\SCCo Packet\~FT1900~w4~.profile"/>
+			<p n="..\OpAddrBk.prj\OpAddrBk.rc"/>
+			<p n="..\OpAddrBk.prj\resource.h"/>
+			<p n="..\OpAddrBk.prj\OpAddrBkDlg.cpp"/>
+			<p n="..\OpAddrBk.wix\Product.wxs"/>
 			<p n="..\README.md"/>
 		</filehist>
 		<allfilehist>
-			<p n="C:\SCCo Packet\~FT1900~w4~.profile"/>
-			<p n="..\..\Library\Library\ToolBarBase.h"/>
 			<p n="..\..\Library\Library\ToolBarBase.cpp"/>
+			<p n="..\OpAddrBk.prj\Resource.h"/>
 			<p n="..\README.md"/>
+			<p n="..\OpAddrBk.wix\Product.wxs"/>
 			<p n="..\PreOutpost.prj\PreOutpost.rc"/>
 			<p n="..\PreOutpost.prj\PreOutpost.h"/>
 			<p n="..\PreOutpost.prj\PreOutpost.cpp"/>
