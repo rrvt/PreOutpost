@@ -18,7 +18,6 @@ IMPLEMENT_DYNAMIC(IdentityDlg, CDialogEx)
 
 
 BEGIN_MESSAGE_MAP(IdentityDlg, CDialogEx)
-  ON_WM_MOVE()
 
   ON_BN_CLICKED(IDC_BUTTON4,        &OnTacticalBnClicked)
   ON_EN_KILLFOCUS(IDC_EDIT4,        &OnTacCallLoseFoc)
@@ -40,6 +39,9 @@ BEGIN_MESSAGE_MAP(IdentityDlg, CDialogEx)
   ON_COMMAND(ID_SubjWSecurity,      &OnSubjWSecurity)
   ON_COMMAND(ID_FindOutpost,        &OnFindOutpost)
   ON_COMMAND(ID_IncludeAddrBook,    &OnIncludeAddrBook)
+
+  ON_WM_MOVE()
+  ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
@@ -63,9 +65,9 @@ COleDateTime ctm;
 
   CDialogEx::OnInitDialog();
 
-  GetWindowRect(&winRect);
+  GetWindowRect(&winRect);   winPos.setDLUToPxls(winRect, DlgWidth, DlgDepth);
 
-  SetWindowText(title);   winPos.initialPos(this, winRect);   isInitialized = true;
+  SetWindowText(title);   winPos.initialPos(this, winRect);
 
   menu = GetMenu(); setSubjWSecurity();
 
@@ -86,7 +88,9 @@ COleDateTime ctm;
 
   setSubjWSecurity();   setIncludeAddrBook();
 
-  SetWindowText(title);   winPos.initialPos(this, winRect);   isInitialized = true;   return TRUE;
+  SetWindowText(title);  // GetWindowRect(&winRect);
+
+  winPos.initialPos(this, winRect);   isInitialized = true;   return TRUE;
   }
 
 
@@ -121,6 +125,17 @@ void IdentityDlg::DoDataExchange(CDataExchange* pDX) {
 
 void IdentityDlg::OnMove(int x, int y)
       {CRect winRect;   GetWindowRect(&winRect);   winPos.set(winRect);   CDialogEx::OnMove(x, y);}
+
+
+void IdentityDlg::OnSize(UINT nType, int cx, int cy) {
+CRect winRect;
+
+  CDialogEx::OnSize(nType, cx, cy);
+
+  if (!isInitialized) return;
+
+  GetWindowRect(&winRect);   winPos.set(winRect);
+  }
 
 
 void IdentityDlg::OnSubjWSecurity() {subjWSecurity = !subjWSecurity; setSubjWSecurity();}

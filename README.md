@@ -56,6 +56,10 @@ A help file is included in both apps.  Let the author know if the help file need
 
 ## Updates
 
+### update 6/10/24
+
+Fixed some sizing issues.  Also update the Master Templates.
+
 ### Update 6/10/24
 
 Added an msi file to install OpAddrBk independently.  Note:  PreOutpost also installs a copy of

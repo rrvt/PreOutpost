@@ -285,7 +285,7 @@ BEGIN
 END
 
 
-IDD_IdentityDialog DIALOGEX 0, 0, 340, 248
+IDD_IdentityDialog DIALOGEX 0, 0, DlgWidth, DlgDepth
 #ifdef DialogSizable00
 STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | DS_SETFONT | WS_POPUP | WS_VISIBLE | WS_CAPTION |
       WS_SYSMENU | WS_THICKFRAME
@@ -441,8 +441,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,6,0
- PRODUCTVERSION 1,6,0
+ FILEVERSION 1,6,2
+ PRODUCTVERSION 1,6,2
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -460,12 +460,12 @@ BEGIN
             VALUE "CompanyName", "Bob -- K6RWY"
             VALUE "FileDescription",
                               "PreOutpost provides proven profiles to Outpost and starts Outpost."
-            VALUE "FileVersion", "1.6.0"
+            VALUE "FileVersion", "1.6.2"
             VALUE "InternalName", "PreOutpost.exe"
             VALUE "LegalCopyright", "(c) Bob -- K6RWY.  All rights reserved."
             VALUE "OriginalFilename", "PreOutpost.exe"
             VALUE "ProductName", "PreOutpost"
-            VALUE "ProductVersion", "1.6.0"
+            VALUE "ProductVersion", "1.6.2"
         END
     END
     BLOCK "VarFileInfo"

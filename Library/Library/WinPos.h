@@ -85,7 +85,7 @@ public:
 
 private:
 
-  void save() {data.save();}                     // Save the current position and size when app closes.
+  void save() {data.save();}                // Save the current position and size when app closes.
   };
 
 

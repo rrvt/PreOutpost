@@ -135,6 +135,12 @@
 #define ID_IncludeAddrBook              418
 #define ID_App_About                    419
 
+// Main Dialog Size
+
+#define DlgWidth                        345
+#define DlgDepth                        253
+
+
 // Next default values for new objects
 
 #ifdef APSTUDIO_INVOKED
