@@ -74,9 +74,9 @@ CRect winRect;
 
   CDialogEx::OnInitDialog();
 
-  if (!toolBar.create(this, IDR_TOOLBAR)) return false;
-
   GetWindowRect(&winRect);   winPos.setDLUToPxls(winRect, DlgWidth, DlgDepth);
+
+  if (!toolBar.create(this, IDR_TOOLBAR)) return false;
 
   SetBackgroundColor(RGB(255,255,255));               // toolBar.move(winRect);
 

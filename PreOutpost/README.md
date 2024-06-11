@@ -56,6 +56,11 @@ A help file is included in both apps.  Let the author know if the help file need
 
 ## Updates
 
+### Update 6/11/24
+
+Fixed the zero width/depth problem.  Added '+' prefix to Virtual Address when copied.  Outpost
+only interprets the virtual address when preceded by a '+'.
+
 ### update 6/10/24
 
 Fixed some sizing issues.  Also update the Master Templates.

@@ -120,7 +120,14 @@ CWnd*  pWndPopupOwner = this;
 void ListBox::OnLButtonDblClk(UINT nFlags, CPoint point)
                                      {onCopyActAddr();   CListBox::OnLButtonDblClk(nFlags, point);}
 
-void ListBox::onCopyVirtAddr() {Addr* addr = findAddr();    if (addr) loadClipBoard(addr->virt);}
+void ListBox::onCopyVirtAddr() {
+Addr*  addr = findAddr();
+String s;
+
+  if (addr) {s = _T('+') + addr->virt; loadClipBoard(s);}
+  }
+
+
 void ListBox::onCopyActAddr()  {Addr* addr = findAddr();    if (addr) loadClipBoard(addr->actual);}
 void ListBox::onCopyOrganization()
                           {Addr* addr = findAddr();   if (addr) loadClipBoard(addr->organization);}
