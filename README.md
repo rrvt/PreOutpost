@@ -56,6 +56,10 @@ A help file is included in both apps.  Let the author know if the help file need
 
 ## Updates
 
+### Update 6/14/24
+
+Fix WinPos destructor to run once.
+
 ### Update 6/11/24
 
 Fixed the zero width/depth problem.  Added '+' prefix to Virtual Address when copied.  Outpost

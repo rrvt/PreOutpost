@@ -53,7 +53,7 @@ IdentityDlg::IdentityDlg(CWnd* pParent /*=NULL*/) : CDialogEx(IdentityDlg::IDD, 
   subject(_T("")), severity(0), handling(0), subjStyle(0), profilesDesired(0), practiceDay(0) { }
 
 
-IdentityDlg::~IdentityDlg() {  }
+IdentityDlg::~IdentityDlg() {winPos.~WinPos();}
 
 
 BOOL IdentityDlg::OnInitDialog() {
