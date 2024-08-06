@@ -79,15 +79,7 @@ String*   path;
     line = line.substr(pos+1);   line.trimLeft();
     }
 
-
-  for (path = iter(); path; path = iter++) {
-    pathListCtl.AddString(*path);
-    }
-#if 0
-  if (acroRd.isEmpty()) return false;
-
-  iniFile.writeString(PathSection, AcroRdKey, acroRd);   return true;
-#endif
+  for (path = iter(); path; path = iter++) {pathListCtl.AddString(*path);}
   }
 
 
@@ -124,18 +116,4 @@ void PDFappNamesDlg::OnClickedPDFfound() {
 
 
 
-#if 0
-  if (!acroRd.isEmpty()) return true;
-
-  if (iniFile.readString(PathSection, AcroRdKey, acroRd) && !acroRd.isEmpty()) return true;
-#endif
-#if 1
-#else
-    String   eula = getPath(*path);
-    FileSrch eulaPath;
-    String   name;
-
-    if (eulaPath.findFiles(eula, _T("*Eula.exe")) && eulaPath.getName(name))
-                                                                           {acroRd = *path; break;}
-#endif
 

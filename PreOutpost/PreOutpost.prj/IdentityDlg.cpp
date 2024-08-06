@@ -46,11 +46,13 @@ END_MESSAGE_MAP()
 
 
 IdentityDlg::IdentityDlg(CWnd* pParent /*=NULL*/) : CDialogEx(IdentityDlg::IDD, pParent),
-  isInitialized(false), isTacticalID(false),   tacticalModified(false), userModified(false),
-  subjWSecurity(false), includeAddrBook(false),
-  tacticalCallSign(_T("")), tacticalText(_T("")), tacticalIDPrefix(_T("")), tacSignature(_T("")),
-  userCallSign(_T("")), userName(_T("")), userIDPrefix(_T("")), userSignature(_T("")),
-  subject(_T("")), severity(0), handling(0), subjStyle(0), profilesDesired(0), practiceDay(0) { }
+  isInitialized(false),     isTacticalID(false),    tacticalModified(false),
+  userModified(false),      subjWSecurity(false),   includeAddrBook(false),
+  tacticalCallSign(_T("")), tacticalText(_T("")),   tacticalIDPrefix(_T("")),
+  tacSignature(_T("")),     userCallSign(_T("")),   userName(_T("")),
+  userIDPrefix(_T("")),     userSignature(_T("")),  subject(_T("")),
+  severity(0),              handling(0),            subjStyle(0),
+  profilesDesired(0),       practiceDay(0) { }
 
 
 IdentityDlg::~IdentityDlg() {winPos.~WinPos();}

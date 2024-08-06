@@ -5,8 +5,6 @@
 // Do not add files here that you will be updating frequently as this negates the performance advantage.
 
 #pragma once
-
 #include "framework.h"
-#include <afxcontrolbars.h>
 
 

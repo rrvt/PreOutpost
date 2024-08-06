@@ -173,33 +173,3 @@ int    pos;
 
 
 
-
-
-//void ListBox::copyActual() {Addr* addr = findAddr();    if (addr) loadClipBoard(addr->actual);}
-//void ListBox::copyVirt()   {Addr* addr = findAddr();    if (addr) loadClipBoard(addr->virt);}
-//void ListBox::copyOrganization()
-  //                      {Addr* addr = findAddr();    if (addr) loadClipBoard(addr->organization);}
-#if 1
-#else
-int     x = GetCurSel();   if (x < 0) return 0;
-CString cs;
-
-  GetText(x, cs);
-
-  String key = parseListKey(cs);
-#endif
-
-
-#if 0
-  void ListBox::onSelChangePathList()   {
-    // TODO: Add your control notification handler code here
-    }
-#endif
-
-
-
-// tab *= baseUnits;   dataTab = tab * 4 / baseUnits;
-//    dx += 3 * baseUnits;
-//int      dataTab;
-//ON_LBN_SELCHANGE(IDC_PathList, &ListBox::onSelChangePathList)
-

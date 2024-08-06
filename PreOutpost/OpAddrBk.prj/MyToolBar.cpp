@@ -207,13 +207,3 @@ int cbxID1 = cboBx1.getId();
 #endif
 
 
-
-
-#if 0
-editBox(ID_EditBox),
-cbxMenu1(ID_PopupMenu1),
-//uint cbxId1 = cbxMenu1.getId();
-//  if (id == cbxId1) ToolBarBase::dispatch(cbxMenu1);
-cboBx(ID_CboBx), cboBx1(ID_CboBx1)11
-#endif
-

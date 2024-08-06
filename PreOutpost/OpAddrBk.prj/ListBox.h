@@ -62,8 +62,3 @@ public:
 
 
 
-
-//  void     copyVirt();
-//  void     copyActual();
-//  void     copyOrganization();
-

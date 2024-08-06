@@ -1,3 +1,5 @@
+// BBSdlg dialog
+
 #pragma once
 #include "resource.h"
 
@@ -9,8 +11,6 @@ CString fName;
 CString cName;
 };
 
-
-// BBSdlg dialog
 
 class BBSdlg : public CDialog {
 

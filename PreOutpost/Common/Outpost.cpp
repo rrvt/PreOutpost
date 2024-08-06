@@ -36,7 +36,7 @@ String path;
 
 
 void Outpost::setOutpost(TCchar* path)
-          {if (path && *path) {exePath = path;   iniFile.write(PathSection, OutpostKey, exePath);}}
+        {if (path && *path) {exePath = path;   iniFile.write(PathSection, OutpostKey, exePath);}}
 
 
 void Outpost::setProfile(TCchar* path)
@@ -45,8 +45,8 @@ void Outpost::setProfile(TCchar* path)
 
 
 // We've already opened the INI file for PreOutpost.  See if we've found the paths to the Outpost
-// Executable and Profiles stored them in the INI file.  If not, then find the paths and store them.
-// The paths are stored in the PreOutpost object.
+// Executable and Profiles stored them in the INI file.  If not, then find the paths and store
+// them.  The paths are stored in the PreOutpost object.
 
 void Outpost::getProfilePath() {
 

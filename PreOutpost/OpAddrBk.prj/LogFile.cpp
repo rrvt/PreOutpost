@@ -10,37 +10,37 @@
 #include "RegExpr.h"
 
 
-static RegExpr re[] = {_T("^~$"),                       // Nil
-                       _T("Outpost/Opsessn"),           // Modem
-                       _T("^\\[JNOS-"),                 // JNOS
-                       _T("^SP"),                       // Transmit Message single address
-                       _T("^SC"),                       // Transmit Message multiple address
-                       _T("^SP "),                      // Raw Send Address
-                       _T("^SC"),                       // Raw Send List
-                       _T("^/EX"),                      // Exit Transmit
-                                                        //
-                       _T("^#T: form"),                 // Form Follows
-                       _T("^!SCCoPIFO!"),               // New Forms
+static RegExpr re[] = {_T("^~$"),                     // Nil
+                       _T("Outpost/Opsessn"),         // Modem
+                       _T("^\\[JNOS-"),               // JNOS
+                       _T("^SP"),                     // Transmit Message single address
+                       _T("^SC"),                     // Transmit Message multiple address
+                       _T("^SP "),                    // Raw Send Address
+                       _T("^SC"),                     // Raw Send List
+                       _T("^/EX"),                    // Exit Transmit
+                                                      //
+                       _T("^#T: form"),               // Form Follows
+                       _T("^!SCCoPIFO!"),             // New Forms
 
-                       _T("^R "),                       // Receive Message
-                       _T("^To:"),                      // To
-                       _T("^7a\\.:"),                   // To Virtual Addr  all but 213
-                       _T("^7b\\.:"),                   // To Virtual Location  all but 213
-                       _T("^7\\.:"),                    // To Virtual Addr for 213
-                       _T("^9a\\.:"),                   // To virtual Location for 213
+                       _T("^R "),                     // Receive Message
+                       _T("^To:"),                    // To
+                       _T("^7a\\.:"),                 // To Virtual Addr  all but 213
+                       _T("^7b\\.:"),                 // To Virtual Location  all but 213
+                       _T("^7\\.:"),                  // To Virtual Addr for 213
+                       _T("^9a\\.:"),                 // To virtual Location for 213
 
-                       _T("^From:"),                    // From
-                       _T("^8a\\.:"),                   // From Virtual Address all but 213
-                       _T("^8b\\.:"),                   // From Virtual Location all but 213
-                       _T("^8\\.:"),                    // From in ICS 213
-                       _T("^9b\\.:"),                   // Loc in ICS 213
+                       _T("^From:"),                  // From
+                       _T("^8a\\.:"),                 // From Virtual Address all but 213
+                       _T("^8b\\.:"),                 // From Virtual Location all but 213
+                       _T("^8\\.:"),                  // From in ICS 213
+                       _T("^9b\\.:"),                 // Loc in ICS 213
 
-                       _T("^Subject:"),                 // Subject followed by a blank line the body
-                       _T("^(#[0-9]*) >$"),             // End Receive Msg
+                       _T("^Subject:"),               // Subject followed by a blank line the body
+                       _T("^(#[0-9]*) >$"),           // End Receive Msg
 
                        _T("^MsgNo:"),
-                       _T("^!/ADDON!"),                 // End Form
-                       _T("^B$")                        // Bye
+                       _T("^!/ADDON!"),               // End Form
+                       _T("^B$")                      // Bye
                        };
 
 
@@ -109,7 +109,7 @@ int i;
 
 
 void LogFile::clear()
-          {to.clear(); from.clear(); subject.clear(); virtAddr.clear(); virtLoc.clear(); rcvCnt = -9999;}
+    {to.clear(); from.clear(); subject.clear(); virtAddr.clear(); virtLoc.clear(); rcvCnt = -9999;}
 
 
 void LogFile::doJNOS() {
@@ -226,5 +226,5 @@ int end = line.find(']') - beg;
 
 
 String LogFile::get()
-             {int pos = line.find(_T(' '));  return pos >= 0 ? line.substr(pos).trim() : String(_T(""));}
+       {int pos = line.find(_T(' '));  return pos >= 0 ? line.substr(pos).trim() : String(_T(""));}
 

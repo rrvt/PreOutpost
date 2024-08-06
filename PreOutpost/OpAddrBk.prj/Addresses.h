@@ -108,8 +108,3 @@ private:
 extern Addresses addresses;
 
 
-
-
-
-//  bool  delAddr(TCchar* key);
-

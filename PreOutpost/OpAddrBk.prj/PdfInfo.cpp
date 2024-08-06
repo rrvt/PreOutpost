@@ -98,23 +98,3 @@ int n = noElements(srchKeys);
 
 
 
-#if 1
-#else
-String*   path;
-  filePaths.findFiles(_T("C:"), _T("Program*"), _T("Acrobat*.exe"));
-
-  for (path = iter(); path; path = iter++) {
-    String   eula = getPath(*path);
-    FileSrch eulaPath;
-    String   name;
-
-    if (eulaPath.findFiles(eula, _T("*Eula.exe")) && eulaPath.getName(name))
-                                                                           {acroRd = *path; break;}
-    }
-
-  if (acroRd.isEmpty()) return false;
-
-  iniFile.writeString(PathSection, AcroRdKey, acroRd);   return true;
-  #endif
-//if (pdfExe.start(2, acroRd.str(), pdfPaths[pdfFileX].str())) {pdfExe.wait(); return;}
-

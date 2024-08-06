@@ -16,7 +16,7 @@
 IMPLEMENT_DYNAMIC(SelectMasterDlg, CDialogEx)
 
 SelectMasterDlg::SelectMasterDlg(CWnd* pParent) : CDialogEx(SelectMasterDlg::IDD, pParent),
-                                                   allProfiles(0) {listItems.init(this, IDC_LIST1);}
+                                                  allProfiles(0) {listItems.init(this, IDC_LIST1);}
 
 
 BOOL SelectMasterDlg::OnInitDialog() {
@@ -137,14 +137,6 @@ String topic;
 void SelectMasterDlg::OnSize(UINT nType, int cx, int cy) {
 
   CDialogEx::OnSize(nType, cx, cy);
-
-#if 0
-CRect winRect;
-  if (!isInitialized) return;
-
-  GetWindowRect(&winRect);
-  winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
-#endif
   }
 #endif
 

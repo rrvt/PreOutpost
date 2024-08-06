@@ -66,8 +66,8 @@ String metaProfile;
   }
 
 
-// Produce a Property Name to be used in an ini file.  Good for putting the Master Files in sort order
-// for MetaProfile00 to MetaProfile99.  Should be enough for this program...
+// Produce a Property Name to be used in an ini file.  Good for putting the Master Files in sort
+// order for MetaProfile00 to MetaProfile99.  Should be enough for this program...
 
 String MasterProf::getKey(int i) {
 String name = _T("MetaProfile");

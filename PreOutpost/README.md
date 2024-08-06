@@ -56,6 +56,10 @@ A help file is included in both apps.  Let the author know if the help file need
 
 ## Updates
 
+### Update 8/5/24
+
+Library update.
+
 ### Update 6/14/24
 
 Fix WinPos destructor to run once.

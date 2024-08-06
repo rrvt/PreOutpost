@@ -332,18 +332,3 @@ int tab = brk - virt.length();
 
 
 
-
-
-#if 0
-bool Addresses::delAddr(TCchar* key) {
-Addr*     addr = find(key);     if (!addr) return false;
-DeleteDlg dlg;
-
-  dlg.delAddr = addr->virt + _T("   ") + addr->actual;
-
-  if (dlg.DoModal() != IDOK) return false;
-
-  addr->deleted = true; return true;
-  }
-#endif
-

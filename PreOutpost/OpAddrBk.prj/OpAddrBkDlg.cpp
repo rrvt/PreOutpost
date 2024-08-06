@@ -27,14 +27,14 @@ BEGIN_MESSAGE_MAP(OpAddrBkDlg, CDialogEx)
   ON_COMMAND(      ID_EditAddr,       &onEditAddr)
   ON_COMMAND(      ID_Refresh,        &onRefresh)
 
-  ON_CBN_SELCHANGE(ID_DocMenu,        &onDocDispatch)            // Send Command Message with ID_...
+  ON_CBN_SELCHANGE(ID_DocMenu,        &onDocDispatch)           // Send Command Message with ID_...
   ON_COMMAND(      ID_PacketFreqs,    &onPacketFreqs)
   ON_COMMAND(      ID_FormRouting,    &onFormRouting)
   ON_COMMAND(      ID_PktSubjLine,    &onPktSubjLine)
   ON_COMMAND(      ID_CheckInOut,     &onCheckInOut)
   ON_COMMAND(      ID_RoutingSlip,    &onRoutingSlip)
 
-  ON_CBN_SELCHANGE(ID_OptMenu,        &onOptDispatch)            // Send Command Message with ID_...
+  ON_CBN_SELCHANGE(ID_OptMenu,        &onOptDispatch)           // Send Command Message with ID_...
   ON_COMMAND(      ID_FindPdfReader,  &onFindPdfReader)
   ON_COMMAND(      ID_FindPdfFiles,   &onFindPdfFiles)
   ON_COMMAND(      ID_DrillTraffic,   &onDrillTraffic)
@@ -243,182 +243,4 @@ void OpAddrBkDlg::OnOK() {
 
 
 
-
-#if 0
-void OpAddrBkDlg::onTBEditBox() {
-CString s = toolBar.getText(ID_EditBox);   statusBar.setText(1, s);
-}
-
-
-  ON_EN_KILLFOCUS( ID_EditBox,      &onTBEditBox)           // Process content of edit box
-
-  toolBar.addEditBox(ID_EditBox, 20);
-
-//  ON_COMMAND(      ID_Button,       &onX)
-
-  ON_COMMAND(      ID_ChangeReady,  &changeReady)
-#endif
-
-
-#if 0
-void OpAddrBkDlg::changeReady() {
-bool status = statusBar.isReady();
-
-  statusBar.setReady(!status);
-  }
-
-void OpAddrBkDlg::onX() {
-  statusBar.setText(1, _T("My Button"));
-  }
-  //  toolBar.addButton(ID_Button, _T(" My Button "));
-  toolBar.addMenu(ID_PopupMenu1, PopupItems1, noElements(PopupItems1), _T("My Caption #1"));
-
-  ON_CBN_SELCHANGE(ID_PopupMenu1,   &onDispatch1)           // Send Command Message with ID_...
-  ON_COMMAND(      ID_Option11,     &onOption11)
-  ON_COMMAND(      ID_Option12,     &onOption12)
-
-
-
-void OpAddrBkDlg::onDispatch1() {toolBar.dispatch(ID_PopupMenu1);}
-
-
-void OpAddrBkDlg::onOption11() {
-  statusBar.setText(1, _T("Option 1.1"));
-  }
-
-
-void OpAddrBkDlg::onOption12() {
-  statusBar.setText(1, _T("Option 1.2"));
-  }
-  ON_CBN_SELCHANGE(ID_CboBx,        &onCboBxChange)        // Process secelection from list
-  toolBar.addCBx( ID_CboBx,      IDR_CbxMenu,   _T("A Combo Box"));
-#endif
-#if 0
-void OpAddrBkDlg::onCboBxChange() {
-String s;
-int    x;
-String t;
-
-  if (!toolBar.getCurSel(ID_CboBx, s, x)) return;
-
-  t.format(_T("Item = %s, Data = %i"), s.str(), x);
-
-  statusBar.setText(1, t);
-  }
-
-  ON_CBN_SELCHANGE(ID_CboBx1,       &onCboBx1Change)        // Process secelection from list
-  toolBar.addCBx( ID_CboBx1,     CbxText, noElements(CbxText), CbxCaption);
-#if 0
-void OpAddrBkDlg::onCboBx1Change() {
-String s;
-int    x;
-String t;
-
-  if (!toolBar.getCurSel(ID_CboBx1, s, x)) return;
-
-  t.format(_T("Item = %s, Data = %i"), s.str(), x);
-
-  statusBar.setText(1, t);
-  }
-#endif
-
-static CbxItem PopupItems1[] = {{_T("Option11"), ID_Option11},
-                                {_T("Option12"), ID_Option12}
-                                };
-
-
-void OpAddrBkDlg::onOption00() {SetFocus();   onOption01();}
-
-
-void OpAddrBkDlg::onOption01() {
-  statusBar.setText(1, _T("Option 0.1"));
-  }
-
-
-void OpAddrBkDlg::onOption02() {
-  statusBar.setText(1, _T("Option 0.2"));
-  }
-#endif
-#if 0
-static TCchar* CbxCaption =   _T("Greeks +");
-
-static CbxItem CbxText[]  = {{_T("Zeta"),    1},
-                             {_T("Beta"),    2},
-                             {_T("Alpha"),   3},
-                             {_T("Omega"),   4},
-                             {_T("Phi"),     5},
-                             {_T("Mu"),      6},
-                             {_T("Xi"),      7},
-                             {_T("Omicron"), 8},
-                             {_T("Pi"),      9},
-                             {_T("Rho"),    10},
-                             {_T("Sigma"),  11},
-                             {_T("Nu"),     12},
-                             {_T("Kappa"),  13},
-                             {_T("Iota"),   14}
-                             };
-
-#endif
-
-//void OpAddrBkDlg::OnOK() {CDialogEx::OnOK();}
-  // TODO: Add your control notification handler code here
-#if 1
-#else
-int delta  = winPos.dluToScreen(7);
-int height = winPos.dluToScreen(11, false);
-int width  = (winRect.right - winRect.left) / 2 - delta;
-
-  r.top    = winRect.top    + hdrHght;
-  r.bottom = r.top          + height;
-  r.left   = winRect.left   + delta;
-  r.right  = r.left         + width;
-#endif
-#if 1
-#else
-int delta  = winPos.dluToScreen(7);
-int height = winPos.dluToScreen(11, false);
-int width  = (winRect.right - winRect.left) / 2 - delta;
-
-  r.top    = winRect.top   + hdrHght;
-  r.bottom = r.top         + height;
-  r.left   = winRect.left  + delta + width;
-  r.right  = winRect.right - delta;
-#endif
-#if 1
-#else
-void OpAddrBkDlg::reposHdr(CRect& winRect, int hdrHght, TCchar* dsc, CRect& r) {
-int   hDelta = winPos.dluToScreen(21);
-int   vDelta = winPos.dluToScreen(15, false);
-int   h      = r.bottom - r.top;
-int   w      = r.right  - r.left;
-int   hbg    = winRect.bottom - winRect.top - vDelta - toolBarBottom - headingBottom;
-int   winW   = winRect.right - winRect.left;
-
-  r.top    = upper.bottom;
-  r.bottom = r.top + (h > 70 ? hbg : h);
-  r.right  = r.left + (w > winW/2 ? winW - hDelta : winW/2 - 2*hDelta);
-
-  ScreenToClient(r);
-  }
-#endif
-
-//  if      (adrr.bottom > 0 && adrr.bottom - adrr.top) listBoxRect = adrr;
-//  else if (listBoxRect.bottom)                        adrr        = listBoxRect;
-//toolBarBottom(0),headingBottom(0),
-#if 1
-#else
-CRect winRect;               GetWindowRect(&winRect);
-CRect tbr;           toolBar.GetWindowRect(&tbr);     toolBarBottom   = tbr.bottom - winRect.top;
-CRect hdr;        headingCtl.GetWindowRect(&hdr);     headingBottom = hdr.bottom - hdr.top;
-CRect hdr1;
-CRect adrr;
-//CRect hdr;
-//CRect hdr1;
-//CRect adrr;
-
-  reposHdr( winRect, toolBarBottom, hdr);    headingCtl.MoveWindow(&hdr);
-  reposHdr1(winRect, toolBarBottom, hdr1);  heading1Ctl.MoveWindow(&hdr1);
-
-  reposListBox(winRect, toolBarBottom + headingBottom, adrr);  listBox.MoveWindow(&adrr);
-#endif
 

@@ -29,13 +29,16 @@ BEGIN_MESSAGE_MAP(AddressDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-AddressDlg::AddressDlg(CWnd* pParent) : CDialogEx(IDD_Address, pParent), title(_T("Edit Address")),
-                                          name(_T("")),   organization(_T("")), actual(_T("")),
-                                          cellPhone(_T("")), homePhone(_T("")), businessPhone(_T("")),
-                                          agency1Name(_T("")), agency1Phone(_T("")),
-                                          agency2Name(_T("")), agency2Phone(_T("")),
-                                          notes(_T("")), moreNotes(_T("")),
-                                          msgSeen(NilMsg), isNewAddr(false), isDeleted(false) {  }
+AddressDlg::AddressDlg(CWnd* pParent) : CDialogEx(IDD_Address, pParent),
+                                        title(_T("Edit Address")),
+                                        name(_T("")),          organization(_T("")),
+                                        actual(_T("")),        cellPhone(_T("")),
+                                        homePhone(_T("")),     businessPhone(_T("")),
+                                        agency1Name(_T("")),   agency1Phone(_T("")),
+                                        agency2Name(_T("")),   agency2Phone(_T("")),
+                                        notes(_T("")),         moreNotes(_T("")),
+                                        msgSeen(NilMsg),       isNewAddr(false),
+                                        isDeleted(false) {  }
 
 
 AddressDlg::~AddressDlg() { }

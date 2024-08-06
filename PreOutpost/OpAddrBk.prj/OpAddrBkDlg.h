@@ -104,17 +104,3 @@ public:
 
 
 
-#if 0
-  afx_msg void    onTBEditBox();
-  afx_msg void    changeReady();
-  //  afx_msg void    onDispatch1();
-//  afx_msg void    onX();
-  afx_msg void    onOption11();
-  afx_msg void    onOption12();
-  afx_msg void    onCboBxChange();
-
-  afx_msg void    onCboBx1Change();
-  afx_msg void    onOption00();
-  afx_msg void    onOption01();
-  afx_msg void    onOption02();
-#endif

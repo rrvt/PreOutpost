@@ -71,7 +71,7 @@ String   s;
 
   fileSrch.findSubDirs(initialPath, srchPat);
 
-  while (fileSrch.getName(s)) dirs.nextData() = s;   //[dirs.end()]
+  while (fileSrch.getName(s)) dirs.nextData() = s;
   }
 
 
@@ -89,7 +89,7 @@ String   s;
 
   fileSrch.findFiles(initialPath, srchPat);
 
-  while(fileSrch.getName(s)) files.nextData() = s;     //[files.end()]
+  while(fileSrch.getName(s)) files.nextData() = s;
   }
 
 

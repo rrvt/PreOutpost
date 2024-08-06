@@ -8,6 +8,5 @@
 #pragma once
 
 #include "framework.h"
-#include <afxcontrolbars.h>
 
 
