@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "PreOutpost.h"
 #include "BBSinfo.h"
-#include "ClipLine.h"
+#include "ClipBoard.h"
 #include "filesrch.h"
 #include "filename.h"
 #include "IdentityDlg.h"
@@ -13,7 +13,7 @@
 #include "MasterMgmtDlg.h"
 #include "NewMaster.h"
 #include "Outpost.h"
-#include "Resources.h"
+#include "ResourceData.h"
 
 
 static TCchar* PathSection = _T("Path");
@@ -40,8 +40,10 @@ END_MESSAGE_MAP()
 // Report Information, whether profiles for all six BBSes or just W1XSC should be created.
 
 BOOL PreOutpost::InitInstance() {
-bool   makeMaster;                                // When true make a Master Profile
-String s;
+bool      makeMaster;                                // When true make a Master Profile
+String    s;
+ClipBoard clipBoard;
+
   CWinApp::InitInstance();
 
   makeMaster = !StrCmp(m_lpCmdLine, _T("/MakeMaster")) || !StrCmp(m_lpCmdLine, _T("-MakeMaster"));
@@ -68,7 +70,7 @@ String s;
 
   if (idInfo.includeAddrBook) startOPaddress();
 
-  loadClipBoard(subjectLine);
+  clipBoard.load(subjectLine);
 
   startOutpost();
 

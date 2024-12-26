@@ -7,7 +7,7 @@
 #include "Outpost.h"
 #include "ProgramFiles.h"
 #include "RegExpr.h"
-#include "Resources.h"
+#include "ResourceData.h"
 
 
 static String verPath  = _T("C:\\PacFORMS\\Docs\\SCCo-Version.txt");

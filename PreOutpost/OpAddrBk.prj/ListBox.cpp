@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "ListBox.h"
 #include "Addresses.h"
-#include "ClipLine.h"
+#include "ClipBoard.h"
 #include "resource.h"
 #include "StatusBar.h"
 
@@ -121,16 +121,28 @@ void ListBox::OnLButtonDblClk(UINT nFlags, CPoint point)
                                      {onCopyActAddr();   CListBox::OnLButtonDblClk(nFlags, point);}
 
 void ListBox::onCopyVirtAddr() {
-Addr*  addr = findAddr();
-String s;
+Addr*     addr = findAddr();
+String    s;
+ClipBoard clipBoard;
 
-  if (addr) {s = _T('+') + addr->virt; loadClipBoard(s);}
+  if (addr) {s = _T('+') + addr->virt; clipBoard.load(s);}
   }
 
 
-void ListBox::onCopyActAddr()  {Addr* addr = findAddr();    if (addr) loadClipBoard(addr->actual);}
-void ListBox::onCopyOrganization()
-                          {Addr* addr = findAddr();   if (addr) loadClipBoard(addr->organization);}
+void ListBox::onCopyActAddr()  {
+Addr*     addr = findAddr();
+ClipBoard clipBoard;
+
+  if (addr) clipBoard.load(addr->actual);
+  }
+
+
+void ListBox::onCopyOrganization() {
+Addr* addr = findAddr();
+ClipBoard clipBoard;
+
+  if (addr) clipBoard.load(addr->organization);
+  }
 
 
 

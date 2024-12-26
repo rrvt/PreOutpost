@@ -4,14 +4,14 @@
 
 
 #pragma once
-#include "CApp.h"
+#include "CDialogApp.h"
 #include "Executable.h"
 #include "iniFile.h"
 #include "Identity.h"
 #include "MasterProf.h"
 
 
-class PreOutpost : public CApp {
+class PreOutpost : public CDialogApp {
 bool       subjWSecurity;
 bool       includeAddrBook;
 
@@ -23,7 +23,7 @@ String     roamingPath;                           // Path to roaming directory
 String     subjectLine;
 Executable opAddrExe;
 
-  PreOutpost() : CApp(this), subjWSecurity(false), includeAddrBook(false) { }
+  PreOutpost() : CDialogApp(this), subjWSecurity(false), includeAddrBook(false) { }
 
 public:
 

@@ -13,7 +13,7 @@
 #include "PreOutpost.h"
 #include "Outpost.h"
 #include "ProgramFiles.h"
-#include "Resources.h"
+#include "ResourceData.h"
 
 
 IdentityInfo idInfo;

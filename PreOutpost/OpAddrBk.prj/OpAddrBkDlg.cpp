@@ -5,7 +5,7 @@
 #include "OpAddrBkDlg.h"
 #include "Addresses.h"
 #include "AboutDlg.h"
-#include "ClipLine.h"
+#include "ClipBoard.h"
 #include "FileName.h"
 #include "History.h"
 #include "MessageBox.h"
@@ -215,7 +215,13 @@ void OpAddrBkDlg::onRoutingSlip()   {pdfInfo.show(RtngSlipPDF, statusBar);}
 void OpAddrBkDlg::onOptDispatch()   {toolBar.dispatch(ID_OptMenu);}
 void OpAddrBkDlg::onFindPdfReader() {pdfInfo.findPdfReader(statusBar);}
 void OpAddrBkDlg::onFindPdfFiles()  {pdfInfo.findPdfFiles(statusBar);}
-void OpAddrBkDlg::onDrillTraffic() {loadClipBoard(DrillTraffic);  statusBar.setText(DrillTraffic);}
+
+
+void OpAddrBkDlg::onDrillTraffic() {
+ClipBoard clipBoard;
+
+  clipBoard.load(DrillTraffic);  statusBar.setText(DrillTraffic);
+  }
 
 
 // Do ToolTips

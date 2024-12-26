@@ -21,7 +21,7 @@ IniFile   iniFile;
 
 // OpAddrBk construction
 
-OpAddrBk::OpAddrBk() noexcept : CApp(this) { }
+OpAddrBk::OpAddrBk() noexcept : CDialogApp(this) { }
 
 
 // OpAddrBk initialization -- Start the MFC Dialog Box
