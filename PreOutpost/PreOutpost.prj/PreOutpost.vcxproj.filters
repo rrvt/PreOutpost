@@ -29,6 +29,7 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="C:\Program Files (x86)\SCCo Packet\Outpost.conf" />
+    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpostDbg\PreOutpostDbg.ini" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BBSdlg.cpp">
@@ -83,6 +84,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Common\ProgramFiles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\OutpostFolders.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\WaitMsgDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\FindDirThrd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -153,6 +163,15 @@
     <ClInclude Include="..\Common\ProgramFiles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Common\OutpostFolders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\WaitMsgDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\FindDirThrd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PreOutpost.rc">
@@ -167,6 +186,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\UIPreOutpost.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\PreOutpost01.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

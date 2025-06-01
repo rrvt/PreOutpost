@@ -11,7 +11,6 @@
 #include "IniFile.h"
 #include "MasterMgmtDlg.h"
 #include "PreOutpost.h"
-#include "ProgramFiles.h"
 #include "SelectMasterDlg.h"
 #include "MessageBox.h"
 

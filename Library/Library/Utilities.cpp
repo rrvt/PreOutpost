@@ -37,7 +37,7 @@ String s = tc;
   }
 
 
-String tabStg(int n) {return blks.substr(0, n);}
+String tabStg(int n) {return n >= 0 ? blks.substr(0, n) : String(_T(""));}
 
 
 String nextTok(String& s, int& pos) {
@@ -154,6 +154,7 @@ String* p;
   }
 
 
+#if 0
 void expunge(String& s) {
 int    i;
 int    n = s.length();
@@ -187,7 +188,7 @@ Random rnd;
     *p++ = (Byte) (256 * rnd.next());
     }
   }
-
+#endif
 
 
 String formatPhone(TCchar* ph, Tchar sep) {

@@ -3,10 +3,14 @@
 
 #include "pch.h"
 #include "OutpostChoiceDlg.h"
+#include "FileName.h"
+#include "MessageBox.h"
+#include "ProgramFiles.h"
 
 
 BEGIN_MESSAGE_MAP(OutpostChoiceDlg, CDialogEx)
-  ON_LBN_DBLCLK(IDC_OutpostList, &OutpostChoiceDlg::OnOK)
+  ON_LBN_DBLCLK(IDC_OutpostList, &OnOK)
+  ON_BN_CLICKED(IDCANCEL,        &OnBnClickedCancel)
 END_MESSAGE_MAP()
 
 
@@ -21,22 +25,15 @@ OutpostChoiceDlg::~OutpostChoiceDlg() { }
 
 
 BOOL OutpostChoiceDlg::OnInitDialog() {
-int i;
+OpfIter iter(programFiles.getFolders());
+String* s;
 
   CDialogEx::OnInitDialog();
 
-  progFiles.findOutpostDirs(_T("*Packet*"));
-  progFiles.findOutpostDirs(_T("*Outpost*"));
+  for (s = iter(); s; s = iter++) {
+    String path = getPath(*s);   if (path.find(_T("PreOutpost")) >= 0) continue;
 
-  for (i = 0; i < progFiles.outpDirs.end(); i++) {
-
-    String& pth = progFiles.outpDirs[i].path;
-
-    if (pth.find(_T("PreOutpost")) >= 0) continue;
-
-    TCchar* path = progFiles.outpDirs[i].path;
-
-    outpostList.AddString(pth);
+    outpostList.AddString(path);
     }
 
   return TRUE;
@@ -55,7 +52,30 @@ String path;
 
   CDialogEx::OnOK();      path = outpostChoice;
 
-  confFilePath = progFiles.getProfilePath(path);
-  exeFilePath  = progFiles.findExeFile(path);
+  if (path.isEmpty()) {CDialogEx::OnCancel();   return;}
+
+  confFilePath = programFiles.getProfilePath(path);
+  exeFilePath  = programFiles.findFile(path, _T("*.exe"));
   }
+
+
+void OutpostChoiceDlg::OnBnClickedCancel() {CDialogEx::OnCancel();}
+
+
+////----------------
+
+#if 1
+#else
+int     i;
+  for (i = 0; i < progFiles.outpDirs.end(); i++) {
+
+    String& pth = progFiles.outpDirs[i].path;
+
+    if (pth.find(_T("PreOutpost")) >= 0) continue;
+
+    TCchar* path = progFiles.outpDirs[i].path;
+
+    outpostList.AddString(pth);
+    }
+#endif
 

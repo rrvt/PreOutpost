@@ -3,7 +3,6 @@
 
 #pragma once
 #include "IniFile.h"
-#include "ProgramFiles.h"
 #include "Resource.h"
 
 // Outpost Choice dialog
@@ -11,8 +10,6 @@
 class OutpostChoiceDlg : public CDialogEx {
 
   DECLARE_DYNAMIC(OutpostChoiceDlg)
-
-ProgramFiles progFiles;
 
 public:
 
@@ -37,4 +34,6 @@ protected:
   virtual void DoDataExchange(CDataExchange* pDX);
 
   DECLARE_MESSAGE_MAP()
-  };
+public:
+    afx_msg void OnBnClickedCancel();
+};

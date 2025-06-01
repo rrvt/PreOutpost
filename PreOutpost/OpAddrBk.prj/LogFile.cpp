@@ -6,7 +6,6 @@
 #include "Addresses.h"
 #include "filesrch.h"
 #include "Outpost.h"
-#include "ProgramFiles.h"
 #include "RegExpr.h"
 
 

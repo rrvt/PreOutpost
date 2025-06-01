@@ -15,13 +15,13 @@ public:
         ~Outpost() { }
 
   void   initialize(TCchar* path, TCchar* profile);
-  void   getProfilePath();                             // Little function to find profile and path
+  bool   getProfilePath();                             // Little function to find profile and path
 
   String getPath()    {return exePath;}
   String getProfile() {return dataPath;}
-  void   choose();
+  bool   choose();
 
-  void   saveOutpostPath(String& path, String& profile);
+  bool   saveOutpostPath(String& path, String& profile);
 
 private:
 

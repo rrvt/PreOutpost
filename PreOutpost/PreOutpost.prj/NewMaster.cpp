@@ -12,7 +12,6 @@
 #include "NewMasterDlg.h"
 #include "Outpost.h"
 #include "PreOutpost.h"
-#include "ProgramFiles.h"
 
 
 static TCchar* MasterExt = _T("MProfile");

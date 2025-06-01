@@ -44,11 +44,11 @@ public:
 
   BBSinfo() {}
 
-  void     getSuffixes();
+  bool     getSuffixes();
 
-  void     findBBSfiles();
+  bool     findBBSfiles();
 
-  void     load();
+  bool     load();
   void     save();
   void     clear();
 

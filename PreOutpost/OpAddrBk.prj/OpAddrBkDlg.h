@@ -28,8 +28,6 @@ CStatic   heading1Ctl;
 ListBox   listBox;
 StatusBar statusBar;
 CRect     listBoxRect;
-//int       topThruTB;
-//int       headingHght;
 
 bool      isInitialized;
 

@@ -141,9 +141,11 @@
     <ClInclude Include="..\..\Library\Extras\AboutDlg.h" />
     <ClInclude Include="..\..\Library\Extras\OptionsDlg.h" />
     <ClInclude Include="..\..\Library\Extras\ResourceExtra.h" />
+    <ClInclude Include="..\Common\FindDirThrd.h" />
     <ClInclude Include="..\Common\Outpost.h" />
     <ClInclude Include="..\Common\OutpostChoiceDlg.h" />
     <ClInclude Include="..\Common\ProgramFiles.h" />
+    <ClInclude Include="..\Common\WaitMsgDlg.h" />
     <ClInclude Include="AddressDlg.h" />
     <ClInclude Include="Addresses.h" />
     <ClInclude Include="PDFappNamesDlg.h" />
@@ -162,9 +164,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\Library\Extras\AboutDlg.cpp" />
     <ClCompile Include="..\..\Library\Extras\OptionsDlg.cpp" />
+    <ClCompile Include="..\Common\FindDirThrd.cpp" />
     <ClCompile Include="..\Common\Outpost.cpp" />
     <ClCompile Include="..\Common\OutpostChoiceDlg.cpp" />
     <ClCompile Include="..\Common\ProgramFiles.cpp" />
+    <ClCompile Include="..\Common\WaitMsgDlg.cpp" />
     <ClCompile Include="AddressDlg.cpp" />
     <ClCompile Include="Addresses.cpp" />
     <ClCompile Include="PDFappNamesDlg.cpp" />

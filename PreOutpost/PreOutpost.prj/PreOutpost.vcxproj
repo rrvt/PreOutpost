@@ -67,11 +67,11 @@
       <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\Common;$(SolutionDir)..\..\Library\Library\;$(SolutionDir)..\..\Library\Extras\</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <BasicRuntimeChecks/>
+      <BasicRuntimeChecks />
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <FunctionLevelLinking>false</FunctionLevelLinking>
-      <PrecompiledHeaderFile/>
-      <PrecompiledHeaderOutputFile/>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -107,9 +107,9 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <BasicRuntimeChecks/>
-      <PrecompiledHeaderFile/>
-      <PrecompiledHeaderOutputFile/>
+      <BasicRuntimeChecks />
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -120,7 +120,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>Htmlhelp.lib;Version.lib;Library.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <ProgramDatabaseFile/>
+      <ProgramDatabaseFile />
       <AdditionalLibraryDirectories>$(Solutiondir)..\..\Library\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
     <Midl>
@@ -137,9 +137,12 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
   <ItemGroup>
+    <ClCompile Include="..\Common\FindDirThrd.cpp" />
     <ClCompile Include="..\Common\Outpost.cpp" />
     <ClCompile Include="..\Common\OutpostChoiceDlg.cpp" />
+    <ClCompile Include="..\Common\OutpostFolders.cpp" />
     <ClCompile Include="..\Common\ProgramFiles.cpp" />
+    <ClCompile Include="..\Common\WaitMsgDlg.cpp" />
     <ClCompile Include="AboutDlgEx.cpp" />
     <ClCompile Include="BBSdlg.cpp" />
     <ClCompile Include="BBSinfo.cpp" />
@@ -157,9 +160,12 @@
     <ClCompile Include="UsrData.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Common\FindDirThrd.h" />
     <ClInclude Include="..\Common\Outpost.h" />
     <ClInclude Include="..\Common\OutpostChoiceDlg.h" />
+    <ClInclude Include="..\Common\OutpostFolders.h" />
     <ClInclude Include="..\Common\ProgramFiles.h" />
+    <ClInclude Include="..\Common\WaitMsgDlg.h" />
     <ClInclude Include="AboutDlgEx.h" />
     <ClInclude Include="BBSdlg.h" />
     <ClInclude Include="BBSinfo.h" />
@@ -199,10 +205,11 @@
     <None Include="res\PreOutpost.rc2" />
     <None Include="..\README.md" />
     <None Include="C:\Program Files (x86)\SCCo Packet\Outpost.conf" />
-  <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpost\PreOutpost.xxx" />
+    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpostDbg\PreOutpostDbg.ini" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\PreOutpost.ico" />
+    <Image Include="res\PreOutpost01.ico" />
     <Image Include="res\Routing.ico" />
     <Image Include="res\UIPreOutpost.ico" />
   </ItemGroup>

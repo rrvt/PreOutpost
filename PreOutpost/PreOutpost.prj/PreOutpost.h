@@ -18,6 +18,8 @@ bool       includeAddrBook;
 public:
 
 String     myPath;                                // Path to this program when running
+String     configPath;                            // Path to several files in Roaming (useful for
+                                                  // debugging
 String     helpFile;                              // path and filename for help file
 String     roamingPath;                           // Path to roaming directory
 String     subjectLine;

@@ -5,7 +5,7 @@
 #include "ArchPos.h"
 
 
-ArchPos::ArchPos(String& fileName, int mode) : ArchFile(fileName, mode), leftMargin(0),
+ArchPos::ArchPos(TCchar* fileName, int mode) : ArchFile(fileName, mode), leftMargin(0),
                                                pageWidth(99), curPos(0), tabs(pageWidth) { }
 
 

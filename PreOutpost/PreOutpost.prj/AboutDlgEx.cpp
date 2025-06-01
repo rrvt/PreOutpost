@@ -5,7 +5,6 @@
 #include "AboutDlgEx.h"
 #include "FileIO.h"
 #include "Outpost.h"
-#include "ProgramFiles.h"
 #include "RegExpr.h"
 #include "ResourceData.h"
 

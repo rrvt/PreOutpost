@@ -23,6 +23,7 @@
 #define IDD_IdentityDialog              110
 #define IDD_SuffixDlg                   111
 #define IDD_OutpostChoice               112
+#define IDD_WaitMsg                     113
 
 #define IDC_EDIT1                       200
 #define IDC_EDIT2                       201
@@ -134,6 +135,9 @@
 #define ID_FindOutpost                  417
 #define ID_IncludeAddrBook              418
 #define ID_App_About                    419
+
+
+#define FinFindDir                      (WM_USER + 1)
 
 // Main Dialog Size
 

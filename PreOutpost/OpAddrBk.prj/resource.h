@@ -13,6 +13,7 @@
 #define IDD_OutpostChoice               201
 #define IDD_Address                     203
 #define IDD_FindPDFapp                  204
+#define IDD_WaitMsg                     205
 
 // Controls
 #define IDC_StatusBar                   300
@@ -69,6 +70,9 @@
 #define ID_CopyVirtAddr                 430
 #define ID_Organization                 431
 #define ID_CopyActAddr                  432
+
+
+#define FinFindDir                      (WM_USER + 1)
 
 // Main Dialog Size
 

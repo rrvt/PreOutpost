@@ -8,7 +8,6 @@
 #include "filename.h"
 #include "IniFile.h"
 #include "Outpost.h"
-#include "ProgramFiles.h"
 #include "SrchFile.h"
 
 
@@ -30,27 +29,33 @@ BBSdata* b;
   }
 
 
-void BBSinfo::load() {
+bool BBSinfo::load() {
 BBSIter  iter(*this);
 BBSdata* b;
 int      n;
 int      i;
 String   key;
+bool     notEmpty = false;
 
-  clear();   findBBSfiles();
+  clear();   if (!findBBSfiles()) return false;
 
-  n = iniFile.readInt(Section, NoBBS, 0);    if (!n) getSuffixes();
+  n = iniFile.readInt(Section, NoBBS, 0);    if (!n && !getSuffixes()) return false;
 
-  for (b = iter(), i = 1; b != 0 && i <= n; b = iter++, i++)
-                           {key = Suffix; key += i;   iniFile.readString(Section, key, b->suffix);}
+  for (b = iter(), i = 1; b != 0 && i <= n; b = iter++, i++) {
+    key = Suffix; key += i;   notEmpty |= !b->suffix.isEmpty();
+    iniFile.readString(Section, key, b->suffix);
+    }
+
+  return notEmpty;
   }
 
 
-void BBSinfo::getSuffixes() {
+bool BBSinfo::getSuffixes() {
 BBSdlg   dlg;
 BBSIter  iter(*this);
 BBSdata* d;
 int      i;
+bool     notEmpty = false;
 
   for (d = iter(), dlg.nData = 0; d; d = iter++, dlg.nData++) {
     BBSdlgDatum& dlgD = dlg.data[dlg.nData];
@@ -60,12 +65,16 @@ int      i;
 
   if (dlg.DoModal() == IDOK) {
 
-    for (d = iter(), i = 0; d; d = iter++, i++)
-                                      {BBSdlgDatum& dlgD = dlg.data[i];   d->suffix = dlgD.suffix;}
-    bbsInfo.save();
+    for (d = iter(), i = 0; d; d = iter++, i++) {
+      BBSdlgDatum& dlgD = dlg.data[i];
+
+      d->suffix = dlgD.suffix;   notEmpty |= !d->suffix.isEmpty();
+      }
+
+    if (notEmpty) bbsInfo.save();
     }
 
-  bbsInfo.load();
+  if (notEmpty) bbsInfo.load();    return notEmpty;
   }
 
 
@@ -82,7 +91,7 @@ String   key;
   }
 
 
-void BBSinfo::findBBSfiles() {
+bool BBSinfo::findBBSfiles() {
 String    bbsPath = outpost.getProfile() + _T("bbs.d\\");
 String    bbsArb  = _T("X*.bbs");
 FileSrch  srch;
@@ -92,7 +101,7 @@ CString   cName;
 String    bbsFile;
 int       bbsNo;
 
-  if (!srch.findFiles(bbsPath, bbsArb)) return;
+  if (!srch.findFiles(bbsPath, bbsArb)) return false;
 
   while (srch.getName(path)) {
 
@@ -107,9 +116,11 @@ int       bbsNo;
     bbsNo = findBBSno(fName);    if (bbsNo < 1 || bbsNo > 9) continue;
 
     BBSdata& p = data.nextData();   p.bbsNo = bbsNo;  p.cName = cName;  p.fName = fName;
-    }                          //[data.end()]
+    }
 
   qsort(&data[0], &data[data.end()-1]);
+
+  return nData() > 0;
   }
 
 

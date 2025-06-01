@@ -10,7 +10,6 @@
 #include "MessageBox.h"
 #include "Outpost.h"
 #include "PreOutpost.h"
-#include "ProgramFiles.h"
 #include "BBSdlg.h"
 
 

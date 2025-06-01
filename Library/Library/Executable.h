@@ -49,7 +49,7 @@ public:
 
 private:
 
-  String& addQuotes(String& s);       // Adds quotes if needed avoiding terminal backslash with a
+  String& fixPath(String& s);         // Adds quotes if needed avoiding terminal backslash with a
                                       // space
   WCHAR*  copy(TCchar* src, WCHAR* vector, int nChars);
 

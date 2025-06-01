@@ -6,6 +6,9 @@
 #include "IniFile.h"
 #include "MessageBox.h"
 #include "OutpostChoiceDlg.h"
+#include "ProgramFiles.h"
+#include "Resource.h"
+#include "WaitMsgDlg.h"
 
 
 Outpost outpost;
@@ -48,29 +51,43 @@ void Outpost::setProfile(TCchar* path)
 // Executable and Profiles stored them in the INI file.  If not, then find the paths and store
 // them.  The paths are stored in the PreOutpost object.
 
-void Outpost::getProfilePath() {
+bool Outpost::getProfilePath() {
 
   if (iniFile.readString(PathSection, ProfileKey, dataPath)  &&
-      iniFile.readString(PathSection, OutpostKey, exePath)) return;
+      iniFile.readString(PathSection, OutpostKey, exePath)) return true;
 
-  choose();
+  return choose();
   }
 
 
-void Outpost::choose() {
+bool Outpost::choose() {
+WaitMsgDlg       waitDlg;
 OutpostChoiceDlg dlg;
 
-  if (dlg.DoModal() != IDOK) {messageBox(_T("Did not complete search for Outpost."));}
+  waitDlg.DoModal();
 
-  saveOutpostPath(dlg.exeFilePath, dlg.confFilePath);
+  if (programFiles.nFolders() == 0) {
+    String s;
+    s = _T("Unable to locate any directories with names that include \"");
+    s += PacketPat;   s += _T("\" or \"");   s += OutpostPat;   s += _T("\"");
+
+    messageBox(s);   return false;
+    }
+
+  if (dlg.DoModal() != IDOK)
+                            {messageBox(_T("Did not complete search for Outpost.")); return false;}
+
+  return saveOutpostPath(dlg.exeFilePath, dlg.confFilePath);
   }
 
 
-void Outpost::saveOutpostPath(String& path, String& profile) {
+bool Outpost::saveOutpostPath(String& path, String& profile) {
+
+  if (path.isEmpty() || profile.isEmpty()) return false;
 
   exePath = path;   dataPath = profile;
 
   iniFile.writeString(PathSection, ProfileKey, dataPath);
-  iniFile.writeString(PathSection, OutpostKey, exePath);
+  iniFile.writeString(PathSection, OutpostKey, exePath);   return true;
   }
 

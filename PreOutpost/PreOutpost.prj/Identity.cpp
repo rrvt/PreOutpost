@@ -12,7 +12,6 @@
 #include "IniFile.h"
 #include "PreOutpost.h"
 #include "Outpost.h"
-#include "ProgramFiles.h"
 #include "ResourceData.h"
 
 

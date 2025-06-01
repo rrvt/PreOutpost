@@ -60,5 +60,13 @@ int          i;
 
 
 BEGIN_MESSAGE_MAP(BBSdlg, CDialog)
+  ON_BN_CLICKED(IDOK,     &BBSdlg::OnBnClickedOk)
+  ON_BN_CLICKED(IDCANCEL, &BBSdlg::OnBnClickedCancel)
 END_MESSAGE_MAP()
 
+
+void BBSdlg::OnBnClickedOk() {
+  CDialog::OnOK();
+  }
+
+void BBSdlg::OnBnClickedCancel() {CDialog::OnCancel();}

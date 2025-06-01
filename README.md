@@ -56,6 +56,12 @@ A help file is included in both apps.  Let the author know if the help file need
 
 ## Updates
 
+### Update 6/1/25
+
+Prepping my laptop to go to Regional San Jose Hospital to test it prior to a drill I found the
+initialization of PreOutpost needed some user help during failures.  Also added a message box
+style output while the app is searching for the Outpost directories (required a worker thread).
+
 ### Update 12/25/24
 
 Split the library into DocLib and Library where DocLib supports the MFC Document/Library App

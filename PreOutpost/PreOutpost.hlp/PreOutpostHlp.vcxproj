@@ -64,14 +64,14 @@
     <IntDir>$(SolutionDir)..\$(Configuration)\$(ProjectName)\</IntDir>
     <NMakeBuildCommandLine>nmake $(Configuration)/PreOutpost.chm</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>nmake $(Configuration)/Rebuild.rbd</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>nmake /d /p $(Configuration)/Clean.cln</NMakeCleanCommandLine>
+    <NMakeCleanCommandLine>nmake $(Configuration)/Clean.cln</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)..\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)..\$(Configuration)\$(ProjectName)\</IntDir>
     <NMakeBuildCommandLine>nmake $(Configuration)/PreOutpost.chm</NMakeBuildCommandLine>
     <NMakeReBuildCommandLine>nmake $(Configuration)/Rebuild.rbd</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>nmake /d /p $(Configuration)/Clean.cln</NMakeCleanCommandLine>
+    <NMakeCleanCommandLine>nmake $(Configuration)/Clean.cln</NMakeCleanCommandLine>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

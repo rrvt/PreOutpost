@@ -7,7 +7,7 @@ OpAddrBk.chm : *.htm OpAddrBk.hhp OpAddrBk.hhc App.css
 Clean.cln    :
   @echo "Cleaning"
   cd $(MAKEDIR)
-  del /F OpAddrBk.chm
+  if exist OpAddrBk.chm del /F OpAddrBk.chm
 
 
 Release/OpAddrBk.chm : OpAddrBk.chm
@@ -16,7 +16,7 @@ Release/OpAddrBk.chm : OpAddrBk.chm
 
 Release/Clean.cln    : Clean.cln
   cd $(MAKEDIR)\..\Release
-  del OpAddrBk.chm
+  if exist OpAddrBk.chm del /F OpAddrBk.chm
   cd $(MAKEDIR)
 
 
@@ -26,7 +26,7 @@ Debug/OpAddrBk.chm : OpAddrBk.chm
 
 Debug/Clean.cln    : Clean.cln
   cd $(MAKEDIR)\..\Debug
-  del OpAddrBk.chm
+  if exist OpAddrBk.chm del /F OpAddrBk.chm
   cd $(MAKEDIR)
 
 

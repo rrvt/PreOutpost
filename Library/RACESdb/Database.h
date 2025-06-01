@@ -19,6 +19,7 @@ public:
  ~Database();
 
   bool load(TCchar* path);
+  void close();
   };
 
 

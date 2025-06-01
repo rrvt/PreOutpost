@@ -7,6 +7,7 @@
 #include "ClipBoard.h"
 #include "filesrch.h"
 #include "filename.h"
+#include "FindDirThrd.h"
 #include "IdentityDlg.h"
 #include "DelMasterDlg.h"
 #include "MasterProf.h"
@@ -14,6 +15,7 @@
 #include "NewMaster.h"
 #include "Outpost.h"
 #include "ResourceData.h"
+#include "ThreadBase.h"
 
 
 static TCchar* PathSection = _T("Path");
@@ -44,17 +46,25 @@ bool      makeMaster;                                // When true make a Master 
 String    s;
 ClipBoard clipBoard;
 
-  CWinApp::InitInstance();
+  CWinAppEx::InitInstance();
 
   makeMaster = !StrCmp(m_lpCmdLine, _T("/MakeMaster")) || !StrCmp(m_lpCmdLine, _T("-MakeMaster"));
 
-  myPath = helpFile = getPath(m_pszHelpFilePath);  helpFile += _T("PreOutpost.chm");
+  myPath = getPath(m_pszHelpFilePath);
 
-  roamingPath = iniFile.getAppDataPath(helpFile);
+  helpFile = myPath + _T("PreOutpost.chm");
+
+#ifdef _DEBUG
+  configPath = myPath + _T("PreOutpostDbg.exe");
+#else
+  configPath = helpFile;
+#endif
+
+  roamingPath = iniFile.getAppDataPath(configPath);
 
   m_pMainWnd = 0;
 
-  outpost.getProfilePath();
+  if (!outpost.getProfilePath()) return 1;
   masterProf.readIniFile();
 
   idInfo.usrData.initialize();

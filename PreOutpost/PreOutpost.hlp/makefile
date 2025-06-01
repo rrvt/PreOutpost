@@ -7,7 +7,7 @@ PreOutpost.chm : *.html PreOutpost.hhp PreOutpost.hhc PreOutpost.css
 Clean.cln    :
   @echo "Cleaning"
   cd $(MAKEDIR)
-  del /F PreOutpost.chm
+  if exist PreOutpost.chm del /F PreOutpost.chm
 
 
 Release/PreOutpost.chm : PreOutpost.chm
@@ -16,7 +16,7 @@ Release/PreOutpost.chm : PreOutpost.chm
 
 Release/Clean.cln    : Clean.cln
   cd $(MAKEDIR)\..\Release
-  del PreOutpost.chm
+  if exist PreOutpost.chm del /F PreOutpost.chm
   cd $(MAKEDIR)
 
 
@@ -26,7 +26,7 @@ Debug/PreOutpost.chm : PreOutpost.chm
 
 Debug/Clean.cln    : Clean.cln
   cd $(MAKEDIR)\..\Debug
-  del PreOutpost.chm
+  if exist PreOutpost.chm del /F PreOutpost.chm
   cd $(MAKEDIR)
 
 
