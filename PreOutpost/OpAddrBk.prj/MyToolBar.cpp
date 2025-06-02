@@ -92,6 +92,20 @@ bool MyToolBar::addMenu(uint id, int idr, TCchar* caption) {
   }
 
 
+
+void MyToolBar::setWthPercent(uint id, int prcnt) {
+  if (id == docMenu.getId())     {ToolBarBase::setWthPercent(docMenu, prcnt);   return;}
+  if (id == optMenu.getId())     {ToolBarBase::setWthPercent(optMenu, prcnt);   return;}
+  }
+
+
+void MyToolBar::setWidth(uint id) {
+  if (id == docMenu.getId())     {ToolBarBase::setWidth(docMenu);      return;}
+  if (id == optMenu.getId())     {ToolBarBase::setWidth(optMenu);      return;}
+  Invalidate();
+  }
+
+
 bool MyToolBar::addMenu(uint id, CbxItem cbxItem[], int n, TCchar* caption) {
 #if 0
   return add(cbxMenu1, id, cbxItem, n, caption);
@@ -158,15 +172,6 @@ void MyToolBar::setCaption(uint id, TCchar* caption) {
 int cbxID = cboBx.getId();
 
   if (id == cbxID) ToolBarBase::setCaption(cboBx, caption);
-#endif
-  }
-
-
-void MyToolBar::setWidth(uint id) {
-#if 0
-int cbxID = cboBx.getId();
-
-  if (id == cbxID) ToolBarBase::setWidth(cboBx);
 #endif
   }
 

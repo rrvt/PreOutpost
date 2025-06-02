@@ -38,6 +38,7 @@ public:
   bool    addCbxItemSorted(uint id, TCchar* txt, int data = 0);
 
   void    setCaption(uint id, TCchar* caption);
+  void    setWthPercent(uint id, int prcnt);            // good for Menus and ComboBoxes
   void    setWidth(  uint id);
   void    setHeight( uint id);
   bool    getCurSel( uint id, String& s, int& data);

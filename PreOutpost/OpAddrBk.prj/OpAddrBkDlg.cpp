@@ -191,8 +191,10 @@ LRESULT OpAddrBkDlg::OnResetToolBar(WPARAM wParam, LPARAM lParam) {setupToolBar(
 void OpAddrBkDlg::setupToolBar() {
 CRect winRect;   GetWindowRect(&winRect);   toolBar.set(winRect);
 
-  toolBar.addMenu(ID_DocMenu, IDR_DocMenu,    _T("Packet Docs"));
-  toolBar.addMenu(ID_OptMenu, IDR_OptionMenu, _T("Options"));
+  toolBar.setWthPercent(ID_DocMenu, 100);   toolBar.setWthPercent(ID_OptMenu, 100);
+
+  toolBar.addMenu(ID_DocMenu, IDR_DocMenu,    _T("Packet Docs")); toolBar.setWidth(IDR_DocMenu);
+  toolBar.addMenu(ID_OptMenu, IDR_OptionMenu, _T("Options"));     toolBar.setWidth(IDR_OptionMenu);
   }
 
 

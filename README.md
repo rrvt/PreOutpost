@@ -58,6 +58,11 @@ A help file is included in both apps.  Let the author know if the help file need
 
 ### Update 6/1/25
 
+Discovered the toolbar on the Address Book App was not set up correctly now (due to changes to
+toolbar logic).
+
+### Update 6/1/25
+
 Prepping my laptop to go to Regional San Jose Hospital to test it prior to a drill I found the
 initialization of PreOutpost needed some user help during failures.  Also added a message box
 style output while the app is searching for the Outpost directories (required a worker thread).
