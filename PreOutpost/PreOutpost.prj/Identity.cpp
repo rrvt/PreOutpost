@@ -9,7 +9,7 @@
 #include "filename.h"
 #include "filesrch.h"
 #include "IdentityDlg.h"
-#include "IniFile.h"
+#include "IniFileEx.h"
 #include "PreOutpost.h"
 #include "Outpost.h"
 #include "ResourceData.h"

@@ -6,7 +6,6 @@
 #pragma once
 #include "CDialogApp.h"
 #include "Executable.h"
-#include "iniFile.h"
 #include "Identity.h"
 #include "MasterProf.h"
 
@@ -31,7 +30,6 @@ public:
 
   virtual BOOL InitInstance();                  // Everything is done in this function
   virtual int  ExitInstance();
-
 
 public:
 

@@ -2,7 +2,7 @@
 
 
 #pragma once
-#include "IniFile.h"
+#include "CfgFile.h"
 
 
 
@@ -14,7 +14,7 @@ String  userID;
 String  sigFlag;
 String  signature;
 
-IniFile usrPPF;                                   // Private Profile File
+CfgFile usrPPF;                                   // Private Profile File
 String  usrPath;
 String  extension;
 

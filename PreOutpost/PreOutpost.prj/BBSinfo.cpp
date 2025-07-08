@@ -6,7 +6,7 @@
 #include "BBSdlg.h"
 #include "filesrch.h"
 #include "filename.h"
-#include "IniFile.h"
+#include "IniFileEx.h"
 #include "Outpost.h"
 #include "SrchFile.h"
 
@@ -16,7 +16,6 @@ static TCchar* Suffix  = _T("Suffix");
 static TCchar* NoBBS   = _T("NoBBS");
 
 
-BBSinfo bbsInfo;
 
 
 void BBSinfo::clear() {

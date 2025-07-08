@@ -28,7 +28,11 @@ The message is caught in the Message Handling block:
   ON_MESSAGE(UserMsg,  &onUserMsg)
 
 The UserMsg function is defined:
-  afx_msg LRESULT onClearClipBoard(WPARAM wParam, LPARAM lParam);
+  afx_msg LRESULT onUserMsg(WPARAM wParam, LPARAM lParam);
+
+The easiest way to block waiting for a thread object to finish is to create a dialog box, start it
+with DoModule(), and install a message handler in the dialog box class that performs an OnOK()
+function.
 */
 
 
@@ -59,7 +63,7 @@ public:
   bool isJoinable() {return myThread.joinable();}
 
   void stop();                              // Sets flag to stop thread and waits until it stops
-
+                                            // only if joinable (see isJoinable)
 private:
 
   void join();

@@ -172,6 +172,9 @@
     <ClInclude Include="..\Common\FindDirThrd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Common\CfgFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="PreOutpost.rc">

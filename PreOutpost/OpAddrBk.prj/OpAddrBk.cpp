@@ -6,7 +6,8 @@
 #include "Executable.h"
 #include "OpAddrBkDlg.h"
 #include "Outpost.h"
-#include "IniFile.h"
+#include "ProgramFiles.h"
+#include "IniFileEx.h"
 #include "Utilities.h"
 
 
@@ -15,8 +16,9 @@
 #endif
 
 
-OpAddrBk theApp;                         // The one and only OpAddrBk object
-IniFile   iniFile;
+OpAddrBk     theApp;                      // The one and only OpAddrBk object
+IniFileEx    iniFile(theApp);
+ProgramFiles programFiles;                // The one and only program Files object
 
 
 // OpAddrBk construction
@@ -38,7 +40,7 @@ OpAddrBkDlg dlg(m_pszHelpFilePath);
 
   CWinApp::InitInstance();
 
-  iniFile.setAppDataPath(m_pszHelpFilePath, *this);
+  iniFile.setAppDataPath(m_pszHelpFilePath);
 
   exe.procArgs(m_lpCmdLine);
 

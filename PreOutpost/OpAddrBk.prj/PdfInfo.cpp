@@ -7,7 +7,7 @@
 #include "FileName.h"
 #include "FilePaths.h"
 #include "FileSrch.h"
-#include "IniFile.h"
+#include "IniFileEx.h"
 #include "MessageBox.h"
 #include "PDFappNamesDlg.h"
 #include "StatusBar.h"

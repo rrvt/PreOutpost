@@ -9,11 +9,13 @@
 #include "filename.h"
 #include "FindDirThrd.h"
 #include "IdentityDlg.h"
+#include "iniFileEx.h"
 #include "DelMasterDlg.h"
 #include "MasterProf.h"
 #include "MasterMgmtDlg.h"
 #include "NewMaster.h"
 #include "Outpost.h"
+#include "ProgramFiles.h"
 #include "ResourceData.h"
 #include "ThreadBase.h"
 
@@ -23,8 +25,11 @@ static TCchar* ProfileKey  = _T("Profile");
 static TCchar* OutpostKey  = _T("Outpost");
 
 
-PreOutpost theApp;                          // The one and only PreOutpost object
-IniFile    iniFile;                         // Implements Read/Write to Private Profile File
+PreOutpost   theApp;                         // The one and only PreOutpost object
+IniFileEx    iniFile(theApp);                // Implements Read/Write to Private Profile File
+BBSinfo      bbsInfo;
+ProgramFiles programFiles;                   // The one and only program Files object
+MasterProf   masterProf;
 
 
 // PreOutpost
@@ -34,7 +39,7 @@ END_MESSAGE_MAP()
 
 
 // PreOutpost initialization
-// This program uses it's own INI file, see IniFile.h for details.
+// This program uses it's own INI file, see IniFileEx.h for details.
 // Collect ID and Report information from the user in the dialog box and create new Outpost
 // Profiles from the information.  If there is no Master Profile, create one.  If there is only
 // one Master Profile then collect the identity info and start Outpost.  If there are two or more,
@@ -65,6 +70,7 @@ ClipBoard clipBoard;
   m_pMainWnd = 0;
 
   if (!outpost.getProfilePath()) return 1;
+
   masterProf.readIniFile();
 
   idInfo.usrData.initialize();
@@ -108,5 +114,5 @@ void PreOutpost::startOutpost()
 
 // Just exit.
 
-int PreOutpost::ExitInstance() {return CWinApp::ExitInstance();}
+int PreOutpost::ExitInstance() {return CDialogApp::ExitInstance();}
 

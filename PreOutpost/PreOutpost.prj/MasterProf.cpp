@@ -8,7 +8,7 @@
 #include "filename.h"
 #include "filesrch.h"
 #include "Identity.h"
-#include "IniFile.h"
+#include "IniFileEx.h"
 #include "MasterMgmtDlg.h"
 #include "PreOutpost.h"
 #include "SelectMasterDlg.h"
@@ -18,7 +18,6 @@
 static TCchar* Section = _T("MetaProfiles");
 
 
-MasterProf masterProf;
 
 
 // Read .ini file for all meta profiles, checking that they are still available and correcting

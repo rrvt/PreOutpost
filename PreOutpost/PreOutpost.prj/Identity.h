@@ -10,7 +10,7 @@
 
 class IdentityInfo {
 
-IniFile metaProfile;
+CfgFile metaProfile;
 
 public:
 

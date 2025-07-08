@@ -3,7 +3,7 @@
 
 #include "pch.h"
 #include "Outpost.h"
-#include "IniFile.h"
+#include "IniFileEx.h"
 #include "MessageBox.h"
 #include "OutpostChoiceDlg.h"
 #include "ProgramFiles.h"

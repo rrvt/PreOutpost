@@ -141,6 +141,7 @@
     <ClInclude Include="..\..\Library\Extras\AboutDlg.h" />
     <ClInclude Include="..\..\Library\Extras\OptionsDlg.h" />
     <ClInclude Include="..\..\Library\Extras\ResourceExtra.h" />
+    <ClInclude Include="..\Common\CfgFile.h" />
     <ClInclude Include="..\Common\FindDirThrd.h" />
     <ClInclude Include="..\Common\Outpost.h" />
     <ClInclude Include="..\Common\OutpostChoiceDlg.h" />

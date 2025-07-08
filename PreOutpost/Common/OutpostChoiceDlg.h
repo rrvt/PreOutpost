@@ -2,7 +2,7 @@
 
 
 #pragma once
-#include "IniFile.h"
+#include "IniFileEx.h"
 #include "Resource.h"
 
 // Outpost Choice dialog

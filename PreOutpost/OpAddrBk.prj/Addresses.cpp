@@ -4,15 +4,13 @@
 #include "pch.h"
 #include "Addresses.h"
 #include "AddressDlg.h"
-//#include "DeleteDlg.h"
+#include "CfgFile.h"
 #include "FileIO.h"
 #include "filename.h"
 #include "filesrch.h"
 #include "GetPathDlg.h"
-#include "IniFile.h"
+#include "IniFileEx.h"
 #include "StatusBar.h"
-
-//#include "MessageBox.h"
 
 
 TCchar* AddrExt = _T(".addr");
@@ -258,7 +256,7 @@ static TCchar* MOREnote  = _T("MOREnote");
 
 
 void Addr::read(TCchar* path) {
-IniFile ini;
+CfgFile ini;
 
   ini.setPath(path);   this->path = path;   mainName = getMainName(path);
 
@@ -279,7 +277,7 @@ IniFile ini;
 
 
 void Addr::write() {
-IniFile  addrFile;
+CfgFile  addrFile;
 
   addrFile.setPath(path);
 

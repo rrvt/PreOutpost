@@ -56,6 +56,10 @@ A help file is included in both apps.  Let the author know if the help file need
 
 ## Updates
 
+### Update 7/7/25
+
+Improve memory leak debugging.  Factored IniFile into three classes.
+
 ### Update 6/1/25
 
 Discovered the toolbar on the Address Book App was not set up correctly now (due to changes to

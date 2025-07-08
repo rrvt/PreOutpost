@@ -5,7 +5,7 @@
 #include "PDFappNamesDlg.h"
 #include "Executable.h"
 #include "FilePaths.h"
-#include "IniFile.h"
+#include "IniFileEx.h"
 #include "StatusBar.h"
 
 

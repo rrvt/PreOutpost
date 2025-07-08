@@ -3,13 +3,12 @@
 
 #include "pch.h"
 #include "ProgramFiles.h"
+#include "CfgFile.h"
 #include "filename.h"
 #include "filesrch.h"
-#include "IniFile.h"
 #include "RegExpr.h"
 
 
-ProgramFiles programFiles;                   // The one and only program Files object
 
 
 void ProgramFiles::loadOutputFldrs(TCchar* srchPat) {
@@ -32,7 +31,7 @@ String   s;
 
 String ProgramFiles::getProfilePath(TCchar* path) {
 String  confFilePath = findFile(path, _T("*.conf"));
-IniFile confFile;
+CfgFile confFile;
 String  s;
 
   confFile.setPath(confFilePath);
