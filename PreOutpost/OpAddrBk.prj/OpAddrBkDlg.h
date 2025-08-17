@@ -19,7 +19,7 @@ class OpAddrBkDlg : public CDialogEx {
 
 DECLARE_DYNAMIC(OpAddrBkDlg)
 
-String    helpPath;
+String    roamingPath;
 String    myPath;
 
 MyToolBar toolBar;
@@ -82,6 +82,8 @@ public:
   afx_msg BOOL    OnTtnNeedText(UINT id, NMHDR* pNMHDR, LRESULT* pResult);
 
   afx_msg void    onDocDispatch();
+
+  afx_msg void    onMsgHandling();
   afx_msg void    onPacketFreqs();
   afx_msg void    onFormRouting();
   afx_msg void    onPktSubjLine();

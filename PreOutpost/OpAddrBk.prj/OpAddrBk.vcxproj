@@ -149,6 +149,7 @@
     <ClInclude Include="..\Common\WaitMsgDlg.h" />
     <ClInclude Include="AddressDlg.h" />
     <ClInclude Include="Addresses.h" />
+    <ClInclude Include="MyUtilities.h" />
     <ClInclude Include="PDFappNamesDlg.h" />
     <ClInclude Include="ListBox.h" />
     <ClInclude Include="LogFile.h" />
@@ -160,7 +161,6 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Library\Extras\AboutDlg.cpp" />
@@ -172,6 +172,7 @@
     <ClCompile Include="..\Common\WaitMsgDlg.cpp" />
     <ClCompile Include="AddressDlg.cpp" />
     <ClCompile Include="Addresses.cpp" />
+    <ClCompile Include="MyUtilities.cpp" />
     <ClCompile Include="PDFappNamesDlg.cpp" />
     <ClCompile Include="ListBox.cpp" />
     <ClCompile Include="LogFile.cpp" />
@@ -180,7 +181,6 @@
     <ClCompile Include="OpAddrBkDlg.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="PdfInfo.cpp" />
-    <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OpAddrBk.rc" />

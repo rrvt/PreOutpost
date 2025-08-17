@@ -68,11 +68,12 @@
     <ComponentRef Id="AddrHelp.cmp"/>
   </ComponentGroup>
   <ComponentGroup Id="PDF.ftr">
-    <ComponentRef Id="Subject_Line.cmp"/>
-    <ComponentRef Id="Packet_Freqs.cmp"/>
-    <ComponentRef Id="Recommended_Routing.cmp"/>
-    <ComponentRef Id="Check_In_or_Out.cmp"/>
-    <ComponentRef Id="Routing_Slip.cmp"/>
+    <ComponentRef Id="Subject_Line.pdf.cmp"/>
+    <ComponentRef Id="Packet_Freqs.pdf.cmp"/>
+    <ComponentRef Id="Recommended_Routing.pdf.cmp"/>
+    <ComponentRef Id="Check_In_or_Out.pdf.cmp"/>
+    <ComponentRef Id="Routing_Slip.pdf.cmp"/>
+    <ComponentRef Id="MsgHandling.pdf.cmp"/>
   </ComponentGroup>
   <ComponentGroup Id="License.ftr">
     <ComponentRef Id="MIT_License.cmp"/>
@@ -134,6 +135,13 @@
   <Component Id="AddrBook.cmp" Guid="B8E4EE39-4052-41D6-BDE4-0A2D5E280455"
                                                                         Directory="PREOUTPOST.PFF">
     <File Id="AddrBook.cmp" Source="$(var.SolutionDir)..\Release\OpAddrBk.exe" KeyPath="yes"/>
+
+    <Shortcut Id               = "AddrBook.shc"
+              Name             = "AddrBook"
+              Advertise        = "yes"
+              Directory        = "PreOutpost.pmf"
+              WorkingDirectory = "PREOUTPOST.PFF"
+              />
   </Component>
 
   <Component Id="AddrHelp.cmp" Guid="9D5EEDEC-DCA9-4DBB-8C5C-7A8595E4E911"
@@ -143,13 +151,14 @@
 </Fragment>
 
 <Fragment>
-  <Component Id="Subject_Line.cmp" Guid="EC17A52B-99EF-4D43-A842-3DEE4155E159"
+  <Component Id="Subject_Line.pdf.cmp" Guid="EC17A52B-99EF-4D43-A842-3DEE4155E159"
                                                                         Directory="PREOUTPOST.PFF">
-    <File Id="Subject_Line.cmp"
-           Source="$(var.SolutionDir)..\Docs\SCCo_Std_Fmt_Pkt_Subj_Line.220803.pdf" KeyPath="yes"/>
+    <File Id="Subject_Line.pdf.cmp"
+                 Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Std_Fmt_Pkt_Subj_Line.220803.pdf"
+                 KeyPath="yes"/>
 
-    <Shortcut Id               = "SubjectLine.shc"
-              Name             = "Subject Line"
+    <Shortcut Id               = "SubjectLine.pdf.shc"
+              Name             = "Subject Line.pdf"
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PREOUTPOST.PFF"
@@ -157,13 +166,13 @@
               />
   </Component>
 
-  <Component Id="Packet_Freqs.cmp" Guid="131FC610-5685-48E2-8DD8-CFA5EF2857E7"
+  <Component Id="Packet_Freqs.pdf.cmp" Guid="131FC610-5685-48E2-8DD8-CFA5EF2857E7"
                                                                         Directory="PREOUTPOST.PFF">
-    <File Id="Packet_Freqs.cmp"
-                    Source="$(var.SolutionDir)..\Docs\SCCo-packet-freqs.230824.pdf" KeyPath="yes"/>
+    <File Id="Packet_Freqs.pdf.cmp"
+          Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Packet-Freqs.230824.pdf" KeyPath="yes"/>
 
-    <Shortcut Id               = "PacketFreqs.shc"
-              Name             = "Packet Freqs"
+    <Shortcut Id               = "PacketFreqs.pdf.shc"
+              Name             = "Packet Freqs.pdf"
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PREOUTPOST.PFF"
@@ -171,46 +180,62 @@
               />
   </Component>
 
-  <Component Id="Recommended_Routing.cmp"
+  <Component Id="Recommended_Routing.pdf.cmp"
                             Guid="46423EA3-1C61-4CCB-B69A-EC72D67A2C9A" Directory="PREOUTPOST.PFF">
-    <File Id="Recommended_Routing.cmp"
-          Source="$(var.SolutionDir)..\Docs\SCCo_RACES_Rec_Form_Routing.240218.pdf" KeyPath="yes"/>
-
-    <Shortcut Id               = "RecommendedRouting.shc"
-              Name             = "Recommended Routing"
-              Advertise        = "yes"
-              Directory        = "PreOutpost.pmf"
-              WorkingDirectory = "PREOUTPOST.PFF"
-              Icon             = "Routing01_Icon.exe"
-              />
-  </Component>
-
-  <Component Id="Check_In_or_Out.cmp" Guid="7DA36D56-11EF-4A4C-A7D0-A6C6394E5C0F"
-                                                                        Directory="PREOUTPOST.PFF">
-    <File Id="Check_In_or_Out.cmp"
-         Source="$(var.SolutionDir)..\Docs\SCCo_Std_Packet_Check-In-Out.240121.pdf" KeyPath="yes"/>
-
-    <Shortcut Id               = "CheckInorOut.shc"
-              Name             = "Check In or Out"
-              Advertise        = "yes"
-              Directory        = "PreOutpost.pmf"
-              WorkingDirectory = "PREOUTPOST.PFF"
-              Icon             = "Routing01_Icon.exe"
-              />
-  </Component>
-
-  <Component Id="Routing_Slip.cmp" Guid="73215B72-BB5E-470A-A551-272199694951"
-                                                                        Directory="PREOUTPOST.PFF">
-    <File Id="Routing_Slip.cmp"
-                      Source="$(var.SolutionDir)..\Docs\XSC_RACES_Routing_Slip_Fillable.190527.pdf"
+    <File Id="Recommended_Routing.pdf.cmp"
+                      Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Rec_Form_Routing.250813.pdf"
                       KeyPath="yes"/>
 
-    <Shortcut Id               = "RoutingSlip.shc"
-              Name             = "Routing Slip"
+    <Shortcut Id               = "RecommendedRouting.pdf.shc"
+              Name             = "Recommended Routing.pdf"
               Advertise        = "yes"
               Directory        = "PreOutpost.pmf"
               WorkingDirectory = "PREOUTPOST.PFF"
               Icon             = "Routing01_Icon.exe"
+              />
+  </Component>
+
+  <Component Id="Check_In_or_Out.pdf.cmp"
+                            Guid="7DA36D56-11EF-4A4C-A7D0-A6C6394E5C0F" Directory="PREOUTPOST.PFF">
+    <File Id="Check_In_or_Out.pdf.cmp"
+               Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Std_Packet_Check-In-Out.240121.pdf"
+               KeyPath="yes"/>
+
+    <Shortcut Id               = "CheckInorOut.pdf.shc"
+              Name             = "Check In or Out.pdf"
+              Advertise        = "yes"
+              Directory        = "PreOutpost.pmf"
+              WorkingDirectory = "PREOUTPOST.PFF"
+              Icon             = "Routing01_Icon.exe"
+              />
+  </Component>
+
+  <Component Id="Routing_Slip.pdf.cmp" Guid="73215B72-BB5E-470A-A551-272199694951"
+                                                                        Directory="PREOUTPOST.PFF">
+    <File Id="Routing_Slip.pdf.cmp"
+                 Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Routing_Slip_Fillable.190527.pdf"
+                 KeyPath="yes"/>
+
+    <Shortcut Id               = "RoutingSlip.pdf.shc"
+              Name             = "Routing Slip.pdf"
+              Advertise        = "yes"
+              Directory        = "PreOutpost.pmf"
+              WorkingDirectory = "PREOUTPOST.PFF"
+              Icon             = "Routing01_Icon.exe"
+              />
+  </Component>
+
+  <Component Id="MsgHandling.pdf.cmp" Guid="D5689921-B421-48CE-AD97-26B47B8EF345"
+                                                                        Directory="PREOUTPOST.PFF">
+    <File Id="MsgHandling.pdf.cmp"
+           Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Message_Handling_Procedures.250812.pdf"
+           KeyPath="yes"/>
+
+    <Shortcut Id               = "MsgHandling.pdf.shc"
+              Name             = "MsgHandling.pdf"
+              Advertise        = "yes"
+              Directory        = "PreOutpost.pmf"
+              WorkingDirectory = "PREOUTPOST.PFF"
               />
   </Component>
 </Fragment>
@@ -233,7 +258,7 @@
 
 <Fragment>
   <Component Id="Uninstall_PreOutpost.cmp"
-                            Guid="ABF007C2-4094-4E69-9E35-47E91EDBA750" Directory="PreOutpost.pmf">
+                            Guid="9CDBB86A-2EFB-4789-8EEC-D274EBEE4210" Directory="PreOutpost.pmf">
 
     <Shortcut Id               = "UninstallPreOutpost.shc"
               Name             = "Uninstall PreOutpost"

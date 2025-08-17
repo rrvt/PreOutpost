@@ -56,6 +56,11 @@ A help file is included in both apps.  Let the author know if the help file need
 
 ## Updates
 
+### Update 8/16/25
+
+The Outpost update this week prompted a close look at PreOutpost and OPAddrBk.  They both needed
+some tender loving care.  Added another pdf file too.  Updated the help files too.
+
 ### Update 7/7/25
 
 Improve memory leak debugging.  Factored IniFile into three classes.

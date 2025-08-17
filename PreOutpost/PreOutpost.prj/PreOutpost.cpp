@@ -18,6 +18,7 @@
 #include "ProgramFiles.h"
 #include "ResourceData.h"
 #include "ThreadBase.h"
+#include "Utilities.h"
 
 
 static TCchar* PathSection = _T("Path");
@@ -47,7 +48,7 @@ END_MESSAGE_MAP()
 // Report Information, whether profiles for all six BBSes or just W1XSC should be created.
 
 BOOL PreOutpost::InitInstance() {
-bool      makeMaster;                                // When true make a Master Profile
+bool      makeMaster;                 // When true make a Master Profile
 String    s;
 ClipBoard clipBoard;
 
@@ -55,17 +56,10 @@ ClipBoard clipBoard;
 
   makeMaster = !StrCmp(m_lpCmdLine, _T("/MakeMaster")) || !StrCmp(m_lpCmdLine, _T("-MakeMaster"));
 
-  myPath = getPath(m_pszHelpFilePath);
 
-  helpFile = myPath + _T("PreOutpost.chm");
-
-#ifdef _DEBUG
-  configPath = myPath + _T("PreOutpostDbg.exe");
-#else
-  configPath = helpFile;
-#endif
-
-  roamingPath = iniFile.getAppDataPath(configPath);
+  helpFile    = m_pszHelpFilePath;
+  myPath      = getPath(m_pszHelpFilePath);
+  roamingPath = iniFile.getAppDataPath(dbgHelpPath(m_pszHelpFilePath));
 
   m_pMainWnd = 0;
 
@@ -115,4 +109,28 @@ void PreOutpost::startOutpost()
 // Just exit.
 
 int PreOutpost::ExitInstance() {return CDialogApp::ExitInstance();}
+
+
+
+
+///------------------------
+
+#if 0
+#if 1
+#else
+String    configPath;                // Path to several files in Roaming (useful for debugging
+
+  myPath = getPath(m_pszHelpFilePath);
+
+  helpFile = myPath + _T("PreOutpost.chm");
+
+#ifdef _DEBUG
+  configPath = myPath + _T("PreOutpostDbg.exe");
+#else
+  configPath = helpFile;
+#endif
+
+  roamingPath = iniFile.getAppDataPath(configPath);
+#endif
+#endif
 

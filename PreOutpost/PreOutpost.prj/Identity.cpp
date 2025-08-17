@@ -87,7 +87,7 @@ static TCchar* IncludeAddrBookKey = _T("IncludeAddrBook");
 
 void IdentityInfo::readOptions() {
   subjWSecurity   = iniFile.readInt(OptSection, SubjWSecurityKey,   0) != 0;
-  includeAddrBook = iniFile.readInt(OptSection, IncludeAddrBookKey, 0) != 0;
+  includeAddrBook = iniFile.readInt(OptSection, IncludeAddrBookKey, 1) != 0;
   }
 
 

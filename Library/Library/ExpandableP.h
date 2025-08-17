@@ -209,12 +209,7 @@ public:
 
   ExpandableP& operator-= (ExpandableP& e);     // moves the data from e to this
 
-#ifdef DebugAllocP
   Datum*    allocate();
-#else
-  Datum*    allocate()           {NewAlloc(Datum); return AllocNode;}     // allocate a heap
-                                                                          // record
-#endif
   void      deallocate(Datum* p) {NewAlloc(Datum); FreeNode(p);}          // Does not clear array
                                                                           // entry.
   DatumPtr* getDatumPtr(int i) {return 0 <= i && i < endN ? &tbl[i] : 0;} // Used for difficult
@@ -293,7 +288,7 @@ NewArray(DatumPtr); tbl = AllocArray(tblN);  ZeroMemory(tbl, tblN * sizeof(Datum
 
 #ifdef DebugAllocP
 int n = tblN * sizeof(DatumPtr) + sizeof(int);
-  if (n == 8) {
+  if (n == 48) {
     messageBox(_T("ExpandableP"));
     }
 #endif
@@ -331,20 +326,19 @@ ExpandableP<Datum, Key, DatumPtr, n>&
   ExpandableP<Datum, Key, DatumPtr, n>::operator-= (ExpandableP& e)
                                                                   {clear(); move(e); return *this;}
 
-#ifdef DebugAllocP
 // allocate a heap record
 
 template <class Datum, class Key, class DatumPtr, const int n>
 Datum*    ExpandableP<Datum, Key, DatumPtr, n>::allocate() {
-NewAlloc(Datum);
 
-  if (sizeof(Datum) == 9948) {
-    messageBox(_T("ExpandableP"));
-    }
-
-  return AllocNode;
+#ifdef DebugAllocP
+if (sizeof(Datum) == 48) {
+  messageBox(_T("ExpandableP"));
   }
 #endif
+
+  NewAlloc(Datum);   return AllocNode;
+  }
 
 
 // return the reference
@@ -526,7 +520,7 @@ int       j;
 
 #ifdef DebugAllocP
 int n = tblN * sizeof(DatumPtr) + sizeof(int);
-  if (n == 9936) {
+  if (n == 48) {
     messageBox(_T("ExpandableP expand"));
     }
 #endif

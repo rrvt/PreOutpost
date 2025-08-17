@@ -10,6 +10,7 @@
 #include "History.h"
 #include "MessageBox.h"
 #include "Outpost.h"
+#include "OpAddrBk.h"
 #include "StatusBar.h"
 
 #include "utilities.h"
@@ -28,6 +29,8 @@ BEGIN_MESSAGE_MAP(OpAddrBkDlg, CDialogEx)
   ON_COMMAND(      ID_Refresh,        &onRefresh)
 
   ON_CBN_SELCHANGE(ID_DocMenu,        &onDocDispatch)           // Send Command Message with ID_...
+
+  ON_COMMAND(      ID_MsgHandling,    &onMsgHandling)
   ON_COMMAND(      ID_PacketFreqs,    &onPacketFreqs)
   ON_COMMAND(      ID_FormRouting,    &onFormRouting)
   ON_COMMAND(      ID_PktSubjLine,    &onPktSubjLine)
@@ -52,10 +55,11 @@ BEGIN_MESSAGE_MAP(OpAddrBkDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-OpAddrBkDlg::OpAddrBkDlg(TCchar* helpPth, CWnd* pParent) : CDialogEx(IDD_OpAddrBk, pParent),
-                                       helpPath(helpPth), myPath(getPath(helpPath)), toolBar(),
-                                       listBox(statusBar), statusBar(), listBoxRect({0,0,0,0}),
-                                       isInitialized(false), pdfInfo(myPath) { }
+OpAddrBkDlg::OpAddrBkDlg(TCchar* roamingPth, CWnd* pParent) : CDialogEx(IDD_OpAddrBk, pParent),
+                                       roamingPath(roamingPth), myPath(getPath(roamingPath)),
+                                       toolBar(), listBox(statusBar), statusBar(),
+                                       listBoxRect({0,0,0,0}), isInitialized(false),
+                                       pdfInfo(myPath) { }
 
 
 OpAddrBkDlg::~OpAddrBkDlg() {winPos.~WinPos();}
@@ -208,11 +212,12 @@ void OpAddrBkDlg::onTBChange(NMHDR* pNMHDR, LRESULT* pResult) {
 
 void OpAddrBkDlg::onDocDispatch()   {toolBar.dispatch(ID_DocMenu);}
 
+void OpAddrBkDlg::onMsgHandling()   {pdfInfo.show(MsgHndlPDF,  statusBar);}
 void OpAddrBkDlg::onPacketFreqs()   {pdfInfo.show(PktFreqPDF,  statusBar);}
 void OpAddrBkDlg::onFormRouting()   {pdfInfo.show(FrmRtngPDF,  statusBar);}
+void OpAddrBkDlg::onRoutingSlip()   {pdfInfo.show(RtngSlipPDF, statusBar);}
 void OpAddrBkDlg::onPktSubjLine()   {pdfInfo.show(SbjLnPDF,    statusBar);}
 void OpAddrBkDlg::onCheckInOut()    {pdfInfo.show(CheckInPDF,  statusBar);}
-void OpAddrBkDlg::onRoutingSlip()   {pdfInfo.show(RtngSlipPDF, statusBar);}
 
 void OpAddrBkDlg::onOptDispatch()   {toolBar.dispatch(ID_OptMenu);}
 void OpAddrBkDlg::onFindPdfReader() {pdfInfo.findPdfReader(statusBar);}
@@ -233,7 +238,7 @@ BOOL OpAddrBkDlg::OnTtnNeedText(UINT id, NMHDR* pNMHDR, LRESULT* pResult)
 
 
 void OpAddrBkDlg::onHelp() {
-String topic = helpPath; topic += _T(">Introduction");
+String topic = theApp.m_pszHelpFilePath; topic += _T(">Introduction");
 
   ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
   }

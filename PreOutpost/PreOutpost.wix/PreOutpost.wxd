@@ -8,9 +8,9 @@ NPaths=5
 DefKey0=PreOutpost.ftr
 PreOutpost.ftr.Path=D:\Sources\PreOutpost\Release\
 DefKey1=Icon
-Icon.Path=D:\Sources\Library\License\
+Icon.Path=D:\Sources\PreOutpost\OpAddrBk.prj\res\
 DefKey2=PDF.ftr
-PDF.ftr.Path=D:\Sources\PreOutpost\Docs\
+PDF.ftr.Path=D:\Sources\PreOutpost\OpAddrDocs.prj\
 DefKey3=License.ftr
 License.ftr.Path=D:\Sources\Library\License\
 DefKey4=License
@@ -37,7 +37,7 @@ IconPath=D:\Sources\Library\License\MITLicense.ico
 ProductName=PreOutpost
 Company=Bob -- K6RWY
 WixName=PreOutpost
-WixVersion=1.6.6.0
+WixVersion=1.6.16.0
 UpgradeCode=3C3F8C11-62C2-46DF-9506-FB759907D7B0
 SaveVerAllowed=0
 LicenseRequired=1
@@ -67,12 +67,12 @@ Name=PreOutpost
 HasChildren=0
 [Features]
 Count=3
-CurSel=License
+CurSel=PDF
 [Ftr00]
 FeatureID=PreOutpost
 ProgramID=PreOutpost
 StartMenuID=PreOutpost
-CurSel=Help
+CurSel=AddrBook
 NoComponents=4
 [Ftr00Cmp00]
 ID=PreOutpost
@@ -92,6 +92,7 @@ Guid=2F1BEFF9-2FBB-4FDF-B981-CC4955C94600
 ID=AddrBook
 Path=D:\Sources\PreOutpost\Release\OpAddrBk.exe
 Guid=B8E4EE39-4052-41D6-BDE4-0A2D5E280455
+IsStartMenu=1
 [Ftr00Cmp03]
 ID=AddrHelp
 Path=D:\Sources\PreOutpost\Release\OpAddrBk.chm
@@ -100,37 +101,42 @@ Guid=9D5EEDEC-DCA9-4DBB-8C5C-7A8595E4E911
 FeatureID=PDF
 ProgramID=PreOutpost
 StartMenuID=PreOutpost
-CurSel=Packet Freqs
-NoComponents=5
+CurSel=Check In or Out.pdf
+NoComponents=6
 [Ftr01Cmp00]
-ID=Subject Line
-Path=D:\Sources\PreOutpost\Docs\SCCo_Std_Fmt_Pkt_Subj_Line.220803.pdf
+ID=Subject Line.pdf
+Path=D:\Sources\PreOutpost\OpAddrDocs.prj\SCCo_Std_Fmt_Pkt_Subj_Line.220803.pdf
 Guid=EC17A52B-99EF-4D43-A842-3DEE4155E159
 IconID=Routing01
 IsStartMenu=1
 [Ftr01Cmp01]
-ID=Packet Freqs
-Path=D:\Sources\PreOutpost\Docs\SCCo-packet-freqs.230824.pdf
+ID=Packet Freqs.pdf
+Path=D:\Sources\PreOutpost\OpAddrDocs.prj\SCCo_Packet-Freqs.230824.pdf
 Guid=131FC610-5685-48E2-8DD8-CFA5EF2857E7
 IconID=Routing01
 IsStartMenu=1
 [Ftr01Cmp02]
-ID=Recommended Routing
-Path=D:\Sources\PreOutpost\Docs\SCCo_RACES_Rec_Form_Routing.240218.pdf
+ID=Recommended Routing.pdf
+Path=D:\Sources\PreOutpost\OpAddrDocs.prj\SCCo_Rec_Form_Routing.250813.pdf
 Guid=46423EA3-1C61-4CCB-B69A-EC72D67A2C9A
 IconID=Routing01
 IsStartMenu=1
 [Ftr01Cmp03]
-ID=Check In or Out
-Path=D:\Sources\PreOutpost\Docs\SCCo_Std_Packet_Check-In-Out.240121.pdf
+ID=Check In or Out.pdf
+Path=D:\Sources\PreOutpost\OpAddrDocs.prj\SCCo_Std_Packet_Check-In-Out.240121.pdf
 Guid=7DA36D56-11EF-4A4C-A7D0-A6C6394E5C0F
 IconID=Routing01
 IsStartMenu=1
 [Ftr01Cmp04]
-ID=Routing Slip
-Path=D:\Sources\PreOutpost\Docs\XSC_RACES_Routing_Slip_Fillable.190527.pdf
+ID=Routing Slip.pdf
+Path=D:\Sources\PreOutpost\OpAddrDocs.prj\SCCo_Routing_Slip_Fillable.190527.pdf
 Guid=73215B72-BB5E-470A-A551-272199694951
 IconID=Routing01
+IsStartMenu=1
+[Ftr01Cmp05]
+ID=MsgHandling.pdf
+Path=D:\Sources\PreOutpost\OpAddrDocs.prj\SCCo_Message_Handling_Procedures.250812.pdf
+Guid=D5689921-B421-48CE-AD97-26B47B8EF345
 IsStartMenu=1
 [Ftr02]
 FeatureID=License

@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "OpAddrBk.h"
 #include "Executable.h"
+#include "MyUtilities.h"
 #include "OpAddrBkDlg.h"
 #include "Outpost.h"
 #include "ProgramFiles.h"
@@ -30,17 +31,16 @@ OpAddrBk::OpAddrBk() noexcept : CDialogApp(this) { }
 
 BOOL OpAddrBk::InitInstance() {
 Executable  exe;
-
 int         i;
 ArgIter     iter(exe);
 String*     arg;
 String      args[5];
-
-OpAddrBkDlg dlg(m_pszHelpFilePath);
+String      dbgRoamingPath = dbgHelpPath(m_pszHelpFilePath);
+OpAddrBkDlg dlg(dbgRoamingPath);
 
   CWinApp::InitInstance();
 
-  iniFile.setAppDataPath(m_pszHelpFilePath);
+  iniFile.setAppDataPath(dbgRoamingPath);
 
   exe.procArgs(m_lpCmdLine);
 

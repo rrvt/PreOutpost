@@ -15,18 +15,36 @@
 
 static TCchar* PdfSection       = _T("PDFsection");
 
-static TCchar* pdfKeys[NoPDFs]  = {_T("PktFreqs"),
+static TCchar* pdfKeys[NoPDFs]  = {_T("MsgHndln"),
+                                   _T("PktFreqs"),
                                    _T("FormRtng"),
+                                   _T("RtngSlip"),
                                    _T("SubjLine"),
-                                   _T("Check_In"),
-                                   _T("RtngSlip")
+                                   _T("Check_In")
+                                   };
+
+static TCchar* srchKeys[NoPDFs] = {_T("Message_Handling"),
+                                   _T("Packet-Freqs"),
+                                   _T("Form_Routing"),
+                                   _T("Routing_Slip"),
+                                   _T("Pkt_Subj_Line"),
+                                   _T("Packet_Check-In")
                                    };
 
 
+PdfInfo::PdfInfo(TCchar* myPth) : myPath(myPth) {
+#ifdef _DEBUG
+  myPath += _T("..\\OpAddrDocs.prj\\");
+#endif
+  }
+
+
 void PdfInfo::show(PDFfiles pdfFileX, StatusBar& statusBar) {
+CFileStatus sts;
 
   if (!getAcroRd(statusBar)) return;
   if (pdfPaths[pdfFileX].isEmpty()) loadPDFs(pdfFileX);
+  if (!CFile::GetStatus(pdfPaths[pdfFileX], sts)) reloadPDF(pdfFileX);
   if (pdfPaths[pdfFileX].isEmpty()) findPdfFiles(statusBar);
   if (pdfPaths[pdfFileX].isEmpty()) return;
 
@@ -62,15 +80,6 @@ PDFappNamesDlg dlg(myPath, statusBar);
   }
 
 
-static TCchar* srchKeys[NoPDFs] = {_T("packet-freqs"),
-                                   _T("Form_Routing"),
-                                   _T("Subj_Line"),
-                                   _T("Check-In"),
-                                   _T("Routing_Slip")
-                                   };
-
-
-
 void PdfInfo::findPdfFiles(StatusBar& statusBar) {
 FilePaths filePaths;
 FPsIter   iter(filePaths);
@@ -83,6 +92,17 @@ String*   path;
   for (path = iter(); path; path = iter++) savePdfPath(*path);
 
   statusBar.setText(_T("Find Current PDF Files Finished"));
+  }
+
+
+void PdfInfo::reloadPDF(int x) {
+FilePaths filePaths;
+FPsIter   iter(filePaths);
+String*   path;
+
+  filePaths.findFiles(myPath.str(), _T("*.pdf"));
+
+  for (path = iter(); path; path = iter++) if (path->find(srchKeys[x]) > 0) savePdfPath(*path);
   }
 
 

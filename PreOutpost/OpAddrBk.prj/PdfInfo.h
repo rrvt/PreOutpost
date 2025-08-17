@@ -7,7 +7,7 @@
 class StatusBar;
 
 
-enum PDFfiles {PktFreqPDF, FrmRtngPDF, SbjLnPDF, CheckInPDF, RtngSlipPDF, NoPDFs};
+enum PDFfiles {MsgHndlPDF, PktFreqPDF, FrmRtngPDF, RtngSlipPDF, SbjLnPDF, CheckInPDF, NoPDFs};
 
 
 class PdfInfo {
@@ -21,7 +21,7 @@ public:
 
 STARTUPINFO startUpInfo;
 
-  PdfInfo(TCchar* myPth) : myPath(myPth) { }
+  PdfInfo(TCchar* myPth);
  ~PdfInfo() { }
 
   void show(PDFfiles pdfFileX, StatusBar& statusBar);
@@ -33,6 +33,7 @@ private:
 
   void loadPDFs(PDFfiles pdfFileX);
   bool getAcroRd(StatusBar& statusBar);
+  void reloadPDF(int x);
   void savePdfPath(String& path);
 
   PdfInfo() { }
