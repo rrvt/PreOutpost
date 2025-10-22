@@ -1,9 +1,10 @@
 # PreOutpost
 
-Supplies profiles for all BBSes among other services.  With a selection from a toolbar dropdown list and
-a twist of a knob on the radio the user may change BBSes.  A Subject Line may be produced and sent to the
-clipboard for subsequent pasting into a subject line or other location in a form.  The complete personal
-and tactical information may be entered once and sent to all BBS profiles with this application.
+Supplies profiles for all BBSes among other services.  With a selection from a toolbar dropdown
+list and a twist of a knob on the radio the user may change BBSes.  A Subject Line may be produced
+and sent to the clipboard for subsequent pasting into a subject line or other location in a form.
+The complete personal and tactical information may be entered once and sent to all BBS profiles
+with this application.
 
 # Address Book
 
@@ -27,13 +28,15 @@ address records it only provides one line per virtual address/actual addresses o
 main window. In addition one can copy the virtual and actual addresses to the clipboard
 for one of the highlighted lines.
 
-Documentation for outpost keeps changing. So this app includes five pdf files:
+Documentation for outpost keeps changing. So this app includes five pdf files on the following
+topics:
 
-  - SCCo-packet-freqs
-  - SCCo_RACES_Rec_Form_Routing
-  - SCCo_Std_Fmt_Pkt_Subj_Line
-  - SCCo_Std_Packet_Check-In-Out
-  - XSC_RACES_Routing_Slip_Fillable
+  - Message Handling
+  - Packet Frequencies
+  - Recommended Form Routing
+  - Fillable Routing Slip
+  - Packet_Subject Line
+  - Packet Check In/Out
 
 They may be viewed by selecting the particular item in a drop down list on the toolbar.
 The local pdf reader is sent the file selected. This requires the app know where the
@@ -55,6 +58,10 @@ PreOutpost is produced.  It should run on Win7, 8, 10 and 11.
 A help file is included in both apps.  Let the author know if the help file needs improving...
 
 ## Updates
+
+### Update 10/21/25
+
+Factored library into three parts, Library, Dialog, DocView.
 
 ### Update 8/16/25
 

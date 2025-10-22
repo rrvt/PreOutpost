@@ -160,6 +160,7 @@
     <None Include="res\.addr">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="C:\Users\rrvt\AppData\Roaming\OpAddrBkDbg\OpAddrBkDbg.ini" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\ShortToolbar.bmp">

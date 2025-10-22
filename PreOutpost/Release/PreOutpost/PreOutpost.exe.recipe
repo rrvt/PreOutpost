@@ -2,9 +2,6 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Sources\PreOutpost\Release\OpAddrBk.exe</FullPath>
-    </ProjectOutput>
-    <ProjectOutput>
       <FullPath>D:\Sources\PreOutpost\Release\PreOutpost.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>

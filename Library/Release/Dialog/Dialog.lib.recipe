@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs />
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs>
+    <NonRecipeFileRef>
+      <FullPath>D:\Sources\PreOutpost\PreOutpost.hlp\PreOutpostHlp.vcxproj</FullPath>
+    </NonRecipeFileRef>
+    <NonRecipeFileRef>
+      <FullPath>D:\Sources\PreOutpost\OpAddrBk.hlp\OpAddrBk.hlp.vcxproj</FullPath>
+    </NonRecipeFileRef>
+  </NonRecipeFileRefs>
+</Project>

@@ -5,10 +5,7 @@
   <SatelliteDlls />
   <NonRecipeFileRefs>
     <NonRecipeFileRef>
-      <FullPath>D:\Sources\PreOutpost\PreOutpost.hlp\PreOutpostHlp.vcxproj</FullPath>
-    </NonRecipeFileRef>
-    <NonRecipeFileRef>
-      <FullPath>D:\Sources\PreOutpost\OpAddrBk.hlp\OpAddrBk.hlp.vcxproj</FullPath>
+      <FullPath>D:\Sources\RacesBadge\RacesBadge.hlp\RacesBadge.hlp.vcxproj</FullPath>
     </NonRecipeFileRef>
   </NonRecipeFileRefs>
 </Project>

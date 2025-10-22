@@ -46,7 +46,7 @@ int    pos     = stg.findLastOf('.');
 String ext     = pos > 0 ? stg.substr(pos) : String(_T(""));
 String partial = pos > 0 ? stg.substr(0, pos) : stg;
 
-  return partial + _T("dbg") + ext;
+  return partial + _T("Dbg") + ext;
   }
 
 #else
