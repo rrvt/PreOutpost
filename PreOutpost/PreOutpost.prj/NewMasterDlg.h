@@ -13,19 +13,18 @@ class NewMasterDlg : public CDialog {
 
 ListItems listItems;
 
-
 public:
 
-CString selected;
+Cstring selected;
 
-  NewMasterDlg(CWnd* pParent = NULL);   // standard constructor
-  virtual ~NewMasterDlg();
+           NewMasterDlg(CWnd* pParent = NULL);   // standard constructor
+  virtual ~NewMasterDlg() { }
 
-  void   addListBoxItem(TCchar* item) {listItems.addString(item);}
-  void   addListBoxItem(String&     item) {listItems.addString(item);}
-  String getListBoxSelection()            {return listItems.selected;}
+  void     addListBoxItem(TCchar* item) {listItems.addString(item);}
+  void     addListBoxItem(String& item) {listItems.addString(item);}
+//String   getListBoxSelection()        {return listItems.selected;}
 
-  enum { IDD = IDD_SelectMasterDialog };                       // Dialog Data
+  enum { IDD = IDD_NewMasterDlg };                       // Dialog Data
 
 protected:
 
@@ -37,7 +36,7 @@ public:
 
   afx_msg void OnOK();
   virtual BOOL OnInitDialog();
-  afx_msg void OnDblclkList1();
+  afx_msg void onSelectNewMstr();
   afx_msg void onAbout();
   afx_msg void OnHelpMakeMaster();
   afx_msg void OnHelpOverview();
@@ -46,7 +45,4 @@ public:
   afx_msg void OnHelpDeleteMaster();
   afx_msg void OnHelpSelNewMaster();
   afx_msg void OnHelpSelectProfile();
-#ifdef DialogSizable03
-  afx_msg void OnSize(UINT nType, int cx, int cy);
-#endif
   };

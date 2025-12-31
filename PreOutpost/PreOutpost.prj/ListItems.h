@@ -20,14 +20,14 @@ public:
 
 CString selected;
 
-  ListItems() {myParent = 0; idc_control = 0;}
-  ListItems(CDialog* parent, int idc) {init(parent, idc);}
-  void init(CDialog* parent, int idc) {myParent = parent; idc_control = idc;}
+          ListItems() {myParent = 0; idc_control = 0;}
+          ListItems(CDialog* parent, int idc) {init(parent, idc);}
+  void    init(CDialog* parent, int idc) {myParent = parent; idc_control = idc;}
 
-  void addString(String& item) {items += item;}      //[items.end()] [items.end()]
-  void addString(TCchar* item) {items.nextData() = item;}
-  void addToControl();
-  void getSelected();
+  void    addString(String& item) {items += item;}      //[items.end()] [items.end()]
+  void    addString(TCchar* item) {items.nextData() = item;}
+  void    addToControl();
+  TCchar* getSelected();
 
 private:
 

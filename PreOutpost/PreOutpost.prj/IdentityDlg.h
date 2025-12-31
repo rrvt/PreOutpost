@@ -20,42 +20,40 @@ WinPos  winPos;                                // Position of dialog box
 public:
 
 String  title;
-String  todaysDate;
 
-bool    subjWSecurity;
 bool    includeAddrBook;
-bool    tacticalModified;
 
 bool    isTacticalID;
-CString tacticalCallSign;
-CString tacticalText;
-CString tacticalIDPrefix;
+CString tacCallSign;
+CString tacText;
+CString tacIDprefix;
 CString tacSignature;
-
-bool    userModified;
 
 CString userCallSign;
 CString userName;
 CString userIDPrefix;
 CString userSignature;
+CString postSssnTxt;
 
-int     profilesDesired;
+bool    tacDirty;
+bool    userDirty;
 
 // Report Settings
+CString reportID;
+CString reportName;
+
 CString organization;
 CString city;
 CString county;
 CString state;
-CString tacticalLocation;
+CString tacLocation;
 CString textVariable2;
 CString textVariable3;
-CString taskID;
-CString taskName;
+
 CString subject;
-int     subjStyle;
-int     practiceDay;
-int     severity;
 int     handling;
+
+int     profilesDesired;
 
            IdentityDlg(CWnd* pParent = NULL);   // standard constructor
   virtual ~IdentityDlg();
@@ -78,27 +76,27 @@ protected:
 
 private:
 
-  void setSubjWSecurity();
   void setIncludeAddrBook();
 
 public:
 
-  afx_msg void OnTacticalBnClicked();
-  afx_msg void OnTacCallLoseFoc();
-  afx_msg void OnTacCallModA();
-  afx_msg void OnTacCallModB();
-  afx_msg void OnTacCallModC();
-  afx_msg void OnFCCCallLoseFoc();
-  afx_msg void OnFCCCallModA();
-  afx_msg void OnFCCCallModB();
-  afx_msg void OnFCCCallModC();
+  afx_msg void onUseTactical();
+  afx_msg void onLeaveTacCallSign();
+  afx_msg void onLeaveTacText();
+
+  afx_msg void onLeaveTacIDprefix();
+  afx_msg void onLeaveTacIDSig();
+  afx_msg void onLeaveUserCallSign();
+  afx_msg void onLeaveUserName();
+  afx_msg void onLeaveUserIDprefix();
+  afx_msg void onLeaveUserSignature();
 
   afx_msg void OnSetBBSsuffixes();
+  afx_msg void onPostSssnTxt();
 
   afx_msg void OnAbout();
   afx_msg void OnHelpOverview();
   afx_msg void OnHelpIdentity();
-  afx_msg void OnSubjWSecurity();
   afx_msg void OnFindOutpost();
   afx_msg void OnIncludeAddrBook();
   afx_msg void OnHelpAddressbook();
@@ -109,3 +107,16 @@ public:
   afx_msg void OnMove(int x, int y);
   afx_msg void OnSize(UINT nType, int cx, int cy);
   };
+
+
+
+/////////-------------------
+
+//int     practiceDay;
+//int     severity;
+//  void setSubjWSecurity();
+//  afx_msg void OnSubjWSecurity();
+//bool    subjWSecurity;
+//int     subjStyle;
+//String  todaysDate;
+

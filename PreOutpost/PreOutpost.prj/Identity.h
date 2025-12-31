@@ -14,7 +14,6 @@ CfgFile metaProfile;
 
 public:
 
-bool    subjWSecurity;
 bool    includeAddrBook;
 String  todaysDate;
 
@@ -22,33 +21,30 @@ String userCallSign;
 String userName;
 String userIDPrefix;
 String userSignature;
+String postSssnTxt;
 bool   isTacticalID;
-String tacticalCallSign;
-String tacticalText;
-String tacticalIDPrefix;
+String tacCallSign;
+String tacText;
+String tacIDprefix;
 String tacSignature;
 String organization;
 String city;
 String county;
 String state;
-String tacticalLocation;
+String tacLocation;
 String textVariable2;
 String textVariable3;
-String taskID;
-String taskName;
+String reportID;
+String reportName;
 int    profilesDesired;
-int    severity;
 int    handling;
 String subject;
-int    subjStyle;
-int    practiceDay;
 
 UsrData usrData;
 UsrData tacData;
 
-  IdentityInfo() : isTacticalID(false), profilesDesired(0), severity(0), handling(0), subjStyle(0),
-                   practiceDay(0), subjWSecurity(false), includeAddrBook(false),
-                   usrData(_T("usr")), tacData(_T("tac")) {}
+  IdentityInfo() : isTacticalID(false), profilesDesired(0), handling(0),
+                   includeAddrBook(false), usrData(_T("usr")), tacData(_T("tac")) {}
  ~IdentityInfo() {}
 
   bool operator() (TCchar* profileName, String& metaPath, int allProfiles);
@@ -78,4 +74,15 @@ private:
 
 
 extern IdentityInfo idInfo;
+
+
+
+///////---------------
+//int    severity;
+//int    subjStyle;
+//int    practiceDay;
+//bool    subjWSecurity;
+/*severity(0), */
+//subjStyle(0),
+/*practiceDay(0), subjWSecurity(false),*/
 

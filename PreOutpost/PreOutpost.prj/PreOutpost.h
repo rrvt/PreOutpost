@@ -18,7 +18,7 @@ public:
 
 String     helpFile;                              // path and filename for help file
 String     myPath;                                // Path to this program when running
-String     roamingPath;                           // Path to roaming directory
+String     dataPath;                              // Path to data directory
 String     subjectLine;
 Executable opAddrExe;
 
@@ -35,8 +35,10 @@ public:
 
 private:
 
-  void startOutpost();
-  bool startOPaddress();
+  void   startOutpost();
+  bool   startOPaddress();
+
+  String getDataPath();
   };
 
 

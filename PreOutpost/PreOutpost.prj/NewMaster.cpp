@@ -28,8 +28,9 @@ String        selected;
   for (m = iter(); m; m = iter++) dlg.addListBoxItem(m->name);
 
   switch (dlg.DoModal()) {
-    case CreateMaster: selectNew(); return;
-    case DeleteMaster: selected = dlg.getListBoxSelection(); deleteMaster(selected); return;
+    case CreateMaster : selectNew(); return;
+    case GetUsrVersion: idInfo.usrData.getUsrVer();   return;
+    case DeleteMaster : selected = dlg.getListBoxSelection(); deleteMaster(selected); return;
     }
   }
 
@@ -64,10 +65,10 @@ String       metaLabel;
 
   if (dlg.DoModal() != IDOK) return;
 
-  selected = dlg.getListBoxSelection();
+  selected = dlg.selected;
   selection += outpost.getProfile();
   selection += selected;
-  newMetaProfile = theApp.roamingPath + selected;
+  newMetaProfile = theApp.dataPath + selected;
 
   if (!change_extension(newMetaProfile, MasterExt)) return;
 
@@ -88,7 +89,7 @@ String       path;
 
   if (dlg.DoModal() == IDCANCEL) return;
 
-  path = theApp.roamingPath + selected;    change_extension(path, MasterExt);
+  path = theApp.dataPath + selected;    change_extension(path, MasterExt);
 
   if (PathFileExists(path)) removeFile(path);
 

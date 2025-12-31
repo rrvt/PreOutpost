@@ -29,7 +29,6 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="C:\Program Files (x86)\SCCo Packet\Outpost.conf" />
-    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpostDbg\PreOutpostDbg.ini" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BBSdlg.cpp">
@@ -93,6 +92,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Common\FindDirThrd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PostSessionDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Help.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -173,6 +178,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Common\CfgFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PostSessionDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Help.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

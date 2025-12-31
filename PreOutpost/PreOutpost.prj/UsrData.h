@@ -11,14 +11,18 @@ String  version;
 String  callSign;
 String  name;
 String  userID;
-String  sigFlag;
+bool    sigFlag;
 String  signature;
+bool    sendPST;
+String  postSssnTxt;
 
 CfgFile usrPPF;                                   // Private Profile File
 String  usrPath;
 String  extension;
 
   UsrData(TCchar* ext) {extension = ext;};
+
+  void getUsrVer();
 
   void initialize();
   bool find(String& callSign);

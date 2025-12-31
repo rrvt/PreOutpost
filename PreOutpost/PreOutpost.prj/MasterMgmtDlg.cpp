@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "PreOutpost.h"
 #include "AboutDlgEx.h"
+#include "Help.h"
 #include "MasterMgmtDlg.h"
 #include "BBSinfo.h"
 
@@ -14,12 +15,11 @@ IMPLEMENT_DYNAMIC(MasterMgmtDlg, CDialog)
 
 
 BEGIN_MESSAGE_MAP(MasterMgmtDlg, CDialog)
-  ON_BN_CLICKED(IDC_BUTTON12,       &createNew)
-  ON_BN_CLICKED(IDC_BUTTON13,       &delSelected)
-  ON_BN_CLICKED(IDC_BUTTON1,        &OnClickedButton1)
+  ON_BN_CLICKED(IDC_CreateNewMaster,       &createNew)
+  ON_BN_CLICKED(IDC_DeleteMaster,       &delSelected)
 
   ON_COMMAND(ID_SetBBSsuffixes,     &OnSetBBSsuffixes)
-  ON_COMMAND(ID_ABOUT1,             &OnAbout)
+  ON_COMMAND(ID_About,             &OnAbout)
   ON_COMMAND(ID_HELP_OVERVIEW,      &OnHelpOverview)
   ON_COMMAND(ID_HELP_IDENTITY,      &OnHelpIdentity)
   ON_COMMAND(ID_HELP_ADDRESSBOOK,   &OnHelpAddressbook)
@@ -33,11 +33,12 @@ BEGIN_MESSAGE_MAP(MasterMgmtDlg, CDialog)
 #endif
 
 
+    ON_BN_CLICKED(IDC_GetUsrVer, &MasterMgmtDlg::onGetUsrVer)
 END_MESSAGE_MAP()
 
 
 MasterMgmtDlg::MasterMgmtDlg(CWnd* pParent) :
-                            CDialog(MasterMgmtDlg::IDD, pParent) {listItems.init(this, IDC_LIST1);}
+                       CDialog(MasterMgmtDlg::IDD, pParent) {listItems.init(this, IDC_MasterList);}
 
 
 BOOL MasterMgmtDlg::OnInitDialog() {
@@ -63,6 +64,9 @@ void MasterMgmtDlg::OnSetBBSsuffixes() {bbsInfo.getSuffixes();}
 void MasterMgmtDlg::createNew()   {listItems.getSelected(); EndDialog(CreateMaster);}
 
 
+void MasterMgmtDlg::onGetUsrVer() {EndDialog(GetUsrVersion);}
+
+
 void MasterMgmtDlg::delSelected() {listItems.getSelected(); EndDialog(DeleteMaster);}
 
 
@@ -72,68 +76,13 @@ void MasterMgmtDlg::OnClickedButton1() {AboutDlgEx aboutDlg; aboutDlg.DoModal();
 void MasterMgmtDlg::OnAbout() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
-void MasterMgmtDlg::OnHelpMakeMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">CreateMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 20);
-  }
-
-
-
-void MasterMgmtDlg::OnHelpOverview() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">Introduction");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
-  }
-
-
-void MasterMgmtDlg::OnHelpIdentity() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">OneMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
-  }
-
-
-void MasterMgmtDlg::OnHelpAddressbook() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">AddressBook");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void MasterMgmtDlg::OnHelpDeleteMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">DeleteMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void MasterMgmtDlg::OnHelpSelNewMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">SelectProfile");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void MasterMgmtDlg::OnHelpSelectProfile() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">TwoPlusMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
+void MasterMgmtDlg::OnHelpMakeMaster()    {help.createMaster(GetSafeHwnd());}
+void MasterMgmtDlg::OnHelpOverview()      {help.overview(GetSafeHwnd());}
+void MasterMgmtDlg::OnHelpIdentity()      {help.oneMaster(GetSafeHwnd());}
+void MasterMgmtDlg::OnHelpAddressbook()   {help.addressBook(GetSafeHwnd());}
+void MasterMgmtDlg::OnHelpDeleteMaster()  {help.deleteMaster(GetSafeHwnd());}
+void MasterMgmtDlg::OnHelpSelNewMaster()  {help.selectNewMaster(GetSafeHwnd());}
+void MasterMgmtDlg::OnHelpSelectProfile() {help.selectProfile(GetSafeHwnd());}
 
 
 #ifdef DialogSizable02
@@ -149,6 +98,5 @@ CRect winRect;
   winPos.set(winRect);   toolBar.move(winRect);   statusBar.move(winRect);
   }
 #endif
-
 
 

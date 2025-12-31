@@ -19,7 +19,7 @@ class OpAddrBkDlg : public CDialogEx {
 
 DECLARE_DYNAMIC(OpAddrBkDlg)
 
-String    roamingPath;
+String    dataPath;
 String    myPath;
 
 MyToolBar toolBar;

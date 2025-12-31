@@ -195,9 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\OpAddrBk.ico" />
-    <Image Include="res\ShortToolbar.bmp" />
-    <Image Include="res\Toolbar.bmp" />
-    <Image Include="res\Toolbar09.bmp" />
     <Image Include="res\Toolbar10.bmp" />
   </ItemGroup>
   <ItemGroup>

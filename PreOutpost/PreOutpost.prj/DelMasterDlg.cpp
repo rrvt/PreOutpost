@@ -5,6 +5,7 @@
 #include "AboutDlgEx.h"
 #include "DelMasterDlg.h"
 #include "filename.h"
+#include "Help.h"
 
 
 // DelMasterDlg dialog
@@ -17,14 +18,12 @@ DelMasterDlg::DelMasterDlg(CWnd* pParent) : CDialogEx(DelMasterDlg::IDD, pParent
 
 void DelMasterDlg::DoDataExchange(CDataExchange* pDX) {
   CDialogEx::DoDataExchange(pDX);
-  DDX_Text(pDX, IDC_EDIT1, MasterProfileName);
+  DDX_Text(pDX, IDC_MasterProfile, MasterProfileName);
   }
 
 
 BEGIN_MESSAGE_MAP(DelMasterDlg, CDialog)
-  ON_BN_CLICKED(IDC_BUTTON1,        &OnOK)
-  ON_BN_CLICKED(IDC_BUTTON2,        &OnCancel)
-  ON_COMMAND(ID_ABOUT3,             &OnAbout)
+  ON_COMMAND(ID_About,              &OnAbout)
   ON_COMMAND(ID_HELP_OVERVIEW,      &OnHelpOverview)
   ON_COMMAND(ID_HELP_IDENTITY,      &OnHelpIdentity)
   ON_COMMAND(ID_HELP_ADDRESSBOOK,   &OnHelpAddressbook)
@@ -32,6 +31,8 @@ BEGIN_MESSAGE_MAP(DelMasterDlg, CDialog)
   ON_COMMAND(ID_HELP_DeleteMaster,  &OnHelpDeleteMaster)
   ON_COMMAND(ID_HELP_SelNewMaster,  &OnHelpSelNewMaster)
   ON_COMMAND(ID_HELP_SelectProfile, &OnHelpSelectProfile)
+  ON_BN_CLICKED(IDOK,               &OnOK)
+  ON_BN_CLICKED(IDCANCEL,           &OnCancel)
 
 #ifdef DialogSizable01
   ON_WM_SIZE()
@@ -56,67 +57,13 @@ DelMasterDlg::~DelMasterDlg() { }
 void DelMasterDlg::OnAbout() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
-void DelMasterDlg::OnHelpMakeMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">CreateMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 20);
-  }
-
-
-void DelMasterDlg::OnHelpOverview() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">Introduction");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
-  }
-
-
-void DelMasterDlg::OnHelpIdentity() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">OneMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
-  }
-
-
-void DelMasterDlg::OnHelpAddressbook() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">AddressBook");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void DelMasterDlg::OnHelpDeleteMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">DeleteMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void DelMasterDlg::OnHelpSelNewMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">SelectProfile");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void DelMasterDlg::OnHelpSelectProfile() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">TwoPlusMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
+void DelMasterDlg::OnHelpMakeMaster()    {help.createMaster(GetSafeHwnd());}
+void DelMasterDlg::OnHelpOverview()      {help.overview(GetSafeHwnd());}
+void DelMasterDlg::OnHelpIdentity()      {help.oneMaster(GetSafeHwnd());}
+void DelMasterDlg::OnHelpAddressbook()   {help.addressBook(GetSafeHwnd());}
+void DelMasterDlg::OnHelpDeleteMaster()  {help.deleteMaster(GetSafeHwnd());}
+void DelMasterDlg::OnHelpSelNewMaster()  {help.selectNewMaster(GetSafeHwnd());}
+void DelMasterDlg::OnHelpSelectProfile() {help.selectProfile(GetSafeHwnd());}
 
 
 

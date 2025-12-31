@@ -59,6 +59,10 @@ A help file is included in both apps.  Let the author know if the help file need
 
 ## Updates
 
+### Update 12/30/25
+
+Update subject, added Post Sesstion Text.
+
 ### Update 10/21/25
 
 Factored library into three parts, Library, Dialog, DocView.

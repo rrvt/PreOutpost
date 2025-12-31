@@ -4,24 +4,55 @@
 #include "pch.h"
 #include "UsrData.h"
 #include "filename.h"
+#include "GetPathDlg.h"
+#include "IniFileEx.h"
 #include "Outpost.h"
+#include "PathDlgDsc.h"
 
 
-static const String Section = _T("USER DEFINITION");
-static const String Version = _T("Version");
-static const String Call    = _T("MyCall");
-static const String Name    = _T("MyName");
-static const String ID      = _T("UserID");
-static const String SigFlag = _T("SigFlag");
-static const String SigData = _T("SigData");
+/*
+[USER DEFINITION]
+VersionKey=3.8.10/25355:181445
+MyCall=K6RWY
+MyName=Bob
+UserID=RWY
+SigFlag=1
+SigData=rrvt
+SendTxt=rrvt 2
+SendCtl=1
+[END]
+*/
 
-static const String VerVal  = _T("3.2.118/18232:113207");
+
+static const String UserDefSect    = _T("USER DEFINITION");
+static const String VersionKey     = _T("Version");
+static const String MyCallKey      = _T("MyCall");
+static const String MyNameKey      = _T("MyName");
+static const String UserIDKey      = _T("UserID");
+static const String SigFlagKey     = _T("SigFlag");
+static const String SigDataKey     = _T("SigData");
+static const String SendPSTKey     = _T("SendCTL");
+static const String SendSssnTxtKey = _T("SendTxt");
+
+static const String VerVal  = _T("3.8.10/25355:181445");
+
+
+void UsrData::getUsrVer() {
+String     path;   path = usrPath + _T("*");
+PathDlgDsc dsc{_T("Get Usr File"), path, _T("usr"), _T("*.usr")};
+
+  if (getOpenDlg(dsc, path)) {
+    usrPPF.setPath(path);
+    usrPPF.readString(UserDefSect, VersionKey, version);
+    iniFile.write(UserDefSect, VersionKey, version);
+    }
+  }
 
 
 void UsrData::initialize() {
-usrPath = outpost.getProfile();
+  usrPath = outpost.getProfile() + _T("usr.d\\");
 
-  usrPath += _T("usr.d\\");
+  iniFile.read(UserDefSect, VersionKey, version);
   }
 
 
@@ -38,14 +69,19 @@ CFileFind ff;
 
 void UsrData::load(String& call) {
 String path = usrPath + call;   path += _T(".");   path += extension;
+String ver;
 
   usrPPF.setPath(path);
-  usrPPF.readString(Section, Version, version);
-  usrPPF.readString(Section, Call,    callSign);
-  usrPPF.readString(Section, Name,    name);
-  usrPPF.readString(Section, ID,      userID);
-  usrPPF.readString(Section, SigData, signature);
-  sigFlag = !signature.empty();
+  usrPPF.read(UserDefSect, VersionKey,     ver);
+  usrPPF.read(UserDefSect, MyCallKey,      callSign);
+  usrPPF.read(UserDefSect, MyNameKey,      name);
+  usrPPF.read(UserDefSect, UserIDKey,      userID);
+  usrPPF.read(UserDefSect, SigFlagKey,     sigFlag, false);
+  usrPPF.read(UserDefSect, SigDataKey,     signature);
+  usrPPF.read(UserDefSect, SendPSTKey,     sendPST, false);   // Transmit Post Session Text
+  usrPPF.read(UserDefSect, SendSssnTxtKey, postSssnTxt);      // Post Session Text -- Unused by SCC
+
+  if (ver <= version) {usrPPF.write(UserDefSect, VersionKey, version);}
   }
 
 
@@ -54,12 +90,17 @@ String path = usrPath + call;   path += _T(".");   path += extension;
 
   if (version.empty()) version = VerVal;
 
+  sigFlag = !signature.isEmpty();
+  sendPST = !postSssnTxt.isEmpty();
+
   usrPPF.setPath(path);
-  usrPPF.writeString(Section, Version, version);
-  usrPPF.writeString(Section, Call,    callSign);
-  usrPPF.writeString(Section, Name,    name);
-  usrPPF.writeString(Section, ID,      userID);
-  usrPPF.writeInt(   Section, SigFlag, signature.empty() ? false : true);
-  usrPPF.writeString(Section, SigData, signature);
+  usrPPF.write(UserDefSect, VersionKey,     version);
+  usrPPF.write(UserDefSect, MyCallKey,      callSign);
+  usrPPF.write(UserDefSect, MyNameKey,      name);
+  usrPPF.write(UserDefSect, UserIDKey,      userID);
+  usrPPF.write(UserDefSect, SigFlagKey,     sigFlag);
+  usrPPF.write(UserDefSect, SigDataKey,     signature);
+  usrPPF.write(UserDefSect, SendPSTKey,     sendPST);
+  usrPPF.write(UserDefSect, SendSssnTxtKey, postSssnTxt);
   }
 

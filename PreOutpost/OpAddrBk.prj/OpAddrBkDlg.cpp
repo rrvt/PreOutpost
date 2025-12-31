@@ -44,7 +44,7 @@ BEGIN_MESSAGE_MAP(OpAddrBkDlg, CDialogEx)
 
   ON_COMMAND(      ID_SaveAll,        &onSaveAll)
   ON_COMMAND(      ID_Help,           &onHelp)
-  ON_COMMAND(      ID_App_About,      &onAppAbout)
+  ON_COMMAND(      ID_About,      &onAppAbout)
   ON_COMMAND(      ID_App_Exit,       &OnOK)
 
   ON_WM_CREATE()
@@ -56,7 +56,7 @@ END_MESSAGE_MAP()
 
 
 OpAddrBkDlg::OpAddrBkDlg(TCchar* roamingPth, CWnd* pParent) : CDialogEx(IDD_OpAddrBk, pParent),
-                                       roamingPath(roamingPth), myPath(getPath(roamingPath)),
+                                       dataPath(roamingPth), myPath(getPath(dataPath)),
                                        toolBar(), listBox(statusBar), statusBar(),
                                        listBoxRect({0,0,0,0}), isInitialized(false),
                                        pdfInfo(myPath) { }
@@ -238,9 +238,13 @@ BOOL OpAddrBkDlg::OnTtnNeedText(UINT id, NMHDR* pNMHDR, LRESULT* pResult)
 
 
 void OpAddrBkDlg::onHelp() {
+#if 0
+  help.overview(GetSafeHwnd());
+#else
 String topic = theApp.m_pszHelpFilePath; topic += _T(">Introduction");
 
   ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
+#endif
   }
 
 

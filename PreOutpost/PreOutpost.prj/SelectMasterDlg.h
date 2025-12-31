@@ -16,18 +16,18 @@ ListItems listItems;
 
 public:
 
+Cstring   selected;
 int       allProfiles;
 
-  SelectMasterDlg(CWnd* pParent = NULL);   // standard constructor
+           SelectMasterDlg(CWnd* pParent = NULL);   // standard constructor
+  virtual ~SelectMasterDlg() { }
 
-  virtual ~SelectMasterDlg();
-  virtual BOOL OnInitDialog();
-  void    addListBoxItem(TCchar* item) {listItems.addString(item);}
-  void    addListBoxItem(String&     item) {listItems.addString(item);}
-  String  getListBoxSelection()            {return listItems.selected;}
+  virtual BOOL   OnInitDialog();
+          void   addListBoxItem(TCchar* item) {listItems.addString(item);}
+          void   addListBoxItem(String& item) {listItems.addString(item);}
+//          String getListBoxSelection()        {return listItems.selected;}
 
-
-  enum { IDD = IDD_ProcessOneOrAllDialog };                       // Dialog Data
+  enum { IDD = IDD_SelectMasterDlg };                       // Dialog Data
 
 protected:
 
@@ -37,7 +37,7 @@ protected:
 
 public:
   afx_msg void OnOK();
-  afx_msg void OnDblclkList1();
+  afx_msg void onSelectMaster();
   afx_msg void onAbout();
   afx_msg void OnHelpMakeMaster();
   afx_msg void OnHelpOverview();

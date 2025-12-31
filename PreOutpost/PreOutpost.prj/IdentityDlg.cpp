@@ -6,9 +6,11 @@
 #include "IdentityDlg.h"
 #include "AboutDlgEx.h"
 #include "BBSinfo.h"
-#include "HtmlHelp.h"
+#include "Date.h"
+#include "Help.h"
 #include "MessageBox.h"
 #include "Outpost.h"
+#include "PostSessionDlg.h"
 #include "PreOutpost.h"
 #include "BBSdlg.h"
 
@@ -18,51 +20,54 @@ IMPLEMENT_DYNAMIC(IdentityDlg, CDialogEx)
 
 BEGIN_MESSAGE_MAP(IdentityDlg, CDialogEx)
 
-  ON_BN_CLICKED(IDC_BUTTON4,        &OnTacticalBnClicked)
-  ON_EN_KILLFOCUS(IDC_EDIT4,        &OnTacCallLoseFoc)
-  ON_EN_KILLFOCUS(IDC_EDIT5,        &OnTacCallModA)
-  ON_EN_KILLFOCUS(IDC_EDIT6,        &OnTacCallModB)
-  ON_EN_KILLFOCUS(IDC_EDIT8,        &OnTacCallModC)
-  ON_EN_KILLFOCUS(IDC_EDIT1,        &OnFCCCallLoseFoc)
-  ON_EN_KILLFOCUS(IDC_EDIT2,        &OnFCCCallModA)
-  ON_EN_KILLFOCUS(IDC_EDIT3,        &OnFCCCallModB)
-  ON_EN_KILLFOCUS(IDC_EDIT7,        &OnFCCCallModC)
-  ON_COMMAND(ID_SetBBSsuffixes,     &OnSetBBSsuffixes)
-  ON_COMMAND(ID_ABOUT1,             &OnAbout)
-  ON_COMMAND(ID_HELP_OVERVIEW,      &OnHelpOverview)
-  ON_COMMAND(ID_HELP_IDENTITY,      &OnHelpIdentity)
-  ON_COMMAND(ID_HELP_ADDRESSBOOK,   &OnHelpAddressbook)
-  ON_COMMAND(ID_HELP_DeleteMaster,  &OnHelpDeleteMaster)
-  ON_COMMAND(ID_HELP_SelNewMaster,  &OnHelpSelNewMaster)
-  ON_COMMAND(ID_HELP_SelectProfile, &OnHelpSelectProfile)
-  ON_COMMAND(ID_SubjWSecurity,      &OnSubjWSecurity)
-  ON_COMMAND(ID_FindOutpost,        &OnFindOutpost)
-  ON_COMMAND(ID_IncludeAddrBook,    &OnIncludeAddrBook)
+  ON_BN_CLICKED(IDC_UseTactical,         &onUseTactical)
+  ON_EN_KILLFOCUS(IDC_TacticalCallSign,  &onLeaveTacCallSign)
+
+  ON_EN_KILLFOCUS(IDC_TacticalText,      &onLeaveTacText)
+  ON_EN_KILLFOCUS(IDC_TacIDprefix,       &onLeaveTacIDprefix)
+  ON_EN_KILLFOCUS(IDC_TacSignature,      &onLeaveTacIDSig)
+
+  ON_EN_KILLFOCUS(IDC_UserCallSign,      &onLeaveUserCallSign)
+  ON_EN_KILLFOCUS(IDC_UserName,          &onLeaveUserName)
+  ON_EN_KILLFOCUS(IDC_UserIDPrefix,      &onLeaveUserIDprefix)
+  ON_EN_KILLFOCUS(IDC_UserSignature,     &onLeaveUserSignature)
+
+  ON_COMMAND(     ID_SetBBSsuffixes,     &OnSetBBSsuffixes)
+  ON_COMMAND(     ID_PostSssnTxt,        &onPostSssnTxt)
+
+  ON_COMMAND(     ID_About,             &OnAbout)
+  ON_COMMAND(     ID_HELP_OVERVIEW,      &OnHelpOverview)
+  ON_COMMAND(     ID_HELP_IDENTITY,      &OnHelpIdentity)
+  ON_COMMAND(     ID_HELP_ADDRESSBOOK,   &OnHelpAddressbook)
+  ON_COMMAND(     ID_HELP_DeleteMaster,  &OnHelpDeleteMaster)
+  ON_COMMAND(     ID_HELP_SelNewMaster,  &OnHelpSelNewMaster)
+  ON_COMMAND(     ID_HELP_SelectProfile, &OnHelpSelectProfile)
+  ON_COMMAND(     ID_FindOutpost,        &OnFindOutpost)
+  ON_COMMAND(     ID_IncludeAddrBook,    &OnIncludeAddrBook)
 
   ON_WM_MOVE()
-  ON_WM_SIZE()
+//  ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
-IdentityDlg::IdentityDlg(CWnd* pParent /*=NULL*/) : CDialogEx(IdentityDlg::IDD, pParent),
-  isInitialized(false),     isTacticalID(false),    tacticalModified(false),
-  userModified(false),      subjWSecurity(false),   includeAddrBook(false),
-  tacticalCallSign(_T("")), tacticalText(_T("")),   tacticalIDPrefix(_T("")),
-  tacSignature(_T("")),     userCallSign(_T("")),   userName(_T("")),
-  userIDPrefix(_T("")),     userSignature(_T("")),  subject(_T("")),
-  severity(0),              handling(0),            subjStyle(0),
-  profilesDesired(0),       practiceDay(0) { }
+IdentityDlg::IdentityDlg(CWnd* pParent) : CDialogEx(IdentityDlg::IDD, pParent),
+  isInitialized(false),   isTacticalID(false),    tacDirty(false),
+  userDirty(false),       includeAddrBook(false), tacCallSign(_T("")),
+  tacText(_T("")),        tacIDprefix(_T("")),    tacSignature(_T("")),
+  userCallSign(_T("")),   userName(_T("")),       userIDPrefix(_T("")),
+  userSignature(_T("")),  postSssnTxt(_T("")),    subject(_T("")),
+  handling(0),            profilesDesired(0) { }
 
 
 IdentityDlg::~IdentityDlg() {winPos.~WinPos();}
 
 
 BOOL IdentityDlg::OnInitDialog() {
-CRect        winRect;
-CEdit*       p;                                          //{80,44,70,12};
-CString      s;
-CWnd*        q;
-COleDateTime ctm;
+CRect    winRect;
+CEdit*   p;
+CString  s;
+CStatic* q;
+Date     dt;
 
   CDialogEx::OnInitDialog();
 
@@ -70,26 +75,22 @@ COleDateTime ctm;
 
   SetWindowText(title);   winPos.initialPos(this, winRect);
 
-  menu = GetMenu(); setSubjWSecurity();
+  menu = GetMenu();
 
-  CButton* tactical = (CButton*) GetDlgItem(IDC_BUTTON4);
+  CButton* tactical = (CButton*) GetDlgItem(IDC_UseTactical);
 
   initTactical(tactical, isTacticalID);
 
-  p = (CEdit*) GetDlgItem(IDC_EDIT4);  if (p) p->SetLimitText(6);
-  p = (CEdit*) GetDlgItem(IDC_EDIT6);  if (p) p->SetLimitText(3);
-  p = (CEdit*) GetDlgItem(IDC_EDIT3);  if (p) p->SetLimitText(3);
-  p = (CEdit*) GetDlgItem(IDC_EDIT13); if (p) p->SetLimitText(2);
+  p = (CEdit*) GetDlgItem(IDC_TacticalCallSign);  if (p) p->SetLimitText(6);
+  p = (CEdit*) GetDlgItem(IDC_TacIDprefix);       if (p) p->SetLimitText(3);
+  p = (CEdit*) GetDlgItem(IDC_UserIDPrefix);      if (p) p->SetLimitText(3);
+  p = (CEdit*) GetDlgItem(IDC_State);             if (p) p->SetLimitText(2);
 
-  ctm = COleDateTime::GetCurrentTime();
-  s = ctm.Format(_T("%H%M %x"));
-  todaysDate = ctm.Format(_T("%x"));
+  dt.getToday();   s = dt.format(_T("%H:%M:%S"));
 
-  q = (CWnd*) GetDlgItem(IDC_STATIC7); if (q) q->SetWindowText(s);
+  q = (CStatic*) GetDlgItem(IDC_CurTime);           if (q) q->SetWindowText(s);
 
-  setSubjWSecurity();   setIncludeAddrBook();
-
-  SetWindowText(title);  // GetWindowRect(&winRect);
+  setIncludeAddrBook();   SetWindowText(title);  GetWindowRect(&winRect);
 
   winPos.initialPos(this, winRect);   isInitialized = true;   return TRUE;
   }
@@ -98,29 +99,31 @@ COleDateTime ctm;
 
 void IdentityDlg::DoDataExchange(CDataExchange* pDX) {
   CDialogEx::DoDataExchange(pDX);
-  DDX_Text( pDX, IDC_EDIT1,     userCallSign);
-  DDX_Text( pDX, IDC_EDIT2,     userName);
-  DDX_Text( pDX, IDC_EDIT3,     userIDPrefix);
-  DDX_Text( pDX, IDC_EDIT7,     userSignature);
-  DDX_Text( pDX, IDC_EDIT4,     tacticalCallSign);
-  DDX_Text( pDX, IDC_EDIT5,     tacticalText);
-  DDX_Text( pDX, IDC_EDIT6,     tacticalIDPrefix);
-  DDX_Text( pDX, IDC_EDIT8,     tacSignature);
-  DDX_Text( pDX, IDC_EDIT10,    organization);
-  DDX_Text( pDX, IDC_EDIT11,    city);
-  DDX_Text( pDX, IDC_EDIT12,    county);
-  DDX_Text( pDX, IDC_EDIT13,    state);
-  DDX_Text( pDX, IDC_EDIT14,    tacticalLocation);
-  DDX_Text( pDX, IDC_EDIT15,    textVariable2);
-  DDX_Text( pDX, IDC_EDIT16,    textVariable3);
-  DDX_Text( pDX, IDC_EDIT17,    taskID);
-  DDX_Text( pDX, IDC_EDIT18,    taskName);
-  DDX_Radio(pDX, IDC_RADIO1,    profilesDesired);
-  DDX_Radio(pDX, IDC_EMERGENCY, severity);
-  DDX_Radio(pDX, IDC_IMMEDIATE, handling);
-  DDX_Radio(pDX, IDC_WEEKLY,    subjStyle);
-  DDX_Radio(pDX, IDC_MONDAY,    practiceDay);
-  DDX_Text( pDX, IDC_EDIT40,    subject);
+  DDX_Text( pDX, IDC_TacticalCallSign,  tacCallSign);
+  DDX_Text( pDX, IDC_TacticalText,      tacText);
+  DDX_Text( pDX, IDC_TacIDprefix,       tacIDprefix);
+  DDX_Text( pDX, IDC_TacSignature,      tacSignature);
+
+  DDX_Text( pDX, IDC_UserCallSign,      userCallSign);
+  DDX_Text( pDX, IDC_UserName,          userName);
+  DDX_Text( pDX, IDC_UserIDPrefix,      userIDPrefix);
+  DDX_Text( pDX, IDC_UserSignature,     userSignature);
+
+  DDX_Text( pDX, IDC_ReportID,          reportID);
+  DDX_Text( pDX, IDC_ReportName,        reportName);
+
+  DDX_Text( pDX, IDC_Organization,      organization);
+  DDX_Text( pDX, IDC_City,              city);
+  DDX_Text( pDX, IDC_County,            county);
+  DDX_Text( pDX, IDC_State,             state);
+  DDX_Text( pDX, IDC_TacLocation,       tacLocation);
+  DDX_Text( pDX, IDC_TextVar2,          textVariable2);
+  DDX_Text( pDX, IDC_TextVar3,          textVariable3);
+
+  DDX_Radio(pDX, IDC_Immediate,         handling);
+  DDX_Text( pDX, IDC_Subject,           subject);
+
+  DDX_Radio(pDX, IDC_AllBBSes,          profilesDesired);
   }
 
 
@@ -139,8 +142,6 @@ CRect winRect;
   }
 
 
-void IdentityDlg::OnSubjWSecurity() {subjWSecurity = !subjWSecurity; setSubjWSecurity();}
-
 
 void IdentityDlg::OnFindOutpost() {outpost.choose();}
 
@@ -148,19 +149,16 @@ void IdentityDlg::OnFindOutpost() {outpost.choose();}
 void IdentityDlg::OnIncludeAddrBook() {includeAddrBook = !includeAddrBook; setIncludeAddrBook();}
 
 
-void IdentityDlg::setSubjWSecurity() {
-  if (subjWSecurity) menu->CheckMenuItem(ID_SubjWSecurity, MF_CHECKED   | MF_BYCOMMAND);
-  else               menu->CheckMenuItem(ID_SubjWSecurity, MF_UNCHECKED | MF_BYCOMMAND);
-
-  GetDlgItem(IDC_EMERGENCY)->EnableWindow(subjWSecurity);
-  GetDlgItem(IDC_URGENT)->EnableWindow(subjWSecurity);
-  GetDlgItem(IDC_OTHER)->EnableWindow(subjWSecurity);
-  }
-
-
 void IdentityDlg::setIncludeAddrBook() {
   if (includeAddrBook) menu->CheckMenuItem(ID_IncludeAddrBook, MF_CHECKED   | MF_BYCOMMAND);
   else                 menu->CheckMenuItem(ID_IncludeAddrBook, MF_UNCHECKED | MF_BYCOMMAND);
+  }
+
+
+void IdentityDlg::onPostSssnTxt() {
+PostSessionDlg dlg;
+
+  dlg.postSssnTxt = postSssnTxt;   if (dlg.DoModal() == IDOK) postSssnTxt = dlg.postSssnTxt;
   }
 
 
@@ -171,8 +169,8 @@ void IdentityDlg::OnSetBBSsuffixes() {bbsInfo.getSuffixes();}
 // IdentityDlg message handlers
 
 
-void IdentityDlg::OnTacticalBnClicked() {
-CButton* tactical = (CButton*) GetDlgItem(IDC_BUTTON4);   if (!tactical) return;
+void IdentityDlg::onUseTactical() {
+CButton* tactical = (CButton*) GetDlgItem(IDC_UseTactical);   if (!tactical) return;
 int      state    = tactical->GetCheck();
 
   initTactical(tactical, state == BST_UNCHECKED);
@@ -180,11 +178,11 @@ int      state    = tactical->GetCheck();
 
 
 
-void IdentityDlg::OnTacCallLoseFoc() {
+void IdentityDlg::onLeaveTacCallSign() {
 
-  if (tacticalModified) return;
+  if (tacDirty) return;
 
-CEdit*   callSign = (CEdit*) GetDlgItem(IDC_EDIT4);   if (!callSign) return;
+CEdit*   callSign = (CEdit*) GetDlgItem(IDC_TacticalCallSign);   if (!callSign) return;
 int      nBuf;
 UsrData& tac = idInfo.tacData;
 Tchar    buf[16];
@@ -195,18 +193,18 @@ String   s;
   buf[nBuf] = 0;   s = buf;
 
   if (tac.find(s)) {
-    SetDlgItemText(IDC_EDIT5, tac.name);
-    SetDlgItemText(IDC_EDIT6, tac.userID);
-    SetDlgItemText(IDC_EDIT8, tac.signature);
+    SetDlgItemText(IDC_TacticalText, tac.name);
+    SetDlgItemText(IDC_TacIDprefix, tac.userID);
+    SetDlgItemText(IDC_TacSignature, tac.signature);
     }
   }
 
 
-void IdentityDlg::OnFCCCallLoseFoc() {
+void IdentityDlg::onLeaveUserCallSign() {
 
-  if (userModified) return;
+  if (userDirty) return;
 
-CEdit*   callSign = (CEdit*) GetDlgItem(IDC_EDIT1);   if (!callSign) return;
+CEdit*   callSign = (CEdit*) GetDlgItem(IDC_UserCallSign);   if (!callSign) return;
 int      nBuf;
 UsrData& usr = idInfo.usrData;
 Tchar    buf[16];
@@ -217,25 +215,25 @@ String   s;
   buf[nBuf] = 0;  s = buf;
 
   if (usr.find(s)) {
-    SetDlgItemText(IDC_EDIT2, usr.name);
-    SetDlgItemText(IDC_EDIT3, usr.userID);
-    SetDlgItemText(IDC_EDIT7, usr.signature);
+    SetDlgItemText(IDC_UserName,      usr.name);
+    SetDlgItemText(IDC_UserIDPrefix,  usr.userID);
+    SetDlgItemText(IDC_UserSignature, usr.signature);
     }
   }
 
 
-void IdentityDlg::OnTacCallModA()
-                            {if (isNotEqual(tacticalText, IDC_EDIT5))     tacticalModified = true;}
-void IdentityDlg::OnTacCallModB()
-                            {if (isNotEqual(tacticalIDPrefix, IDC_EDIT6)) tacticalModified = true;}
-void IdentityDlg::OnTacCallModC()
-                            {if (isNotEqual(tacSignature, IDC_EDIT8))     tacticalModified = true;}
-void IdentityDlg::OnFCCCallModA()
-                            {if (isNotEqual(userName, IDC_EDIT2))         userModified     = true;}
-void IdentityDlg::OnFCCCallModB()
-                            {if (isNotEqual(userIDPrefix, IDC_EDIT3))     userModified     = true;}
-void IdentityDlg::OnFCCCallModC()
-                            {if (isNotEqual(userSignature, IDC_EDIT7))    userModified     = true;}
+void IdentityDlg::onLeaveTacText()
+                            {if (isNotEqual(tacText, IDC_TacticalText))     tacDirty = true;}
+void IdentityDlg::onLeaveTacIDprefix()
+                            {if (isNotEqual(tacIDprefix, IDC_TacIDprefix)) tacDirty = true;}
+void IdentityDlg::onLeaveTacIDSig()
+                            {if (isNotEqual(tacSignature, IDC_TacSignature))     tacDirty = true;}
+void IdentityDlg::onLeaveUserName()
+                          {if (isNotEqual(userName, IDC_UserName))            userDirty = true;}
+void IdentityDlg::onLeaveUserIDprefix()
+                          {if (isNotEqual(userIDPrefix, IDC_UserIDPrefix))    userDirty = true;}
+void IdentityDlg::onLeaveUserSignature()
+                          {if (isNotEqual(userSignature, IDC_UserSignature))  userDirty = true;}
 
 
 bool IdentityDlg::isNotEqual(CString& s, int x) {
@@ -258,16 +256,15 @@ void IdentityDlg::initTactical(CButton* tactical, bool state) {
 
 
 void IdentityDlg::enableTactical(bool enable) {
-  enableCtrl(IDC_STATIC1, enable);
-  enableCtrl(IDC_STATIC2, enable);
-  enableCtrl(IDC_STATIC3, enable);
-  enableCtrl(IDC_STATIC4, enable);
-  enableCtrl(IDC_STATIC5, enable);
-  enableCtrl(IDC_STATIC6, enable);
-  enableCtrl(IDC_EDIT4,   enable);
-  enableCtrl(IDC_EDIT5,   enable);
-  enableCtrl(IDC_EDIT6,   enable);
-  enableCtrl(IDC_EDIT8,   enable);
+  enableCtrl(IDC_CallSgnStc,       enable);
+  enableCtrl(IDC_AdlTxtStc,        enable);
+  enableCtrl(IDC_TacPrfxStc,          enable);
+//  enableCtrl(IDC_STATIC5,          enable);
+  enableCtrl(IDC_TacSigStc,          enable);
+  enableCtrl(IDC_TacticalCallSign, enable);
+  enableCtrl(IDC_TacticalText,     enable);
+  enableCtrl(IDC_TacIDprefix,      enable);
+  enableCtrl(IDC_TacSignature,     enable);
   }
 
 
@@ -279,56 +276,41 @@ CWnd* ctrl = (CWnd*) GetDlgItem(id); if (ctrl) ctrl->EnableWindow(enable);
 void IdentityDlg::OnAbout() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
-void IdentityDlg::OnHelpOverview() {
-String topic;
+void IdentityDlg::OnHelpOverview()      {help.overview(GetSafeHwnd());}
+void IdentityDlg::OnHelpIdentity()      {help.oneMaster(GetSafeHwnd());}
+void IdentityDlg::OnHelpAddressbook()   {help.addressBook(GetSafeHwnd());}
+void IdentityDlg::OnHelpDeleteMaster()  {help.deleteMaster(GetSafeHwnd());}
+void IdentityDlg::OnHelpSelNewMaster()  {help.selectNewMaster(GetSafeHwnd());}
+void IdentityDlg::OnHelpSelectProfile() {help.selectProfile(GetSafeHwnd());}
 
-  topic = theApp.helpFile; topic += _T(">Introduction");
 
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
+
+
+///////////////---------------
+
+//  ON_COMMAND(ID_SubjWSecurity,      &OnSubjWSecurity)
+/*severity(0),, practiceDay(0)*/
+//  DDX_Radio(pDX, IDC_EMERGENCY, severity);
+//  DDX_Radio(pDX, IDC_MONDAY,    practiceDay);
+//setSubjWSecurity();
+#if 0
+void IdentityDlg::setSubjWSecurity() {
+  if (subjWSecurity) menu->CheckMenuItem(ID_SubjWSecurity, MF_CHECKED   | MF_BYCOMMAND);
+  else               menu->CheckMenuItem(ID_SubjWSecurity, MF_UNCHECKED | MF_BYCOMMAND);
+
+  GetDlgItem(IDC_EMERGENCY)->EnableWindow(subjWSecurity);
+  GetDlgItem(IDC_URGENT)->EnableWindow(subjWSecurity);
+  GetDlgItem(IDC_OTHER)->EnableWindow(subjWSecurity);
   }
+#endif
+//subjWSecurity(false),
+//  DDX_Radio(pDX, IDC_Standard,              subjStyle);
+#if 0
+  //COleDateTime ctm;
+  ctm = COleDateTime::GetCurrentTime();
+  s = ctm.Format(_T("%H%M %x"));
+  todaysDate = ctm.Format(_T("%x"));
+#endif
 
-
-void IdentityDlg::OnHelpIdentity() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">OneMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
-  }
-
-
-void IdentityDlg::OnHelpAddressbook() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">AddressBook");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void IdentityDlg::OnHelpDeleteMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">DeleteMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void IdentityDlg::OnHelpSelNewMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">SelectProfile");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void IdentityDlg::OnHelpSelectProfile() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">TwoPlusMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
+//void IdentityDlg::OnSubjWSecurity() {subjWSecurity = !subjWSecurity; setSubjWSecurity();}
 

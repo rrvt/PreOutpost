@@ -8,6 +8,9 @@
 #include "filesrch.h"
 #include "filename.h"
 #include "FindDirThrd.h"
+#include "FileName.h"
+#include "GetPathDlg.h"
+#include "Help.h"
 #include "IdentityDlg.h"
 #include "iniFileEx.h"
 #include "DelMasterDlg.h"
@@ -21,9 +24,11 @@
 #include "Utilities.h"
 
 
-static TCchar* PathSection = _T("Path");
-static TCchar* ProfileKey  = _T("Profile");
-static TCchar* OutpostKey  = _T("Outpost");
+static TCchar* PathSection   = _T("Path");
+static TCchar* DataPathKey   = _T("Data");
+static TCchar* DBDataPathKey = _T("DBdata");
+static TCchar* ProfileKey    = _T("Profile");
+static TCchar* OutpostKey    = _T("Outpost");
 
 
 PreOutpost   theApp;                         // The one and only PreOutpost object
@@ -51,15 +56,16 @@ BOOL PreOutpost::InitInstance() {
 bool      makeMaster;                 // When true make a Master Profile
 String    s;
 ClipBoard clipBoard;
+String    path;
 
   CWinAppEx::InitInstance();
 
   makeMaster = !StrCmp(m_lpCmdLine, _T("/MakeMaster")) || !StrCmp(m_lpCmdLine, _T("-MakeMaster"));
 
-
-  helpFile    = m_pszHelpFilePath;
-  myPath      = getPath(m_pszHelpFilePath);
-  roamingPath = iniFile.getAppDataPath(dbgHelpPath(m_pszHelpFilePath));
+  helpFile = m_pszHelpFilePath;    help.init(helpFile);
+  myPath   = getPath(m_pszHelpFilePath);
+  iniFile.getAppDataPath(m_pszHelpFilePath);
+  dataPath = getDataPath();
 
   m_pMainWnd = 0;
 
@@ -111,6 +117,32 @@ void PreOutpost::startOutpost()
 int PreOutpost::ExitInstance() {return CDialogApp::ExitInstance();}
 
 
+String PreOutpost::getDataPath() {
+String path;
+
+#ifdef _DEBUG
+  if (!iniFile.read(PathSection, DBDataPathKey, path)) {
+
+    if (getDirPathDlg(_T("Debug Store Path"), path) && !path.isEmpty())
+                                                   iniFile.write(PathSection, DBDataPathKey, path);
+
+    else {
+      path = iniFile.getAppDataPath(m_pszHelpFilePath);
+
+      iniFile.write(PathSection, DataPathKey, path);
+      }
+    }
+#else
+
+  if (!iniFile.read(PathSection, DataPathKey, path) || path.isEmpty()) {
+    path = iniFile.getAppDataPath(m_pszHelpFilePath);
+
+    iniFile.write(PathSection, DataPathKey, path);
+    }
+#endif
+
+  return path;
+  }
 
 
 ///------------------------
@@ -130,7 +162,7 @@ String    configPath;                // Path to several files in Roaming (useful
   configPath = helpFile;
 #endif
 
-  roamingPath = iniFile.getAppDataPath(configPath);
+  dataPath = iniFile.getAppDataPath(configPath);
 #endif
 #endif
 

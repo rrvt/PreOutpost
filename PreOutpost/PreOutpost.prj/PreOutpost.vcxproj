@@ -147,6 +147,7 @@
     <ClCompile Include="BBSdlg.cpp" />
     <ClCompile Include="BBSinfo.cpp" />
     <ClCompile Include="DelMasterDlg.cpp" />
+    <ClCompile Include="Help.cpp" />
     <ClCompile Include="Identity.cpp" />
     <ClCompile Include="IdentityDlg.cpp" />
     <ClCompile Include="ListItems.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="NewMaster.cpp" />
     <ClCompile Include="NewMasterDlg.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="PostSessionDlg.cpp" />
     <ClCompile Include="PreOutpost.cpp" />
     <ClCompile Include="SelectMasterDlg.cpp" />
     <ClCompile Include="UsrData.cpp" />
@@ -172,6 +174,7 @@
     <ClInclude Include="BBSinfo.h" />
     <ClInclude Include="DelMasterDlg.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Help.h" />
     <ClInclude Include="Identity.h" />
     <ClInclude Include="IdentityDlg.h" />
     <ClInclude Include="ListItems.h" />
@@ -180,6 +183,7 @@
     <ClInclude Include="NewMaster.h" />
     <ClInclude Include="NewMasterDlg.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PostSessionDlg.h" />
     <ClInclude Include="PreOutpost.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SelectMasterDlg.h" />
@@ -206,7 +210,6 @@
     <None Include="res\PreOutpost.rc2" />
     <None Include="..\README.md" />
     <None Include="C:\Program Files (x86)\SCCo Packet\Outpost.conf" />
-    <None Include="C:\Users\rrvt\AppData\Roaming\PreOutpostDbg\PreOutpostDbg.ini" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\PreOutpost.ico" />

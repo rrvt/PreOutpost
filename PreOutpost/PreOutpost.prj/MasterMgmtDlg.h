@@ -6,7 +6,7 @@
 #include "resource.h"
 
 
-enum {DeleteMaster = 0, CreateMaster = 1};
+enum {DeleteMaster, CreateMaster, GetUsrVersion};
 
 
 // MasterMgmtDlg dialog
@@ -24,7 +24,7 @@ public:
   virtual BOOL OnInitDialog();
 
 // Dialog Data
-  enum { IDD = IDD_ManageMasterDialog };
+  enum { IDD = IDD_MasterMgmtDlg };
 
   void   OnSetBBSsuffixes();
 
@@ -51,4 +51,5 @@ public:
 #ifdef DialogSizable02
   afx_msg void OnSize(UINT nType, int cx, int cy);
 #endif
-  };
+  afx_msg void onGetUsrVer();
+};

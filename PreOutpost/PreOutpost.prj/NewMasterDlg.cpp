@@ -3,6 +3,7 @@
 #include "pch.h"
 #include "NewMasterDlg.h"
 #include "AboutDlgEx.h"
+#include "Help.h"
 #include "PreOutpost.h"
 
 
@@ -11,7 +12,7 @@
 IMPLEMENT_DYNAMIC(NewMasterDlg, CDialog)
 
 NewMasterDlg::NewMasterDlg(CWnd* pParent) :
-                            CDialog(NewMasterDlg::IDD, pParent) {listItems.init(this, IDC_LIST1);}
+                       CDialog(NewMasterDlg::IDD, pParent) {listItems.init(this, IDC_NewMstrList);}
 
 
 BOOL NewMasterDlg::OnInitDialog() {
@@ -28,9 +29,8 @@ void NewMasterDlg::DoDataExchange(CDataExchange* pDX) {CDialog::DoDataExchange(p
 
 
 BEGIN_MESSAGE_MAP(NewMasterDlg, CDialog)
-  ON_BN_CLICKED(IDC_BUTTON1,        &OnOK)
-  ON_LBN_DBLCLK(IDC_LIST1,          &OnDblclkList1)
-  ON_COMMAND(ID_ABOUT4,             &onAbout)
+  ON_LBN_DBLCLK(IDC_NewMstrList,    &onSelectNewMstr)
+  ON_COMMAND(ID_About,             &onAbout)
   ON_COMMAND(ID_HELP_OVERVIEW,      &OnHelpOverview)
   ON_COMMAND(ID_HELP_IDENTITY,      &OnHelpIdentity)
   ON_COMMAND(ID_HELP_ADDRESSBOOK,   &OnHelpAddressbook)
@@ -38,96 +38,32 @@ BEGIN_MESSAGE_MAP(NewMasterDlg, CDialog)
   ON_COMMAND(ID_HELP_DeleteMaster,  &OnHelpDeleteMaster)
   ON_COMMAND(ID_HELP_SelNewMaster,  &OnHelpSelNewMaster)
   ON_COMMAND(ID_HELP_SelectProfile, &OnHelpSelectProfile)
-
-#ifdef DialogSizable03
-  ON_WM_SIZE()
-#endif
+  ON_BN_CLICKED(IDOK,               &OnOK)
 END_MESSAGE_MAP()
 
 
 // NewMasterDlg message handlers
 
 
-void NewMasterDlg::OnOK()          {listItems.getSelected(); CDialog::OnOK();}
+void NewMasterDlg::onSelectNewMstr() {OnOK();}
 
 
-
-void NewMasterDlg::OnDblclkList1() {OnOK();}
-
-
-NewMasterDlg::~NewMasterDlg() {}
+void NewMasterDlg::OnOK() {selected = listItems.getSelected(); CDialog::OnOK();}
 
 
 void NewMasterDlg::onAbout() {AboutDlgEx aboutDlg; aboutDlg.DoModal();}
 
 
-void NewMasterDlg::OnHelpMakeMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">CreateMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 20);
-  }
-
-
-
-void NewMasterDlg::OnHelpOverview() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">Introduction");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
-  }
+void NewMasterDlg::OnHelpMakeMaster()    {help.createMaster(GetSafeHwnd());}
+void NewMasterDlg::OnHelpOverview()      {help.overview(GetSafeHwnd());}
+void NewMasterDlg::OnHelpIdentity()      {help.oneMaster(GetSafeHwnd());}
+void NewMasterDlg::OnHelpAddressbook()   {help.addressBook(GetSafeHwnd());}
+void NewMasterDlg::OnHelpDeleteMaster()  {help.deleteMaster(GetSafeHwnd());}
+void NewMasterDlg::OnHelpSelNewMaster()  {help.selectNewMaster(GetSafeHwnd());}
+void NewMasterDlg::OnHelpSelectProfile() {help.selectProfile(GetSafeHwnd());}
 
 
-void NewMasterDlg::OnHelpIdentity() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">OneMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic,  HH_DISPLAY_TOC, 0);
-  }
-
-
-void NewMasterDlg::OnHelpAddressbook() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">AddressBook");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void NewMasterDlg::OnHelpDeleteMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">DeleteMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-void NewMasterDlg::OnHelpSelNewMaster() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">SelectProfile");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-
-void NewMasterDlg::OnHelpSelectProfile() {
-String topic;
-
-  topic = theApp.helpFile; topic += _T(">TwoPlusMaster");
-
-  ::HtmlHelp(GetSafeHwnd(), topic, HH_DISPLAY_TOC, 0);
-  }
-
-
-#ifdef DialogSizable03
-
+#if 0
 void NewMasterDlg::OnSize(UINT nType, int cx, int cy) {
 CRect winRect;
 

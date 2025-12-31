@@ -16,11 +16,13 @@ String*   p;
 
 
 
-void ListItems::getSelected() {
+TCchar* ListItems::getSelected() {
 CListBox* ctrl = (CListBox*) myParent->GetDlgItem(idc_control);
 int       i    = ctrl->GetCurSel();
 
   if (i >= 0) ctrl->GetText(i, selected);
   else selected = _T("");
+
+  return selected;
   }
 

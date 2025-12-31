@@ -14,14 +14,14 @@ public:
 
 CString MasterProfileName;
 
-  DelMasterDlg(CWnd* pParent = NULL);   // standard constructor
+           DelMasterDlg(CWnd* pParent = NULL);            // standard constructor
   virtual ~DelMasterDlg();
 
 // Dialog Data
-  enum { IDD = IDD_DeleteMasterDialog };
+  enum { IDD = IDD_DelMasterDlg };
 
 protected:
-  virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+  virtual void DoDataExchange(CDataExchange* pDX);        // DDX/DDV support
 
   DECLARE_MESSAGE_MAP()
 public:

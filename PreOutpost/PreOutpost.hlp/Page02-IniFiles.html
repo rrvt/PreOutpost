@@ -50,12 +50,19 @@ One final point about INI files.  The extension (that part of the file name afte
 <h2>Relationship Between Profiles and usr/tac Files</h2>
 <p>
 The tactical identity is now housed in part (or completely) in a ".tac" file.  The FCC identity information is now housed in part (or completely) in a ".usr" file.  The Tactical ID is used to find the correct ".tac" file.  Likewise the FCC ID is used to find the correct ".usr" file.  Each file contains the following fields:
+</p>
 <ul>
 <li>Call Sign</li>
 <li>Name</li>
 <li>Numbering Prefix</li>
 <li>Signature used in plain text messages</li>
 </ul>
+<p>
+A operator's usr file may also contain an Post Session Text (PST) entry.  SCC RACES groups do not use the PST option and the feature should
+not be filled in in Outpost.  PreOutpost has a menu in the Identity Dialog for access to the feature (i.e. slightly more difficult
+to use).
+</p>
+<p>
 The Call Sign field of each file is used to find the file.  All the fields except the Signature is also housed once or twice in the profile file.
 </p>
 

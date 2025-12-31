@@ -15,9 +15,12 @@
 #include "MessageBox.h"
 
 
-static TCchar* Section = _T("MetaProfiles");
-
-
+#ifdef _DEBUG
+static TCchar* Section    = _T("DBMetaProfiles");
+#else
+static TCchar* Section    = _T("MetaProfiles");
+#endif
+static TCchar* NMetaFiles = _T("nMetaProfiles");
 
 
 // Read .ini file for all meta profiles, checking that they are still available and correcting
@@ -31,12 +34,19 @@ bool   missing = false;
 
   masters.clear();
 
-  n = iniFile.readInt(Section, _T("nMetaProfiles"), 0);
+  n = iniFile.readInt(Section, NMetaFiles, 0);
 
   for (i = 0; i < n; i++) {
 
-    if (!iniFile.readString(Section, getKey(i), path))
-      {missing = true; continue;}
+    if (!iniFile.readString(Section, getKey(i), path)) {missing = true; continue;}
+
+    if (!path.isEmpty()) {
+
+      if (path.find(_T('\\')) >= 0)
+                              {path = removePath(path);   iniFile.write(Section, getKey(i), path);}
+
+      path = theApp.dataPath + path;
+      }
 
     if (path.empty() || !PathFileExists(path)) {missing = true; continue;}
 
@@ -45,7 +55,9 @@ bool   missing = false;
     m.path = path;  m.name = getMainName(path);
     }
 
+#ifndef _DEBUG
   if (missing) setMetaProfiles();
+#endif
   }
 
 
@@ -58,9 +70,14 @@ String metaProfile;
 
   iniFile.deleteSection(Section);
 
-  iniFile.writeInt(Section, _T("nMetaProfiles"), n);
+  iniFile.writeInt(Section, NMetaFiles, n);
 
-  for (i = 0; i < n; i++) {iniFile.writeString(_T("MetaProfiles"), getKey(i), masters[i].path);}
+  for (i = 0; i < n; i++) {
+
+    metaProfile = removePath(masters[i].path);
+
+    iniFile.writeString(Section, getKey(i), metaProfile);
+    }
   }
 
 
@@ -89,7 +106,7 @@ SelectMasterDlg dlg;
   for (m = iter(); m; m = iter++) {dlg.addListBoxItem(m->name);}
 
   if (dlg.DoModal() == IDOK) {
-    name = dlg.getListBoxSelection();   allProfiles = dlg.allProfiles;
+    name = dlg.selected;   allProfiles = dlg.allProfiles;
 
     for (m = iter(); m; m = iter++) if (m->name == name) return m;
     }

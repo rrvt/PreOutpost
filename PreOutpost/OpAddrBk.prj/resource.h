@@ -47,7 +47,7 @@
 #define IDC_Delete                      326
 
 // Commands
-#define ID_App_About                    400
+#define ID_About                    400
 #define ID_Help                         401
 #define ID_NewAddr                      402
 #define ID_EditAddr                     403

@@ -10,6 +10,7 @@
 #include "filesrch.h"
 #include "GetPathDlg.h"
 #include "IniFileEx.h"
+#include "PathDlgDsc.h"
 #include "StatusBar.h"
 
 
