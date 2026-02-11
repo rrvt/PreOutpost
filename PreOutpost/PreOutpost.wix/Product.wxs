@@ -1,113 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+<Wix
+  xmlns="http://wixtoolset.org/schemas/v4/wxs"
+  xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui"
+  >
 
-<Product Id="*" UpgradeCode="3C3F8C11-62C2-46DF-9506-FB759907D7B0" Language="1033"
-                Manufacturer="Bob -- K6RWY" Name="PreOutpost"
-                Version="!(bind.fileVersion.PreOutpost.cmp)"
-                >
+<Package UpgradeCode="3C3F8C11-62C2-46DF-9506-FB759907D7B0" Language="1033"
+  Manufacturer="Bob -- K6RWY" Name="PreOutpost"
+  Version="!(bind.fileVersion.PreOutpost.cmp)" InstallerVersion="500"
+  >
 
-  <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"
-                Manufacturer="Bob -- K6RWY" Description="Installs PreOutpost"
-                Comments="Copyright (c) Bob -- K6RWY"
-                />
+  <SummaryInformation Manufacturer="Bob -- K6RWY" Description="Installs PreOutpost"
+    Comments="Copyright (c) Bob -- K6RWY"
+    />
 
   <MajorUpgrade Schedule="afterInstallInitialize"
-                AllowDowngrades="no"   IgnoreRemoveFailure="no"   AllowSameVersionUpgrades="no"
-                DowngradeErrorMessage="A newer version of [ProductName] is already installed."
-                />
+    AllowDowngrades="no" IgnoreRemoveFailure="no" AllowSameVersionUpgrades="no"
+    DowngradeErrorMessage="A newer version of [ProductName] is already installed."
+    />
 
   <MediaTemplate EmbedCab="yes" />
 
   <WixVariable Id="WixUILicenseRtf"
                               Value="$(var.SolutionDir)..\..\Library\License\MITLicenseFile.rtf" />
-  <UI Id="My_InstallDir.ui"><UIRef Id="WixUI_InstallDir" /></UI>
 
-  <WixVariable Id="WixUIDialogBmp" Value="C:\Program Files (x86)\WixApp\dialog.bmp"/>
-  <WixVariable Id="WixUIBannerBmp" Value="C:\Program Files (x86)\WixApp\banner.bmp"/>
+  <Property Id="WIXUI_INSTALLDIR" Value="PREOUTPOST.PFF" />
 
-  <Icon     Id="UIPreOutpost01Icon.ico"
-                          SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\UIPreOutpost01.ico"/>
-  <Icon     Id="PreOutpost01Icon.ico"
-                            SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\PreOutpost01.ico"/>
-  <Icon     Id="Routing01_Icon.exe"
-                               SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\Routing01.ico"/>
-  <Icon     Id="MITLicense_Icon.exe"
-                              SourceFile="$(var.SolutionDir)..\..\Library\License\MITLicense.ico"/>
-  <Property Id="ARPPRODUCTICON"  Value="UIPreOutpost01Icon.ico" />
+  <UI Id="My_InstallDir.ui">
+    <ui:WixUI Id="WixUI_InstallDir" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+  </UI>
 
+  <WixVariable Id="WixUIDialogBmp" Value="C:\Program Files (x86)\WixApp\dialog.bmp" />
+  <WixVariable Id="WixUIBannerBmp" Value="C:\Program Files (x86)\WixApp\banner.bmp" />
 
-  <!-- Custom Action to set the system (Machine) Path Variable -->
+  <Icon Id="UIPreOutpost01Icon.ico"
+                         SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\UIPreOutpost01.ico" />
+  <Icon Id="PreOutpost01Icon.ico"
+                           SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\PreOutpost01.ico" />
+  <Icon Id="Routing01_Icon.exe"
+                              SourceFile="$(var.SolutionDir)..\PreOutpost.prj\res\Routing01.ico" />
+  <Icon Id="MITLicense_Icon.exe"
+                             SourceFile="$(var.SolutionDir)..\..\Library\License\MITLicense.ico" />
+  <Property Id="ARPPRODUCTICON" Value="UIPreOutpost01Icon.ico" />
 
-  <Binary Id="SetEnvExe" SourceFile="C:\Program Files (x86)\SetEnv\SetEnv.exe" />
-  <CustomAction Id="PreOutpost.pth" BinaryKey="SetEnvExe" Impersonate="no"
-                    Execute="deferred" ExeCommand='-a Path " [PREOUTPOST.PFF] "'   Return="check"/>
-  <CustomAction Id="PreOutpost.rmp" BinaryKey="SetEnvExe" Impersonate="no"
-                    Execute="deferred" ExeCommand='-d Path " [PREOUTPOST.PFF] "'   Return="check"/>
-
-  <InstallExecuteSequence>
-    <Custom Action="PreOutpost.pth" Before="InstallFinalize">
-      (UPGRADINGPRODUCTCODE) OR NOT (REMOVE="ALL")
-    </Custom>
-    <Custom Action="PreOutpost.rmp" Before="PreOutpost.pth">
-      (NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")
-      </Custom>  </InstallExecuteSequence>
-
-  <Feature Id="ProductFeatures" Title="Main Product" Level="1" >
-    <ComponentGroupRef Id="PreOutpost.ftr"/>
-    <ComponentGroupRef Id="PDF.ftr"/>
-    <ComponentGroupRef Id="License.ftr"/>
-    <ComponentGroupRef Id="Uninstall_PreOutpost.ftr"/>
+  <Feature Id="ProductFeatures" Title="Main Product" Level="1">
+    <ComponentGroupRef Id="PreOutpost.ftr" />
+    <ComponentGroupRef Id="PDF.ftr" />
+    <ComponentGroupRef Id="License.ftr" />
+    <ComponentGroupRef Id="Uninstall_PreOutpost.ftr" />
   </Feature>
-</Product>
+</Package>
 
 <Fragment>
   <ComponentGroup Id="PreOutpost.ftr">
-    <ComponentRef Id="PreOutpost.cmp"/>
-    <ComponentRef Id="Help.cmp"/>
-    <ComponentRef Id="AddrBook.cmp"/>
-    <ComponentRef Id="AddrHelp.cmp"/>
+    <ComponentRef Id="PreOutpost.cmp" />
+    <ComponentRef Id="Help.cmp" />
+    <ComponentRef Id="AddrBook.cmp" />
+    <ComponentRef Id="AddrHelp.cmp" />
   </ComponentGroup>
   <ComponentGroup Id="PDF.ftr">
-    <ComponentRef Id="Subject_Line.pdf.cmp"/>
-    <ComponentRef Id="Packet_Freqs.pdf.cmp"/>
-    <ComponentRef Id="Recommended_Routing.pdf.cmp"/>
-    <ComponentRef Id="Check_In_or_Out.pdf.cmp"/>
-    <ComponentRef Id="Routing_Slip.pdf.cmp"/>
-    <ComponentRef Id="MsgHandling.pdf.cmp"/>
+    <ComponentRef Id="Subject_Line.pdf.cmp" />
+    <ComponentRef Id="Packet_Freqs.pdf.cmp" />
+    <ComponentRef Id="Recommended_Routing.pdf.cmp" />
+    <ComponentRef Id="Check_In_or_Out.pdf.cmp" />
+    <ComponentRef Id="Routing_Slip.pdf.cmp" />
+    <ComponentRef Id="MsgHandling.pdf.cmp" />
   </ComponentGroup>
   <ComponentGroup Id="License.ftr">
-    <ComponentRef Id="MIT_License.cmp"/>
+    <ComponentRef Id="MIT_License.cmp" />
   </ComponentGroup>
   <ComponentGroup Id="Uninstall_PreOutpost.ftr">
-    <ComponentRef Id="Uninstall_PreOutpost.cmp"/>
+    <ComponentRef Id="Uninstall_PreOutpost.cmp" />
   </ComponentGroup>
 </Fragment>
 
 <!--Directory structure-->
 <Fragment>
-  <Directory Id="TARGETDIR" Name="SourceDir">
-    <Directory Id="ProgramFilesFolder">
-      <Directory Id="PREOUTPOST.PFF" Name="PreOutpost">
-        <Directory Id="PreOutpost_License.pff" Name="License" />
-      </Directory>
-    </Directory>
-
-    <Directory Id="ProgramMenuFolder">
-      <Directory Id="PreOutpost.pmf" Name="PreOutpost" />
-    </Directory>
-
-    <Directory Id="DesktopFolder" />
-  </Directory>
-
   <Property Id="ApplicationFolderName" Value="PreOutpost" />
-  <Property Id="WIXUI_INSTALLDIR"      Value="PREOUTPOST.PFF"/>
   <Property Id="WixAppFolder"          Value="WixPerMachineFolder" />
+
+  <StandardDirectory Id="ProgramFiles6432Folder">
+    <Directory Id="PREOUTPOST.PFF" Name="PreOutpost">
+      <Directory Id="PreOutpost_License.pff" Name="License" />
+    </Directory>
+  </StandardDirectory>
+
+  <StandardDirectory Id="ProgramMenuFolder">
+    <Directory Id="PreOutpost.pmf" Name="PreOutpost" />
+  </StandardDirectory>
+
+  <StandardDirectory Id="DesktopFolder" />
 </Fragment>
 
 <Fragment>
   <Component Id="PreOutpost.cmp" Guid="69B8338E-34C5-4839-88A3-C8ECB37CC855"
                                                                         Directory="PREOUTPOST.PFF">
-    <File Id="PreOutpost.cmp" Source="$(var.SolutionDir)..\Release\PreOutpost.exe" KeyPath="yes"/>
+    <File Id="PreOutpost.cmp"
+              Source="$(var.PreOutpost.TargetDir)\..\Release.Win32\PreOutpost.exe" KeyPath="yes" />
 
     <Shortcut Id               = "PreOutpost.shc"
               Name             = "PreOutpost"
@@ -126,15 +114,25 @@
               WorkingDirectory = "PREOUTPOST.PFF"
               Icon             = "PreOutpost01Icon.ico"
               />
+    <Environment Id="PATH"
+                 Name="PATH"
+                 Value="[PREOUTPOST.PFF]"
+                 Permanent="no"
+                 Part="last"
+                 Action="set"
+                 System="yes"
+                 />
   </Component>
 
   <Component Id="Help.cmp" Guid="2F1BEFF9-2FBB-4FDF-B981-CC4955C94600" Directory="PREOUTPOST.PFF">
-    <File Id="Help.cmp" Source="$(var.SolutionDir)..\Release\PreOutpost.chm" KeyPath="yes"/>
+    <File Id="Help.cmp"
+              Source="$(var.PreOutpost.TargetDir)\..\Release.Win32\PreOutpost.chm" KeyPath="yes" />
   </Component>
 
   <Component Id="AddrBook.cmp" Guid="B8E4EE39-4052-41D6-BDE4-0A2D5E280455"
                                                                         Directory="PREOUTPOST.PFF">
-    <File Id="AddrBook.cmp" Source="$(var.SolutionDir)..\Release\OpAddrBk.exe" KeyPath="yes"/>
+    <File Id="AddrBook.cmp"
+                Source="$(var.PreOutpost.TargetDir)\..\Release.Win32\OpAddrBk.exe" KeyPath="yes" />
 
     <Shortcut Id               = "AddrBook.shc"
               Name             = "AddrBook"
@@ -146,7 +144,8 @@
 
   <Component Id="AddrHelp.cmp" Guid="9D5EEDEC-DCA9-4DBB-8C5C-7A8595E4E911"
                                                                         Directory="PREOUTPOST.PFF">
-    <File Id="AddrHelp.cmp" Source="$(var.SolutionDir)..\Release\OpAddrBk.chm" KeyPath="yes"/>
+    <File Id="AddrHelp.cmp"
+                Source="$(var.PreOutpost.TargetDir)\..\Release.Win32\OpAddrBk.chm" KeyPath="yes" />
   </Component>
 </Fragment>
 
@@ -154,8 +153,7 @@
   <Component Id="Subject_Line.pdf.cmp" Guid="EC17A52B-99EF-4D43-A842-3DEE4155E159"
                                                                         Directory="PREOUTPOST.PFF">
     <File Id="Subject_Line.pdf.cmp"
-                 Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Std_Fmt_Pkt_Subj_Line.220803.pdf"
-                 KeyPath="yes"/>
+Source="$(var.PreOutpost.TargetDir)\..\OpAddrDocs.prj\SCCo_Std_Fmt_Pkt_Subj_Line.220803.pdf" KeyPath="yes" />
 
     <Shortcut Id               = "SubjectLine.pdf.shc"
               Name             = "Subject Line.pdf"
@@ -169,7 +167,8 @@
   <Component Id="Packet_Freqs.pdf.cmp" Guid="131FC610-5685-48E2-8DD8-CFA5EF2857E7"
                                                                         Directory="PREOUTPOST.PFF">
     <File Id="Packet_Freqs.pdf.cmp"
-          Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Packet-Freqs.230824.pdf" KeyPath="yes"/>
+                Source="$(var.PreOutpost.TargetDir)\..\OpAddrDocs.prj\SCCo_Packet-Freqs.230824.pdf"
+                KeyPath="yes" />
 
     <Shortcut Id               = "PacketFreqs.pdf.shc"
               Name             = "Packet Freqs.pdf"
@@ -183,8 +182,8 @@
   <Component Id="Recommended_Routing.pdf.cmp"
                             Guid="46423EA3-1C61-4CCB-B69A-EC72D67A2C9A" Directory="PREOUTPOST.PFF">
     <File Id="Recommended_Routing.pdf.cmp"
-                      Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Rec_Form_Routing.250813.pdf"
-                      KeyPath="yes"/>
+            Source="$(var.PreOutpost.TargetDir)\..\OpAddrDocs.prj\SCCo_Rec_Form_Routing.250813.pdf"
+            KeyPath="yes" />
 
     <Shortcut Id               = "RecommendedRouting.pdf.shc"
               Name             = "Recommended Routing.pdf"
@@ -198,8 +197,7 @@
   <Component Id="Check_In_or_Out.pdf.cmp"
                             Guid="7DA36D56-11EF-4A4C-A7D0-A6C6394E5C0F" Directory="PREOUTPOST.PFF">
     <File Id="Check_In_or_Out.pdf.cmp"
-               Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Std_Packet_Check-In-Out.240121.pdf"
-               KeyPath="yes"/>
+Source="$(var.PreOutpost.TargetDir)\..\OpAddrDocs.prj\SCCo_Std_Packet_Check-In-Out.240121.pdf" KeyPath="yes" />
 
     <Shortcut Id               = "CheckInorOut.pdf.shc"
               Name             = "Check In or Out.pdf"
@@ -213,8 +211,7 @@
   <Component Id="Routing_Slip.pdf.cmp" Guid="73215B72-BB5E-470A-A551-272199694951"
                                                                         Directory="PREOUTPOST.PFF">
     <File Id="Routing_Slip.pdf.cmp"
-                 Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Routing_Slip_Fillable.190527.pdf"
-                 KeyPath="yes"/>
+Source="$(var.PreOutpost.TargetDir)\..\OpAddrDocs.prj\SCCo_Routing_Slip_Fillable.190527.pdf" KeyPath="yes" />
 
     <Shortcut Id               = "RoutingSlip.pdf.shc"
               Name             = "Routing Slip.pdf"
@@ -228,8 +225,7 @@
   <Component Id="MsgHandling.pdf.cmp" Guid="D5689921-B421-48CE-AD97-26B47B8EF345"
                                                                         Directory="PREOUTPOST.PFF">
     <File Id="MsgHandling.pdf.cmp"
-           Source="$(var.SolutionDir)..\OpAddrDocs.prj\SCCo_Message_Handling_Procedures.250812.pdf"
-           KeyPath="yes"/>
+Source="$(var.PreOutpost.TargetDir)\..\OpAddrDocs.prj\SCCo_Message_Handling_Procedures.250812.pdf" KeyPath="yes" />
 
     <Shortcut Id               = "MsgHandling.pdf.shc"
               Name             = "MsgHandling.pdf"
@@ -244,7 +240,8 @@
   <Component Id="MIT_License.cmp" Guid="84D80E73-4DE1-4119-8246-423A729A1ECC"
                                                                 Directory="PreOutpost_License.pff">
     <File Id="MIT_License.cmp"
-                Source="$(var.SolutionDir)..\..\Library\License\MITLicenseFile.rtf" KeyPath="yes"/>
+                      Source="$(var.PreOutpost.TargetDir)\..\..\Library\License\MITLicenseFile.rtf"
+                      KeyPath="yes" />
 
     <Shortcut Id               = "MITLicense.shc"
               Name             = "MIT License"
@@ -258,7 +255,7 @@
 
 <Fragment>
   <Component Id="Uninstall_PreOutpost.cmp"
-                            Guid="9CDBB86A-2EFB-4789-8EEC-D274EBEE4210" Directory="PreOutpost.pmf">
+                            Guid="469A6820-D739-4BC9-8AF9-A5D69D9E8A57" Directory="PreOutpost.pmf">
 
     <Shortcut Id               = "UninstallPreOutpost.shc"
               Name             = "Uninstall PreOutpost"
@@ -267,9 +264,9 @@
               Arguments        = "/x [ProductCode]"
               Icon             = "UIPreOutpost01Icon.ico"
               />
-    <RemoveFolder Id="PreOutpost.uni" Directory="PreOutpost.pmf" On="uninstall"/>
+    <RemoveFolder Id="PreOutpost.uni" Directory="PreOutpost.pmf" On="uninstall" />
     <RegistryValue Root="HKCU" Key="Software\Uninstall_PreOutpost.cmp"
-                                          Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+                                         Name="installed" Type="integer" Value="1" KeyPath="yes" />
   </Component>
 </Fragment>
 </Wix>

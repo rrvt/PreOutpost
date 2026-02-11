@@ -6,7 +6,7 @@ Version=2.100000
 [DefaultPath]
 NPaths=5
 DefKey0=PreOutpost.ftr
-PreOutpost.ftr.Path=D:\Sources\PreOutpost\Release\
+PreOutpost.ftr.Path=D:\Sources\PreOutpost\Release.Win32\
 DefKey1=Icon
 Icon.Path=D:\Sources\PreOutpost\OpAddrBk.prj\res\
 DefKey2=PDF.ftr
@@ -37,12 +37,15 @@ IconPath=D:\Sources\Library\License\MITLicense.ico
 ProductName=PreOutpost
 Company=Bob -- K6RWY
 WixName=PreOutpost
-WixVersion=1.6.16.0
+WixVersion=1.9.0.0
 UpgradeCode=3C3F8C11-62C2-46DF-9506-FB759907D7B0
 SaveVerAllowed=0
 LicenseRequired=1
 LicensePath=D:\Sources\Library\License\MITLicenseFile.rtf
 IconID=UIPreOutpost01
+IsWin10=0
+IsWin7=0
+IsWinXP=0
 [PFFDirectories]
 NoDirectories=2
 [PFFDirDesc00]
@@ -76,7 +79,7 @@ CurSel=AddrBook
 NoComponents=4
 [Ftr00Cmp00]
 ID=PreOutpost
-Path=D:\Sources\PreOutpost\Release\PreOutpost.exe
+Path=D:\Sources\PreOutpost\Release.Win32\PreOutpost.exe
 Guid=69B8338E-34C5-4839-88A3-C8ECB37CC855
 Description=Provides profiles, subject lines and address book
 IconID=PreOutpost01
@@ -86,16 +89,16 @@ IsVersionAvail=1
 IsOnPath=1
 [Ftr00Cmp01]
 ID=Help
-Path=D:\Sources\PreOutpost\Release\PreOutpost.chm
+Path=D:\Sources\PreOutpost\Release.Win32\PreOutpost.chm
 Guid=2F1BEFF9-2FBB-4FDF-B981-CC4955C94600
 [Ftr00Cmp02]
 ID=AddrBook
-Path=D:\Sources\PreOutpost\Release\OpAddrBk.exe
+Path=D:\Sources\PreOutpost\Release.Win32\OpAddrBk.exe
 Guid=B8E4EE39-4052-41D6-BDE4-0A2D5E280455
 IsStartMenu=1
 [Ftr00Cmp03]
 ID=AddrHelp
-Path=D:\Sources\PreOutpost\Release\OpAddrBk.chm
+Path=D:\Sources\PreOutpost\Release.Win32\OpAddrBk.chm
 Guid=9D5EEDEC-DCA9-4DBB-8C5C-7A8595E4E911
 [Ftr01]
 FeatureID=PDF

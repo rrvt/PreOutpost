@@ -45,16 +45,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)..\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)..\$(Configuration).$(Platform)\</OutDir>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
-    <IntDir>$(SolutionDir)..\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir>$(SolutionDir)..\$(Configuration).$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>PreOutpost</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)..\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)..\$(Configuration).$(Platform)\</OutDir>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
-    <IntDir>$(SolutionDir)..\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir>$(SolutionDir)..\$(Configuration).$(Platform)\$(ProjectName)\</IntDir>
     <TargetName>PreOutpost</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -82,7 +82,7 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalLibraryDirectories>$(Solutiondir)..\..\Library\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(Solutiondir)..\..\Library\$(Configuration).$(Platform)\</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -121,7 +121,7 @@
       <AdditionalDependencies>Htmlhelp.lib;Version.lib;Library.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <ProgramDatabaseFile />
-      <AdditionalLibraryDirectories>$(Solutiondir)..\..\Library\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(Solutiondir)..\..\Library\$(Configuration).$(Platform)\</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>

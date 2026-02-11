@@ -52,12 +52,38 @@ check-ins.
 
 ## Getting Started
 
-The Windows PreOutpostInstaller.msi file will install the program.  At this time only one version of
-PreOutpost is produced.  It should run on Win7, 8, 10 and 11.
+The application is built with Visual Studio 2022 (VS22).  It was compiled with the following
+properties:
 
-A help file is included in both apps.  Let the author know if the help file needs improving...
+  o Windows Latest SDK Version
+  o Platfor Toolset: visual Studio 2022
+  o MFC: Use MFC in a Shared DLL
+  o Character Set:  Use Unicode Character Set
+  o Additional Include Directories:
+    * $(ProjectDir)
+    * $(SolutionDir)..\..\Library\Library.prj\
+    * $(SolutionDir)..\..\Library\Dialog\
+  o  Precompiled Header:  Not Using Precompiled Headers
+  o  Linker/Additional Dependencies:  Htmlhelp.lib
+
+The HTML Help Workshop (HHW), Version 4.74.8702.0 was used to prepare the help file (WixApp.chm).  It is
+copied into the Release directory.  I used Dreamweaver (DW) to do most of the content production of the
+help files that the HTML Help Workshop produces (i.e. HHW is used to produce the pages/files needed
+and DW is used to fill in the content).
+
+The Installer requires the Wix, HeatWave and NuGet-Tools Extensions to VS22.  WixApp (one of my
+applications, see git) was used to produce the product.wxs file.
+
+### Prerequisites
+
+The WiX, HeatWave, NuGet-Tools Toolsets must be installed in Visual Studio.
+The "HTML Help Workshop" (google it) must be installed.  Visual Studio 2022 or later.
 
 ## Updates
+
+### Update 2/10/26
+
+Added ability to build in 64 bit mode.  Upgraded Wix to HeatWave version 4.
 
 ### Update 12/30/25
 

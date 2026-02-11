@@ -10,29 +10,17 @@ Clean.cln    :
   if exist PreOutpost.chm del /F PreOutpost.chm
 
 
-Release/PreOutpost.chm : PreOutpost.chm
-  copy $(MAKEDIR)\PreOutpost.chm  $(MAKEDIR)\..\Release\PreOutpost.chm
+$(TgtFolder)/PreOutpost.chm : PreOutpost.chm
+  copy $(MAKEDIR)\PreOutpost.chm  $(MAKEDIR)\..\$(TgtFolder)\PreOutpost.chm
 
 
-Release/Clean.cln    : Clean.cln
-  cd $(MAKEDIR)\..\Release
+$(TgtFolder)/Clean.cln    : Clean.cln
+  cd $(MAKEDIR)\..\$(TgtFolder)
   if exist PreOutpost.chm del /F PreOutpost.chm
   cd $(MAKEDIR)
 
 
-Debug/PreOutpost.chm : PreOutpost.chm
-  copy $(MAKEDIR)\PreOutpost.chm  $(MAKEDIR)\..\Debug\PreOutpost.chm
+$(TgtFolder)/Rebuild.rbd : $(TgtFolder)/Clean.cln $(TgtFolder)/PreOutpost.chm
 
-
-Debug/Clean.cln    : Clean.cln
-  cd $(MAKEDIR)\..\Debug
-  if exist PreOutpost.chm del /F PreOutpost.chm
-  cd $(MAKEDIR)
-
-
-Release/Rebuild.rbd : Release/Clean.cln Release/PreOutpost.chm
-
-
-Debug/Rebuild.rbd   : Debug/Clean.cln Debug/PreOutpost.chm
 
 

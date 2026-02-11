@@ -10,29 +10,17 @@ Clean.cln    :
   if exist OpAddrBk.chm del /F OpAddrBk.chm
 
 
-Release/OpAddrBk.chm : OpAddrBk.chm
-  copy $(MAKEDIR)\OpAddrBk.chm  $(MAKEDIR)\..\Release\OpAddrBk.chm
+$(TgtFolder)/OpAddrBk.chm : OpAddrBk.chm
+  copy $(MAKEDIR)\OpAddrBk.chm  $(MAKEDIR)\..\$(TgtFolder)\OpAddrBk.chm
 
 
-Release/Clean.cln    : Clean.cln
-  cd $(MAKEDIR)\..\Release
+$(TgtFolder)/Clean.cln    : Clean.cln
+  cd $(MAKEDIR)\..\$(TgtFolder)
   if exist OpAddrBk.chm del /F OpAddrBk.chm
   cd $(MAKEDIR)
 
 
-Debug/OpAddrBk.chm : OpAddrBk.chm
-  copy $(MAKEDIR)\OpAddrBk.chm  $(MAKEDIR)\..\Debug\OpAddrBk.chm
+$(TgtFolder)/Rebuild.rbd : $(TgtFolder)/Clean.cln $(TgtFolder)/OpAddrBk.chm
 
-
-Debug/Clean.cln    : Clean.cln
-  cd $(MAKEDIR)\..\Debug
-  if exist OpAddrBk.chm del /F OpAddrBk.chm
-  cd $(MAKEDIR)
-
-
-Release/Rebuild.rbd : Release/Clean.cln Release/OpAddrBk.chm
-
-
-Debug/Rebuild.rbd   : Debug/Clean.cln Debug/OpAddrBk.chm
 
 

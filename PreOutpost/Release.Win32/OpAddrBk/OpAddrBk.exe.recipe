@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>D:\Sources\PreOutpost\Release.Win32\OpAddrBk.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs>
+    <NonRecipeFileRef>
+      <FullPath>D:\Sources\PreOutpost\PreOutpost.hlp\PreOutpostHlp.vcxproj</FullPath>
+    </NonRecipeFileRef>
+    <NonRecipeFileRef>
+      <FullPath>D:\Sources\PreOutpost\OpAddrBk.hlp\OpAddrBk.hlp.vcxproj</FullPath>
+    </NonRecipeFileRef>
+  </NonRecipeFileRefs>
+</Project>

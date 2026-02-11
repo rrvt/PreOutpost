@@ -60,18 +60,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)..\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)..\$(Configuration)\$(ProjectName)\</IntDir>
-    <NMakeBuildCommandLine>nmake $(Configuration)/PreOutpost.chm</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>nmake $(Configuration)/Rebuild.rbd</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>nmake $(Configuration)/Clean.cln</NMakeCleanCommandLine>
+    <OutDir>$(SolutionDir)..\$(Configuration).$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\$(Configuration).$(Platform)\$(ProjectName)\</IntDir>
+    <NMakeBuildCommandLine>nmake $(Configuration).$(Platform)/PreOutpost.chm TgtFolder=$(Configuration).$(platform)</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>nmake $(Configuration).$(Platform)/Rebuild.rbd TgtFolder=$(Configuration).$(platform)</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>nmake $(Configuration).$(Platform)/Clean.cln TgtFolder=$(Configuration).$(platform)</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)..\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)..\$(Configuration)\$(ProjectName)\</IntDir>
-    <NMakeBuildCommandLine>nmake $(Configuration)/PreOutpost.chm</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>nmake $(Configuration)/Rebuild.rbd</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>nmake $(Configuration)/Clean.cln</NMakeCleanCommandLine>
+    <OutDir>$(SolutionDir)..\$(Configuration).$(Platform)\</OutDir>
+    <IntDir>$(SolutionDir)..\$(Configuration).$(Platform)\$(ProjectName)\</IntDir>
+    <NMakeBuildCommandLine>nmake $(Configuration).$(Platform)/PreOutpost.chm TgtFolder=$(Configuration).$(platform)</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>nmake $(Configuration).$(Platform)/Rebuild.rbd TgtFolder=$(Configuration).$(platform)</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>nmake $(Configuration).$(Platform)/Clean.cln TgtFolder=$(Configuration).$(platform)</NMakeCleanCommandLine>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
